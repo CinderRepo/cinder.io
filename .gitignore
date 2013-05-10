@@ -2,7 +2,7 @@
 .git
 
 #Meteor
-.meteor
+#.meteor
 
 #Node
 lib-cov
