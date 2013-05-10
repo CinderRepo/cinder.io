@@ -1,0 +1,11 @@
+<template name="messages">
+	<div class="messages">
+		{{>tileHeader title}}
+			{{#each messages}}
+				{{>message}}
+			{{/each}}
+		{{#if isSignedIn}}
+			{{>textEntryBox}}
+		{{/if}}
+	</div>
+</template>

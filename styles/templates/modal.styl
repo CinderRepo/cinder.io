@@ -1,0 +1,196 @@
+@import 'nib'
+@import '../palette'
+
+//Modal Styles
+.modal
+	//background blue
+	max-width 400px
+	height 200px
+	margin 20px auto
+	border-radius 5px
+	position relative
+	transition height normalSpeed, max-height normalSpeed
+	overflow hidden
+.modalForm
+	transition height normalSpeed, max-height normalSpeed
+	overflow hidden
+
+//Modal Form Header Styles
+.modalFormHeader
+	height 50px
+	line-height 50px
+	background darkGrey
+	color offWhite
+	border-top-left-radius 5px
+	border-top-right-radius 5px
+	position relative
+.modalFormHeaderTitle
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	padding 0 20px 0 20px
+	text-transform capitalize
+	transition left normalSpeed, right normalSpeed
+
+//Modal Form Header Button Styles
+.modalFormHeader .button
+	position absolute
+	top 0
+	bottom 0
+	width 50px
+	min-height 50px
+	height 50px
+	max-height 50px
+	line-height 50px
+	background red
+	transition transform normalSpeed, opacity normalSpeed
+	opacity 0
+	text-align center
+	background grey
+.modalFormHeader .button:first-child
+	transform translate3d(-50px,0,0)
+	left 0
+	border-radius 0
+	border-top-left-radius 5px
+.modalFormHeader .button:last-child
+	transform translate3d(50px,0,0)
+	right 0
+	border-radius 0
+	border-top-right-radius 5px
+
+//Modal Form Input Styles
+.modalFormInputWrapper
+	position relative
+	width 100%
+	height 50px
+	//height 0
+	//opacity 0
+	//transition height normalSpeed, opacity normalSpeed
+	pointer-events none
+	//background offWhite
+.modalFormInputIcon
+	background lightestGrey
+	position absolute
+	top 0
+	left 0
+	width 50px
+	height 50px
+	border-bottom 1px solid lighterGrey
+.modalFormInput
+	position absolute
+	right 0
+	left 50px
+	height 50px
+	border none
+	outline none
+	margin 0
+	border-left 1px solid lighterGrey
+	border-bottom 1px solid lighterGrey
+	padding 0 10px 0 10px
+	font-size 14px
+
+//Modal Form Input Button Styles
+.modalFormInputButtons
+	position absolute
+	bottom 0
+	right 0
+	left 0
+	min-height 50px
+.modalFormInputButtons .button
+	position absolute
+	border-radius 0
+	min-height 100%
+	height 100%
+	color offWhite
+	line-height 50px
+	text-align center
+.modalFormInputButtons .button[data-state="cancel"]
+	right 50%
+	left 0
+	border-bottom-left-radius 5px
+	background grey
+.modalFormInputButtons .button[data-state="confirm"]
+	right 0
+	left 0
+	border-bottom-left-radius 5px
+	border-bottom-right-radius 5px
+	background lightGrey
+
+//Modal Form States - Settings
+.modal[data-state="settings"]
+	height 250px
+	max-height 250px
+.modal[data-state="settings"] .modalForm
+	height 200px
+	max-height 200px
+.modal[data-state="settings"] .modalFormHeaderTitle
+	left 50px
+	right 50px
+.modal[data-state="settings"] .modalFormHeader .button:first-child
+	transform translate3d(0,0,0)
+	opacity 1
+.modal[data-state="settings"] .modalFormInputWrapper.one,
+.modal[data-state="settings"] .modalFormInputWrapper.two,
+.modal[data-state="settings"] .modalFormInputWrapper.three
+	height 50px
+	opacity 1
+	pointer-events auto
+
+//Modal Form States - Login
+.modal[data-state="login"]
+	//background yellow
+	height 200px
+	max-height 200px
+.modal[data-state="login"] .modalForm
+	height 150px
+	max-height 150px
+.modal[data-state="login"] .modalFormInputWrapper.one,
+.modal[data-state="login"] .modalFormInputWrapper.two
+	height 50px
+	opacity 1
+	pointer-events auto
+
+//Modal Form States - Signup
+.modal[data-state="signup"]
+	//background pink
+	height 250px
+	max-height 250px
+.modal[data-state="signup"] .modalForm
+	height 200px
+	max-height 200px
+.modal[data-state="signup"] .modalFormInputWrapper.one,
+.modal[data-state="signup"] .modalFormInputWrapper.two,
+.modal[data-state="signup"] .modalFormInputWrapper.three
+	height 50px
+	opacity 1
+	pointer-events auto
+
+//Modal Form States - Add
+.modal[data-state="add"]
+	//background blue
+	height 200px
+	max-height 200px
+.modal[data-state="add"] .modalForm
+	height 150px
+	max-height 150px
+.modal[data-state="add"] .modalFormInputWrapper.one,
+.modal[data-state="add"] .modalFormInputWrapper.two
+	height 50px
+	opacity 1
+	pointer-events auto
+
+//Modal Form States - Search
+.modal[data-state="search"]
+	//background green
+	height 200px
+	max-height 200px
+.modal[data-state="search"] .modalForm
+	height 150px
+	max-height 150px
+.modal[data-state="search"] .modalFormInputWrapper.one,
+.modal[data-state="search"] .modalFormInputWrapper.two
+	height 50px
+	opacity 1
+	pointer-events auto

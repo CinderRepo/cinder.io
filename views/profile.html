@@ -1,0 +1,15 @@
+<template name="profile">
+	<div class="pane profile" style="-webkit-transform: translate3d(0,{{profilePosition}}px,0);">
+		{{#with profileContext}}
+			{{#if games}}
+				{{>contentViewer}}
+	  			{{>messages}}
+  			{{/if}}
+  			{{#if userProfile}}
+  				<div class="notice" style="background: #47474c; color: white; margin: 0 auto; width: 400px; height: 400px; font-size: 24px; text-align: center; border-radius: 5px; line-height: 400px;">
+  					User Profiles Coming Soon.
+  				</div>
+  			{{/if}}
+  		{{/with}}
+	</div>
+</template>

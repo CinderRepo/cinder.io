@@ -1,0 +1,50 @@
+@import 'nib'
+@import '../palette'
+
+//Dual Button Styles
+.dualButtonWrapper
+	height 40px
+	width 200px
+	background darkGrey
+	border-radius 3px
+	color offWhite
+	text-align center
+	line-height 40px
+.dualButton.active
+	background lightGrey
+	color shadow
+.dualButton.left
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	width 100px
+	background darkGrey
+	border-right 1px solid shadow
+	border-top-left-radius 3px
+	border-bottom-left-radius 3px
+	cursor pointer
+.dualButtonMiddle
+	position absolute
+	top 5px
+	left 50%
+	margin-left -15px
+	width 30px
+	height 30px
+	background grey
+	border-radius 30px
+	z-index 1
+	border 1px solid darkerGrey
+	pointer-events none
+	line-height 30px
+.dualButton.right
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	width 100px
+	background darkGrey
+	border-left 1px solid lightGrey
+	border-top-right-radius 3px
+	border-bottom-right-radius 3px
+	cursor pointer

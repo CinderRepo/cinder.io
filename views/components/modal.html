@@ -1,0 +1,26 @@
+<template name="modal">
+	<div class="modal" data-state="{{state}}">
+		<form class="modalForm">
+			<div class="modalFormHeader">
+				{{>button logout}}
+				<div class="modalFormHeaderTitle">{{state}}</div>
+				<div class="modalFormHeaderButton right"></div>
+			</div>
+			<div class="modalFormInputWrapper one">
+				<div class="modalFormInputIcon"></div>
+		    	<input class="modalFormInput" type="{{inputOneType}}" placeholder="{{inputOnePlaceholder}}">
+		    </div>
+		    <div class="modalFormInputWrapper two">
+		    	<div class="modalFormInputIcon"></div>
+	    		<input class="modalFormInput" type="{{inputTwoType}}" placeholder="{{inputTwoPlaceholder}}">
+	    	</div>
+	    	<div class="modalFormInputWrapper three">
+		    	<div class="modalFormInputIcon"></div>
+	    		<input class="modalFormInput" type="{{inputThreeType}}" placeholder="{{inputThreePlaceholder}}">
+	    	</div>
+	    	<div class="modalFormInputButtons">
+	    		{{>button confirm}}
+	    	</div>
+	    </form>
+	</div>
+</template>

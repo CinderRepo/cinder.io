@@ -1,0 +1,43 @@
+@import 'nib'
+@import 'palette'
+
+//Main Styles
+.paneWrapper
+	position absolute
+	top 80px
+	right 0
+	bottom 0
+	left 0
+	transition transform normalSpeed
+	transform translate3d(0,0,0)
+	background darkestGrey
+.paneWrapper.revealedDown
+	transform translate3d(0,220px,0)
+
+//paneWrapper - Browse Pane Styles
+.paneWrapper .pane.browse
+	pointer-events none
+.paneWrapper .pane.browse .tile
+	pointer-events auto
+
+//paneWrapper - Profile Pane Styles
+.paneWrapper .pane.profile
+	//pointer-events auto	
+
+//paneWrapper - Browse State Styles - Active
+.paneWrapper[data-activePane="browse"] .pane.browse .tileWrapper
+	background darkestGrey
+.paneWrapper[data-activePane="browse"] .pane.browse .tile
+	transform scale3d(1,1,1)
+
+//paneWrapper - Profile State Styles - Active
+.paneWrapper[data-activePane="profile"] .pane.profile
+	pointer-events auto
+.paneWrapper[data-activePane="profile"] .pane.profile .contentViewer
+	margin 0 0 20px 0
+	border-radius 5px
+.paneWrapper[data-activePane="profile"] .pane.profile .contentViewerToolbar,
+.paneWrapper[data-activePane="profile"] .pane.profile .messages
+	opacity 1
+.paneWrapper[data-activePane="profile"] .pane.profile .button[data-state="view"]
+	opacity 0

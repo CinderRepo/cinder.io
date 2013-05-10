@@ -1,0 +1,3 @@
+Template.button.preserve({
+	'.button'	
+})
