@@ -185,7 +185,7 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("OfficeSweetheart")
 
-  ###if Games.find().count() == 0
+  if Games.find().count() == 0
     Games.insert
       name: "Cool Game 1"
       genre: "RPG"
@@ -311,4 +311,4 @@ Meteor.startup ->
       gameBy: "test"
       src: ""
       comments: []
-      active: true###
+      active: true
