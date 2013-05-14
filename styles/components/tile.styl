@@ -1,0 +1,154 @@
+@import 'nib'
+@import '../palette'
+
+//Tile Styles
+.tileWrapper
+	-webkit-touch-callout none
+	-webkit-user-select none
+	width 20%
+	height 150px
+	position relative
+	background transparent
+.tileWrapper.expanded
+	width 100%
+	height 300px
+	z-index 2
+.tileWrapper.expanded .tileContent
+	height 280px
+	opacity 1
+.tile
+	width 100%
+	height 100%
+	transition width slowSpeed, height slowSpeed
+.tileContent
+	margin 10px
+	height 130px
+	cursor pointer
+	list-style none
+	background-repeat no-repeat
+	background-size cover
+	background-position 50% 50%
+	position relative
+	box-shadow 0 0 2px darkShadow
+	transition width slowSpeed, height slowSpeed, opacity slowSpeed
+.tileContent:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border 1px solid rgba(255,255,255,0.1)
+	border-bottom 0
+	background-origin border-box
+	background linear-gradient(top left, 50% rgba(255,255,255,0.10), rgba(255,255,255,0))
+.tileInfo
+	position absolute
+	right 0
+	left 0
+	bottom 0
+	background-color rgba(0,0,0,0.45)
+	padding 10px
+	color white
+	line-height 15px
+.button[data-state="view"]
+	opacity 0
+	pointer-events none
+	//transition opacity slowSpeed
+	position absolute
+	right 10px
+	bottom 45px
+	z-index 99
+.tileWrapper.expanded .button[data-state="view"]
+	pointer-events auto
+	opacity 1
+
+//ONE COLUMN LAYOUT
+@media only screen and (max-width : 400px)
+	.tileWrapper
+		width 100%
+	/*.tileWrapper.expanded
+		height 300px
+	.tileWrapper.expanded .tileContent
+		height 280px*/
+	
+//TWO COLUMN LAYOUT
+@media only screen and (min-width : 401px) and (max-width : 800px)
+	.tileWrapper
+		width 50%
+	/*.tileWrapper.expanded
+		height 350px
+	.tileWrapper.expanded .tileContent
+		height 330px*/
+	
+//THREE COLUMN LAYOUT
+@media only screen and (min-width : 801px) and (max-width : 1200px)
+	.tileWrapper
+		width 33.33%
+	/*.tileWrapper.expanded
+		height 400px
+	.tileWrapper.expanded .tileContent
+		height 380px*/
+		
+//FOUR COLUMN LAYOUT
+@media only screen and (min-width : 1201px) and (max-width : 1600px)
+	.tileWrapper
+		width 25%
+	/*.tileWrapper.expanded
+		height 450px
+	.tileWrapper.expanded .tileContent
+		height 430px*/
+		
+//FIVE COLUMN LAYOUT
+@media only screen and (min-width : 1601px) and (max-width : 2000px)
+	.tileWrapper
+		width 20%
+	/*.tileWrapper.expanded
+		height 500px
+	.tileWrapper.expanded .tileContent
+		height 480px*/
+		
+//SIX COLUMN LAYOUT
+@media only screen and (min-width : 2001px) and (max-width : 2400px)
+	.tileWrapper
+		width 16.66%
+	/*.tileWrapper.expanded
+		height 550px
+	.tileWrapper.expanded .tileContent
+		height 530px*/
+		
+//SEVEN COLUMN LAYOUT
+@media only screen and (min-width : 2401px) and (max-width : 2800px)
+	.tileWrapper
+		width 14.28%
+	/*.tileWrapper.expanded
+		height 600px
+	.tileWrapper.expanded .tileContent
+		height 580px*/
+		
+//EIGHT COLUMN LAYOUT
+@media only screen and (min-width : 2801px) and (max-width : 3200px)
+	.tileWrapper
+		width 12.5%
+	/*.tileWrapper.expanded
+		height 650px
+	.tileWrapper.expanded .tileContent
+		height 630px*/
+		
+//NINE COLUMN LAYOUT
+@media only screen and (min-width : 3201px) and (max-width : 3600px)
+	.tileWrapper
+		width 11.11%
+	/*.tileWrapper.expanded
+		height 700px
+	.tileWrapper.expanded .tileContent
+		height 680px*/
+		
+//TEN COLUMN LAYOUT
+@media only screen and (min-width : 3601px) and (max-width : 4000px)
+	.tileWrapper
+		width 10%
+	/*.tileWrapper.expanded
+		height 750px
+	.tileWrapper.expanded .tileContent
+		height 730px*/

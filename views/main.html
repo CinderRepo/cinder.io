@@ -1,7 +1,10 @@
 <template name="main">
 	{{>nav}}
-	<div class="paneWrapper {{revealedDown}}" data-activePane="{{state}}" style="-webkit-transform: translate3d(0,{{revealedDownHeight}}px,0);">
-		{{>browse}}
-			{{>profile}}
-	</div>
+  <div class="paneWrapper {{revealedDown}}" data-activePane="{{state}}" style="-webkit-transform: translate3d(0,{{revealedDownHeight}}px,0);">
+  	<div id="tiles" class="pane">
+	  	{{#each games}}
+	  		{{>tile}}
+	  	{{/each}}
+  	<div>
+  </div>
 </template>
