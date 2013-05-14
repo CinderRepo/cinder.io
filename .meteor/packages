@@ -10,3 +10,4 @@ coffeescript
 stylus
 accounts-base
 accounts-password
+router
