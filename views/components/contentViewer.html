@@ -1,4 +1,5 @@
 <template name="contentViewer">
+	{{#with currentGame}}
 	<div class="contentViewer">
 		<div class="fullscreen">f</div>
 		<div class="contentViewerSlider" data-activeContentPane="{{state}}">
@@ -25,4 +26,5 @@
 			{{>button play}}
 		</div>
 	</div>
+	{{/with}}
 </template>

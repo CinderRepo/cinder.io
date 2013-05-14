@@ -1,9 +1,7 @@
 <template name="main">
 	{{>nav}}
-  {{#isolate}}
-  <div class="paneWrapper {{revealedDown}}" data-activePane="{{state}}" style="-webkit-transform: translate3d(0,{{revealedDownHeight}}px,0);">
-    {{>browse}}
-	{{>profile}}
-  </div>
- {{/isolate}}
+	<div class="paneWrapper {{revealedDown}}" data-activePane="{{state}}" style="-webkit-transform: translate3d(0,{{revealedDownHeight}}px,0);">
+		{{>browse}}
+			{{>profile}}
+	</div>
 </template>
