@@ -6,7 +6,10 @@ Meteor.startup(()->
   Session.set('revealedDown',false)
   Session.set('revealedDownHeight',undefined)
 
-  logRenders()
+  #logRenders()
+  Meteor.setTimeout(()->
+      initGrid()
+  1000)
 )
 
 logRenders = ->
@@ -16,3 +19,18 @@ logRenders = ->
     template.rendered = ->
       console.log name, "render count: ", ++counter
       oldRender and oldRender.apply(this, arguments_)
+
+initGrid = () ->
+  tiles = $('#tiles')[0]
+  @grid = new Packery(tiles, {
+    containerStyle: null
+    columnWidth: '.tileWrapper'
+    transitionDuration: '0.768s'
+    #gutter: 10
+  })
+  grid.on('layoutComplete', (grid, whatever) ->
+    #log 'LAYOUT COMPLETED'
+    #log grid
+    #log whatever
+  )
+  log 'Grid inited!'
