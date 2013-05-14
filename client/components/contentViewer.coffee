@@ -41,6 +41,7 @@ Template.contentViewer.events
 		log 'Button State: ' + state
 		switch state
 			when 'view'
+				log this
 				Session.set('activePane','profile')
 				Session.set('oldProfilePosition',Session.get('profilePosition'))
 				Session.set('profilePosition',0)
