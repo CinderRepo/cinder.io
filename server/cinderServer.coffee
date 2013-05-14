@@ -1235,4 +1235,4 @@ Meteor.startup ->
       gameBy: "test"
       src: "img/preview/year-walk.jpg"
       comments: []
-      active: true###
+      active: true
