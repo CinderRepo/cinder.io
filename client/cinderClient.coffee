@@ -1,15 +1,19 @@
 Meteor.startup(()->
   console.log 'Hello Client!'
+  #Session.setDefault('activeTile',null)
+  #Session.setDefault('appState',null)
+  #logRenders()
+  #Session.setDefault('appState','/')
   #Set Session variables
-  Session.set('activeModal',undefined)
-  Session.set('activePane','browse')
-  Session.set('revealedDown',false)
-  Session.set('revealedDownHeight',undefined)
+  #Session.set('activeModal',undefined)
+  #Session.set('activePane','browse')
+  #Session.set('revealedDown',false)
+  #Session.set('revealedDownHeight',undefined)
 
   #logRenders()
-  Meteor.setTimeout(()->
-      initGrid()
-  1000)
+  #Meteor.setTimeout(()->
+      #initGrid()
+  #1000)
 )
 
 logRenders = ->
@@ -20,7 +24,7 @@ logRenders = ->
       console.log name, "render count: ", ++counter
       oldRender and oldRender.apply(this, arguments_)
 
-initGrid = () ->
+@initGrid = () ->
   tiles = $('#tiles')[0]
   @grid = new Packery(tiles, {
     containerStyle: null

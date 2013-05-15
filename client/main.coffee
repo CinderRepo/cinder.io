@@ -21,13 +21,15 @@ Template.main.add = ->
   state: 'add'
   message: '+'
 Template.main.state = ->
-  Session.get('activePane')
+  Session.get('modalState')
 Template.main.revealedDown = ->
-  if Session.get('revealedDown') then 'revealedDown' else ''
+  #if Session.get('revealedDown') then 'revealedDown' else ''
 Template.main.revealedDownHeight = ->
-  Session.get('revealedDownHeight')
+  #Session.get('revealedDownHeight')
 Template.main.preserve({
   '.paneWrapper'
   '.pane.profile'
   '.pane.browse'
+  '#tiles'
+  '.tileWrapper.expanded'
 })

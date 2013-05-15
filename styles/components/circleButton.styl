@@ -16,8 +16,9 @@
 	text-align center
 	line-height 30px
 	color offWhite
-	transition transform normalSpeed
-
+	transition transform normalSpeed, opacity normalSpeed
+.circleButton[data-state="exit"]:last-of-type
+	opacity 0
 //Circle Button States
 .circleButton.muted
 	opacity 0.4

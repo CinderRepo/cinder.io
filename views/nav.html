@@ -2,12 +2,26 @@
   <div class="nav" data-state="{{state}}">
     {{#if currentUser}}
       {{#with currentUser}}
-        {{>circleButton settings}}
+        {{#if viewing}}
+          {{>circleButton exit}}
+        {{else}}
+          {{>circleButton logout}}
+        {{/if}}
         {{>dualButton loggedIn}}
-        {{>circleButton add}}
+        {{#if viewing}}
+          {{>circleButton hidden}}
+        {{else}}
+          {{>circleButton add}}
+        {{/if}}
       {{/with}}
     {{else}}
+      {{#if viewing}}
+        {{>circleButton exit}}
+      {{/if}}
       {{>dualButton loggedOut}}
+      {{#if viewing}}
+        {{>circleButton hidden}}
+      {{/if}}
     {{/if}}
     {{>modal}}
   </div>

@@ -11,7 +11,7 @@ Template.contentViewer.view = ()->
 	message: 'View'
 
 Template.contentViewer.state = ()->
-	Session.get('activeContentPane')
+	#Session.get('activeContentPane')
 
 Template.contentViewer.isOwner = (owner) ->
     Meteor.user() and Meteor.user().username is owner
@@ -39,18 +39,18 @@ Template.contentViewer.events
 	'click .button':(e,t)->
 		state = $(e.currentTarget).data('state')
 		log 'Button State: ' + state
-		switch state
-			when 'view'
-				log this
-				Session.set('activePane','profile')
-				Session.set('oldProfilePosition',Session.get('profilePosition'))
-				Session.set('profilePosition',0)
-			when 'preview'
-				Session.set('activeContentPane',state)
-			when 'play'
-				Session.set('activeContentPane',state)
-			else
-				log 'Button State not accounted for.'
+		#switch state
+		#	when 'view'
+		#		log this
+		#		#Session.set('activePane','profile')
+		#		#Session.set('oldProfilePosition',Session.get('profilePosition'))
+		#		#Session.set('profilePosition',0)
+		#	when 'preview'
+		#		#Session.set('activeContentPane',state)
+		#	when 'play'
+		#		#Session.set('activeContentPane',state)
+		#	else
+		#		log 'Button State not accounted for.'
 
 Template.contentViewer.preserve({
 	'.contentViewer'
