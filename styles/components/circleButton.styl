@@ -17,6 +17,9 @@
 	line-height 30px
 	color offWhite
 	transition transform normalSpeed, opacity normalSpeed
+.circleButton[data-state="hidden"]
+	opacity 0
+	pointer-events none
 .circleButton[data-state="exit"]:last-of-type
 	opacity 0
 //Circle Button States

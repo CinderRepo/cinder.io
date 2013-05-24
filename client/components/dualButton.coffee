@@ -1,5 +1,5 @@
 Template.dualButton.activeDualButtonLeft = ->
-	log 'Checking active'
+	#log 'Checking active'
 	#if Session.equals('activeDualButtonLeft',this._buttonLeftId) or Session.equals('activePane',this._buttonLeftState) then 'active' else ''
 
 Template.dualButton.activeDualButtonRight = ->
@@ -10,7 +10,11 @@ Template.dualButton.events
 		log 'DualButton Clicked.'
 		e.stopImmediatePropagation()
 		state = $(e.currentTarget).data('state')
-		Session.set('modalState',state)
+		if state is 'exitGame'
+			#Exit Game Here
+			Session.set('appState','view')
+		else
+			Session.set('modalState',state)
 
 Template.dualButton.preserve({
 	'.dualButtonWrapper'
@@ -18,15 +22,3 @@ Template.dualButton.preserve({
 	'.dualButtonMiddle'
 	'.dualButton.right'
 })
-
-toggleProfile = () ->
-	Session.set('activePane','profile')
-	Session.set('profileContext','userProfile')
-	if !Session.equals('profilePosition',0)
-		Session.set('oldProfilePosition',Session.get('profilePosition'))
-	Session.set('profilePosition',0)
-toggleBrowse = () ->
-	Session.set('activePane','browse')
-	Session.set('profileContext','games')
-	Session.set('activeContentPane','preview')
-	Session.set('profilePosition',Session.get('oldProfilePosition'))

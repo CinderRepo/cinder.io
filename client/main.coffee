@@ -1,3 +1,5 @@
+Template.main.activeGame = ->
+  Games.findOne({_id:Session.get('activeTile')},{})
 Template.main.games = ->
   Games.find()
 Template.main.loggedOut = ->
@@ -21,6 +23,8 @@ Template.main.add = ->
   state: 'add'
   message: '+'
 Template.main.state = ->
+  Session.get('appState')
+Template.main.modalState = ->
   Session.get('modalState')
 Template.main.revealedDown = ->
   #if Session.get('revealedDown') then 'revealedDown' else ''
@@ -32,4 +36,6 @@ Template.main.preserve({
   '.pane.browse'
   '#tiles'
   '.tileWrapper.expanded'
+  '#gamePlayer'
+  '#gamePlayerContent'
 })

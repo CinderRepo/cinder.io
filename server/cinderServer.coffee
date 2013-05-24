@@ -190,1049 +190,1199 @@ Meteor.startup ->
       name: "Alan Wake's American Nightmare"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/alan-wakes-american-nightmare.jpg"
+      previewSrc: "img/preview/alan-wakes-american-nightmare.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Alice Madness Returns"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/alice-madness-returns.jpg"
+      previewSrc: "img/preview/alice-madness-returns.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Alone in the Dark"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/alone-in-the-dark.jpg"
+      previewSrc: "img/preview/alone-in-the-dark.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Amnesia the Dark Descent"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/amnesia-the-dark-descent.jpg"
+      previewSrc: "img/preview/amnesia-the-dark-descent.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "And Yet it Moves"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/and-yet-it-moves.jpg"
+      previewSrc: "img/preview/and-yet-it-moves.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Bastion"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/bastion.jpg"
+      previewSrc: "img/preview/bastion.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Batman Arkham Asylum"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/batman-arkham-asylum.jpg"
+      previewSrc: "img/preview/batman-arkham-asylum.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Batman Arkham City"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/batman-arkham-city.jpg"
+      previewSrc: "img/preview/batman-arkham-city.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Bioshock"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/bioshock.jpg"
+      previewSrc: "img/preview/bioshock.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Bioshock 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/bioshock-2.jpg"
+      previewSrc: "img/preview/bioshock-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Bioshock Infinite"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/bioshock-infinite.jpg"
+      previewSrc: "img/preview/bioshock-infinite.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Bit Trip Runner"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/bit-trip-runner.jpg"
+      previewSrc: "img/preview/bit-trip-runner.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Borderlands 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/borderlands-2.jpg"
+      previewSrc: "img/preview/borderlands-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Braid"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/braid.jpg"
+      previewSrc: "img/preview/braid.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Brutal Legend"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/brutal-legend.jpg"
+      previewSrc: "img/preview/brutal-legend.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Catherine"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/catherine.jpg"
+      previewSrc: "img/preview/catherine.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Cave Story Plus"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/cave-story-plus.jpg"
+      previewSrc: "img/preview/cave-story-plus.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Cogs"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/cogs.jpg"
+      previewSrc: "img/preview/cogs.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Counter Strike Source"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/counter-strike-source.jpg"
+      previewSrc: "img/preview/counter-strike-source.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Crayon Physics Deluxe"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/crayon-physics-deluxe.jpg"
+      previewSrc: "img/preview/crayon-physics-deluxe.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Dark Souls"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/dark-souls.jpg"
+      previewSrc: "img/preview/dark-souls.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Dark Void"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/dark-void.jpg"
+      previewSrc: "img/preview/dark-void.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Darksiders I"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/darksiders-i.jpg"
+      previewSrc: "img/preview/darksiders-i.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Darksiders II"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/darksiders-ii.jpg"
+      previewSrc: "img/preview/darksiders-ii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Day of Defeat Source"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/day-of-defeat-source.jpg"
+      previewSrc: "img/preview/day-of-defeat-source.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Dead Island"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/dead-island.jpg"
+      previewSrc: "img/preview/dead-island.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Deadly Premonition"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/deadly-premonition.jpg"
+      previewSrc: "img/preview/deadly-premonition.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Demon's Souls"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/demons-souls.jpg"
+      previewSrc: "img/preview/demons-souls.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     ###Games.insert
       name: "Devil May Cry One"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/devil-may-cry-1.jpg"
+      previewSrc: "img/preview/devil-may-cry-1.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Devil May Cry Two"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/devil-may-cry-2.jpg"
+      previewSrc: "img/preview/devil-may-cry-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Devil May Cry Three"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/devil-may-cry-3.jpg"
+      previewSrc: "img/preview/devil-may-cry-3.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Devil May Cry Four"
       genre: "RPG"
       gameBy: "test"
-      src: "/img/thumbs/devil-may-cry-4.jpg"
+      previewSrc: "img/preview/devil-may-cry-4.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Devil may Cry Five"
       genre: "Sim"
       gameBy: "test"
-      src: "/img/thumbs/devil-may-cry-5.jpg"
+      previewSrc: "img/preview/devil-may-cry-5.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Digital Devil Saga"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/digital-devil-saga.jpg"
+      previewSrc: "img/preview/digital-devil-saga.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Disgaea"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/disgaea.jpg"
+      previewSrc: "img/preview/disgaea.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Dungeon Defenders"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/dungeon-defenders.jpg"
+      previewSrc: "img/preview/dungeon-defenders.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Eternal Sonata"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/eternal-sonata.jpg"
+      previewSrc: "img/preview/eternal-sonata.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy Crystal Chronicles"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-crystal-chronicles.jpg"
+      previewSrc: "img/preview/final-fantasy-crystal-chronicles.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy I"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-i.jpg"
+      previewSrc: "img/preview/final-fantasy-i.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy II"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-ii.jpg"
+      previewSrc: "img/preview/final-fantasy-ii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy III"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-iii.jpg"
+      previewSrc: "img/preview/final-fantasy-iii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy IV"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-iv.jpg"
+      previewSrc: "img/preview/final-fantasy-iv.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy V"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-v.jpg"
+      previewSrc: "img/preview/final-fantasy-v.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy VI"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-vi.jpg"
+      previewSrc: "img/preview/final-fantasy-vi.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy VII"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-vii.jpg"
+      previewSrc: "img/preview/final-fantasy-vii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy VIII"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-viii.jpg"
+      previewSrc: "img/preview/final-fantasy-viii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy IX"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-ix.jpg"
+      previewSrc: "img/preview/final-fantasy-ix.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy X"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-x.jpg"
+      previewSrc: "img/preview/final-fantasy-x.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy X-2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-x-2.jpg"
+      previewSrc: "img/preview/final-fantasy-x-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy XI"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-xi.jpg"
+      previewSrc: "img/preview/final-fantasy-xi.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy XII"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-xii.jpg"
+      previewSrc: "img/preview/final-fantasy-xii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy XIII"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-xiii.jpg"
+      previewSrc: "img/preview/final-fantasy-xiii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Final Fantasy XIV"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/final-fantasy-xiv.jpg"
+      previewSrc: "img/preview/final-fantasy-xiv.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Folklore"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/folklore.jpg"
+      previewSrc: "img/preview/folklore.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Garry's Mod"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/garrys-mod.jpg"
+      previewSrc: "img/preview/garrys-mod.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Gotham City Imposters"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/gotham-city-imposters.jpg"
+      previewSrc: "img/preview/gotham-city-imposters.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Gratuitious Space Battles"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/gratuitous-space-battles.jpg"
+      previewSrc: "img/preview/gratuitous-space-battles.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Half Life 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/half-life-2.jpg"
+      previewSrc: "img/preview/half-life-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Half Life 2 Episode One"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/half-life-2-episode-one.jpg"
+      previewSrc: "img/preview/half-life-2-episode-one.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Half Life 2 Episode Two"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/half-life-2-episode-two.jpg"
+      previewSrc: "img/preview/half-life-2-episode-two.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Harvest Moon Magical Melody"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/harvest-moon-magical-melody.jpg"
+      previewSrc: "img/preview/harvest-moon-magical-melody.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Hitman Blood Money"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/hitman-blood-money.jpg"
+      previewSrc: "img/preview/hitman-blood-money.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Hitman Contracts"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/hitman-contracts.jpg"
+      previewSrc: "img/preview/hitman-contracts.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Hitman Codename 47"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/hitman-codename-47.jpg"
+      previewSrc: "img/preview/hitman-codename-47.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Hitman 2 Silent Assassin"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/hitman-2-silent-assassin.jpg"
+      previewSrc: "img/preview/hitman-2-silent-assassin.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Hitman Absolution"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/hitman-absolution.jpg"
+      previewSrc: "img/preview/hitman-absolution.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Just Cause 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/just-cause-2.jpg"
+      previewSrc: "img/preview/just-cause-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Killing Floor"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/killing-floor.jpg"
+      previewSrc: "img/preview/killing-floor.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Kingdom Hearts"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/kingdom-hearts-1.jpg"
+      previewSrc: "img/preview/kingdom-hearts-1.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Kingdom Hearts 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/kingdom-hearts-2.jpg"
+      previewSrc: "img/preview/kingdom-hearts-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "L.A. Noire"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/la-noire.jpg"
+      previewSrc: "img/preview/la-noire.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Left 4 Dead"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/left-4-dead.jpg"
+      previewSrc: "img/preview/left-4-dead.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Left 4 Dead 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/left-4-dead-2.jpg"
+      previewSrc: "img/preview/left-4-dead-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Legend of Grimrock"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/legend-of-grimrock.jpg"
+      previewSrc: "img/preview/legend-of-grimrock.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Limbo"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/limbo.jpg"
+      previewSrc: "img/preview/limbo.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Lone Survivor"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/lone-survivor.jpg"
+      previewSrc: "img/preview/lone-survivor.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Lost Odyssey"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/lost-odyssey.jpg"
+      previewSrc: "img/preview/lost-odyssey.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Machinarium"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/machinarium.jpg"
+      previewSrc: "img/preview/machinarium.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Magicka"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/magicka.jpg"
+      previewSrc: "img/preview/magicka.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Metal Gear Solid: The Twin Snakes"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/metal-gear-solid-the-twin-snakes.jpg"
+      previewSrc: "img/preview/metal-gear-solid-the-twin-snakes.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Metal Gear Solid 2: Sons of Liberty"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/metal-gear-solid-2-sons-of-liberty.jpg"
+      previewSrc: "img/preview/metal-gear-solid-2-sons-of-liberty.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Metal Gear Solid 3: Snake Eater"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/metal-gear-solid-3-snake-eater.jpg"
+      previewSrc: "img/preview/metal-gear-solid-3-snake-eater.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Metal Gear Solid 4: Guns of the Patriots"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/metal-gear-solid-4-guns-of-the-patriots.jpg"
+      previewSrc: "img/preview/metal-gear-solid-4-guns-of-the-patriots.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Metal Gear Rising Revengeance"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/metal-gear-rising-revengeance.jpg"
+      previewSrc: "img/preview/metal-gear-rising-revengeance.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Might and Magic: Clash of Heroes"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/might-and-magic-clash-of-heroes.jpg"
+      previewSrc: "img/preview/might-and-magic-clash-of-heroes.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Minecraft"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/minecraft.jpg"
+      previewSrc: "img/preview/minecraft.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Mini Ninjas"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/mini-ninjas.jpg"
+      previewSrc: "img/preview/mini-ninjas.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Mirrors Edge"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/mirrors-edge.jpg"
+      previewSrc: "img/preview/mirrors-edge.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Mount and Blade"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/mount-and-blade.jpg"
+      previewSrc: "img/preview/mount-and-blade.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Mount and Blade: Warband"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/mount-and-blade-warband.jpg"
+      previewSrc: "img/preview/mount-and-blade-warband.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Mount and Blade: With Fire and Sword"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/mount-and-blade-with-fire-and-sword.jpg"
+      previewSrc: "img/preview/mount-and-blade-with-fire-and-sword.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Nier"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/nier.jpg"
+      previewSrc: "img/preview/nier.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Okami"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/okami.jpg"
+      previewSrc: "img/preview/okami.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Paper Mario"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/paper-mario.jpg"
+      previewSrc: "img/preview/paper-mario.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Paper Mario: The Thousand Year Door"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/paper-mario-the-thousand-year-door.jpg"
+      previewSrc: "img/preview/paper-mario-the-thousand-year-door.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Portal"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/portal.jpg"
+      previewSrc: "img/preview/portal.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Portal 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/portal-2.jpg"
+      previewSrc: "img/preview/portal-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Prince of Persia: The Forgotten Sands"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/prince-of-persia-the-forgotten-sands.jpg"
+      previewSrc: "img/preview/prince-of-persia-the-forgotten-sands.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Prince of Persia: Warrior Within"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/prince-of-persia-warrior-within.jpg"
+      previewSrc: "img/preview/prince-of-persia-warrior-within.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Prince of Persia: The Two Thrones"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/prince-of-persia-the-two-thrones.jpg"
+      previewSrc: "img/preview/prince-of-persia-the-two-thrones.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Prince of Persia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/prince-of-persia.jpg"
+      previewSrc: "img/preview/prince-of-persia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Psychonauts"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/psychonauts.jpg"
+      previewSrc: "img/preview/psychonauts.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Shank"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/shank.jpg"
+      previewSrc: "img/preview/shank.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Sid Meier's Civilization V"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/sid-meiers-civilization-v.jpg"
+      previewSrc: "img/preview/sid-meiers-civilization-v.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Silent Hill HD Collection"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/silent-hill-hd-collection.jpg"
+      previewSrc: "img/preview/silent-hill-hd-collection.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Skyrim"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/skyrim.jpg"
+      previewSrc: "img/preview/skyrim.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Sonic Generations"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/sonic-generations.jpg"
+      previewSrc: "img/preview/sonic-generations.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Spec Ops the Line"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/spec-ops-the-line.jpg"
+      previewSrc: "img/preview/spec-ops-the-line.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Spiral Knights"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/spiral-knights.jpg"
+      previewSrc: "img/preview/spiral-knights.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Star Ocean: The Last Hope"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/star-ocean-the-last-hope.jpg"
+      previewSrc: "img/preview/star-ocean-the-last-hope.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Star Wars Jedi Knight II: Jedi Outcast"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/star-wars-jedi-knight-ii-jedi-outcast.jpg"
+      previewSrc: "img/preview/star-wars-jedi-knight-ii-jedi-outcast.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Star Wars: Knights of the Old Republic"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/star-wars-knights-of-the-old-republic.jpg"
+      previewSrc: "img/preview/star-wars-knights-of-the-old-republic.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Super Meat Boy"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/super-meat-boy.jpg"
+      previewSrc: "img/preview/super-meat-boy.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Super Paper Mario"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/super-paper-mario.jpg"
+      previewSrc: "img/preview/super-paper-mario.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Superbrothers: Sword and Sworcery"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/superbrothers-sword-and-sworcery-ep.jpg"
+      previewSrc: "img/preview/superbrothers-sword-and-sworcery-ep.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Abyss"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-abyss.jpg"
+      previewSrc: "img/preview/tales-of-abyss.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Destiny"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-destiny.jpg"
+      previewSrc: "img/preview/tales-of-destiny.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Destiny II"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-destiny-ii.jpg"
+      previewSrc: "img/preview/tales-of-destiny-ii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Eternia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-eternia.jpg"
+      previewSrc: "img/preview/tales-of-eternia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Graces"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-graces.jpg"
+      previewSrc: "img/preview/tales-of-graces.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Hearts"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-hearts.jpg"
+      previewSrc: "img/preview/tales-of-hearts.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Innocence"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-innocence.jpg"
+      previewSrc: "img/preview/tales-of-innocence.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Legendia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-legendia.jpg"
+      previewSrc: "img/preview/tales-of-legendia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Phantasia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-phantasia.jpg"
+      previewSrc: "img/preview/tales-of-phantasia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Rebirth"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-rebirth.jpg"
+      previewSrc: "img/preview/tales-of-rebirth.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Symphonia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-symphonia.jpg"
+      previewSrc: "img/preview/tales-of-symphonia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Symphonia: Dawn of the New World"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-symphonia-dawn-of-the-new-world.jpg"
+      previewSrc: "img/preview/tales-of-symphonia-dawn-of-the-new-world.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Vesperia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-vesperia.jpg"
+      previewSrc: "img/preview/tales-of-vesperia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tales of Xillia"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tales-of-xillia.jpg"
+      previewSrc: "img/preview/tales-of-xillia.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Team Fortress 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/team-fortress-2.jpg"
+      previewSrc: "img/preview/team-fortress-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Darkness"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-darkness.jpg"
+      previewSrc: "img/preview/the-darkness.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Darkness II"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-darkness-ii.jpg"
+      previewSrc: "img/preview/the-darkness-ii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Legend of Zelda: Ocarina of Time"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-legend-of-zelda-ocarina-of-time.jpg"
+      previewSrc: "img/preview/the-legend-of-zelda-ocarina-of-time.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Legend of Zelda: Majora's Mask"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-legend-of-zelda-majoras-mask.jpg"
+      previewSrc: "img/preview/the-legend-of-zelda-majoras-mask.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Legend of Zelda: The Wind Waker"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-legend-of-zelda-wind-waker.jpg"
+      previewSrc: "img/preview/the-legend-of-zelda-wind-waker.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Legend of Zelda: Twilight Princess"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-legend-of-zelda-twilight-princess.jpg"
+      previewSrc: "img/preview/the-legend-of-zelda-twilight-princess.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Legend of Zelda: Skyward Sword"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-legend-of-zelda-skyward-sword.jpg"
+      previewSrc: "img/preview/the-legend-of-zelda-skyward-sword.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Witcher"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-witcher-i.jpg"
+      previewSrc: "img/preview/the-witcher-i.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "The Witcher II"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/the-witcher-ii.jpg"
+      previewSrc: "img/preview/the-witcher-ii.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Tomb Raider"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/tomb-raider.jpg"
+      previewSrc: "img/preview/tomb-raider.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Torchlight"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/torchlight.jpg"
+      previewSrc: "img/preview/torchlight.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Torchlight 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/torchlight-2.jpg"
+      previewSrc: "img/preview/torchlight-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Trine"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/trine.jpg"
+      previewSrc: "img/preview/trine.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Trine 2"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/trine-2.jpg"
+      previewSrc: "img/preview/trine-2.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Valkyria Chronicles"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/valkyria-chronicles.jpg"
+      previewSrc: "img/preview/valkyria-chronicles.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "VVVVVV"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/vvvvvv.jpg"
+      previewSrc: "img/preview/vvvvvv.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Warhammer 40k: Space Marine"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/warhammer-40k-space-marine.jpg"
+      previewSrc: "img/preview/warhammer-40k-space-marine.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Wet"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/wet.jpg"
+      previewSrc: "img/preview/wet.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "White Knight Chronicles"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/white-knight-chronicles.jpg"
+      previewSrc: "img/preview/white-knight-chronicles.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true
     Games.insert
       name: "Year Walk"
       genre: "Shooter"
       gameBy: "test"
-      src: "/img/thumbs/year-walk.jpg"
+      previewSrc: "img/preview/year-walk.jpg"
+      gameSrc: "/default/game.html"
       comments: []
       active: true###

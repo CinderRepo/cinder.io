@@ -5,36 +5,47 @@
 .tileWrapper
 	-webkit-touch-callout none
 	-webkit-user-select none
-	width 20%
+	//width 400px
 	position relative
+	position absolute
 	background transparent
-	transition opacity slowSpeed, height slowSpeed, width slowSpeed
+	//background pink
+	transition opacity slowSpeed
+	transform-style flat
+	backface-visiblity hidden
+	transform-origin center
+	width 400px
+	height 150px
+	opacity 1
 .tileWrapper.preview[data-state="expanded"]
 	opacity 1
-	height 280px
+	//height 280px
 	//height 400px
 .tileWrapper[data-state="expanded"] .tileContent
 	margin 10px -10px 0 -10px
 .tileWrapper[data-state="collapsed"]
 	height 150px
-.tileWrapper[data-state="hidden"]
+/*.tileWrapper[data-state="hidden"]
 	opacity 0
 	height 0
 	overflow hidden
-	pointer-events none
+	pointer-events none*/
 .tileWrapper.preview
-	width 100%
-	height 300px
+	opacity 1
+	//width 100%
+	//height 300px
 	z-index 2
 .tileWrapper.preview .tileContent
-	height 280px
+	//height 280px
 	opacity 1
+	margin 0
 .tile
 	width 100%
 	height 100%
 .tileContent
-	margin 10px
-	height 130px
+	//margin 10px
+	//margin 0 10px 0 10px
+	height 150px
 	cursor pointer
 	list-style none
 	background-repeat no-repeat
@@ -42,8 +53,8 @@
 	background-position 50% 50%
 	position relative
 	box-shadow 0 0 2px darkShadow
-	transition height slowSpeed, margin-right slowSpeed, margin-left slowSpeed
-.tileContentafter
+	//transition height slowSpeed, margin-right slowSpeed, margin-left slowSpeed
+.tileContent:after
 	content ''
 	position absolute
 	top 0
@@ -54,6 +65,19 @@
 	border-bottom 0
 	background-origin border-box
 	background linear-gradient(top left, 50% rgba(255,255,255,0.10), rgba(255,255,255,0))
+.tileWrapper.preview .tileContent:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	//border 1px solid rgba(255,255,255,0.1)
+	border none
+	border-bottom 0
+	background-origin border-box
+	background transparent
+	//background linear-gradient(top left, 50% rgba(255,255,255,0.10), rgba(255,255,255,0))
 .tileInfo
 	position absolute
 	right 0
@@ -73,108 +97,17 @@
 	z-index 99
 .button[data-state="play"]
 	position absolute
-	top 80px
+	top 30px
 	left 50%
-	margin-left -50px
-	width 100px
-	min-height 100px
-	border-radius 100px
-	line-height 100px
+	margin-left -25px
+	width 50px
+	min-height 50px
+	border-radius 50px
+	line-height 50px
 	background rgba(0,0,0,0.4)
+	z-index 99
 .tileWrapper.preview[data-state="expanded"] .button[data-state="view"]
 	opacity 0
 .tileWrapper.preview .button[data-state="view"]
 	pointer-events auto
 	opacity 1
-
-//ONE COLUMN LAYOUT
-@media only screen and (max-width  400px)
-	.tileWrapper
-		width 100%
-	/*.tileWrapper.preview
-		height 300px
-	.tileWrapper.preview .tileContent
-		height 280px*/
-	
-//TWO COLUMN LAYOUT
-@media only screen and (min-width  401px) and (max-width  800px)
-	.tileWrapper
-		width 50%
-	/*.tileWrappernth-of-type(2)
-		left 50%*/
-	/*.tileWrapper.preview
-		height 350px
-	.tileWrapper.preview .tileContent
-		height 330px*/
-	
-//THREE COLUMN LAYOUT
-@media only screen and (min-width  801px) and (max-width  1200px)
-	.tileWrapper
-		width 33.33%
-	/*.tileWrapper.preview
-		height 400px
-	.tileWrapper.preview .tileContent
-		height 380px*/
-		
-//FOUR COLUMN LAYOUT
-@media only screen and (min-width  1201px) and (max-width  1600px)
-	.tileWrapper
-		width 25%
-	/*.tileWrapper.preview
-		height 450px
-	.tileWrapper.preview .tileContent
-		height 430px*/
-		
-//FIVE COLUMN LAYOUT
-@media only screen and (min-width  1601px) and (max-width  2000px)
-	.tileWrapper
-		width 20%
-	/*.tileWrapper.preview
-		height 500px
-	.tileWrapper.preview .tileContent
-		height 480px*/
-		
-//SIX COLUMN LAYOUT
-@media only screen and (min-width  2001px) and (max-width  2400px)
-	.tileWrapper
-		width 16.66%
-	/*.tileWrapper.preview
-		height 550px
-	.tileWrapper.preview .tileContent
-		height 530px*/
-		
-//SEVEN COLUMN LAYOUT
-@media only screen and (min-width  2401px) and (max-width  2800px)
-	.tileWrapper
-		width 14.28%
-	/*.tileWrapper.preview
-		height 600px
-	.tileWrapper.preview .tileContent
-		height 580px*/
-		
-//EIGHT COLUMN LAYOUT
-@media only screen and (min-width  2801px) and (max-width  3200px)
-	.tileWrapper
-		width 12.5%
-	/*.tileWrapper.preview
-		height 650px
-	.tileWrapper.preview .tileContent
-		height 630px*/
-		
-//NINE COLUMN LAYOUT
-@media only screen and (min-width  3201px) and (max-width  3600px)
-	.tileWrapper
-		width 11.11%
-	/*.tileWrapper.preview
-		height 700px
-	.tileWrapper.preview .tileContent
-		height 680px*/
-		
-//TEN COLUMN LAYOUT
-@media only screen and (min-width  3601px) and (max-width  4000px)
-	.tileWrapper
-		width 10%
-	/*.tileWrapper.preview
-		height 750px
-	.tileWrapper.preview .tileContent
-		height 730px*/

@@ -1,10 +1,19 @@
 <template name="main">
 	{{>nav}}
-	<div class="paneWrapper" data-state="{{state}}">
-		<div id="tiles" class="pane">
-			{{#each games}}
-				{{>tile}}
-			{{/each}}
-		<div>
+	<div id="paneWrapper">
+		<div id="gamePlayer">
+		{{#isolate}}
+		{{#with activeGame}}
+			<iframe id="gamePlayerContent" src="{{gameSrc}}"></iframe>
+		{{/with}}
+		{{/isolate}}
+		</div>
+		<div class="tilesBackground">
+			<div id="tiles" class="tilesContainer">
+				{{#each games}}
+					{{>tile}}
+				{{/each}}
+			</div>
+		</div>
 	</div>
 </template>

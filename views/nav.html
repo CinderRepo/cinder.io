@@ -5,20 +5,36 @@
         {{#if viewing}}
           {{>circleButton exit}}
         {{else}}
-          {{>circleButton logout}}
+          {{#if playing}}
+            {{>circleButton hidden}}
+          {{else}}
+            {{>circleButton logout}}
+          {{/if}}
         {{/if}}
-        {{>dualButton loggedIn}}
+        {{#if playing}}
+          {{>dualButton exitGame}}
+        {{else}}
+          {{>dualButton loggedIn}}
+        {{/if}}
         {{#if viewing}}
           {{>circleButton hidden}}
         {{else}}
-          {{>circleButton add}}
+          {{#if playing}}
+            {{>circleButton hidden}}
+          {{else}}
+            {{>circleButton add}}
+          {{/if}}
         {{/if}}
       {{/with}}
     {{else}}
       {{#if viewing}}
         {{>circleButton exit}}
       {{/if}}
-      {{>dualButton loggedOut}}
+      {{#if playing}}
+        {{>dualButton exitGame}}
+      {{else}}
+        {{>dualButton loggedOut}}
+      {{/if}}
       {{#if viewing}}
         {{>circleButton hidden}}
       {{/if}}

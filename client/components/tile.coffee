@@ -1,3 +1,28 @@
+Template.tile.rendered = () ->
+	#Session.set('tileLoaded',false)
+	initGrid()
+	Session.set('tileLoaded',true)
+	#log this.find('.tileWrapper')
+
+Template.tile.helpers({
+	width:() ->
+		#log 'width helper'
+		Session.get('columnWidth')
+	x:()->
+		#log 'x helper'
+		#log this
+		#log this._x
+		Session.get('xPos')
+		boop
+	y:()->
+		#log 'y helper'
+		#log this._y
+		Session.get('yPos')
+	z:()->
+		#log 'z helper'
+		#log this._z
+		Session.get('zPos')
+})
 Template.tile.view = ()->
 	state: 'view'
 	message: '>'
@@ -17,79 +42,19 @@ Template.tile.revealedDown = ->
 Template.tile.events
 	'click .tile':(e,t)->
 		log 'CLICKED TILE'
-		if Session.equals('activeTile',this._id) and Session.equals('appState','preview')
-			#If the appState is set to preview, switch it to browse.
-			Session.set('activeTile',null)
-			Session.set('appState','browse')
-		else
-			#If the appState is set to browse, switch it to preview.
+		e.stopImmediatePropagation()
+		if Session.equals('appState','browse')
+			#log 'First!'
+			Meteor.Router.to '/' + $(e.currentTarget).data('href')
+			Session.set('appState','preview')
 			Session.set('activeTile',this._id)
-			unless Session.equals('appState','view')
-				Session.set('appState','preview')
+		else
+			#log 'Second'
+			Meteor.Router.to '/'
+			Session.set('activeTile',undefined)
+			Session.set('appState','browse')
 Template.tile.preserve({
 	'.tileWrapper'
 	'.tile'
+	'*[id]':(node)-> return node.id
 })
-
-@toggleTile = (currentTarget,id) ->
-	if currentTarget
-		log currentTarget
-		transitionProp = getStyleProperty('transition')
-		transitionEndEvent =
-			WebkitTransition: 'webkitTransitionEnd'
-			MozTransition: 'transitionend'
-			OTransition: 'otransitionend'
-			transition: 'transitionend'
-		[{transitionProp}]
-
-		previousContentSize = getSize(currentTarget)
-
-		#Disable transitions
-		currentTarget.style[transitionProp] = 'none'
-
-		# set current size 
-		currentTarget.style.width = previousContentSize.width + 'px'
-		currentTarget.style.height = previousContentSize.height + 'px'
-		
-		itemElem = currentTarget.parentNode
-		isExpanded = itemElem.classList.contains('expanded')
-		if isExpanded and Session.equals('appState',null) and Session.equals('activeTile',null)
-			#Meteor.Router.to('/')
-			log 'Removing stuff..?'
-			$('.tileWrapper').removeClass('expanded')
-			itemElem.classList.remove('expanded')
-			#Session.set('activeTile',null)
-		else
-			#Meteor.Router.to('/' + this._id)
-			$('.tileWrapper').removeClass('expanded')
-			itemElem.classList.add('expanded')
-			#Session.set('activeTile',id)
-
-		# force redraw
-		redraw = currentTarget.offsetWidth
-
-		# renable default transition
-		currentTarget.style[transitionProp] = ''
-
-		#Reset 100%/100% sizing after transition end
-		if transitionProp
-			#log 'Hello?'
-			#log transitionProp
-			onTransitionEnd = ->
-				#log 'This isn\'t firing, is it?'
-				currentTarget.style.width = ''
-				currentTarget.style.height = ''
-				currentTarget.removeEventListener('webkitTransitionEnd', onTransitionEnd, false)
-			#log 'TransitionEnd?'
-			currentTarget.addEventListener('webkitTransitionEnd', onTransitionEnd, false)
-
-		#Set new size
-		#log 'itemElem'
-		#log itemElem
-		size = getSize(itemElem)
-		currentTarget.style.width = size.width + 'px'
-		currentTarget.style.height = size.height + 'px'
-		if isExpanded
-			grid.layout()
-		else
-			grid.fit itemElem

@@ -2,21 +2,25 @@
 @import 'palette'
 
 //Main Styles
-.paneWrapper
+#paneWrapper
 	position absolute
-	top 70px
+	top 60px
 	right 0
 	bottom 0
 	left 0
-	transition top slowSpeed
+	transition top slowSpeed, opacity slowSpeed, transform slowSpeed
 	background darkestGrey
-.paneWrapper[data-state="login"]
+	perspective 100
+	//transform scale3d(1,1,1)
+
+//Modal States
+#paneWrapper[data-modal="login"]
 	top 280px
-.paneWrapper[data-state="signup"]
+#paneWrapper[data-modal="signup"]
 	top 280px
-.paneWrapper[data-state="settings"]
+#paneWrapper[data-modal="settings"]
 	top 280px
-.paneWrapper[data-state="add"]
+#paneWrapper[data-modal="add"]
 	top 280px
 .pane
 	position absolute
@@ -24,3 +28,43 @@
 	right 10px
 	bottom 0
 	left 10px
+
+//Tiles Styles
+.tilesBackground
+	position absolute
+	top 20px
+	right 0
+	bottom 0
+	left 0
+	background darkestGrey
+	transition opacity slowSpeed, transform slowSpeed
+	transform scale3d(1,1,1)
+#paneWrapper[data-state="play"] .tilesBackground
+	opacity 0
+	transform scale3d(0,0,0)
+	pointer-events none
+.tilesContainer
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	//background darkestGrey
+	perspective 100px
+	perspective-origin 50% 50%
+	perspective-origin 0 0
+	transform-style preserve-3d
+	backface-visibility hidden
+
+//Game Player Styles
+#gamePlayer
+	position absolute
+	top 20px
+	right 0
+	bottom 0
+	left 0
+	overflow hidden
+#gamePlayerContent
+	width 100%
+	height 100%
+	border 0

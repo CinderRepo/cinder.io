@@ -102,8 +102,12 @@ Template.modal.events
 				name: name
 				genre: genre
 				gameBy: Meteor.user().username
-			, () ->
+			, (err,id) ->
 				log 'Game inserted successfully!'
+				log err
+				log id
+				Session.set('activeTile',id)
+				Session.set('appState','view')
 				Session.set('modalState',undefined)
 
 Template.modal.preserve({
