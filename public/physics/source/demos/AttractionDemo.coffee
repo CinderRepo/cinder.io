@@ -15,7 +15,7 @@ class AttractionDemo extends Demo
         repulsion = new Attraction @mouse.pos, 200, -2000
         collide = new Collision()
 
-        max = if full then 1 else 1
+        max = if full then 9 else 9
 
         for i in [0...max]
 

@@ -344,7 +344,75 @@ class @Attraction extends Behaviour
       #Calculate force vector.
       @_delta.norm().scale (1.0 - distSq / @radiusSq)
       #Apply force.
+      #log @strength
+      #log @_delta.norm().scale
+      #log p.acc
       p.acc.add @_delta.scale @strength
+
+###BEHAVIOUR - MAGNET###
+class @Magnet extends Behaviour
+  constructor: (@target = new Vector(), @radius = 1000, @strength = 100.0) ->
+    #log 'Magnet'
+    @_delta = new Vector()
+    @setRadius @radius
+    super
+  setRadius: (radius) ->
+    @radius = radius
+    @radiusSq = radius * radius
+  apply: (p, dt, index) ->
+    #if p.id is 'p1' or p.id is 'p2' or p.id is 'p3' or p.id is 'p4' or p.id is 'p5'
+    (@_delta.copy @target).sub p.pos
+    distX = p.pos.x - @target.x
+    distY = p.pos.y - @target.y
+    if distY >= -10 and distY <= 0
+      p.acc.clear()
+      p.vel.clear()
+      p.pos.y = @target.y
+    else
+      p.acc.add(@_delta.norm().scale(@strength))
+
+    if distX >= -10 and distX <= 0
+      p.acc.clear()
+      #p.acc.sub(p.acc.scale(.10))
+      p.vel.clear()
+      p.pos.x = @target.x
+    else
+      p.acc.add(@_delta.norm().scale(@strength))
+
+    #if p.id is 'p1'
+      #Vector pointing from particle to target.
+    #(@_delta.copy @target).sub p.pos
+      #log (@_delta.copy @target).sub p.pos
+      #log p.pos
+      #log @target
+      #Squared distance to target.
+      #log @_delta.x
+    #distSq = @_delta.magSq()
+    #log p.vel.x
+      #log distSq
+      #log @radiusSq
+      #Limit force to behaviour radius.
+    #if distSq < @radiusSq and distSq > 100
+        #log 'True'
+        #log 'True ' + distSq
+        #Calculate force vector.
+        #@_delta.norm().scale (1.0 - distSq / @radiusSq)
+        #log p.pos
+        #log @target
+        #Apply force
+        #log @_delta
+      #p.acc.add(new Vector(1000,0))
+      #p.acc.add @_delta.scale @strength
+        #log p.acc
+        #p.acc.add(@_delta.norm().add(new Vector(10,10)))
+    #else
+      #p.vel.clear()
+      #p.acc.clear()
+        #log 'False ' + p.acc.x
+        #p.acc.clear()
+        #p.acc.sub(new Vector(100,0))
+        #log 'Else ' + distSq
+        #p.acc.clear()
 
 ###BEHAVIOUR - COLLISION###
 #TODO: Collision response for non Verlet integrators.

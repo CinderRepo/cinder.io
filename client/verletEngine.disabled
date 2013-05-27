@@ -1,0 +1,383 @@
+#Copyright 2013 Sub Protocol and other contributors
+#http://subprotocol.com/
+#
+#Permission is hereby granted, free of charge, to any person obtaining
+#a copy of this software and associated documentation files (the
+#"Software"), to deal in the Software without restriction, including
+#without limitation the rights to use, copy, modify, merge, publish,
+#distribute, sublicense, and/or sell copies of the Software, and to
+#permit persons to whom the Software is furnished to do so, subject to
+#the following conditions:
+#
+#The above copyright notice and this permission notice shall be
+#included in all copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+#MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+#NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+#LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+#OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+#WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#VEC2
+#A simple 2-dimensional vector implementation
+class @Vec2
+  constructor: (@x,@y) ->
+    @x = x or 0
+    @y = y or 0
+  add: (v) ->
+    new Vec2(@x + v.x, @y + v.y)
+  sub: (v) ->
+    new Vec2(@x - v.x, @y - v.y)
+  mul: (v) ->
+    new Vec2(@x * v.x, @y * v.y)
+  div: (v) ->
+    new Vec2(@x / v.x, @y / v.y)
+  scale: (coef) ->
+    new Vec2(@x * coef, @y * coef)
+  mutableSet: (v) ->
+    @x = v.x
+    @y = v.y
+    this
+  mutableAdd: (v) ->
+    @x += v.x
+    @y += v.y
+    this
+  mutableSub: (v) ->
+    @x -= v.x
+    @y -= v.y
+    this
+  mutableMul: (v) ->
+    @x *= v.x
+    @y *= v.y
+    this
+  mutableDiv: (v) ->
+    @x /= v.x
+    @y /= v.y
+    this
+  mutableScale: (coef) ->
+    @x *= coef
+    @y *= coef
+    this
+  equals: (v) ->
+    @x is v.x and @y is v.y
+  epsilonEquals: (v, epsilon) ->
+    Math.abs(@x - v.x) <= epsilon and Math.abs(@y - v.y) <= epsilon
+  length: (v) ->
+    Math.sqrt @x * @x + @y * @y
+  length2: (v) ->
+    @x * @x + @y * @y
+  dist: (v) ->
+    Math.sqrt @dist2(v)
+  dist2: (v) ->
+    x = v.x - @x
+    y = v.y - @y
+    x * x + y * y
+  normal: ->
+    m = Math.sqrt(@x * @x + @y * @y)
+    new Vec2(@x / m, @y / m)
+  dot: (v) ->
+    @x * v.x + @y * v.y
+  angle: (v) ->
+    Math.atan2 @x * v.y - @y * v.x, @x * v.x + @y * v.y
+  angle2: (vLeft, vRight) ->
+    vLeft.sub(this).angle vRight.sub(this)
+  rotate: (origin, theta) ->
+    x = @x - origin.x
+    y = @y - origin.y
+    new Vec2(x * Math.cos(theta) - y * Math.sin(theta) + origin.x, x * Math.sin(theta) + y * Math.cos(theta) + origin.y)
+  toString: ->
+    "(" + @x + ", " + @y + ")"
+
+#CONSTRAINTS
+#DistanceConstraint -- constrains to initial distance
+#PinConstraint -- constrains to static/fixed point
+#AngleConstraint -- constrains 3 particles to an angle
+class @DistanceConstraint
+  constructor: (a, b, stiffness, distance) -> #optional
+    @a = a
+    @b = b
+    @distance = (if typeof distance isnt "undefined" then distance else a.pos.sub(b.pos).length())
+    @stiffness = stiffness
+  relax: (stepCoef) ->
+    normal = @a.pos.sub(@b.pos)
+    m = normal.length2()
+    normal.mutableScale ((@distance * @distance - m) / m) * @stiffness * stepCoef
+    @a.pos.mutableAdd normal
+    @b.pos.mutableSub normal
+  draw: (ctx) ->
+    ctx.beginPath()
+    ctx.moveTo @a.pos.x, @a.pos.y
+    ctx.lineTo @b.pos.x, @b.pos.y
+    ctx.strokeStyle = "#d8dde2"
+    ctx.stroke()
+
+class @PinConstraint
+  constructor: (a, pos) ->
+    @a = a
+    @pos = (new Vec2()).mutableSet(pos)
+  relax: (stepCoef) ->
+    @a.pos.mutableSet @pos
+  draw: (ctx) ->
+    ctx.beginPath()
+    ctx.arc @pos.x, @pos.y, 6, 0, 2 * Math.PI
+    ctx.fillStyle = "rgba(0,153,255,0.1)"
+    ctx.fill()
+
+class @AngleConstraint
+  constructor: (a, b, c, stiffness) ->
+    @a = a
+    @b = b
+    @c = c
+    @angle = @b.pos.angle2(@a.pos, @c.pos)
+    @stiffness = stiffness
+  relax: (stepCoef) ->
+    angle = @b.pos.angle2(@a.pos, @c.pos)
+    diff = angle - @angle
+    if diff <= -Math.PI
+      diff += 2 * Math.PI
+    else diff -= 2 * Math.PI  if diff >= Math.PI
+    diff *= stepCoef * @stiffness
+    @a.pos = @a.pos.rotate(@b.pos, diff)
+    @c.pos = @c.pos.rotate(@b.pos, -diff)
+    @b.pos = @b.pos.rotate(@a.pos, diff)
+    @b.pos = @b.pos.rotate(@c.pos, -diff)
+  draw: (ctx) ->
+    ctx.beginPath()
+    ctx.moveTo @a.pos.x, @a.pos.y
+    ctx.lineTo @b.pos.x, @b.pos.y
+    ctx.lineTo @c.pos.x, @c.pos.y
+    tmp = ctx.lineWidth
+    ctx.lineWidth = 5
+    ctx.strokeStyle = "rgba(255,255,0,0.2)"
+    ctx.stroke()
+    ctx.lineWidth = tmp
+
+class @Composite
+  constructor: (particles, constraints, drawParticles, drawConstraints) ->
+    @particles = []
+    @constraints = []
+    @drawParticles = null
+    @drawConstraints = null
+  pin: (index, pos) ->
+    pos = pos or @particles[index].pos
+    pc = new PinConstraint(@particles[index], pos)
+    @constraints.push pc
+    pc
+
+#VERLET
+class @Particle
+  constructor: (pos) ->
+    @pos = (new Vec2()).mutableSet(pos)
+    @lastPos = (new Vec2()).mutableSet(pos)
+  draw: (ctx) ->
+    ctx.beginPath()
+    ctx.arc @pos.x, @pos.y, 2, 0, 2 * Math.PI
+    ctx.fillStyle = "#2dad8f"
+    ctx.fill()
+
+class @VerletJS
+  constructor: (width, height, canvas) ->
+    @width = width
+    @height = height
+    @canvas = canvas
+    @ctx = canvas.getContext("2d")
+    @mouse = new Vec2(0, 0)
+    @mouseDown = false
+    @draggedEntity = null
+    @selectionRadius = 20
+    @highlightColor = "#4f545c"
+    @bounds = (particle) ->
+      particle.pos.y = @height - 1  if particle.pos.y > @height - 1
+      particle.pos.x = 0  if particle.pos.x < 0
+      particle.pos.x = @width - 1  if particle.pos.x > @width - 1
+    _this = this
+    #prevent context menu
+    @canvas.oncontextmenu = (e) ->
+      e.preventDefault()
+    @canvas.onmousedown = (e) ->
+      _this.mouseDown = true
+      nearest = _this.nearestEntity()
+      #log _this.nearestEntity()
+      _this.draggedEntity = nearest if nearest
+    @canvas.onmouseup = (e) ->
+      _this.mouseDown = false
+      _this.draggedEntity = null
+    @canvas.onmousemove = (e) ->
+      #log _this.mouse.x
+      #log _this.mouse.y
+      rect = _this.canvas.getBoundingClientRect()
+      _this.mouse.x = e.clientX - rect.left
+      _this.mouse.y = e.clientY - rect.top
+    #simulation params
+    @gravity = new Vec2(0, 0.2)
+    @friction = 0.99
+    @groundFriction = 0.8
+    #holds composite entities
+    @composites = []
+  frame: (step) ->
+    i = undefined
+    j = undefined
+    c = undefined
+    for c of @composites
+      for i of @composites[c].particles
+        particles = @composites[c].particles
+        #calculate velocity
+        velocity = particles[i].pos.sub(particles[i].lastPos).scale(@friction)
+        #ground friction
+        if particles[i].pos.y >= @height - 1 and velocity.length2() > 0.000001
+          m = velocity.length()
+          velocity.x /= m
+          velocity.y /= m
+          velocity.mutableScale m * @groundFriction
+        #save last good state
+        particles[i].lastPos.mutableSet particles[i].pos
+        #gravity
+        particles[i].pos.mutableAdd @gravity
+        #inertia
+        particles[i].pos.mutableAdd velocity
+    #handle dragging of entities
+    @draggedEntity.pos.mutableSet @mouse  if @draggedEntity
+    #relax
+    stepCoef = 1 / step
+    for c of @composites
+      constraints = @composites[c].constraints
+      i = 0
+      while i < step
+        for j of constraints
+          constraints[j].relax stepCoef
+        ++i
+    #bounds checking
+    for c of @composites
+      particles = @composites[c].particles
+      for i of particles
+        @bounds particles[i]
+  draw: ->
+    i = undefined
+    c = undefined
+    @ctx.clearRect 0, 0, @canvas.width, @canvas.height
+    for c of @composites
+      #draw constraints
+      if @composites[c].drawConstraints
+        @composites[c].drawConstraints @ctx, @composites[c]
+      else
+        constraints = @composites[c].constraints
+        for i of constraints
+          constraints[i].draw @ctx
+      #draw particles
+      if @composites[c].drawParticles
+        @composites[c].drawParticles @ctx, @composites[c]
+      else
+        particles = @composites[c].particles
+        for i of particles
+          particles[i].draw @ctx
+    #highlight nearest / dragged entity
+    nearest = @draggedEntity or @nearestEntity()
+    if nearest
+      @ctx.beginPath()
+      @ctx.arc nearest.pos.x, nearest.pos.y, 8, 0, 2 * Math.PI
+      @ctx.strokeStyle = @highlightColor
+      @ctx.stroke()
+  nearestEntity: ->
+    c = undefined
+    i = undefined
+    d2Nearest = 0
+    entity = null
+    constraintsNearest = null
+    #find nearest point
+    for c of @composites
+      particles = @composites[c].particles
+      for i of particles
+        d2 = particles[i].pos.dist2(@mouse)
+        if d2 <= @selectionRadius * @selectionRadius and (not entity? or d2 < d2Nearest)
+          entity = particles[i]
+          constraintsNearest = @composites[c].constraints
+          d2Nearest = d2
+    #search for pinned constraints for this entity
+    for i of constraintsNearest
+      entity = constraintsNearest[i]  if constraintsNearest[i] instanceof PinConstraint and constraintsNearest[i].a is entity
+    entity
+
+  #OBJECTS
+  #generic verlet entities
+  point: (pos) ->
+    composite = new Composite()
+    composite.particles.push new Particle(pos)
+    @composites.push composite
+    composite
+  lineSegments: (vertices, stiffness) ->
+    i = undefined
+    composite = new Composite()
+    for i of vertices
+      composite.particles.push new Particle(vertices[i])
+      composite.constraints.push new DistanceConstraint(composite.particles[i], composite.particles[i - 1], stiffness)  if i > 0
+    @composites.push composite
+    composite
+  cloth: (origin, width, height, segments, pinMod, stiffness) ->
+    composite = new Composite()
+    xStride = width / segments
+    yStride = height / segments
+    x = undefined
+    y = undefined
+    y = 0
+    while y < segments
+      x = 0
+      while x < segments
+        px = origin.x + x * xStride - width / 2 + xStride / 2
+        py = origin.y + y * yStride - height / 2 + yStride / 2
+        composite.particles.push new Particle(new Vec2(px, py))
+        composite.constraints.push new DistanceConstraint(composite.particles[y * segments + x], composite.particles[y * segments + x - 1], stiffness)  if x > 0
+        composite.constraints.push new DistanceConstraint(composite.particles[y * segments + x], composite.particles[(y - 1) * segments + x], stiffness)  if y > 0
+        ++x
+      ++y
+    x = 0
+    while x < segments
+      composite.pin x  if x % pinMod is 0
+      ++x
+    @composites.push composite
+    composite
+  tire: (origin, radius, segments, spokeStiffness, treadStiffness) ->
+    stride = (2 * Math.PI) / segments
+    i = undefined
+    composite = new Composite()
+    #particles
+    i = 0
+    while i < segments
+      theta = i * stride
+      composite.particles.push new Particle(new Vec2(origin.x + Math.cos(theta) * radius, origin.y + Math.sin(theta) * radius))
+      ++i
+    center = new Particle(origin)
+    composite.particles.push center
+    #constraints
+    i = 0
+    while i < segments
+      composite.constraints.push new DistanceConstraint(composite.particles[i], composite.particles[(i + 1) % segments], treadStiffness)
+      composite.constraints.push new DistanceConstraint(composite.particles[i], center, spokeStiffness)
+      composite.constraints.push new DistanceConstraint(composite.particles[i], composite.particles[(i + 5) % segments], treadStiffness)
+      ++i
+    @composites.push composite
+    composite
+  rect: (origin, size, stiffness) ->
+    log 'Generating rect..'
+    composite = new Composite()
+    i = 0
+    #while i < 4
+    composite.particles.push new Particle(new Vec2(100,0))
+    composite.particles.push new Particle(new Vec2(200,0))
+    #center = new Particle(origin)
+    #composite.particles.push center
+
+    #composite.constraints.push new DistanceConstraint(composite.particles[0], composite.particles[(0 + 1)], stiffness)
+    #composite.constraints.push new DistanceConstraint(composite.particles[0], composite.particles[(1 + 1)], stiffness)
+    #composite.constraints.push new DistanceConstraint(composite.particles[2], composite.particles[(2 + 1)], stiffness)
+    #composite.constraints.push new DistanceConstraint(composite.particles[3], composite.particles[(3 + 1)], stiffness)
+    ###composite.constraints.push new DistanceConstraint(composite.particles[0], center, stiffness)
+    composite.constraints.push new DistanceConstraint(composite.particles[1], center, stiffness)
+    composite.constraints.push new DistanceConstraint(composite.particles[2], center, stiffness)
+    composite.constraints.push new DistanceConstraint(composite.particles[3], center, stiffness)###
+      #composite.constraints.push new DistanceConstraint(composite.particles[i])
+      #++i
+    @composites.push composite
+    composite
+    #particles

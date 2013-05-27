@@ -58,22 +58,22 @@ calculateGrid = () ->
 
   #Handle Column Placement positioning
   tileWrappers.each((i)->
-    if Session.equals('appState','browse')
+    #if Session.equals('appState','browse')
       #log 'Browse!'
       #tileWidth = 380
       #Update the repel strength to bring the tiles back
-      physics.particles[i].behaviours[0].strength = 200
-      physics.particles[i].behaviours[1].strength = 0
-    else if Session.equals('appState','preview')
+      #physics.particles[i].behaviours[0].strength = 200
+      #physics.particles[i].behaviours[1].strength = 0
+    #else if Session.equals('appState','preview')
       #log 'Preview!'
       #tileWidth = Session.get('windowWidth')
-      if $(this).attr('id') is Session.get('activeTile')
+      #if $(this).attr('id') is Session.get('activeTile')
         #Update the attraction strength at the top of the screen to attract the active tile upwards
-        physics.particles[i].behaviours[0].strength = 0
-        physics.particles[i].behaviours[1].strength = 200
-      else
+      #  physics.particles[i].behaviours[0].strength = 0
+      #  physics.particles[i].behaviours[1].strength = 200
+      #else
         #Update the repel strength to fire the tiles away, except for the active tile
-        physics.particles[i].behaviours[0].strength = 0
+      #  physics.particles[i].behaviours[0].strength = 0
         #physics.particles[i].behaviours[1].strength = -200
     #Set the height variable if there is an activeTile
     ###if Session.get('activeTile')
@@ -295,6 +295,7 @@ calculateGrid = () ->
     #Calculate the final webkitTransform
     #log translateZValue
     matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[i].pos.x + ", " + physics.particles[i].pos.y + ", " + translateZValue + ", 1)"
+    #matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + 0 + ", " + 0 + ", " + translateZValue + ", 1)"
     this.style.webkitTransform = matrix3d
 
     #We have to have the wrapper element have the opposite translation, so that people can still click on elements contained within it.
@@ -311,7 +312,7 @@ calculateGrid = () ->
     tilesBackground[0].style.opacity = 1
 
   paneWrapper = $('#paneWrapper')
-  paneWrapper[0].style.webkitTransform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[29].pos.x + ", " + physics.particles[29].pos.y + ", " + 0 + ", 1)"
+  #paneWrapper[0].style.webkitTransform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[29].pos.x + ", " + physics.particles[29].pos.y + ", " + 0 + ", 1)"
 
 Deps.autorun(calculateColumnCount = () ->
   #console.log 'calculateColumnCount..'
@@ -329,12 +330,12 @@ heartbeat = (timestamp) ->
   #log 'BEATING'
   if Session.equals('tileLoaded',true)
     calculateGrid()
-  if Session.equals('modalState','login') or Session.equals('modalState','add')
-    log 'WHAT THE SHIT'
-    physics.particles[29].behaviours[0].strength = 2000
-  else
-    log 'WHAT THE FUCK'
-    physics.particles[29].behaviours[0].strength = 0
+  #if Session.equals('modalState','login') or Session.equals('modalState','add')
+    #log 'WHAT THE SHIT'
+    #physics.particles[29].behaviours[0].strength = 2000
+  #else
+    #log 'WHAT THE FUCK'
+    #physics.particles[29].behaviours[0].strength = 0
   #Step Physics
   physics.step()
   ###if Session.equals('appState','preview')
