@@ -284,6 +284,8 @@ class @Particle
     @behaviours = []
     #Current position.
     @pos = new Vector()
+    #Current size.
+    @size = new Vector()
     #Current velocity.
     @vel = new Vector()
     #Current force.
@@ -291,6 +293,7 @@ class @Particle
     #Previous state.
     @old =
       pos: new Vector()
+      size: new Vector()
       vel: new Vector()
       acc: new Vector()
   #Moves the particle to a given location vector.
@@ -325,6 +328,32 @@ class @Behaviour
 
 ###BEHAVIOUR - ATTRACTION###
 class @Attraction extends Behaviour
+  constructor: (@target = new Vector(), @radius = 1000, @strength = 100.0) ->
+    @_delta = new Vector()
+    @setRadius @radius
+    super
+  #Sets the effective radius of the bahaviour.
+  setRadius: (radius) ->
+    @radius = radius
+    @radiusSq = radius * radius
+  apply: (p, dt, index) ->
+    #super p, dt, index
+    #Vector pointing from particle to target.
+    (@_delta.copy @target).sub p.pos
+    #Squared distance to target.
+    distSq = @_delta.magSq()
+    #Limit force to behaviour radius.
+    if distSq < @radiusSq and distSq > 0.000001
+      #Calculate force vector.
+      @_delta.norm().scale (1.0 - distSq / @radiusSq)
+      #Apply force.
+      #log @strength
+      #log @_delta.norm().scale
+      #log p.acc
+      p.acc.add @_delta.scale @strength
+
+###BEHAVIOUR - JiffyLube###
+class @JiffyLube extends Behaviour
   constructor: (@target = new Vector(), @radius = 1000, @strength = 100.0) ->
     @_delta = new Vector()
     @setRadius @radius
@@ -424,6 +453,12 @@ class @Collision extends Behaviour
     @_delta = new Vector()
     super
   apply: (p, dt, index) ->
+    #log 'p'
+    #log p
+    #log 'dt'
+    #log dt
+    #log 'index'
+    #log index
     #super p, dt, index
     #Check pool for collisions.
     for o in @pool[index..] when o isnt p
@@ -435,6 +470,7 @@ class @Collision extends Behaviour
       radii = p.radius + o.radius
       #Check if particles collide.
       if distSq <= radii * radii
+        log 'Collided!'
         #Compute real distance.
         dist = Math.sqrt distSq
         #Determine overlap.
@@ -450,6 +486,65 @@ class @Collision extends Behaviour
         o.pos.add (@_delta.norm().scale overlap * r2)
         #Fire callback if defined.
         @callback?(p, o, overlap)
+
+###BEHAVIOUR - RIGID COLLISION###
+class @RigidCollision extends Behaviour
+  constructor: (@useMass = yes, @callback = null) ->
+    #Pool of collidable particles.
+    @pool = []
+    #Delta between particle positions.
+    @_delta = new Vector()
+    super
+  apply: (p, dt, index) ->
+    #log 'p'
+    #log p
+    #log 'dt'
+    #log dt
+    #log 'index'
+    #log index
+    #super p, dt, index
+    #log p.size.x
+    #log p.size.y
+    #Check pool for collisions.
+    for o in @pool[index..] when o isnt p
+      (@_delta.copy o.pos).sub p.pos
+      #log 'p'
+      #log p
+      #log 'o'
+      #log o
+      boundsX = p.pos.x + p.size.x
+      boundsY = p.pos.y + p.size.y
+      #log 'colliderTestingEntity'
+      #log p.id
+      #log boundsX
+      #log boundsY
+      #log 'entityBeingTestedAgainst'
+      #log o.id
+      #log o.pos.x
+      #log o.pos.y
+      if boundsX > o.pos.x and boundsY > o.pos.y
+        log 'Colliding'
+        overlapX = boundsX - o.pos.x
+        overlapY = boundsY - o.pos.y
+        #log overlapY
+        #p.pos.add (@_delta.clone().norm().scale overlapY)
+        #o.pos.add (@_delta.norm().scale overlapY)
+        #p.pos.sub new Vector(100,100)
+        #o.pos.sub new Vector(200,200)
+        #log p.id
+        #log o.id
+        #log 'boundsX collided!'
+        #debugger
+      #if boundsY > o.pos.y
+      #  log 'boundsY collided!'
+      #debugger
+      #log '=========================='
+      #log 'p.id     ' + p.id
+      #log 'p.size.x ' + p.size.x
+      #log 'p.size.y ' + p.size.y
+      #log 'p.pos.x  ' + p.pos.x
+      #log 'p.pos.y  ' + p.pos.y
+      #debugger
 
 ###BEHAVIOUR - CONSTANT FORCE###
 class @ConstantForce extends Behaviour

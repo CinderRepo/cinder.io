@@ -2,6 +2,7 @@
 @tilesPerspective = 100
 @tileWidth = 400
 @tileHeight = 150
+@expandedTileHeight = null
 
 Meteor.startup(()->
   console.log 'Hello Client!'
@@ -26,6 +27,7 @@ Meteor.startup(()->
   initPhysics()
   #Start client request animation frame heartbeat
   heartbeat()
+  #debugger
 )
 
 logRenders = ->
@@ -58,6 +60,7 @@ calculateGrid = () ->
 
   #Handle Column Placement positioning
   tileWrappers.each((i)->
+    #physics.particles[i].size.x = this
     #if Session.equals('appState','browse')
       #log 'Browse!'
       #tileWidth = 380
@@ -76,25 +79,40 @@ calculateGrid = () ->
       #  physics.particles[i].behaviours[0].strength = 0
         #physics.particles[i].behaviours[1].strength = -200
     #Set the height variable if there is an activeTile
-    ###if Session.get('activeTile')
+
+    #It's ugly, I know
+    physics.particles[i].size.x = tileWidth
+    physics.particles[i].size.y = tileHeight
+    if Session.get('activeTile')
       activeTile = true
       #We get the value of the activeTile so we can use it for our height calculations
-      activeTileTranslateZValue = -(((tileWidth*tilesPerspective)/Session.get('windowWidth'))-tilesPerspective)
-      translateZValue = -(((tileWidth*tilesPerspective)/columnWidth)-tilesPerspective)
+      #activeTileTranslateZValue = -(((tileWidth*tilesPerspective)/Session.get('windowWidth'))-tilesPerspective)
+      #translateZValue = -(((tileWidth*tilesPerspective)/columnWidth)-tilesPerspective)
       #log translateZValue
-      Session.set('test2',activeTileTranslateZValue)
+      #Session.set('test2',activeTileTranslateZValue)
       #There is an activeTile
-      expandedTileHeight = tileHeight*(tilesPerspective/(tilesPerspective-activeTileTranslateZValue))
-      currentTileHeight = if activeTile then expandedTileHeight else tileHeight
-      Session.set('test',expandedTileHeight)
-      Session.set('test3',currentTileHeight)
+
+      #Update the physics properties of the activeTile
+      physics.particles[i].size.x = tileWidth
+      physics.particles[i].size.y = tileHeight
+      if $(this).attr('id') is Session.get('activeTile')
+        log 'ActiveTrue'
+        activeTileTranslateZValue = -(((tileWidth*tilesPerspective)/Session.get('windowWidth'))-tilesPerspective)
+        expandedTileHeight = tileHeight*(tilesPerspective/(tilesPerspective-activeTileTranslateZValue))
+        expandedTileWidth = tileWidth*(tilesPerspective/(tilesPerspective-activeTileTranslateZValue))
+        physics.particles[i].size.x = expandedTileWidth
+        physics.particles[i].size.y = expandedTileHeight
+      #log expandedTileHeight
+      #currentTileHeight = if activeTile then expandedTileHeight else tileHeight
+      #Session.set('test',expandedTileHeight)
+      #Session.set('test3',currentTileHeight)
     else
       currentTileHeight = tileHeight
 
     if $(this).attr('id') is Session.get('activeTile')
       #log '!!!!!'
       #log i
-      currentTileIndex = i###
+      currentTileIndex = i
       #log 'Checking currentTileIndex ' + currentTileIndex
 
     ###if columnCount is 1 #One Column Layout
@@ -295,7 +313,6 @@ calculateGrid = () ->
     #Calculate the final webkitTransform
     #log translateZValue
     matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[i].pos.x + ", " + physics.particles[i].pos.y + ", " + translateZValue + ", 1)"
-    #matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + 0 + ", " + 0 + ", " + translateZValue + ", 1)"
     this.style.webkitTransform = matrix3d
 
     #We have to have the wrapper element have the opposite translation, so that people can still click on elements contained within it.
@@ -330,16 +347,6 @@ heartbeat = (timestamp) ->
   #log 'BEATING'
   if Session.equals('tileLoaded',true)
     calculateGrid()
-  #if Session.equals('modalState','login') or Session.equals('modalState','add')
-    #log 'WHAT THE SHIT'
-    #physics.particles[29].behaviours[0].strength = 2000
-  #else
-    #log 'WHAT THE FUCK'
-    #physics.particles[29].behaviours[0].strength = 0
   #Step Physics
   physics.step()
-  ###if Session.equals('appState','preview')
-    log 'PREVIEW'
-  if Session.equals('appState','browse')
-    log 'BROWSE'###
   requestAnimationFrame heartbeat
