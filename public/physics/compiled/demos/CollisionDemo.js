@@ -36,7 +36,7 @@ CollisionDemo = (function(_super) {
       p.setRadius(p.mass * 4);
       p.moveTo(new Vector(Random(this.width), Random(this.height)));
       if (Random.bool(prob)) {
-        s = new Spring(this.mouse, p, Random(120, 180), 0.8);
+        s = new Spring(this.mouse, p, 180, 0.8);
         this.physics.springs.push(s);
       } else {
         p.behaviours.push(attraction);

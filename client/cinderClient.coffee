@@ -4,6 +4,12 @@
 @tileHeight = 150
 @expandedTileHeight = null
 
+#Render Springs
+#@canvas = $('#canvas')[0]
+#canvas.width = Session.get('windowWidth')
+#canvas.height = Session.get('windowHeight')
+#@ctx = canvas.getContext('2d')
+
 Meteor.startup(()->
   console.log 'Hello Client!'
   #Session.setDefault('activeTile',null)
@@ -347,6 +353,14 @@ heartbeat = (timestamp) ->
   #log 'BEATING'
   if Session.equals('tileLoaded',true)
     calculateGrid()
+
+  #Render Springs
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath()
+  for s in physics.springs
+    ctx.moveTo(s.p1.pos.x, s.p1.pos.y)
+    ctx.lineTo(s.p2.pos.x, s.p2.pos.y)
+  ctx.stroke()
   #Step Physics
   physics.step()
   requestAnimationFrame heartbeat

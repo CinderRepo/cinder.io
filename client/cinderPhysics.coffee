@@ -140,18 +140,17 @@
   collision = new RigidCollision()
 
   #Render Code
-  #Render springs
-  #canvas = $('#canvas')[0]
-  #canvas.width = Session.get('windowWidth')
-  #canvas.height = Session.get('windowHeight')
-  #ctx = canvas.getContext('2d')
-
   log 'Physics loop'
 
   #Tile Physics
   tileWrapperCount = 28
   for i in [0...tileWrapperCount]
     log 'Pushing particles'
+
+    #Springs
+    anchor = new Particle()
+    anchor.moveTo position[i]
+    #physics.particles.push anchor
 
     #Origin
     #origin = new Particle()
@@ -160,12 +159,15 @@
     #Particle
     particle = new Particle()
     particle.size = new Vector(400,150)
+    #particle.setRadius particle.mass * 4
     #particle.mass = 40000
     #particle.behaviours.push new Wander 0.4
+    particle.behaviours.push attraction[i]
+    particle.moveTo position[i]
     #particle.behaviours.push jiffyLube[i]
     #particle.behaviours.push bounds
-    particle.moveTo position[i]
-    particle.behaviours.push collision
+    #particle.moveTo position[i]
+    #particle.behaviours.push collision
     #if particle.id is 'p1'
     #  particle.mass = 1000
     #  particle.pos.set()
@@ -173,10 +175,25 @@
     #particle.behaviours.push new ConstantForce(new Vector(100,100))
       #particle.moveTo(new Vector(600,600))
 
-    #Spring
-    #spring = new Spring(origin,particle,100,1.0)
-    collision.pool.push particle
+    #log particle
+    spring = new Spring(anchor, particle, 10, 0.1)
+    physics.springs.push spring
+
+    #Add particles to collision pool
+    #collision.pool.push particle
 
     #physics.particles.push origin
+    #Add particles and springs to physics world
     physics.particles.push particle
-    #physics.springs.push spring
+
+  #Render Springs
+  @canvas = $('#canvas')[0]
+  canvas.width = Session.get('windowWidth')
+  canvas.height = Session.get('windowHeight') - 80
+  @ctx = canvas.getContext('2d')
+  ctx.strokeStyle = 'rgba(255,255,255,0.5)'
+  #ctx.beginPath()
+  #for s in physics.springs
+  #  ctx.moveTo(s.p1.pos.x, s.p1.pos.y)
+  #  ctx.lineTo(s.p2.pos.x, s.p2.pos.y)
+  #ctx.stroke()

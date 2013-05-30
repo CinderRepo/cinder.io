@@ -27,7 +27,7 @@ class CollisionDemo extends Demo
 
             # Connect to spring or move free.
             if Random.bool prob
-                s = new Spring @mouse, p, (Random 120, 180), 0.8
+                s = new Spring @mouse, p, 180, 0.8
                 @physics.springs.push s
             else
                 p.behaviours.push attraction
