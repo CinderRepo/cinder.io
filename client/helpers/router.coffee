@@ -47,15 +47,33 @@ Meteor.Router.add
     to: "main"
     and: () ->
       log '/'
-  "/:_preview":
+      Session.set('appState','browse')
+      Session.set('activeTile',undefined)
+  "/:_gameId":
     to: "main"
-    and: (preview) ->
+    and: (gameId) ->
       log 'VIEWING PREVIEW STATE'
-      log preview
+      #log preview
       if Session.equals('appState',undefined)
         Session.set('appState','preview')
+      if Session.equals('activeTile',undefined)
+        Session.set('activeTile',gameId)
+  "/:_gameId/view":
+    to: "main"
+    and: (gameId) ->
+      log 'VIEWING VIEW STATE'
       if Session.equals('appState',undefined)
-        Session.set('activeTile',preview)
+        Session.set('appState','view')
+      if Session.equals('activeTile',undefined)
+        Session.set('activeTile',gameId)
+  "/:_gameId/view/game":
+    to: "main"
+    and: (gameId) ->
+      log 'VIEWING GAME STATE'
+      if Session.equals('appState',undefined)
+        Session.set('appState','play')
+      if Session.equals('activeTile',undefined)
+        Session.set('activeTile',gameId)
   "*":
     to: "main"
     and: () ->

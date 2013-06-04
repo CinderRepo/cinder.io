@@ -14,7 +14,10 @@ Template.dualButton.events
 			#Exit Game Here
 			Session.set('appState','view')
 		else
-			Session.set('modalState',state)
+			if Session.equals('modalState',state)
+				Session.set('modalState',undefined)
+			else
+				Session.set('modalState',state)
 
 Template.dualButton.preserve({
 	'.dualButtonWrapper'

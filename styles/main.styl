@@ -2,26 +2,30 @@
 @import 'palette'
 
 //Main Styles
+#perspectiveWrapper
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	perspective 0
+	transform-style flat
+	transform translateZ(-999999px)
+	perspective-origin 50% 50%
+	backface-visiblity hidden
 #paneWrapper
 	position absolute
-	top 60px
+	top 80px
 	right 0
 	bottom 0
 	left 0
 	transition top slowSpeed, opacity slowSpeed, transform slowSpeed
-	background darkestGrey
+	//background darkestGrey
 	perspective 100
+	pointer-events none
 	//transform scale3d(1,1,1)
 
 //Modal States
-#paneWrapper[data-modal="login"]
-	top 280px
-#paneWrapper[data-modal="signup"]
-	top 280px
-#paneWrapper[data-modal="settings"]
-	top 280px
-#paneWrapper[data-modal="add"]
-	top 280px
 .pane
 	position absolute
 	top 0
@@ -32,13 +36,13 @@
 //Tiles Styles
 .tilesBackground
 	position absolute
-	top 20px
-	right 0
+	top 400px
+	right 20px
 	bottom 0
-	left 0
-	background darkestGrey
+	left 20px
 	transition opacity slowSpeed, transform slowSpeed
 	transform scale3d(1,1,1)
+	background clouds
 #paneWrapper[data-state="play"] .tilesBackground
 	opacity 0
 	transform scale3d(0,0,0)
@@ -59,7 +63,7 @@
 //Game Player Styles
 #gamePlayer
 	position absolute
-	top 20px
+	top 0
 	right 0
 	bottom 0
 	left 0
@@ -75,6 +79,8 @@
 	position absolute
 	top 0
 	left 0
+	pointer-events none
+	z-index 100
 	//height 100%
 	//width 100%
 	//right 0
@@ -87,3 +93,135 @@
 	//height 50%
 #canvas::selection
 	background transparent
+
+//Masthead
+#masthead
+	position fixed
+	top 80px
+	right 0
+	left 0
+	height 400px
+	z-index 100
+	border-bottom 20px solid clouds
+	background clouds
+#activeGame
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	background-size cover
+	background-position 50% 50%
+#activeGame:after
+	content ''
+	position absolute
+	top 0
+	right -10px
+	bottom 0
+	left -10px
+	box-shadow inset 0 0 3px 0 midnightBlue
+#activeGameName
+	position absolute
+	top 20px
+	left 20px
+	color clouds
+	font-size 48px
+	text-shadow 0 2px 2px midnightBlue
+.button[data-state="view"]
+	position absolute
+	height 40px
+	line-height 40px
+	width 150px
+	right 20px
+	bottom 20px
+	z-index 99
+	color clouds
+.button[data-state="play"]
+	position absolute
+	top 30px
+	left 50%
+	margin-left -25px
+	width 50px
+	min-height 50px
+	border-radius 50px
+	line-height 50px
+	background rgba(0,0,0,0.4)
+	z-index 99
+#controls
+	width 190px
+	height 40px
+	position absolute
+	bottom -10px
+	left 50%
+	margin-left -95px
+	display none
+.control
+	float left
+	margin 5px 10px 0 0
+.control:last-child
+	margin-right 0
+
+//Genre Styles
+#activeGame[data-genre="Free to Play"] .button,
+#activeGame[data-genre="Free to Play"] .buttonText
+	background turquoise
+#activeGame[data-genre="Platformer"] .button,
+#activeGame[data-genre="Platformer"] .buttonText
+	background emerland
+#activeGame[data-genre="Action"] .button,
+#activeGame[data-genre="Action"] .buttonText
+	background peterRiver
+#activeGame[data-genre="Adventure"] .button,
+#activeGame[data-genre="Adventure"] .buttonText
+	background amethyst
+#activeGame[data-genre="Strategy"] .button,
+#activeGame[data-genre="Strategy"] .buttonText,
+	background wetAsphalt
+#activeGame[data-genre="Role Playing"] .button,
+#activeGame[data-genre="Role Playing"] .buttonText
+	background sunFlower
+#activeGame[data-genre="Massively Multiplayer"] .button,
+#activeGame[data-genre="Massively Multiplayer"] .buttonText
+	background carrot
+#activeGame[data-genre="Simulation"] .button,
+#activeGame[data-genre="Simulation"] .buttonText
+	background alizarin
+#activeGame[data-genre="Puzzle"] .button,
+#activeGame[data-genre="Puzzle"] .buttonText
+	background clouds
+#activeGame[data-genre="Sports"] .button,
+#activeGame[data-genre="Sports"] .buttonText
+	background concrete
+
+
+//Genre Styles - Shadow
+#activeGame[data-genre="Free to Play"] .button:after
+	background greenSea
+#activeGame[data-genre="Platformer"] .button:after
+	background nephritis
+#activeGame[data-genre="Action"] .button:after
+	background belizeHole
+#activeGame[data-genre="Adventure"] .button:after
+	background wisteria
+#activeGame[data-genre="Strategy"] .button:after
+	background midnightBlue
+#activeGame[data-genre="Role Playing"] .button:after
+	background orange
+#activeGame[data-genre="Massively Multiplayer"] .button:after
+	background pumpkin
+#activeGame[data-genre="Simulation"] .button:after
+	background pomegranate
+#activeGame[data-genre="Puzzle"] .button:after
+	background silver
+#activeGame[data-genre="Sports"] .button:after
+	background asbestos
+
+//Messages Styles
+#messages
+	position fixed
+	top 480px
+	right 0
+	bottom 0
+	left 0
+	background clouds
+	color midnightBlue

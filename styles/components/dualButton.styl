@@ -5,25 +5,33 @@
 .dualButtonWrapper
 	height 40px
 	width 200px
-	background darkGrey
+	background alizarin
 	border-radius 3px
-	color offWhite
+	color clouds
 	text-align center
 	line-height 40px
-.dualButton.active
-	background lightGrey
-	color shadow
+.dualButtonWrapper:after
+	content ''
+	background pomegranate
+	border-radius 3px
+	position absolute
+	top 0
+	right 0
+	bottom -3px
+	left 0
+	z-index -1
 .dualButton.left
 	position absolute
 	top 0
 	bottom 0
 	left 0
 	width 100px
-	background darkGrey
-	border-right 1px solid shadow
+	background alizarin
+	//border-right 1px solid pomegranate
 	border-top-left-radius 3px
 	border-bottom-left-radius 3px
 	cursor pointer
+	padding 0 5px 0 0
 .dualButtonMiddle
 	position absolute
 	top 5px
@@ -31,10 +39,10 @@
 	margin-left -15px
 	width 30px
 	height 30px
-	background grey
+	background pomegranate
 	border-radius 30px
 	z-index 1
-	border 1px solid darkerGrey
+	//border 1px solid darkerGrey
 	pointer-events none
 	line-height 30px
 .dualButton.right
@@ -43,21 +51,9 @@
 	right 0
 	bottom 0
 	width 100px
-	background darkGrey
-	border-left 1px solid lightGrey
+	background alizarin
+	//border-left 1px solid lightGrey
 	border-top-right-radius 3px
 	border-bottom-right-radius 3px
 	cursor pointer
-
-//Temp styles to be deleted
-.dualButtonMiddle,
-.dualButton.right
-	display none
-.dualButtonWrapper
-	width 100px
-.dualButton.left
-	width 100px
-	border-right none
-	border-radius 3px
-.nav .dualButtonWrapper
-	margin-left -50px!important
+	padding 0 0 0 10px

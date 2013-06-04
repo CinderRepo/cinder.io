@@ -51,62 +51,63 @@ class @Vector
   @project: (v1, v2) ->
     v1.clone().scale ((v1.dot v2) / v1.magSq())
   #Creates a new Vector instance.
-  constructor: (@x = 0.0, @y = 0.0) ->
+  constructor: (@x = 0.0, @y = 0.0, @z = 0.0) ->
   #Sets the components of this vector.
-  set: (@x, @y) ->
+  set: (@x, @y, @z) ->
     @
   #Add a vector to this one.
   add: (v) ->
-    @x += v.x; @y += v.y; @
+    @x += v.x; @y += v.y; @z += v.z; @
   #Subtracts a vector from this one.
   sub: (v) ->
-    @x -= v.x; @y -= v.y; @
+    @x -= v.x; @y -= v.y; @z -= v.z; @
   #Scales this vector by a value.
   scale: (f) ->
-    @x *= f; @y *= f; @
+    @x *= f; @y *= f; @z *= f; @
   #Computes the dot product between vectors.
   dot: (v) ->
-    @x * v.x + @y * v.y
+    @x * v.x + @y * v.y + @z * v.z
   #Computes the cross product between vectors.
   cross: (v) ->
-    (@x * v.y) - (@y * v.x)
+    (@x * v.y) - (@y * v.x) - (@z * v.z)
   #Computes the magnitude (length).
   mag: ->
-    Math.sqrt @x*@x + @y*@y
+    Math.sqrt @x*@x + @y*@y + @z*@z
   #Computes the squared magnitude (length).
   magSq: ->
-    @x*@x + @y*@y
+    @x*@x + @y*@y + @z*@z
   #Computes the distance to another vector.
   dist: (v) ->
-    dx = v.x - @x; dy = v.y - @y
-    Math.sqrt dx*dx + dy*dy
+    dx = v.x - @x; dy = v.y - @y; dz = v.z - @z
+    Math.sqrt dx*dx + dy*dy + dz*dz
   #Computes the squared distance to another vector.
   distSq: (v) ->
-    dx = v.x - @x; dy = v.y - @y
-    dx*dx + dy*dy
+    dx = v.x - @x; dy = v.y - @y; dz = v.z - @z
+    dx*dx + dy*dy + dz*dz
   #Normalises the vector, making it a unit vector (of length 1).
   norm: ->
-    m = Math.sqrt @x*@x + @y*@y
+    m = Math.sqrt @x*@x + @y*@y + @z*@z
     @x /= m
     @y /= m
+    @z /= m
     @
   #Limits the vector length to a given amount.
   limit: (l) ->
-    mSq = @x*@x + @y*@y
+    mSq = @x*@x + @y*@y + @z*@z
     if mSq > l*l
       m = Math.sqrt mSq
-      @x /= m; @y /= m
-      @x *= l; @y *= l
+      @x /= m; @y /= m; @z /= m
+      @x *= l; @y *= l; @z *= l
       @
   #Copies components from another vector.
   copy: (v) ->
-    @x = v.x; @y = v.y; @
+    @x = v.x; @y = v.y; @z = v.z; @
   #Clones this vector to a new itentical one.
   clone: ->
-    new Vector @x, @y
+    new Vector @x, @y, @z
   #Resets the vector to zero.
   clear: ->
-    @x = 0.0; @y = 0.0; @
+    @x = 0.0; @y = 0.0; @z = 0.0; @
 
 ###INTEGRATOR###
 class @Integrator
@@ -261,6 +262,7 @@ class @Spring
   #F = -kx
   apply: ->
     (@_delta.copy @p2.pos).sub @p1.pos
+    #log (@_delta.copy @p2.pos).sub @p1.pos
     dist = @_delta.mag() + 0.000001
     force = (dist - @restLength) / (dist * (@p1.massInv + @p2.massInv)) * @stiffness
     if not @p1.fixed
@@ -559,15 +561,36 @@ class @EdgeBounce extends Behaviour
   constructor: (@min = new Vector(), @max = new Vector()) ->
     super
   apply: (p, dt, index) ->
+    #log @min
+    #log @max
     #super p, dt, index
-    if p.pos.x - p.radius < @min.x
+    ###if p.pos.x - p.radius < @min.x
       p.pos.x = @min.x + p.radius
     else if p.pos.x + p.radius > @max.x
       p.pos.x = @max.x - p.radius
     if p.pos.y - p.radius < @min.y
       p.pos.y = @min.y + p.radius
     else if p.pos.y + p.radius > @max.y
-      p.pos.y = @max.y - p.radius
+      p.pos.y = @max.y - p.radius###
+    if p.pos.z + p.radius < @min.z
+      log 'EXITING ZDEPTH MIN BOUNDS'
+      #log 'p.pos.z: ' + p.pos.z
+      #log '@min.z: ' + @min.z
+      #p.acc.clear()
+      #p.vel.clear()
+      p.pos.z = @min.z
+      #diff = p.pos.z - @min.z
+      #p.pos.z = p.pos.z
+    else if p.pos.z - p.radius > @max.z
+      log 'EXITING ZDEPTH MAX BOUNDS'
+      #log 'p.pos.z: ' + p.pos.z
+      #log '@max.z: ' + @max.z
+      #p.acc.clear()
+      #p.vel.clear()
+      #p.pos.z = @max.z
+      #Get the position difference
+      #diff = p.pos.z - @max.z
+      #p.pos.z = p.pos.z
 
 ###BEHAVIOUR - EDGE WRAP###
 class @EdgeWrap extends Behaviour

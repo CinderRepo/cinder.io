@@ -4,19 +4,35 @@
 //Button Styles
 .button
 	display inline-block
-	min-height 30px
 	height 30px
 	line-height 30px
-	max-height 30px
-	min-width 30px
+	width 30px
 	text-align center
-	background darkGrey
-	color offWhite
+	background clouds
+	color midnightBlue
 	border-radius 3px
 	cursor pointer
 	border none
 	margin 0
-
+	position relative
+.button:after
+	content ''
+	background silver
+	border-radius 3px
+	position absolute
+	top 0
+	right 0
+	bottom -3px
+	left 0
+	z-index -1
+.buttonText
+	background clouds
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-radius 3px
 //Button States
 .button.muted
 	opacity 0.4

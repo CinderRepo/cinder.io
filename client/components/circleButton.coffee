@@ -13,10 +13,13 @@ Template.circleButton.events
 		else if this.state is 'exit'
 			Session.set('appState','preview')
 		else
-			Session.set('modalState',this.state)
+			if Session.equals('modalState',this.state)
+				Session.set('modalState',undefined)
+			else
+				Session.set('modalState',this.state)
 
 Template.circleButton.preserve({
-	'.circleButton'	
+	'.circleButton'
 })
 
 @showModal = (state) ->

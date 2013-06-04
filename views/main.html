@@ -1,20 +1,45 @@
 <template name="main">
 	{{>nav}}
-	<div id="paneWrapper">
-		<div id="gamePlayer">
-		{{#isolate}}
-		{{#with activeGame}}
-			<iframe id="gamePlayerContent" src="{{gameSrc}}"></iframe>
-		{{/with}}
-		{{/isolate}}
-		</div>
-		<div class="tilesBackground">
-			<div id="tiles" class="tilesContainer">
-				<canvas id="canvas"></canvas>
-				{{#each games}}
-					{{>tile}}
-				{{/each}}
+	<div id="masthead">
+	{{#isolate}}
+	{{#with viewing}}
+	<div id="activeGame" data-genre="{{genre}}" style="background-image: url('{{previewSrc}}');">
+		<h1 id="activeGameName">{{#if featured}}Community's Choice: {{/if}}{{name}}</h1>
+		{{>button view}}
+	</div>
+	<ul id="controls">
+		<li class="control">{{>circleButton}}</li>
+		<li class="control">{{>circleButton}}</li>
+		<li class="control">{{>circleButton}}</li>
+		<li class="control">{{>circleButton}}</li>
+		<li class="control">{{>circleButton}}</li>
+	</ul>
+	{{/with}}
+	{{/isolate}}
+	</div>
+	<div id="perspectiveWrapper">
+		<div id="paneWrapper">
+			<div id="gamePlayer">
+			{{#isolate}}
+			{{#with activeGame}}
+				<iframe id="gamePlayerContent" src="{{gameSrc}}"></iframe>
+			{{/with}}
+			{{/isolate}}
+			</div>
+			<div class="tilesBackground">
+				<div id="tiles" class="tilesContainer">
+					{{#each games}}
+						{{>tile}}
+					{{/each}}
+				</div>
 			</div>
 		</div>
 	</div>
+	{{#isolate}}
+	{{#with viewing}}
+	<div id="messages">
+		HELLO HELLO
+	</div>
+	{{/with}}
+	{{/isolate}}
 </template>

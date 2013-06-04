@@ -1,199 +1,400 @@
 @initPhysics = () ->
-  log 'initPhysics'
-  @physics = new Physics()
-  renderTime = 0
-  counter = 0
+    log 'initPhysics'
+    @physics = new Physics()
+    renderTime = 0
+    counter = 0
 
-  min = new Vector(0.0,0.0)
-  max = new Vector(Session.get('windowWidth'),Session.get('windowHeight'))
+    #Column Layout Positions
+    @oneColumnPos = [
+        new Vector(0,0,0)
+        new Vector(0,385,0)
+        new Vector(0,770,0)
+        new Vector(0,1155,0)
+        new Vector(0,1540,0)
+        new Vector(0,1925,0)
+        new Vector(0,2310,0)
+        new Vector(0,2695,0)
+        new Vector(0,3080,0)
+        new Vector(0,3465,0)
+        new Vector(0,3850,0)
+        new Vector(0,4235,0)
+        new Vector(0,4620,0)
+        new Vector(0,5005,0)
+        new Vector(0,5390,0)
+        new Vector(0,5775,0)
+        new Vector(0,6160,0)
+        new Vector(0,6545,0)
+        new Vector(0,6930,0)
+        new Vector(0,7315,0)
+        new Vector(0,7700,0)
+        new Vector(0,8085,0)
+        new Vector(0,8470,0)
+        new Vector(0,8855,0)
+        new Vector(0,9240,0)
+        new Vector(0,9625,0)
+        new Vector(0,10010,0)
+        new Vector(0,10395,0)
+    ]
+    @twoColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(0,1540,0)
+        new Vector(400,1540,0)
+        new Vector(0,1925,0)
+        new Vector(400,1925,0)
+        new Vector(0,2310,0)
+        new Vector(400,2310,0)
+        new Vector(0,2695,0)
+        new Vector(400,2695,0)
+        new Vector(0,3080,0)
+        new Vector(400,3080,0)
+        new Vector(0,3465,0)
+        new Vector(400,3465,0)
+        new Vector(0,3850,0)
+        new Vector(400,3850,0)
+        new Vector(0,4235,0)
+        new Vector(400,4235,0)
+        new Vector(0,4620,0)
+        new Vector(400,4620,0)
+        new Vector(0,5005,0)
+        new Vector(400,5005,0)
+    ]
+    @threeColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(0,1540,0)
+        new Vector(400,1540,0)
+        new Vector(800,1540,0)
+        new Vector(0,1925,0)
+        new Vector(400,1925,0)
+        new Vector(800,1925,0)
+        new Vector(0,2310,0)
+        new Vector(400,2310,0)
+        new Vector(800,2310,0)
+        new Vector(0,2695,0)
+        new Vector(400,2695,0)
+        new Vector(800,2695,0)
+        new Vector(0,3080,0)
+        new Vector(400,3080,0)
+        new Vector(800,3080,0)
+        new Vector(0,3465,0)
+        new Vector(400,3465,0)
+        new Vector(800,3465,0)
+    ]
+    @fourColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(1200,1155,0)
+        new Vector(0,1540,0)
+        new Vector(400,1540,0)
+        new Vector(800,1540,0)
+        new Vector(1200,1540,0)
+        new Vector(0,1925,0)
+        new Vector(400,1925,0)
+        new Vector(800,1925,0)
+        new Vector(1200,1925,0)
+        new Vector(0,2310,0)
+        new Vector(400,2310,0)
+        new Vector(800,2310,0)
+        new Vector(1200,2310,0)
+    ]
+    @fiveColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(1200,1155,0)
+        new Vector(1600,1155,0)
+        new Vector(0,1540,0)
+        new Vector(400,1540,0)
+        new Vector(800,1540,0)
+        new Vector(1200,1540,0)
+        new Vector(1600,1540,0)
+        new Vector(0,1925,0)
+        new Vector(400,1925,0)
+        new Vector(800,1925,0)
+    ]
+    @sixColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(2000,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(2000,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(2000,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(1200,1155,0)
+        new Vector(1600,1155,0)
+        new Vector(2000,1155,0)
+        new Vector(0,1540,0)
+        new Vector(400,1540,0)
+        new Vector(800,1540,0)
+        new Vector(1200,1540,0)
+    ]
+    @sevenColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(2000,0,0)
+        new Vector(2400,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(2000,385,0)
+        new Vector(2400,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(2000,770,0)
+        new Vector(2400,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(1200,1155,0)
+        new Vector(1600,1155,0)
+        new Vector(2000,1155,0)
+        new Vector(2400,1155,0)
+    ]
+    @eightColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(2000,0,0)
+        new Vector(2400,0,0)
+        new Vector(2800,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(2000,385,0)
+        new Vector(2400,385,0)
+        new Vector(2800,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(2000,770,0)
+        new Vector(2400,770,0)
+        new Vector(2800,770,0)
+        new Vector(0,1155,0)
+        new Vector(400,1155,0)
+        new Vector(800,1155,0)
+        new Vector(1200,1155,0)
+    ]
+    @nineColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(2000,0,0)
+        new Vector(2400,0,0)
+        new Vector(2800,0,0)
+        new Vector(3200,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(2000,385,0)
+        new Vector(2400,385,0)
+        new Vector(2800,385,0)
+        new Vector(3200,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(2000,770,0)
+        new Vector(2400,770,0)
+        new Vector(2800,770,0)
+        new Vector(3200,770,0)
+        new Vector(0,1155,0)
+    ]
+    @tenColumnPos = [
+        new Vector(0,0,0)
+        new Vector(400,0,0)
+        new Vector(800,0,0)
+        new Vector(1200,0,0)
+        new Vector(1600,0,0)
+        new Vector(2000,0,0)
+        new Vector(2400,0,0)
+        new Vector(2800,0,0)
+        new Vector(3200,0,0)
+        new Vector(3600,0,0)
+        new Vector(0,385,0)
+        new Vector(400,385,0)
+        new Vector(800,385,0)
+        new Vector(1200,385,0)
+        new Vector(1600,385,0)
+        new Vector(2000,385,0)
+        new Vector(2400,385,0)
+        new Vector(2800,385,0)
+        new Vector(3200,385,0)
+        new Vector(3600,385,0)
+        new Vector(0,770,0)
+        new Vector(400,770,0)
+        new Vector(800,770,0)
+        new Vector(1200,770,0)
+        new Vector(1600,770,0)
+        new Vector(2000,770,0)
+        new Vector(2400,770,0)
+        new Vector(3200,770,0)
+    ]
 
-  #Set Physics Properties
-  physics.integrator = new Verlet()
-  collision = new Collision()
-  bounds = new EdgeBounce min, max
+    #Set Physics Properties
+    physics.integrator = new Verlet()
+    collision = new Collision()
+    columnWidth = Session.get('columnWidth')
+    columnCount = Session.get('columnCount')
+    log columnWidth
 
-  attraction = [
-    new Attraction(new Vector(1,1),4000,400)
-    new Attraction(new Vector(400,0),4000,400)
-    new Attraction(new Vector(800,0),4000,400)
-    new Attraction(new Vector(1200,0),4000,400)
-    new Attraction(new Vector(1600,0),4000,400)
-    new Attraction(new Vector(0,150),4000,400)
-    new Attraction(new Vector(400,150),4000,400)
-    new Attraction(new Vector(800,150),4000,400)
-    new Attraction(new Vector(1200,150),4000,400)
-    new Attraction(new Vector(1600,150),4000,400)
-    new Attraction(new Vector(0,300),4000,400)
-    new Attraction(new Vector(400,300),4000,400)
-    new Attraction(new Vector(800,300),4000,400)
-    new Attraction(new Vector(1200,300),4000,400)
-    new Attraction(new Vector(1600,300),4000,400)
-    new Attraction(new Vector(0,450),4000,400)
-    new Attraction(new Vector(400,450),4000,400)
-    new Attraction(new Vector(800,450),4000,400)
-    new Attraction(new Vector(1200,450),4000,400)
-    new Attraction(new Vector(1600,450),4000,400)
-    new Attraction(new Vector(0,600),4000,400)
-    new Attraction(new Vector(400,600),4000,400)
-    new Attraction(new Vector(800,600),4000,400)
-    new Attraction(new Vector(1200,600),4000,400)
-    new Attraction(new Vector(1600,600),4000,400)
-    new Attraction(new Vector(0,750),4000,400)
-    new Attraction(new Vector(400,750),4000,400)
-    new Attraction(new Vector(800,750),4000,400)
-  ]
+    collision = new RigidCollision()
 
-  magnet = [
-    new Magnet(new Vector(0,0),4000,400)
-    new Magnet(new Vector(400,0),4000,400)
-    new Magnet(new Vector(800,0),4000,400)
-    new Magnet(new Vector(1200,0),4000,400)
-    new Magnet(new Vector(1600,0),4000,400)
-    new Magnet(new Vector(0,150),4000,400)
-    new Magnet(new Vector(400,150),4000,400)
-    new Magnet(new Vector(800,150),4000,400)
-    new Magnet(new Vector(1200,150),4000,400)
-    new Magnet(new Vector(1600,150),4000,400)
-    new Magnet(new Vector(0,300),4000,400)
-    new Magnet(new Vector(400,300),4000,400)
-    new Magnet(new Vector(800,300),4000,400)
-    new Magnet(new Vector(1200,300),4000,400)
-    new Magnet(new Vector(1600,300),4000,400)
-    new Magnet(new Vector(0,450),4000,400)
-    new Magnet(new Vector(400,450),4000,400)
-    new Magnet(new Vector(800,450),4000,400)
-    new Magnet(new Vector(1200,450),4000,400)
-    new Magnet(new Vector(1600,450),4000,400)
-    new Magnet(new Vector(0,600),4000,400)
-    new Magnet(new Vector(400,600),4000,400)
-    new Magnet(new Vector(800,600),4000,400)
-    new Magnet(new Vector(1200,600),4000,400)
-    new Magnet(new Vector(1600,600),4000,400)
-    new Magnet(new Vector(0,750),4000,400)
-    new Magnet(new Vector(400,750),4000,400)
-    new Magnet(new Vector(800,750),4000,400)
-  ]
+    #Tile Physics
+    tileWrapperCount = 28
+    for i in [0...tileWrapperCount]
+        log 'Pushing particles'
 
-  jiffyLube = [
-    new JiffyLube(new Vector(0,0),4000,400)
-    new JiffyLube(new Vector(400,0),4000,400)
-    new JiffyLube(new Vector(800,0),4000,400)
-    new JiffyLube(new Vector(1200,0),4000,400)
-    new JiffyLube(new Vector(1600,0),4000,400)
-    new JiffyLube(new Vector(0,150),4000,400)
-    new JiffyLube(new Vector(400,150),4000,400)
-    new JiffyLube(new Vector(800,150),4000,400)
-    new JiffyLube(new Vector(1200,150),4000,400)
-    new JiffyLube(new Vector(1600,150),4000,400)
-    new JiffyLube(new Vector(0,300),4000,400)
-    new JiffyLube(new Vector(400,300),4000,400)
-    new JiffyLube(new Vector(800,300),4000,400)
-    new JiffyLube(new Vector(1200,300),4000,400)
-    new JiffyLube(new Vector(1600,300),4000,400)
-    new JiffyLube(new Vector(0,450),4000,400)
-    new JiffyLube(new Vector(400,450),4000,400)
-    new JiffyLube(new Vector(800,450),4000,400)
-    new JiffyLube(new Vector(1200,450),4000,400)
-    new JiffyLube(new Vector(1600,450),4000,400)
-    new JiffyLube(new Vector(0,600),4000,400)
-    new JiffyLube(new Vector(400,600),4000,400)
-    new JiffyLube(new Vector(800,600),4000,400)
-    new JiffyLube(new Vector(1200,600),4000,400)
-    new JiffyLube(new Vector(1600,600),4000,400)
-    new JiffyLube(new Vector(0,750),4000,400)
-    new JiffyLube(new Vector(400,750),4000,400)
-    new JiffyLube(new Vector(800,750),4000,400)
-  ]
+        #Anchors
+        anchor = new Particle()
+        anchor.fixed = true
 
-  position = [
-    new Vector(0,0)
-    new Vector(400,0)
-    new Vector(800,0)
-    new Vector(1200,0)
-    new Vector(1600,0)
-    new Vector(0,150)
-    new Vector(400,150)
-    new Vector(800,150)
-    new Vector(1200,150)
-    new Vector(1600,150)
-    new Vector(0,300)
-    new Vector(400,300)
-    new Vector(800,300)
-    new Vector(1200,300)
-    new Vector(1600,300)
-    new Vector(0,450)
-    new Vector(400,450)
-    new Vector(800,450)
-    new Vector(1200,450)
-    new Vector(1600,450)
-    new Vector(0,600)
-    new Vector(400,600)
-    new Vector(800,600)
-    new Vector(1200,600)
-    new Vector(1600,600)
-    new Vector(0,750)
-    new Vector(400,750)
-    new Vector(800,750)
-  ]
+        #Particle
+        particle = new Particle()
+        particle.mass = 400
+        particle.element = '.tileWrapper' + i
 
-  #log attraction
-  collision = new RigidCollision()
+        #Position particles based on layout
+        switch columnCount
+            when 1
+                particle.moveTo oneColumnPos[i]
+            when 2
+                particle.moveTo twoColumnPos[i]
+            when 3
+                particle.moveTo threeColumnPos[i]
+            when 4
+                particle.moveTo fourColumnPos[i]
+            when 5
+                particle.moveTo fiveColumnPos[i]
+            when 6
+                particle.moveTo sixColumnPos[i]
+            when 7
+                particle.moveTo sevenColumnPos[i]
+            when 8
+                particle.moveTo eightColumnPos[i]
+            when 9
+                particle.moveTo nineColumnPos[i]
+            when 10
+                particle.moveTo tenColumnPos[i]
+            else
+                log 'Column Layout Error'
 
-  #Render Code
-  log 'Physics loop'
+        #log particle
+        #spring = new Spring(anchor, particle, 0, 0.5)
+        #physics.springs.push spring
 
-  #Tile Physics
-  tileWrapperCount = 28
-  for i in [0...tileWrapperCount]
-    log 'Pushing particles'
+        #Screen Attraction - The Z Value is set by the client upon initialization
+        #screenAttraction = new Attraction(new Vector(Session.get('windowWidth')/2,Session.get('windowHeight')/2,0),100000,0)
 
-    #Springs
-    anchor = new Particle()
-    anchor.moveTo position[i]
-    #physics.particles.push anchor
+        #Constant force to push the element forward
+        #force = new ConstantForce(new Vector(0,0,0))
+        #particle.behaviours.push force
 
-    #Origin
-    #origin = new Particle()
-    #origin.moveTo(new Vector(400,200))
+        #screenAttraction = new Attraction(new Vector(0,0,40),10000000000,0)
+        #particle.behaviours.push screenAttraction
 
-    #Particle
-    particle = new Particle()
-    particle.size = new Vector(400,150)
-    #particle.setRadius particle.mass * 4
-    #particle.mass = 40000
-    #particle.behaviours.push new Wander 0.4
-    particle.behaviours.push attraction[i]
-    particle.moveTo position[i]
-    #particle.behaviours.push jiffyLube[i]
-    #particle.behaviours.push bounds
-    #particle.moveTo position[i]
-    #particle.behaviours.push collision
-    #if particle.id is 'p1'
-    #  particle.mass = 1000
-    #  particle.pos.set()
-    #particle.moveTo(position[i])
-    #particle.behaviours.push new ConstantForce(new Vector(100,100))
-      #particle.moveTo(new Vector(600,600))
+        #Bottom Attraction
+        #bottomAttraction = new Attraction(new Vector(100,100,100),4000,1000)
+        #particle.behaviours.push bottomAttraction
 
-    #log particle
-    spring = new Spring(anchor, particle, 10, 0.1)
-    physics.springs.push spring
+        #Bounds Collision
+        #min = new Vector(0,0,-10)
+        #max = new Vector(Session.get('windowWidth'),Session.get('windowHeight'),30)
 
-    #Add particles to collision pool
-    #collision.pool.push particle
+        #bounds = new EdgeBounce min, max
+        #particle.behaviours.push bounds
 
-    #physics.particles.push origin
-    #Add particles and springs to physics world
-    physics.particles.push particle
+        #Repulse Attraction
+        #repulseAttraction = new Attraction(new Vector(Session.get('windowWidth')/2,Session.get('windowHeight')/2,0),4000,0)
+        #particle.behaviours.push repulseAttraction
 
-  #Render Springs
-  @canvas = $('#canvas')[0]
-  canvas.width = Session.get('windowWidth')
-  canvas.height = Session.get('windowHeight') - 80
-  @ctx = canvas.getContext('2d')
-  ctx.strokeStyle = 'rgba(255,255,255,0.5)'
-  #ctx.beginPath()
-  #for s in physics.springs
-  #  ctx.moveTo(s.p1.pos.x, s.p1.pos.y)
-  #  ctx.lineTo(s.p2.pos.x, s.p2.pos.y)
-  #ctx.stroke()
+        #Mouse Attraction
+        #mouseAttraction = new Attraction(new Vector(0,0,0),4000,0)
+        #particle.behaviours.push mouseAttraction
+
+        #Add particles and springs to physics world
+        physics.particles.push particle
+
+    #Render Springs
+    #@canvas = $('#canvas')[0]
+    #canvas.width = Session.get('windowWidth')
+    #canvas.height = Session.get('windowHeight') - 80
+    #@ctx = canvas.getContext('2d')
+    #ctx.strokeStyle = 'red'

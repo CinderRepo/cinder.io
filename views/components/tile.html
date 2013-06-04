@@ -1,14 +1,9 @@
 <template name="tile">
-	<div id="{{_id}}" class="tileWrapper {{expanded}}" data-state="{{state}}">
+	<div id="{{_id}}" class="tileWrapper {{expanded}}" data-state="{{state}}" data-genre="{{genre}}" draggable="true">
 		{{#isolate}}
 		<div class="tile" data-href="{{_id}}">
-			<div class="tileContent" style="background-image: url('{{previewSrc}}');">
-				{{#if viewing}}
-					{{>button play}}
-				{{/if}}
-				{{>button view}}
-				<div class="tileInfo">{{name}}</div>
-			</div>
+			<div class="tileContent" style="background-image: url('{{previewSrc}}');"></div>
+			<div class="tileInfo">{{name}}</div>
 		</div>
 		{{#if viewing}}
 			{{>messages}}

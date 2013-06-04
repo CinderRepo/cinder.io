@@ -5,51 +5,33 @@
 .tileWrapper
 	-webkit-touch-callout none
 	-webkit-user-select none
-	//width 400px
-	position relative
 	position absolute
-	background transparent
-	//background pink
 	transition opacity slowSpeed
 	transform-style flat
 	backface-visiblity hidden
 	transform-origin center
 	width 400px
-	height 150px
-	//border-radius 5px
-	overflow hidden
+	height 360px
 	opacity 1
 	z-index 99
-.tileWrapper.preview[data-state="expanded"]
-	opacity 1
-	//height 280px
-	//height 400px
-.tileWrapper[data-state="expanded"] .tileContent
-	margin 10px -10px 0 -10px
-.tileWrapper[data-state="collapsed"]
-	height 150px
-/*.tileWrapper[data-state="hidden"]
-	opacity 0
-	height 0
-	overflow hidden
-	pointer-events none*/
-.tileWrapper.preview
-	opacity 1
-	//width 100%
-	//height 300px
-	z-index 2
-.tileWrapper.preview .tileContent
-	//height 280px
-	opacity 1
-	margin 0
 .tile
-	width 100%
-	height 100%
+	height 360px
+	position relative
+	margin 10px
+	background alizarin
+	border-radius 3px
+.tile:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom -5px
+	left 0
+	z-index -1
+	border-radius 3px
+	background alizarin
 .tileContent
-	//margin 10px
-	//margin 0 10px 0 10px
-	height 150px
-	//border-radius 5px
+	height 300px
 	overflow hidden
 	cursor pointer
 	list-style none
@@ -57,65 +39,74 @@
 	background-size cover
 	background-position 50% 50%
 	position relative
-	box-shadow 0 0 2px darkShadow
-	//transition height slowSpeed, margin-right slowSpeed, margin-left slowSpeed
-.tileContent:after
-	content ''
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	border 1px solid rgba(255,255,255,0.1)
-	border-bottom 0
-	background-origin border-box
-	background linear-gradient(top left, 50% rgba(255,255,255,0.10), rgba(255,255,255,0))
-	//border-radius 5px
-.tileWrapper.preview .tileContent:after
-	content ''
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	//border 1px solid rgba(255,255,255,0.1)
-	border none
-	border-bottom 0
-	background-origin border-box
-	background transparent
-	//background linear-gradient(top left, 50% rgba(255,255,255,0.10), rgba(255,255,255,0))
+	z-index 1
+	pointer-events auto
+	border-top-left-radius 3px
+	border-top-right-radius 3px
 .tileInfo
 	position absolute
 	right 0
 	left 0
 	bottom 0
-	background-color rgba(0,0,0,0.45)
-	padding 10px
-	color white
-	line-height 15px
-	//border-bottom-left-radius 5px
-	//border-bottom-right-radius 5px
-.button[data-state="view"]
-	opacity 0
-	pointer-events none
-	transition opacity slowSpeed
-	position absolute
-	right 10px
-	bottom 45px
-	z-index 99
-.button[data-state="play"]
-	position absolute
-	top 30px
-	left 50%
-	margin-left -25px
-	width 50px
-	min-height 50px
-	border-radius 50px
-	line-height 50px
-	background rgba(0,0,0,0.4)
-	z-index 99
-.tileWrapper.preview[data-state="expanded"] .button[data-state="view"]
-	opacity 0
-.tileWrapper.preview .button[data-state="view"]
-	pointer-events auto
-	opacity 1
+	z-index 0
+	padding 0 20px 0 20px
+	line-height 60px
+	height 60px
+	font-size 24px
+	color clouds
+	border-bottom-left-radius 3px
+	border-bottom-right-radius 3px
+
+//Genre Color Styles
+.tileWrapper[data-genre="Free to Play"] .tile,
+.tileWrapper[data-genre="Free to Play"] .tileInfo
+	background turquoise
+.tileWrapper[data-genre="Platformer"] .tile,
+.tileWrapper[data-genre="Platformer"] .tileInfo
+	background emerland
+.tileWrapper[data-genre="Action"] .tile,
+.tileWrapper[data-genre="Action"] .tileInfo
+	background peterRiver
+.tileWrapper[data-genre="Adventure"] .tile,
+.tileWrapper[data-genre="Adventure"] .tileInfo
+	background amethyst
+.tileWrapper[data-genre="Strategy"] .tile,
+.tileWrapper[data-genre="Strategy"] .tileInfo
+	background wetAsphalt
+.tileWrapper[data-genre="Role Playing"] .tile,
+.tileWrapper[data-genre="Role Playing"] .tileInfo
+	background sunFlower
+.tileWrapper[data-genre="Massively Multiplayer"] .tile,
+.tileWrapper[data-genre="Massively Multiplayer"] .tileInfo
+	background carrot
+.tileWrapper[data-genre="Simulation"] .tile,
+.tileWrapper[data-genre="Simulation"] .tileInfo
+	background alizarin
+.tileWrapper[data-genre="Puzzle"] .tile,
+.tileWrapper[data-genre="Puzzle"] .tileInfo
+	background clouds
+.tileWrapper[data-genre="Sports"] .tile,
+.tileWrapper[data-genre="Sports"] .tileInfo
+	background concrete
+
+//Genre Color Button Backdrop Styles
+.tileWrapper[data-genre="Free to Play"] .tile:after
+	background greenSea
+.tileWrapper[data-genre="Platformer"] .tile:after
+	background nephritis
+.tileWrapper[data-genre="Action"] .tile:after
+	background belizeHole
+.tileWrapper[data-genre="Adventure"] .tile:after
+	background wisteria
+.tileWrapper[data-genre="Strategy"] .tile:after
+	background midnightBlue
+.tileWrapper[data-genre="Role Playing"] .tile:after
+	background orange
+.tileWrapper[data-genre="Massively Multiplayer"] .tile:after
+	background pumpkin
+.tileWrapper[data-genre="Simulation"] .tile:after
+	background pomegranate
+.tileWrapper[data-genre="Puzzle"] .tile:after
+	background silver
+.tileWrapper[data-genre="Sports"] .tile:after
+	background asbestos
