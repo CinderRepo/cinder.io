@@ -38,7 +38,10 @@
 	{{#isolate}}
 	{{#with viewing}}
 	<div id="messages">
-		HELLO HELLO
+		{{#each messages}}
+			{{>message}}
+		{{/each}}
+		{{>textEntryBox}}
 	</div>
 	{{/with}}
 	{{/isolate}}

@@ -91,6 +91,7 @@ calculateGrid = () ->
     tilesContainer.style.webkitTransform = inverseMatrix3d
   )
 
+#Calculate Column Count
 Deps.autorun(@calculateColumnCount = () ->
   columnCount = Math.round(Session.get('windowWidth')/tileWidth)
   #Reposition elements - we do this so aside from when a window is changing, we can actually use physics and don't have the
@@ -135,10 +136,28 @@ Deps.autorun(@calculateColumnCount = () ->
     Session.set('columnCount',columnCount)
 )
 
+#Calculate Column Widths
 Deps.autorun(@calculateColumnWidth = () ->
   columnWidth = Math.round(Session.get('windowWidth')/Session.get('columnCount'))
   Session.set('columnWidth',columnWidth)
 )
+
+#Notify User of an Updated Game
+Meteor.subscribe('games',()->
+  Deps.autorun(@checkGameVersion = () ->
+    if Session.get('activeTile')
+      game = Games.findOne({_id:Session.get('activeTile')},{})
+      if !Session.equals('currentGameVersion',game.version)
+        #The game's version has updated
+        log 'game\'s version has been updated!'
+        log game.version
+        Session.set('currentGameVersion',game.version)
+        notifyUser(game.version)
+  )
+)
+
+notifyUser = (message) ->
+  log 'GAME VERSION HAS CHANGED TO ' + message
 
 heartbeat = (timestamp) ->
   #log 'BEATING'

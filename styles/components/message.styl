@@ -3,14 +3,32 @@
 
 //Message Styles
 .message
-	//max-width 600px
 	min-height 80px
 	position relative
-	margin 20px 0 0 0
-	background darkerGrey
+	background concrete
 	padding 10px 10px 10px 70px
 	border-radius 3px
-	color lighterGrey
+	color clouds
+	max-width 800px
+	margin 20px auto
+.message:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom -5px
+	left 0
+	z-index -1
+	background asbestos
+	border-radius 3px
+.messageWrapper
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-radius 3px
+	background concrete
 .messageAuthor
 	//background blue
 	position absolute

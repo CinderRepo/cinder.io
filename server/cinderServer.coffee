@@ -1,3 +1,8 @@
+#Publish Subscriptions
+Meteor.publish('games',()->
+  Games.find()
+)
+
 #Basic Web Auth
 ###connect = Npm.require('connect');
   options =
@@ -194,6 +199,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Alone in the Dark"
@@ -203,6 +209,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Amnesia the Dark Descent"
@@ -212,6 +219,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "And Yet it Moves"
@@ -221,6 +229,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Bastion"
@@ -230,6 +239,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Batman Arkham Asylum"
@@ -239,6 +249,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Batman Arkham City"
@@ -248,6 +259,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Bioshock"
@@ -257,6 +269,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Bioshock 2"
@@ -266,6 +279,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Bioshock Infinite"
@@ -275,6 +289,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: true
     Games.insert
       name: "Bit Trip Runner"
@@ -284,6 +299,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Borderlands 2"
@@ -293,6 +309,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Braid"
@@ -302,6 +319,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Brutal Legend"
@@ -311,6 +329,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Catherine"
@@ -320,6 +339,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Cave Story Plus"
@@ -329,6 +349,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Cogs"
@@ -338,6 +359,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Counter Strike Source"
@@ -347,6 +369,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Crayon Physics Deluxe"
@@ -356,6 +379,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Dark Souls"
@@ -365,6 +389,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Dark Void"
@@ -374,6 +399,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Darksiders I"
@@ -383,6 +409,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Darksiders II"
@@ -392,6 +419,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Day of Defeat Source"
@@ -401,6 +429,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Dead Island"
@@ -410,6 +439,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Deadly Premonition"
@@ -419,6 +449,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Demon's Souls"
@@ -428,6 +459,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     ###Games.insert
       name: "Devil May Cry One"
@@ -437,6 +469,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Devil May Cry Two"
@@ -446,6 +479,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Devil May Cry Three"
@@ -455,6 +489,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Devil May Cry Four"
@@ -464,6 +499,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Devil may Cry Five"
@@ -473,6 +509,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Digital Devil Saga"
@@ -482,6 +519,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Disgaea"
@@ -491,6 +529,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Dungeon Defenders"
@@ -500,6 +539,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Eternal Sonata"
@@ -509,6 +549,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy Crystal Chronicles"
@@ -518,6 +559,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy I"
@@ -527,6 +569,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy II"
@@ -536,6 +579,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy III"
@@ -545,6 +589,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy IV"
@@ -554,6 +599,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy V"
@@ -563,6 +609,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy VI"
@@ -572,6 +619,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy VII"
@@ -581,6 +629,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy VIII"
@@ -590,6 +639,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy IX"
@@ -599,6 +649,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy X"
@@ -608,6 +659,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy X-2"
@@ -617,6 +669,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy XI"
@@ -626,6 +679,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy XII"
@@ -635,6 +689,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy XIII"
@@ -644,6 +699,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Final Fantasy XIV"
@@ -653,6 +709,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Folklore"
@@ -662,6 +719,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Garry's Mod"
@@ -671,6 +729,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Gotham City Imposters"
@@ -680,6 +739,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Gratuitious Space Battles"
@@ -689,6 +749,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Half Life 2"
@@ -698,6 +759,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Half Life 2 Episode One"
@@ -707,6 +769,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Half Life 2 Episode Two"
@@ -716,6 +779,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Harvest Moon Magical Melody"
@@ -725,6 +789,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Hitman Blood Money"
@@ -734,6 +799,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Hitman Contracts"
@@ -743,6 +809,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Hitman Codename 47"
@@ -752,6 +819,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Hitman 2 Silent Assassin"
@@ -761,6 +829,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Hitman Absolution"
@@ -770,6 +839,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Just Cause 2"
@@ -779,6 +849,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Killing Floor"
@@ -788,6 +859,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Kingdom Hearts"
@@ -797,6 +869,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Kingdom Hearts 2"
@@ -806,6 +879,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "L.A. Noire"
@@ -815,6 +889,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Left 4 Dead"
@@ -824,6 +899,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Left 4 Dead 2"
@@ -833,6 +909,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Legend of Grimrock"
@@ -842,6 +919,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Limbo"
@@ -851,6 +929,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Lone Survivor"
@@ -860,6 +939,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Lost Odyssey"
@@ -869,6 +949,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Machinarium"
@@ -878,6 +959,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Magicka"
@@ -887,6 +969,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Metal Gear Solid: The Twin Snakes"
@@ -896,6 +979,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Metal Gear Solid 2: Sons of Liberty"
@@ -905,6 +989,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Metal Gear Solid 3: Snake Eater"
@@ -914,6 +999,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Metal Gear Solid 4: Guns of the Patriots"
@@ -923,6 +1009,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Metal Gear Rising Revengeance"
@@ -932,6 +1019,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Might and Magic: Clash of Heroes"
@@ -941,6 +1029,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Minecraft"
@@ -950,6 +1039,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Mini Ninjas"
@@ -959,6 +1049,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Mirrors Edge"
@@ -968,6 +1059,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Mount and Blade"
@@ -977,6 +1069,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Mount and Blade: Warband"
@@ -986,6 +1079,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Mount and Blade: With Fire and Sword"
@@ -995,6 +1089,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Nier"
@@ -1004,6 +1099,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Okami"
@@ -1013,6 +1109,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Paper Mario"
@@ -1022,6 +1119,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Paper Mario: The Thousand Year Door"
@@ -1031,6 +1129,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Portal"
@@ -1040,6 +1139,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Portal 2"
@@ -1049,6 +1149,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Prince of Persia: The Forgotten Sands"
@@ -1058,6 +1159,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Prince of Persia: Warrior Within"
@@ -1067,6 +1169,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Prince of Persia: The Two Thrones"
@@ -1076,6 +1179,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Prince of Persia"
@@ -1085,6 +1189,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Psychonauts"
@@ -1094,6 +1199,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Shank"
@@ -1103,6 +1209,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Sid Meier's Civilization V"
@@ -1112,6 +1219,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Silent Hill HD Collection"
@@ -1121,6 +1229,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Skyrim"
@@ -1130,6 +1239,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Sonic Generations"
@@ -1139,6 +1249,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Spec Ops the Line"
@@ -1148,6 +1259,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Spiral Knights"
@@ -1157,6 +1269,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Star Ocean: The Last Hope"
@@ -1166,6 +1279,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Star Wars Jedi Knight II: Jedi Outcast"
@@ -1175,6 +1289,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Star Wars: Knights of the Old Republic"
@@ -1184,6 +1299,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Super Meat Boy"
@@ -1193,6 +1309,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Super Paper Mario"
@@ -1202,6 +1319,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Superbrothers: Sword and Sworcery"
@@ -1211,6 +1329,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Abyss"
@@ -1220,6 +1339,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Destiny"
@@ -1229,6 +1349,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Destiny II"
@@ -1238,6 +1359,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Eternia"
@@ -1247,6 +1369,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Graces"
@@ -1256,6 +1379,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Hearts"
@@ -1265,6 +1389,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Innocence"
@@ -1274,6 +1399,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Legendia"
@@ -1283,6 +1409,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Phantasia"
@@ -1292,6 +1419,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Rebirth"
@@ -1301,6 +1429,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Symphonia"
@@ -1310,6 +1439,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Symphonia: Dawn of the New World"
@@ -1319,6 +1449,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Vesperia"
@@ -1328,6 +1459,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tales of Xillia"
@@ -1337,6 +1469,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Team Fortress 2"
@@ -1346,6 +1479,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Darkness"
@@ -1355,6 +1489,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Darkness II"
@@ -1364,6 +1499,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Legend of Zelda: Ocarina of Time"
@@ -1373,6 +1509,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Legend of Zelda: Majora's Mask"
@@ -1382,6 +1519,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Legend of Zelda: The Wind Waker"
@@ -1391,6 +1529,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Legend of Zelda: Twilight Princess"
@@ -1400,6 +1539,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Legend of Zelda: Skyward Sword"
@@ -1409,6 +1549,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Witcher"
@@ -1418,6 +1559,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "The Witcher II"
@@ -1427,6 +1569,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Tomb Raider"
@@ -1436,6 +1579,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Torchlight"
@@ -1445,6 +1589,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Torchlight 2"
@@ -1454,6 +1599,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Trine"
@@ -1463,6 +1609,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Trine 2"
@@ -1472,6 +1619,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Valkyria Chronicles"
@@ -1481,6 +1629,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "VVVVVV"
@@ -1490,6 +1639,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Warhammer 40k: Space Marine"
@@ -1499,6 +1649,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Wet"
@@ -1508,6 +1659,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "White Knight Chronicles"
@@ -1517,6 +1669,7 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false
     Games.insert
       name: "Year Walk"
@@ -1526,4 +1679,5 @@ Meteor.startup ->
       gameSrc: "/default/game.html"
       messages: []
       active: true
+      version: ''
       featured: false###
