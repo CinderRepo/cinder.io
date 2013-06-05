@@ -16,6 +16,7 @@ Template.nav.add = ->
 Template.nav.exit = ->
   _id: Meteor.uuid()
   state: 'exit'
+  href: Session.get('activeTile')
   message: 'x'
 
 Template.nav.hidden = ->
@@ -51,6 +52,7 @@ Template.nav.exitGame = ->
   _buttonLeftId: Meteor.uuid()
   buttonLeftState: 'exitGame'
   buttonLeftText: 'Exit Game'
+  buttonLeftHref: Session.get('activeTile') + '/view'
   buttonMiddle: 'u'
   _buttonRightId: Meteor.uuid()
   buttonRightState: 'browse'
@@ -88,7 +90,7 @@ Template.nav.exitGame = ->
       #For some reason this has to be wrapped in a setTimeout otherwise it won't calculate the height properly.
       #Yes, I've hardcoded the heights. It's easier this way than trying to set up the proper calculations needed.
       #Our design is such that a modalForm shouldn't be more than 3 rows anyways, so this should be just fine.
-      #Meteor.setTimeout(()->        
+      #Meteor.setTimeout(()->
      #   if Session.get('inputThreePlaceholder') is undefined
           #log Session.get('inputThreePlaceholder')
           #log 'Two row'

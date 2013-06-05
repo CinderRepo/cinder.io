@@ -1,6 +1,10 @@
 <template name="nav">
   {{#isolate}}
   <div class="nav" data-state="{{state}}">
+    {{#if viewing}}
+      {{>circleButton exit}}
+    {{/if}}
+
     {{#if currentUser}}
       {{#with currentUser}}
         {{#if viewing}}

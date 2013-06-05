@@ -12,6 +12,7 @@ Template.circleButton.events
 			Meteor.logout()
 		else if this.state is 'exit'
 			Session.set('appState','preview')
+			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else
 			if Session.equals('modalState',this.state)
 				Session.set('modalState',undefined)

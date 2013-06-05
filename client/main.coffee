@@ -35,23 +35,26 @@ Template.main.play = () ->
   message: 'Play'
   _id: this._id
 Template.main.hasMessages = ->
-  if Session.get('activeTile') and Session.equals('appState','view') and Games.findOne(Session.get('activeTile')).messages.length > 0
+  if Session.get('activeTile') and Session.equals('appState','view') and Games.findOne(Session.get('activeTile')).messages.length > 0 or
+      Session.get('activeTile') and Session.equals('appState','play') and Games.findOne(Session.get('activeTile')).messages.length > 0
     true
   else
     false
 Template.main.viewing = ->
   if Session.get('activeTile') and Session.equals('appState','preview') or
-  Session.get('activeTile') and Session.equals('appState','view')
+  Session.get('activeTile') and Session.equals('appState','view') or
+  Session.get('activeTile') and Session.equals('appState','play')
     #User is viewing a game, show the game's page
-    Games.findOne({_id:Session.get('activeTile')},{})
+    Games.findOne(Session.get('activeTile'))
   else if !Session.get('activeTile') and Session.equals('appState','browse')
     #User is viewing the browse page, show featured games
     Games.findOne({featured:true},{})
   else
     log 'Ruh Roh in Template.main.viewing'
 Template.main.profileActive = ->
-  if Session.get('activeTile') and Session.equals('appState','view') then true else false
-
+  if Session.get('activeTile') and Session.equals('appState','view') or Session.equals('appState','play') then true else false
+Template.main.activeGame = ->
+  Games.findOne(Session.get('activeTile'))
 Template.main.preserve({
   '.paneWrapper'
   '.pane.profile'

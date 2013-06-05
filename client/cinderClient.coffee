@@ -105,7 +105,8 @@ calculateGrid = () ->
   )
 
   #Handle Message Spring RestLengths
-  if Session.equals('appState','view')
+  if Session.equals('appState','view') or
+      Session.equals('appState','play')
     messagesRestLength = 0
   else
     messagesRestLength = 600
@@ -117,6 +118,16 @@ calculateGrid = () ->
     containerRestLength = 225
   else
     containerRestLength = 0
+
+  #TODO: Fix this and integrate with physics ASAP
+  if Session.equals('appState','play')
+    $('.tilesBackground').css('display','none')
+    $('#masthead').css('display','none')
+    $('#messages').css('display','none')
+  else
+    $('.tilesBackground').css('display','block')
+    $('#masthead').css('display','block')
+    $('#messages').css('display','block')
 
   #Handle World Element Physics - Springs
   for spring, i in physics.springs

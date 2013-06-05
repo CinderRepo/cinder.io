@@ -13,6 +13,7 @@ Template.dualButton.events
 		if state is 'exitGame'
 			#Exit Game Here
 			Session.set('appState','view')
+			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else
 			if Session.equals('modalState',state)
 				Session.set('modalState',undefined)
