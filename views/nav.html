@@ -5,6 +5,16 @@
       {{>circleButton exit}}
     {{/if}}
 
+    {{#if notification}}
+      <div class="notification">
+        <div class="notificationText">
+          A new version of {{notificationMessage}} is available. Update?
+        </div>
+        {{>circleButton yes}}
+        {{>circleButton no}}
+      </div>
+    {{/if}}
+
     {{#if currentUser}}
       {{#with currentUser}}
         {{#if viewing}}

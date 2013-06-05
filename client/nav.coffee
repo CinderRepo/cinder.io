@@ -24,11 +24,27 @@ Template.nav.hidden = ->
   state: 'hidden'
   message: undefined
 
+Template.nav.yes = ->
+  _id: Meteor.uuid()
+  state: 'yes'
+  message: 'y'
+
+Template.nav.no = ->
+  _id: Meteor.uuid()
+  state: 'no'
+  message: 'n'
+
 Template.nav.playing = ->
   if Session.equals('appState','play') then true else false
 
 Template.nav.viewing = ->
   if Session.equals('appState','view') then true else false
+
+Template.nav.notification = ->
+  if Session.equals('activeNotification',true) then true else false
+
+Template.nav.notificationMessage = ->
+  Games.findOne(Session.get('activeTile')).name
 
 Template.nav.loggedOut = ->
   _buttonLeftId: Meteor.uuid()

@@ -21,3 +21,39 @@
 	position absolute
 	left 50%
 	margin-left -100px
+.notification
+	float right
+	//width 200px
+	height 40px
+	border-radius 3px
+	position relative
+	background sunflower
+	position relative
+.notificationText
+	border-radius 3px
+	background sunflower
+	color clouds
+	line-height 40px
+	padding 0 20px 0 20px
+	font-size 18px
+	float left
+	height 40px
+.notification:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom -5px
+	left 0
+	z-index -1
+	background orange
+	border-radius 3px
+.notification .circleButton
+	position static
+	float left
+.notification .circleButton[data-state="no"]
+	margin-top 6px
+	margin-right 10px
+.notification .circleButton[data-state="yes"]
+	margin-top 6px
+	margin-right 10px

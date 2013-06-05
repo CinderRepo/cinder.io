@@ -214,17 +214,20 @@ Meteor.subscribe('games',()->
   Deps.autorun(@checkGameVersion = () ->
     if Session.get('activeTile')
       game = Games.findOne({_id:Session.get('activeTile')},{})
-      if !Session.equals('currentGameVersion',game.version)
+      if Session.get('currentGameVersion') != game.version
+      #if !Session.equals('currentGameVersion',game.version)
         #The game's version has updated
         log 'game\'s version has been updated!'
         log game.version
         Session.set('currentGameVersion',game.version)
-        notifyUser(game.version)
+        if Session.get('activeTile') and Session.equals('appState','play')
+          notifyUser(game.version)
   )
 )
 
 notifyUser = (message) ->
   log 'GAME VERSION HAS CHANGED TO ' + message
+  Session.set('activeNotification',true)
 
 heartbeat = (timestamp) ->
   #log 'BEATING'

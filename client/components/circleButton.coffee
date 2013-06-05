@@ -13,6 +13,11 @@ Template.circleButton.events
 		else if this.state is 'exit'
 			Session.set('appState','preview')
 			Meteor.Router.to '/' + $(e.currentTarget).data('href')
+		else if this.state is 'yes'
+			$('#gamePlayerContent')[0].contentWindow.location.reload(true)
+			Session.set('activeNotification',false)
+		else if this.state is 'no'
+			Session.set('activeNotification',false)
 		else
 			if Session.equals('modalState',this.state)
 				Session.set('modalState',undefined)
