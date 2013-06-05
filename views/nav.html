@@ -1,14 +1,15 @@
 <template name="nav">
+  {{#isolate}}
   <div class="nav" data-state="{{state}}">
     {{#if currentUser}}
       {{#with currentUser}}
         {{#if viewing}}
-          {{>circleButton exit}}
+          {{!>circleButton exit}}
         {{else}}
           {{#if playing}}
-            {{>circleButton hidden}}
+            {{!>circleButton hidden}}
           {{else}}
-            {{>circleButton logout}}
+            {{!>circleButton logout}}
           {{/if}}
         {{/if}}
         {{#if playing}}
@@ -17,12 +18,12 @@
           {{>dualButton loggedIn}}
         {{/if}}
         {{#if viewing}}
-          {{>circleButton hidden}}
+          {{!>circleButton hidden}}
         {{else}}
           {{#if playing}}
-            {{>circleButton hidden}}
+            {{!>circleButton hidden}}
           {{else}}
-            {{>circleButton add}}
+            {{!>circleButton add}}
           {{/if}}
         {{/if}}
       {{/with}}
@@ -33,9 +34,10 @@
         {{>dualButton loggedOut}}
       {{/if}}
       {{#if viewing}}
-        {{>circleButton hidden}}
+        {{!>circleButton hidden}}
       {{/if}}
     {{/if}}
     {{>modal}}
   </div>
+  {{/isolate}}
 </template>

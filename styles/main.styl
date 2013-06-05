@@ -15,14 +15,14 @@
 	backface-visiblity hidden
 #paneWrapper
 	position absolute
-	top 80px
+	top 0
 	right 0
 	bottom 0
 	left 0
-	transition top slowSpeed, opacity slowSpeed, transform slowSpeed
+	//transition top slowSpeed, opacity slowSpeed, transform slowSpeed
 	//background darkestGrey
 	perspective 100
-	pointer-events none
+	//pointer-events none
 	//transform scale3d(1,1,1)
 
 //Modal States
@@ -51,8 +51,10 @@
 	position absolute
 	top 0
 	right 0
-	bottom 0
+	bottom 20px
 	left 0
+	overflow-x hidden
+	overflow-y scroll
 	//background darkestGrey
 	perspective 100px
 	perspective-origin 50% 50%
@@ -97,7 +99,7 @@
 //Masthead
 #masthead
 	position fixed
-	top 80px
+	top 0
 	right 0
 	left 0
 	height 400px
@@ -120,6 +122,7 @@
 	bottom 0
 	left -10px
 	box-shadow inset 0 0 3px 0 midnightBlue
+	pointer-events none
 #activeGameName
 	position absolute
 	top 20px
@@ -138,15 +141,13 @@
 	color clouds
 .button[data-state="play"]
 	position absolute
-	top 30px
-	left 50%
-	margin-left -25px
-	width 50px
-	min-height 50px
-	border-radius 50px
-	line-height 50px
-	background rgba(0,0,0,0.4)
+	height 40px
+	line-height 40px
+	width 150px
+	right 20px
+	bottom 20px
 	z-index 99
+	color clouds
 #controls
 	width 190px
 	height 40px
@@ -163,34 +164,44 @@
 
 //Genre Styles
 #activeGame[data-genre="Free to Play"] .button,
-#activeGame[data-genre="Free to Play"] .buttonText
+#activeGame[data-genre="Free to Play"] .buttonText,
+#messages[data-genre="Free to Play"] .textEntryBox
 	background turquoise
 #activeGame[data-genre="Platformer"] .button,
-#activeGame[data-genre="Platformer"] .buttonText
+#activeGame[data-genre="Platformer"] .buttonText,
+#messages[data-genre="Platformer"] .textEntryBox
 	background emerland
 #activeGame[data-genre="Action"] .button,
-#activeGame[data-genre="Action"] .buttonText
+#activeGame[data-genre="Action"] .buttonText,
+#messages[data-genre="Action"] .textEntryBox
 	background peterRiver
 #activeGame[data-genre="Adventure"] .button,
-#activeGame[data-genre="Adventure"] .buttonText
+#activeGame[data-genre="Adventure"] .buttonText,
+#messages[data-genre="Adventure"] .textEntryBox
 	background amethyst
 #activeGame[data-genre="Strategy"] .button,
 #activeGame[data-genre="Strategy"] .buttonText,
+#messages[data-genre="Strategy"] .textEntryBox
 	background wetAsphalt
 #activeGame[data-genre="Role Playing"] .button,
-#activeGame[data-genre="Role Playing"] .buttonText
+#activeGame[data-genre="Role Playing"] .buttonText,
+#messages[data-genre="Role Playing"] .textEntryBox
 	background sunFlower
 #activeGame[data-genre="Massively Multiplayer"] .button,
-#activeGame[data-genre="Massively Multiplayer"] .buttonText
+#activeGame[data-genre="Massively Multiplayer"] .buttonText,
+#messages[data-genre="Massively Multiplayer"] .textEntryBox
 	background carrot
 #activeGame[data-genre="Simulation"] .button,
-#activeGame[data-genre="Simulation"] .buttonText
+#activeGame[data-genre="Simulation"] .buttonText,
+#messages[data-genre="Simulation"] .textEntryBox
 	background alizarin
 #activeGame[data-genre="Puzzle"] .button,
-#activeGame[data-genre="Puzzle"] .buttonText
-	background clouds
+#activeGame[data-genre="Puzzle"] .buttonText,
+#messages[data-genre="Puzzle"] .textEntryBox
+	background purpleRain
 #activeGame[data-genre="Sports"] .button,
-#activeGame[data-genre="Sports"] .buttonText
+#activeGame[data-genre="Sports"] .buttonText,
+#messages[data-genre="Sports"] .textEntryBox
 	background concrete
 
 
@@ -212,17 +223,49 @@
 #activeGame[data-genre="Simulation"] .button:after
 	background pomegranate
 #activeGame[data-genre="Puzzle"] .button:after
-	background silver
+	background risingTyphoon
 #activeGame[data-genre="Sports"] .button:after
 	background asbestos
+
+//Container Styles
+#container
+	position fixed
+	top 80px
+	right 0
+	bottom 0
+	left 0
+	z-index 101
 
 //Messages Styles
 #messages
 	position fixed
-	top 480px
+	top 380px
 	right 0
 	bottom 0
 	left 0
+	z-index 101
 	background clouds
 	color midnightBlue
-	display none
+	perspective 100px
+	perspective-origin 50% 50%
+	perspective-origin 0 0
+	transform-style flat
+
+.messagesContainer
+	position absolute
+	top 0
+	right 0
+	bottom 100px
+	left 0
+	overflow-x hidden
+	overflow-y scroll
+
+.noMessagesNotice
+	text-align center
+	height 42px
+	width 600px
+	font-size 42px
+	position absolute
+	top 50%
+	left 50%
+	margin -21px 0 0 -300px

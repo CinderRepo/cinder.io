@@ -1,3 +1,6 @@
+Template.textEntryBox.signedIn = ->
+  Meteor.user()
+
 Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
 	log 'TextEntryBox Submitted.'
 	e.stopImmediatePropagation()
@@ -8,7 +11,7 @@ Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
 	,
 	  $addToSet:
 	    messages:
-	      #name: Meteor.user().username
+	      username: Meteor.user().username
 	      text: text
 	textField.value = ''
 	false

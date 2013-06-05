@@ -1,9 +1,6 @@
-Template.messages.title = ->
+###Template.messages.title = ->
 	title: 'Messages'
 
-Template.messages.isSignedIn = ->
-    Meteor.user()
-  
 Template.messages.events 'submit .textEntryForm': (event, template) ->
 	textField = template.find('.textEntryText')
 	text = textField.value
@@ -19,4 +16,4 @@ Template.messages.events 'submit .textEntryForm': (event, template) ->
 
 Template.messages.preserve [
 	'.messages'
-]
+]###

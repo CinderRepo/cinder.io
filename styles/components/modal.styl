@@ -3,24 +3,39 @@
 
 //Modal Styles
 #modal
-	//background blue
-	max-width 400px
+	width 350px
+	max-width 350px
 	height 200px
-	margin 20px auto
 	border-radius 5px
-	position relative
-	transition height normalSpeed, max-height normalSpeed
-	overflow hidden
+	position absolute
+	top 80px
+	left 50%
+	margin-left -175px
+#modal:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom -5px
+	left 0
+	z-index -1
+	background belizeHole
+	border-radius 5px
 .modalForm
-	transition height normalSpeed, max-height normalSpeed
-	overflow hidden
+	//transition height normalSpeed, max-height normalSpeed
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-radius 5px
 
 //Modal Form Header Styles
 .modalFormHeader
 	height 50px
 	line-height 50px
-	background darkGrey
-	color offWhite
+	background wetAsphalt
+	color clouds
 	border-top-left-radius 5px
 	border-top-right-radius 5px
 	position relative
@@ -32,7 +47,7 @@
 	left 0
 	padding 0 20px 0 20px
 	text-transform capitalize
-	transition left normalSpeed, right normalSpeed
+	//transition left normalSpeed, right normalSpeed
 
 //Modal Form Header Button Styles
 .modalFormHeader .button
@@ -44,19 +59,18 @@
 	height 50px
 	max-height 50px
 	line-height 50px
-	background red
-	transition transform normalSpeed, opacity normalSpeed
+	//transition transform normalSpeed, opacity normalSpeed
 	opacity 0
 	text-align center
-	background grey
-	display none
+	background turquoise
+	cursor pointer
 .modalFormHeader .button:first-child
-	transform translate3d(-50px,0,0)
+	//transform translate3d(-50px,0,0)
 	left 0
 	border-radius 0
 	border-top-left-radius 5px
 .modalFormHeader .button:last-child
-	transform translate3d(50px,0,0)
+	//transform translate3d(50px,0,0)
 	right 0
 	border-radius 0
 	border-top-right-radius 5px
@@ -66,19 +80,20 @@
 	position relative
 	width 100%
 	height 50px
+	background white
 	//height 0
 	//opacity 0
 	//transition height normalSpeed, opacity normalSpeed
 	//pointer-events none
 	//background offWhite
 .modalFormInputIcon
-	background lightestGrey
 	position absolute
 	top 0
 	left 0
 	width 50px
 	height 50px
-	border-bottom 1px solid lighterGrey
+	border-bottom 2px solid offWhite
+	//border-bottom 1px solid lighterGrey
 .modalFormInput
 	position absolute
 	right 0
@@ -87,11 +102,17 @@
 	border none
 	outline none
 	margin 0
-	border-left 1px solid lighterGrey
-	border-bottom 1px solid lighterGrey
-	padding 0 10px 0 10px
+	border-bottom 2px solid offWhite
+	//border-left 1px solid lighterGrey
+	//border-bottom 1px solid lighterGrey
+	padding 0 20px 0 20px
 	font-size 14px
-
+.modalFormInput::-webkit-input-placeholder
+	color midnightBlue
+.modalFormInput::-moz-placeholder
+	color midnightBlue
+.modalFormInput:-ms-input-placeholder
+	color midnightBlue
 //Modal Form Input Button Styles
 .modalFormInputButtons
 	position absolute
@@ -99,6 +120,7 @@
 	right 0
 	left 0
 	min-height 50px
+	cursor pointer
 .modalFormInputButtons .modalButton
 	position absolute
 	right 0
@@ -106,24 +128,37 @@
 	border-radius 0
 	min-height 100%
 	height 100%
-	color offWhite
+	color clouds
 	line-height 50px
 	text-align center
-	background grey
+	background peterRiver
+	cursor pointer
+	font-size 18px
 .modalFormInputButtons .modalButton[data-state="cancel"]
 	right 50%
 	left 0
 	border-bottom-left-radius 5px
-	background grey
 .modalFormInputButtons .modalButton[data-state="confirm"]
 	right 0
 	left 0
 	border-bottom-left-radius 5px
 	border-bottom-right-radius 5px
-	background lightGrey
+
+//Profile Modal Styles
+#modal[data-state="profile"] .modalFormHeaderTitle
+	left 60px
+	padding 0 20px 0 0
+#modal[data-state="profile"] .button[data-state="logout"]
+	opacity 1
+	background midnightBlue
+	color clouds
+#modal[data-state="profile"] .button[data-state="logout"] .buttonText
+	background midnightBlue
+	border-radius 0
+	border-top-left-radius 5px
 
 //Modal Form States - Settings
-#modal[data-state="settings"]
+/*#modal[data-state="settings"]
 	height 250px
 	max-height 250px
 #modal[data-state="settings"] .modalForm
@@ -197,4 +232,4 @@
 #modal[data-state="search"] .modalFormInputWrapper.two
 	height 50px
 	opacity 1
-	pointer-events auto
+	pointer-events auto*/

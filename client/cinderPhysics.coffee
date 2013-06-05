@@ -329,7 +329,7 @@
         #Particle
         particle = new Particle()
         particle.mass = 400
-        particle.element = '.tileWrapper' + i
+        particle.element = '.tileWrapper'
 
         #Position particles based on layout
         switch columnCount
@@ -391,6 +391,49 @@
 
         #Add particles and springs to physics world
         physics.particles.push particle
+
+    #Push physics to the container element
+    container = new Particle()
+    container.mass = 400
+    container.element = '#container'
+
+    #Anchor Container to a spring
+    anchor = new Particle()
+    anchor.fixed = true
+
+    #Anchor Messages to a spring
+    spring = new Spring(anchor, container, 0, 0.5)
+    spring.element = '#container'
+    physics.springs.push spring
+
+    #Apply a downward force
+    force = new ConstantForce(new Vector(0,1,0))
+    container.behaviours.push force
+
+    #Add container to the physics world
+    physics.particles.push container
+
+    #Push physics to the messages element
+    messages = new Particle()
+    messages.mass = 400
+    messages.moveTo = new Vector(0,1000,0)
+    messages.element = '#messages'
+
+    anchor = new Particle()
+    anchor.fixed = true
+
+    #Anchor Messages to a spring
+    spring = new Spring(anchor, messages, 0, 0.5)
+    spring.element = '#messages'
+    physics.springs.push spring
+
+    #Apply a downward force
+    force = new ConstantForce(new Vector(0,1,0))
+    messages.behaviours.push force
+
+    #Add messages to the physics world
+    physics.particles.push messages
+
 
     #Render Springs
     #@canvas = $('#canvas')[0]

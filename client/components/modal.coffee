@@ -31,6 +31,14 @@ Template.modal.state = ->
 			Session.set('inputTwoType','text')
 			Session.set('inputThreePlaceholder','Password (Coming Soon)')
 			Session.set('inputThreeType','text')
+		when 'profile'
+			Session.set('inputOnePlaceholder','Username (Coming Soon)')
+			Session.set('inputOneType','text')
+			Session.set('inputTwoPlaceholder','Email (Coming Soon)')
+			Session.set('inputTwoType','text')
+			Session.set('inputThreePlaceholder','Password (Coming Soon)')
+			Session.set('inputThreeType','text')
+			Session.set('modalButtonValue','Coming Soon')
 		else
 			Session.set('inputOnePlaceholder','')
 			Session.set('inputOneType','text')

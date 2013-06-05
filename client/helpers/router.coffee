@@ -48,6 +48,7 @@ Meteor.Router.add
     and: () ->
       log '/'
       Session.set('appState','browse')
+      #Set the activeTile to the currently featured game
       Session.set('activeTile',undefined)
   "/:_gameId":
     to: "main"
@@ -66,7 +67,7 @@ Meteor.Router.add
         Session.set('appState','view')
       if Session.equals('activeTile',undefined)
         Session.set('activeTile',gameId)
-  "/:_gameId/view/game":
+  "/:_gameId/view/play":
     to: "main"
     and: (gameId) ->
       log 'VIEWING GAME STATE'

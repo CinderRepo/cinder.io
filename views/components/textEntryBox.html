@@ -1,10 +1,16 @@
 <template name="textEntryBox">
 	{{#isolate}}
 	<div class="textEntryBox">
+		{{#if signedIn}}
 		<form class="textEntryForm">
 			<input type="text" class="textEntryText" placeholder="Add Message">
 			<button type="submit" class="textEntrySubmit">-></button>
 		</form>
+		{{else}}
+		<div class="textEntryForm">
+			<span class="loginNotice">YOU MUST LOG IN TO LEAVE A MESSAGE</span>
+		</div>
+		{{/if}}
 	</div>
 	{{/isolate}}
 </template>
