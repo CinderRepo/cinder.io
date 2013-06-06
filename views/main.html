@@ -1,27 +1,6 @@
 <template name="main">
 	{{>nav}}
 	<section id="container">
-		<div id="masthead">
-		{{#isolate}}
-		{{#with viewing}}
-		<div id="activeGame" data-genre="{{genre}}" style="background-image: url('{{previewSrc}}');">
-			<h1 id="activeGameName">{{#if featured}}Community's Choice: {{/if}}{{name}}</h1>
-			{{#if profileActive}}
-				{{>button play}}
-			{{else}}
-				{{>button view}}
-			{{/if}}
-		</div>
-		<ul id="controls">
-			<li class="control">{{>circleButton}}</li>
-			<li class="control">{{>circleButton}}</li>
-			<li class="control">{{>circleButton}}</li>
-			<li class="control">{{>circleButton}}</li>
-			<li class="control">{{>circleButton}}</li>
-		</ul>
-		{{/with}}
-		{{/isolate}}
-		</div>
 		<div id="perspectiveWrapper">
 			<div id="paneWrapper">
 				<div id="gamePlayer">

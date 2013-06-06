@@ -190,7 +190,7 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("OfficeSweetheart")
 
-  if Games.find().count() == 0
+  ###if Games.find().count() == 0
     Games.insert
       name: "Alan Wake's American Nightmare"
       genre: "Adventure"

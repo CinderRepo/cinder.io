@@ -2,7 +2,9 @@
 	{{#isolate}}
 	<div id="{{_id}}" class="tileWrapper {{expanded}}" data-state="{{state}}" data-genre="{{genre}}" draggable="true">
 		<div class="tile" data-href="{{_id}}">
-			<div class="tileContent" style="background-image: url('{{previewSrc}}');"></div>
+			<div class="tileContainer">
+				<div class="tileContent" style="background-image: url('{{previewSrc}}');"></div>
+			</div>
 			<div class="tileInfo">{{name}}</div>
 		</div>
 	</div>
