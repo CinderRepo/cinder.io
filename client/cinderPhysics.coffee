@@ -1,11 +1,14 @@
 @initPhysics = () ->
     log 'initPhysics'
     @physics = new Physics()
+    physics.integrator = new Verlet()
     renderTime = 0
     counter = 0
 
+    log 'Physics world initialized'
+
     #Column Layout Positions
-    @oneColumnPos = [
+    ###@oneColumnPos = [
         new Vector(0,0,0)
         new Vector(0,385,0)
         new Vector(0,770,0)
@@ -306,55 +309,55 @@
         new Vector(2000,770,0)
         new Vector(2400,770,0)
         new Vector(3200,770,0)
-    ]
+    ]###
 
     #Set Physics Properties
-    physics.integrator = new Verlet()
-    collision = new Collision()
-    columnWidth = Session.get('columnWidth')
-    columnCount = Session.get('columnCount')
-    log columnWidth
+    #physics.integrator = new Verlet()
+    #collision = new Collision()
+    #columnWidth = Session.get('columnWidth')
+    #columnCount = Session.get('columnCount')
+    #log columnWidth
 
-    collision = new RigidCollision()
+    #collision = new RigidCollision()
 
     #Tile Physics
-    tileWrapperCount = 28
-    for i in [0...tileWrapperCount]
-        log 'Pushing particles'
+    #tileWrapperCount = 28
+    #for i in [0...tileWrapperCount]
+    #    log 'Pushing particles'
 
         #Anchors
-        anchor = new Particle()
-        anchor.fixed = true
+    #    anchor = new Particle()
+    #    anchor.fixed = true
 
         #Particle
-        particle = new Particle()
-        particle.mass = 400
-        particle.element = '.tileWrapper'
+    #    particle = new Particle()
+    #    particle.mass = 400
+    #    particle.element = '.tileWrapper'
 
         #Position particles based on layout
-        switch columnCount
-            when 1
-                particle.moveTo oneColumnPos[i]
-            when 2
-                particle.moveTo twoColumnPos[i]
-            when 3
-                particle.moveTo threeColumnPos[i]
-            when 4
-                particle.moveTo fourColumnPos[i]
-            when 5
-                particle.moveTo fiveColumnPos[i]
-            when 6
-                particle.moveTo sixColumnPos[i]
-            when 7
-                particle.moveTo sevenColumnPos[i]
-            when 8
-                particle.moveTo eightColumnPos[i]
-            when 9
-                particle.moveTo nineColumnPos[i]
-            when 10
-                particle.moveTo tenColumnPos[i]
-            else
-                log 'Column Layout Error'
+    #    switch columnCount
+    #        when 1
+    #            particle.moveTo oneColumnPos[i]
+    #        when 2
+    #            particle.moveTo twoColumnPos[i]
+    #        when 3
+    #            particle.moveTo threeColumnPos[i]
+    #        when 4
+    #            particle.moveTo fourColumnPos[i]
+    #        when 5
+    #            particle.moveTo fiveColumnPos[i]
+    #        when 6
+    #            particle.moveTo sixColumnPos[i]
+    #        when 7
+    #            particle.moveTo sevenColumnPos[i]
+    #        when 8
+    #            particle.moveTo eightColumnPos[i]
+    #        when 9
+    #            particle.moveTo nineColumnPos[i]
+    #        when 10
+    #            particle.moveTo tenColumnPos[i]
+    #        else
+    #            log 'Column Layout Error'
 
         #log particle
         #spring = new Spring(anchor, particle, 0, 0.5)
@@ -390,49 +393,49 @@
         #particle.behaviours.push mouseAttraction
 
         #Add particles and springs to physics world
-        physics.particles.push particle
+        #physics.particles.push particle
 
     #Push physics to the container element
-    container = new Particle()
-    container.mass = 400
-    container.element = '#container'
+    #container = new Particle()
+    #container.mass = 400
+    #container.element = '#container'
 
     #Anchor Container to a spring
-    anchor = new Particle()
-    anchor.fixed = true
+    #anchor = new Particle()
+    #anchor.fixed = true
 
     #Anchor Messages to a spring
-    spring = new Spring(anchor, container, 0, 0.5)
-    spring.element = '#container'
-    physics.springs.push spring
+    #spring = new Spring(anchor, container, 0, 0.5)
+    #spring.element = '#container'
+    #physics.springs.push spring
 
     #Apply a downward force
-    force = new ConstantForce(new Vector(0,1,0))
-    container.behaviours.push force
+    #force = new ConstantForce(new Vector(0,1,0))
+    #container.behaviours.push force
 
     #Add container to the physics world
-    physics.particles.push container
+    #physics.particles.push container
 
     #Push physics to the messages element
-    messages = new Particle()
-    messages.mass = 400
-    messages.moveTo = new Vector(0,1000,0)
-    messages.element = '#messages'
+    #messages = new Particle()
+    #messages.mass = 400
+    #messages.moveTo = new Vector(0,1000,0)
+    #messages.element = '#messages'
 
-    anchor = new Particle()
-    anchor.fixed = true
+    #anchor = new Particle()
+    #anchor.fixed = true
 
     #Anchor Messages to a spring
-    spring = new Spring(anchor, messages, 0, 0.5)
-    spring.element = '#messages'
-    physics.springs.push spring
+    #spring = new Spring(anchor, messages, 0, 0.5)
+    #spring.element = '#messages'
+    #physics.springs.push spring
 
     #Apply a downward force
-    force = new ConstantForce(new Vector(0,1,0))
-    messages.behaviours.push force
+    #force = new ConstantForce(new Vector(0,1,0))
+    #messages.behaviours.push force
 
     #Add messages to the physics world
-    physics.particles.push messages
+    #physics.particles.push messages
 
 
     #Render Springs

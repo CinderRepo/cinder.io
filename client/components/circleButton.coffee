@@ -11,7 +11,6 @@ Template.circleButton.events
 		if this.state is 'logout'
 			Meteor.logout()
 		else if this.state is 'exit'
-			Session.set('appState','preview')
 			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else if this.state is 'yes'
 			$('#gamePlayerContent')[0].contentWindow.location.reload(true)
@@ -27,24 +26,3 @@ Template.circleButton.events
 Template.circleButton.preserve({
 	'.circleButton'
 })
-
-@showModal = (state) ->
-	log 'TOGGLE MODAL!'
-	#Session.set('activeModal',state)
-	#For some reason this has to be wrapped in a setTimeout otherwise it won't calculate the height properly.
-	#Yes, I've hardcoded the heights. It's easier this way than trying to set up the proper calculations needed.
-	#Our design is such that a modalForm shouldn't be more than 3 rows anyways, so this should be just fine.
-	#Meteor.setTimeout(()->
-	#	if Session.get('inputThreePlaceholder') is undefined
-	#		#If the modal is a two row layout
-	#		Session.set('revealedDownHeight',220) #Height of Modal (200px) + Margin (20px)
-	#		Session.set()
-	#	else
-	#		#If the modal is a three row layout
-	#		Session.set('revealedDownHeight',270) #Height of Modal (250px) + Margin (20px)
-	#	Session.set('revealedDown',true)
-	#,0)
-
-@hideModal = () ->
-	#Session.set('revealedDown',false)
-	#Session.set('revealedDownHeight',0)

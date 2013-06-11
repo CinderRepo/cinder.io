@@ -1,41 +1,29 @@
 <template name="main">
-	{{>nav}}
-	<section id="container">
-		<div id="perspectiveWrapper">
-			<div id="paneWrapper">
-				<div id="gamePlayer">
-				{{#isolate}}
-				{{#with activeGame}}
-					<iframe id="gamePlayerContent" src="{{gameSrc}}"></iframe>
-				{{/with}}
-				{{/isolate}}
-				</div>
-				<div class="tilesBackground">
-					<div id="tiles" class="tilesContainer">
-						{{#each games}}
-							{{>tile}}
-						{{/each}}
-					</div>
-				</div>
-			</div>
-		</div>
+	<section id="container" data-state="{{state}}" data-modal="{{modalState}}">
+		{{>nav}}
 		{{#isolate}}
-		{{#with viewing}}
-		<div id="messages" data-genre="{{genre}}">
-			<div class="messagesContainer">
-			{{#isolate}}
-			{{#if hasMessages}}
-				{{#each messages}}
-					{{>message}}
+		<div id="tiles">
+			<div id="tilesWrapper">
+				{{!<button id="prev">Prev</button>
+				<button id="next">Next</button>}}
+				{{#each scrollableList}}
+					{{>tile}}
 				{{/each}}
-			{{else}}
-				<div class="noMessagesNotice">NO MESSAGES ADDED</div>
-			{{/if}}
-			{{/isolate}}
 			</div>
-			{{>textEntryBox}}
 		</div>
-		{{/with}}
+		{{/isolate}}
+		{{#isolate}}
+		<div id="tilePage">
+			{{#with viewing}}
+			<div id="tilePageWrapper" data-genre="{{genre}}" style="background-image: url('{{previewSrc}}');">
+				<div id="tilePageName">{{name}}</div>
+				<div id="tilePageDescription">{{description}}</div>
+			</div>
+			<div id="messages">
+				MESSAGES
+			</div>
+			{{/with}}
+		</div>
 		{{/isolate}}
 	</section>
 </template>

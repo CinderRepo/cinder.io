@@ -41,26 +41,47 @@ Template.main.hasMessages = ->
   else
     false
 Template.main.viewing = ->
-  if Session.get('activeTile') and Session.equals('appState','preview') or
-  Session.get('activeTile') and Session.equals('appState','view') or
-  Session.get('activeTile') and Session.equals('appState','play')
-    #User is viewing a game, show the game's page
-    Games.findOne(Session.get('activeTile'))
-  else if !Session.get('activeTile') and Session.equals('appState','browse')
-    #User is viewing the browse page, show featured games
-    Games.findOne({featured:true},{})
-  else
-    log 'Ruh Roh in Template.main.viewing'
-Template.main.profileActive = ->
-  if Session.get('activeTile') and Session.equals('appState','view') or Session.equals('appState','play') then true else false
-Template.main.activeGame = ->
   Games.findOne(Session.get('activeTile'))
+Template.main.scrollableList = () ->
+  Games.find({}, {
+    limit: Session.get('rowCount') * Session.get('columnCount') #Limit the games to the current rowCount number
+    skip: Session.get('tileScrollPosition') * Session.get('rowCount') #Skip the right number of games
+  })
+
+Template.main.events
+  'mousewheel #container':(e,t)->
+    #log e
+    Session.set('scrollPosition',window.scrollY)
+    #if Session.equals('appState','view')
+      #e.stopImmediatePropagation()
+      #e.preventDefault()
+  ###'mousewheel #tiles':(e,t)->
+    if e.wheelDeltaY < 0
+      log 'SCROLLING UP!'
+    else if e.wheelDeltaY > 0
+      log 'SCROLLING DOWN!'
+    else
+      log 'Scrolling stopped?'###
+  'webkitTransitionEnd #tilePage':(e,t)->
+    e.stopImmediatePropagation()
+    if Session.equals('appState','view')
+      Session.set('disableScrolling',true)
+    else
+      Session.set('disableScrolling',false)
+  'click #prev':(e,t)->
+    newPosition = Session.get('tileScrollPosition') - 1
+    if newPosition < 0 then Games.find().count() / Session.get('rowCount') #Wraparound
+    Session.set('tileScrollPosition',newPosition)
+  'click #next':(e,t)->
+    newPosition = Session.get('tileScrollPosition') + 1
+    if newPosition > Games.find().count() / Session.get('rowCount') then newPosition = 0 #Wraparound
+    Session.set('tileScrollPosition', newPosition)
+
 Template.main.preserve({
-  '.paneWrapper'
-  '.pane.profile'
-  '.pane.browse'
+  '#container'
   '#tiles'
-  '.tileWrapper.expanded'
+  '#tilePage'
+  '#tilePageWrapper'
   '#gamePlayer'
   '#gamePlayerContent'
   '#messages'

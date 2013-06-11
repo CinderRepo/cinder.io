@@ -1,30 +1,28 @@
 @import 'nib'
-@import '../palette'
+@import '../variables'
 
 //Tile Styles
 .tileWrapper
 	-webkit-touch-callout none
 	-webkit-user-select none
-	position absolute
 	transition opacity slowSpeed
 	transform-style flat
 	backface-visiblity hidden
 	transform-origin center
 	width 400px
-	height 360px
+	height 380px
 	opacity 1
 	z-index 99
+	float left
+	position relative
 .tile
 	height 360px
 	position relative
 	margin 10px
-	background alizarin
 	border-radius 3px
-.tileContainer
-	height inherit
-	width inherit
-	position relative
-.tileContainer:after
+	box-shadow 0 0 1px 0 rgba(0,0,0,0.3)
+//Tile Drop Shadow
+.tile:before
 	content ''
 	position absolute
 	top 0
@@ -33,9 +31,24 @@
 	left 0
 	z-index -1
 	border-radius 3px
-	background alizarin
+//Tile Folded Corner
+/*.tile:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	z-index 1
+	width 0px
+	height 0px
+	border-style solid
+	border-width 0 60px 60px 0
+	border-color transparent #007bff transparent transparent*/
+.tileContainer
+	height inherit
+	width inherit
+	position relative
 .tileContent
-	height 300px
+	height inherit
 	overflow hidden
 	cursor pointer
 	list-style none
@@ -44,22 +57,38 @@
 	background-position 50% 50%
 	position relative
 	z-index 1
-	pointer-events auto
 	border-top-left-radius 3px
 	border-top-right-radius 3px
 .tileInfo
 	position absolute
+	top 0
 	right 0
 	left 0
-	bottom 0
-	z-index 0
+	z-index 1
 	padding 0 20px 0 20px
-	line-height 60px
-	height 60px
-	font-size 24px
+	height 140px
 	color clouds
-	border-bottom-left-radius 3px
-	border-bottom-right-radius 3px
+	transform translate3d(0,300px,0)
+	transition opacity normalSpeed, transform normalSpeed
+.tile:hover .tileInfo
+	opacity 0.9
+	transform translate3d(0,220px,0)
+.tileName
+	line-height 60px
+	height 50px
+	font-size 24px
+	overflow hidden
+	white-space nowrap
+	text-overflow ellipsis
+	text-shadow 0 1px 1px midnightBlue
+.tileDescription
+	width inherit
+	height 80px
+	overflow hidden
+	opacity 0
+	transition opacity normalSpeed
+.tile:hover .tileDescription
+	opacity 1
 
 //Genre Color Styles
 .tileWrapper[data-genre="Free to Play"] .tile,
@@ -79,7 +108,7 @@
 	background wetAsphalt
 .tileWrapper[data-genre="Role Playing"] .tile,
 .tileWrapper[data-genre="Role Playing"] .tileInfo
-	background sunFlower
+	background sunflower
 .tileWrapper[data-genre="Massively Multiplayer"] .tile,
 .tileWrapper[data-genre="Massively Multiplayer"] .tileInfo
 	background carrot
@@ -94,23 +123,23 @@
 	background concrete
 
 //Genre Color Button Backdrop Styles
-.tileWrapper[data-genre="Free to Play"] .tile:after
+.tileWrapper[data-genre="Free to Play"] .tile:before
 	background greenSea
-.tileWrapper[data-genre="Platformer"] .tile:after
+.tileWrapper[data-genre="Platformer"] .tile:before
 	background nephritis
-.tileWrapper[data-genre="Action"] .tile:after
+.tileWrapper[data-genre="Action"] .tile:before
 	background belizeHole
-.tileWrapper[data-genre="Adventure"] .tile:after
+.tileWrapper[data-genre="Adventure"] .tile:before
 	background wisteria
-.tileWrapper[data-genre="Strategy"] .tile:after
+.tileWrapper[data-genre="Strategy"] .tile:before
 	background midnightBlue
-.tileWrapper[data-genre="Role Playing"] .tile:after
+.tileWrapper[data-genre="Role Playing"] .tile:before
 	background orange
-.tileWrapper[data-genre="Massively Multiplayer"] .tile:after
+.tileWrapper[data-genre="Massively Multiplayer"] .tile:before
 	background pumpkin
-.tileWrapper[data-genre="Simulation"] .tile:after
+.tileWrapper[data-genre="Simulation"] .tile:before
 	background pomegranate
-.tileWrapper[data-genre="Puzzle"] .tile:after
+.tileWrapper[data-genre="Puzzle"] .tile:before
 	background risingTyphoon
-.tileWrapper[data-genre="Sports"] .tile:after
+.tileWrapper[data-genre="Sports"] .tile:before
 	background asbestos

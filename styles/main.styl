@@ -1,240 +1,89 @@
 @import 'nib'
-@import 'palette'
-
-//Main Styles
-#perspectiveWrapper
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	perspective 0
-	transform-style flat
-	transform translateZ(-999999px)
-	perspective-origin 50% 50%
-	backface-visiblity hidden
-#paneWrapper
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	//transition top slowSpeed, opacity slowSpeed, transform slowSpeed
-	//background darkestGrey
-	perspective 100
-	//pointer-events none
-	//transform scale3d(1,1,1)
-
-//Modal States
-.pane
-	position absolute
-	top 0
-	right 10px
-	bottom 0
-	left 10px
-
-//Tiles Styles
-.tilesBackground
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	transition opacity slowSpeed, transform slowSpeed
-	transform scale3d(1,1,1)
-	background clouds
-#paneWrapper[data-state="play"] .tilesBackground
-	opacity 0
-	transform scale3d(0,0,0)
-	pointer-events none
-.tilesContainer
-	position absolute
-	top 0
-	right 20px
-	bottom 20px
-	left 20px
-	overflow-x hidden
-	overflow-y scroll
-	//background darkestGrey
-	perspective 100px
-	perspective-origin 50% 50%
-	perspective-origin 0 0
-	transform-style preserve-3d
-	backface-visibility hidden
-
-//Game Player Styles
-#gamePlayer
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	overflow hidden
-#gamePlayerContent
-	width 100%
-	height 100%
-	border 0
-#canvas
-	//background black
-	//width 100%
-	//height 100%
-	position absolute
-	top 0
-	left 0
-	pointer-events none
-	z-index 100
-	//height 100%
-	//width 100%
-	//right 0
-	//left 0
-	//bottom 0
-	//margin-left -400px
-	//width 800px
-	//height 600px
-	//width 50%
-	//height 50%
-#canvas::selection
-	background transparent
-
-//Masthead
-#masthead
-	position fixed
-	top 0
-	right 0
-	left 0
-	height 400px
-	z-index 100
-	border-bottom 20px solid clouds
-	background clouds
-#activeGame
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	background-size cover
-	background-position 50% 50%
-#activeGame:after
-	content ''
-	position absolute
-	top 0
-	right -10px
-	bottom 0
-	left -10px
-	box-shadow inset 0 0 3px 0 midnightBlue
-	pointer-events none
-#activeGameName
-	position absolute
-	top 20px
-	left 20px
-	color clouds
-	font-size 48px
-	text-shadow 0 2px 2px midnightBlue
-.button[data-state="view"]
-	position absolute
-	height 40px
-	line-height 40px
-	width 150px
-	right 20px
-	bottom 20px
-	z-index 99
-	color clouds
-.button[data-state="play"]
-	position absolute
-	height 40px
-	line-height 40px
-	width 150px
-	right 20px
-	bottom 20px
-	z-index 99
-	color clouds
-#controls
-	width 190px
-	height 40px
-	position absolute
-	bottom -10px
-	left 50%
-	margin-left -95px
-	display none
-.control
-	float left
-	margin 5px 10px 0 0
-.control:last-child
-	margin-right 0
-
-//Genre Styles
-#activeGame[data-genre="Free to Play"] .button,
-#activeGame[data-genre="Free to Play"] .buttonText,
-#messages[data-genre="Free to Play"] .textEntryBox
-	background turquoise
-#activeGame[data-genre="Platformer"] .button,
-#activeGame[data-genre="Platformer"] .buttonText,
-#messages[data-genre="Platformer"] .textEntryBox
-	background emerland
-#activeGame[data-genre="Action"] .button,
-#activeGame[data-genre="Action"] .buttonText,
-#messages[data-genre="Action"] .textEntryBox
-	background peterRiver
-#activeGame[data-genre="Adventure"] .button,
-#activeGame[data-genre="Adventure"] .buttonText,
-#messages[data-genre="Adventure"] .textEntryBox
-	background amethyst
-#activeGame[data-genre="Strategy"] .button,
-#activeGame[data-genre="Strategy"] .buttonText,
-#messages[data-genre="Strategy"] .textEntryBox
-	background wetAsphalt
-#activeGame[data-genre="Role Playing"] .button,
-#activeGame[data-genre="Role Playing"] .buttonText,
-#messages[data-genre="Role Playing"] .textEntryBox
-	background sunFlower
-#activeGame[data-genre="Massively Multiplayer"] .button,
-#activeGame[data-genre="Massively Multiplayer"] .buttonText,
-#messages[data-genre="Massively Multiplayer"] .textEntryBox
-	background carrot
-#activeGame[data-genre="Simulation"] .button,
-#activeGame[data-genre="Simulation"] .buttonText,
-#messages[data-genre="Simulation"] .textEntryBox
-	background alizarin
-#activeGame[data-genre="Puzzle"] .button,
-#activeGame[data-genre="Puzzle"] .buttonText,
-#messages[data-genre="Puzzle"] .textEntryBox
-	background purpleRain
-#activeGame[data-genre="Sports"] .button,
-#activeGame[data-genre="Sports"] .buttonText,
-#messages[data-genre="Sports"] .textEntryBox
-	background concrete
-
-
-//Genre Styles - Shadow
-#activeGame[data-genre="Free to Play"] .button:after
-	background greenSea
-#activeGame[data-genre="Platformer"] .button:after
-	background nephritis
-#activeGame[data-genre="Action"] .button:after
-	background belizeHole
-#activeGame[data-genre="Adventure"] .button:after
-	background wisteria
-#activeGame[data-genre="Strategy"] .button:after
-	background midnightBlue
-#activeGame[data-genre="Role Playing"] .button:after
-	background orange
-#activeGame[data-genre="Massively Multiplayer"] .button:after
-	background pumpkin
-#activeGame[data-genre="Simulation"] .button:after
-	background pomegranate
-#activeGame[data-genre="Puzzle"] .button:after
-	background risingTyphoon
-#activeGame[data-genre="Sports"] .button:after
-	background asbestos
+@import 'variables'
 
 //Container Styles
 #container
-	position fixed
-	top 80px
-	right 0
-	bottom 0
-	left 0
-	z-index 101
+	//position fixed
+	//top 80px
+	//right 0
+	//bottom 0
+	//left 0
+	//z-index 101
+	height 100%
+	overflow-x hidden
+	overflow-y scroll
+	//background midnightBlue
+	transition transform normalSpeed
+
+//Tile Container Styles
+#tiles
+	margin 0 auto
+	background clouds
+	height 100%
+	position relative
+	z-index 1
+	transition transform normalSpeed
+
+#tilesWrapper
+	width 800px
+	//background red
+	margin 0 auto
+	position relative
+	padding 80px 0 20px 0
+#tilesWrapper:after
+	content ''
+	display table
+	clear both
+
+//ONE COLUMN LAYOUT
+@media only screen and (max-width : 800px)
+	#tilesWrapper
+		width 400px
+
+//TWO COLUMN LAYOUT
+@media only screen and (min-width : 801px) and (max-width : 1200px)
+	#tilesWrapper
+		width 800px
+
+//THREE COLUMN LAYOUT
+@media only screen and (min-width : 1201px) and (max-width : 1600px)
+	#tilesWrapper
+		width 1200px
+
+//FOUR COLUMN LAYOUT
+@media only screen and (min-width : 1601px) and (max-width : 2000px)
+	#tilesWrapper
+		width 1600px
+
+//FIVE COLUMN LAYOUT
+@media only screen and (min-width : 2001px) and (max-width : 2400px)
+	#tilesWrapper
+		width 2000px
+
+//SIX COLUMN LAYOUT
+@media only screen and (min-width : 2401px) and (max-width : 2800px)
+	#tilesWrapper
+		width 2400px
+
+//SEVEN COLUMN LAYOUT
+@media only screen and (min-width : 2801px) and (max-width : 3200px)
+	#tilesWrapper
+		width 2800px
+
+//EIGHT COLUMN LAYOUT
+@media only screen and (min-width : 3201px) and (max-width : 3600px)
+	#tilesWrapper
+		width 3200px
+
+//NINE COLUMN LAYOUT
+@media only screen and (min-width : 3601px) and (max-width : 4000px)
+	#tilesWrapper
+		width 3600px
+
+//TEN COLUMN LAYOUT
+@media only screen and (min-width : 4001px) and (max-width : 4400px)
+	#tilesWrapper
+		width 4000px
 
 //Messages Styles
 #messages
@@ -250,6 +99,7 @@
 	perspective-origin 50% 50%
 	perspective-origin 0 0
 	transform-style flat
+	display none
 
 .messagesContainer
 	position absolute
@@ -269,3 +119,111 @@
 	top 50%
 	left 50%
 	margin -21px 0 0 -300px
+
+//tilePage Styles
+#tilePage
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 1
+	transform scale3d(0,0,0)
+	opacity 0
+	transition transform normalSpeed, opacity normalSpeed
+	pointer-events none
+
+#tilePageWrapper
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	background-size cover
+	background-repeat no-repeat
+	background-position 50% 50%
+	color clouds
+	text-shadow 0 1px 1px midnightBlue
+#tilePageName
+	position absolute
+	bottom 300px
+	left 0
+	right 0
+	height 80px
+	font-size 40px
+	line-height 40px
+	padding 20px
+	opacity 0.9
+#tilePageDescription
+	position absolute
+	right 0
+	bottom 80px
+	left 0px
+	height 220px
+	padding 20px
+	opacity 0.9
+
+//Handle TilePageName Genre Styles
+#tilePageWrapper[data-genre="Free to Play"] #tilePageName
+	background turquoise
+#tilePageWrapper[data-genre="Platformer"] #tilePageName
+	background emerland
+#tilePageWrapper[data-genre="Action"] #tilePageName
+	background peterRiver
+#tilePageWrapper[data-genre="Adventure"] #tilePageName
+	background amethyst
+#tilePageWrapper[data-genre="Strategy"] #tilePageName
+	background wetAsphalt
+#tilePageWrapper[data-genre="Role Playing"] #tilePageName
+	background sunflower
+#tilePageWrapper[data-genre="Massively Multiplayer"] #tilePageName
+	background carrot
+#tilePageWrapper[data-genre="Simulation"] #tilePageName
+	background alizarin
+#tilePageWrapper[data-genre="Puzzle"] #tilePageName
+	background purpleRain
+#tilePageWrapper[data-genre="Sports"] #tilePageName
+	background concrete
+
+//Handle TilePageDescription Genre Styles
+#tilePageWrapper[data-genre="Free to Play"] #tilePageDescription
+	background greenSea
+#tilePageWrapper[data-genre="Platformer"] #tilePageDescription
+	background nephritis
+#tilePageWrapper[data-genre="Action"] #tilePageDescription
+	background belizeHole
+#tilePageWrapper[data-genre="Adventure"] #tilePageDescription
+	background wisteria
+#tilePageWrapper[data-genre="Strategy"] #tilePageDescription
+	background midnightBlue
+#tilePageWrapper[data-genre="Role Playing"] #tilePageDescription
+	background orange
+#tilePageWrapper[data-genre="Massively Multiplayer"] #tilePageDescription
+	background pumpkin
+#tilePageWrapper[data-genre="Simulation"] #tilePageDescription
+	background pomegranate
+#tilePageWrapper[data-genre="Puzzle"] #tilePageDescription
+	background risingTyphoon
+#tilePageWrapper[data-genre="Sports"] #tilePageDescription
+	background asbestos
+
+//Handle Application States
+#container[data-state="view"]
+	//We disable pointer events on the container so that the browse page doesn't scroll anymore.
+	pointer-events none
+#container[data-state="view"] #nav
+	//We still want pointer events when the user clicks on the navigation however, so we enable it here.
+	pointer-events auto
+#container[data-state="view"] #tiles
+	//Prevent the user from accidentally clicking or scrolling the tiles page
+	pointer-events none
+#container[data-state="view"] #tilePage
+	//Allow the user to interact with the tilePage
+	transform scale3d(1,1,1)
+	opacity 1
+	pointer-events auto
+
+//Handle Modal States
+#container[data-modal="login"] #nav,
+#container[data-modal="profile"] #nav
+	transform translate3d(0,240px,0)

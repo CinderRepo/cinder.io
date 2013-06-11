@@ -23,33 +23,40 @@ logRenders = ->
       console.log name, "render count: ", ++counter
       oldRender and oldRender.apply(this, arguments_)
 
-@initGrid = () ->
-  log 'initGrid'
-  unless Session.equals('tileLoaded',true)
-    #We set a global so that we can access the tileWrappers in other functions, as well as the perspective and ideal tile width.
-    @tilesContainer = $('#tiles')[0]
-    @tileWrappers = $('.tileWrapper')
-    @messages = $('#messages')[0]
-    @container = $('#container')[0]
+#@initGrid = () ->
+  #log 'initGrid'
+  #unless tileWrappers.length
+  #We set a global so that we can access the tileWrappers in other functions, as well as the perspective and ideal tile width.
+  #@tilesContainer = $('#tiles')[0]
+  #@tileWrappers = $('.tileWrapper')
+  #@messages = $('#messages')[0]
+  #@container = $('#container')[0]
 
 calculateGrid = () ->
   columnCount = Session.get('columnCount')
   columnWidth = Session.get('columnWidth')
-  #This is where we calculate the proper translation values based on the ideal dimensions we want for the tile.
-  #log 'calculateGrid columnWidth ' + columnWidth
-  #if Session.equals('appState','view')
-  #  translateZValue = -10000
-  #else
-  translateZValue = -(((tileWidth*tilesPerspective)/columnWidth)-tilesPerspective)
-  #log translateZValue
+  @tilesContainer = $('#tiles')[0]
+  @tileWrappers = $('.tileWrapper')
+  @messages = $('#messages')[0]
+  @container = $('#container')[0]
 
-  #if Session.equals('appState','preview')
-  #  physics.particles[0].behaviours[0].force.z = 0.01
-  #else if Session.equals('appState','browse')
-  #  physics.particles[0].behaviours[0].force.z = 0
+  #If there's no tileWrappers in the physics world, add it to the world.
+  #if physics.particles.length is 0
+    #log 'Adding elements to physics world'
+    #tileWrappers.each((i)->
+    #  particle = new Particle()
+    #  physics.particles.push particle
+    #)
+  #else
+    #Handle Tile Physics
+    #tileWrappers.each((i)->
+      #Calculate the final webkitTransform
+      #matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[i].pos.x + ", " + physics.particles[i].pos.y + ", " + physics.particles[i].pos.z + ", 1)"
+      #this.style.webkitTransform = matrix3d
+    #)
 
   #Resize the columns when columnCount changes
-  switch columnCount
+  ###switch columnCount
     when 1
       for particle, i in physics.particles
         if particle.element is '.tileWrapper'
@@ -91,62 +98,56 @@ calculateGrid = () ->
         if particle.element is '.tileWrapper'
           particle.pos.z = translateZValue
     else
-      log 'Column Layout Error'
+      log 'Column Layout Error'###
 
-  #Handle Tile Physics
-  tileWrappers.each((i)->
-    #Calculate the final webkitTransform
-    matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[i].pos.x + ", " + physics.particles[i].pos.y + ", " + physics.particles[i].pos.z + ", 1)"
-    this.style.webkitTransform = matrix3d
-
-    #We have to have the wrapper element have the opposite translation, so that people can still click on elements contained within it.
-    inverseMatrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + 0 + ", " + 0 + ", " + -translateZValue + ", 1)"
-    tilesContainer.style.webkitTransform = inverseMatrix3d
-  )
+  #We have to have the wrapper element have the opposite translation, so that people can still click on elements contained within it.
+  #translateZValue = -(((tileWidth*tilesPerspective)/columnWidth)-tilesPerspective)
+  #inverseMatrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + 0 + ", " + 0 + ", " + -translateZValue + ", 1)"
+  #tilesContainer.style.webkitTransform = inverseMatrix3d
 
   #Handle Message Spring RestLengths
-  if Session.equals('appState','view') or
-      Session.equals('appState','play')
-    messagesRestLength = 0
-  else
-    messagesRestLength = 600
+  #if Session.equals('appState','view') or
+  #    Session.equals('appState','play')
+  #  messagesRestLength = 0
+  #else
+  #  messagesRestLength = 600
 
   #Handle Container Spring RestLengths
-  if Session.equals('modalState','login')
-    containerRestLength = 225
-  else if Session.equals('modalState','profile')
-    containerRestLength = 225
-  else
-    containerRestLength = 0
+  #if Session.equals('modalState','login')
+  #  containerRestLength = 225
+  #else if Session.equals('modalState','profile')
+  #  containerRestLength = 225
+  #else
+  #  containerRestLength = 0
 
   #TODO: Fix this and integrate with physics ASAP
-  if Session.equals('appState','play')
+  ###if Session.equals('appState','play')
     $('.tilesBackground').css('display','none')
     $('#masthead').css('display','none')
     $('#messages').css('display','none')
   else
     $('.tilesBackground').css('display','block')
     $('#masthead').css('display','block')
-    $('#messages').css('display','block')
+    $('#messages').css('display','block')###
 
   #Handle World Element Physics - Springs
-  for spring, i in physics.springs
-    if spring.element is '#container'
-      spring.restLength = containerRestLength
-    if spring.element is '#messages'
-      spring.restLength = messagesRestLength
+  #for spring, i in physics.springs
+  #  if spring.element is '#container'
+  #    spring.restLength = containerRestLength
+  #  if spring.element is '#messages'
+  #    spring.restLength = messagesRestLength
 
   #Handle World Element Physics - Particles
-  for particle, i in physics.particles
+  #for particle, i in physics.particles
     #Handle Container Element
-    if particle.element is '#container'
-      matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + particle.pos.x + ", " + particle.pos.y + ", " + particle.pos.z + ", 1)"
-      container.style.webkitTransform = matrix3d
+  #  if particle.element is '#container'
+  #    matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + particle.pos.x + ", " + particle.pos.y + ", " + particle.pos.z + ", 1)"
+  #    container.style.webkitTransform = matrix3d
     #Handle Messages Element
-    if particle.element is '#messages'
+    #if particle.element is '#messages'
       #If the physics object matches the element we want, update it's positioning with the physics world values
-      matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + particle.pos.x + ", " + particle.pos.y + ", " + particle.pos.z + ", 1)"
-      messages.style.webkitTransform = matrix3d
+      #matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + particle.pos.x + ", " + particle.pos.y + ", " + particle.pos.z + ", 1)"
+      #messages.style.webkitTransform = matrix3d
 
 #Calculate Column Count
 Deps.autorun(@calculateColumnCount = () ->
@@ -154,9 +155,10 @@ Deps.autorun(@calculateColumnCount = () ->
   #Reposition elements - we do this so aside from when a window is changing, we can actually use physics and don't have the
   #tiles constantly being repositioned, as that impacts the physics in a negative way. This way, it only happens when the columnCount
   #actually changes.
+
   if Session.get('columnCount') and !Session.equals('columnCount',columnCount)
     Session.set('columnCount',columnCount)
-    switch columnCount
+    ###switch columnCount
       when 1
         for particle, i in physics.particles
           if particle.element is '.tileWrapper'
@@ -198,7 +200,7 @@ Deps.autorun(@calculateColumnCount = () ->
           if particle.element is '.tileWrapper'
             particle.moveTo tenColumnPos[i]
       else
-        log 'Column Layout Error'
+        log 'Column Layout Error'###
   else
     Session.set('columnCount',columnCount)
 )
@@ -225,14 +227,31 @@ Meteor.subscribe('games',()->
   )
 )
 
+#Prevent Scrolling when appState is view - THIS IS A HACK because Meteor doesn't allow for attributes on the body, which is so fucking dumb that I dont even want to begin to get into it. Ugh.
+Deps.autorun(toggleScrolling = ()->
+  #Disable scrolling when the webkitTransition is completed
+  if Session.equals('disableScrolling',true)
+    $('html,body').addClass('scrollingDisabled')
+  else
+    $('html,body').removeClass('scrollingDisabled')
+)
+
 notifyUser = (message) ->
   log 'GAME VERSION HAS CHANGED TO ' + message
   Session.set('activeNotification',true)
 
 heartbeat = (timestamp) ->
   #log 'BEATING'
-  if Session.equals('tileLoaded',true)
-    calculateGrid()
+  #if Session.equals('appState','view')
+  #  log 'Disabling scrolling'
+  #  $('body').addClass('scrollingDisabled')
+  #else
+  #  log 'Enabling scrolling'
+  #  $('body').removeClass('scrollingDisabled')
+
+  #if Session.equals('tilesLoaded',true)
+    #initGrid()
+  #  calculateGrid()
 
   #Render Springs
   #ctx.clearRect(0, 0, canvas.width, canvas.height);

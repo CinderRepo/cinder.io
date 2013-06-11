@@ -39,15 +39,15 @@ Template.modal.state = ->
 			Session.set('inputThreePlaceholder','Password (Coming Soon)')
 			Session.set('inputThreeType','text')
 			Session.set('modalButtonValue','Coming Soon')
-		else
-			Session.set('inputOnePlaceholder','')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','')
-			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder','')
-			Session.set('inputThreeType','text')
-			Session.set('inputThreePlaceholder',undefined)
-			Session.set('inputThreeType','text')
+		#else
+		#	Session.set('inputOnePlaceholder','')
+		#	Session.set('inputOneType','text')
+		#	Session.set('inputTwoPlaceholder','')
+		#	Session.set('inputTwoType','text')
+		#	Session.set('inputThreePlaceholder','')
+		#	Session.set('inputThreeType','text')
+		#	Session.set('inputThreePlaceholder',undefined)
+		#	Session.set('inputThreeType','text')
 	state
 
 Template.modal.inputOnePlaceholder = ->
