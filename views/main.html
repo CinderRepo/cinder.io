@@ -31,8 +31,8 @@
 								{{/each}}
 							{{else}}
 								<div class="noMessagesNotice">NO MESSAGES ADDED</div>
-								{{/if}}
-								{{/isolate}}
+							{{/if}}
+							{{/isolate}}
 							</div>
 						</div>
 					</div>
@@ -65,11 +65,11 @@
 				{{/isolate}}
 				{{#isolate}}
 				<div class="tilePane" data-pane="play">
-					<iframe id="gamePlayer" seamless sandbox="allow-scripts" src="{{gameSrc}}"></iframe>
+					<iframe id="gamePlayer" seamless sandbox="allow-scripts allow-same-origin" src="{{gameSrc}}"></iframe>
 				</div>
 				{{/isolate}}
+				{{>textEntryBox}}
 			</div>
-			{{>textEntryBox}}
 			{{/with}}
 		</div>
 		{{/isolate}}

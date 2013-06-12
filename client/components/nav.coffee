@@ -79,6 +79,10 @@ Template.nav.events
     log 'navScrollerItem clicked!'
     #Set the activePane session
     Session.set('activePane',$(e.currentTarget).data('pane'))
+    if $(e.currentTarget).data('pane') == 'play'
+      Meteor.Router.to '/' + Session.get('activeTile') + '/play'
+    else
+      Meteor.Router.to '/' + Session.get('activeTile')
 
 Template.nav.preserve({
   '#navScrollerWrapper'
