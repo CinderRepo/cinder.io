@@ -7,11 +7,11 @@
 Meteor.startup(()->
   Session.setDefault('appState','browse')
   #Calculate windowWidth for grid dimensions
-  getWindowSize()
+  #getWindowSize()
   #initialize physics
-  initPhysics()
+  #initPhysics()
   #Start client request animation frame heartbeat
-  heartbeat()
+  #heartbeat()
   #debugger
 )
 

@@ -31,7 +31,7 @@ Template.main.view = ()->
   _id: this._id
 Template.main.play = () ->
   state: 'play'
-  href: this._id + '/view/play'
+  href: this._id + '/play'
   message: 'Play'
   _id: this._id
 Template.main.hasMessages = ->
@@ -41,12 +41,18 @@ Template.main.hasMessages = ->
   else
     false
 Template.main.viewing = ->
-  Games.findOne(Session.get('activeTile'))
+  if Session.get('activeTile')
+    Games.findOne(Session.get('activeTile'))
+  else
+    Games.findOne()
 Template.main.scrollableList = () ->
   Games.find({}, {
     limit: Session.get('rowCount') * Session.get('columnCount') #Limit the games to the current rowCount number
     skip: Session.get('tileScrollPosition') * Session.get('rowCount') #Skip the right number of games
   })
+Session.setDefault('activePane','info')
+Template.main.activePane = ->
+  Session.get('activePane')
 
 Template.main.events
   'mousewheel #container':(e,t)->
@@ -62,7 +68,7 @@ Template.main.events
       log 'SCROLLING DOWN!'
     else
       log 'Scrolling stopped?'###
-  'webkitTransitionEnd #tilePage':(e,t)->
+  'webkitTransitionEnd #tilePanes':(e,t)->
     e.stopImmediatePropagation()
     if Session.equals('appState','view')
       Session.set('disableScrolling',true)
@@ -82,6 +88,7 @@ Template.main.preserve({
   '#tiles'
   '#tilePage'
   '#tilePageWrapper'
+  '.tilePane[data-pane="info"]'
   '#gamePlayer'
   '#gamePlayerContent'
   '#messages'

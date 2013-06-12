@@ -13,15 +13,63 @@
 		</div>
 		{{/isolate}}
 		{{#isolate}}
-		<div id="tilePage">
+		<div id="tilePanes">
 			{{#with viewing}}
-			<div id="tilePageWrapper" data-genre="{{genre}}" style="background-image: url('{{previewSrc}}');">
-				<div id="tilePageName">{{name}}</div>
-				<div id="tilePageDescription">{{description}}</div>
+			<div id="tilePanesWrapper" data-genre="{{genre}}" data-activePane="{{activePane}}">
+				{{#isolate}}
+				<div class="tilePane" data-pane="info" style="background-image: url('{{previewSrc}}');">
+					<div class="tilePaneInfoWrapper">
+						{{>button play}}
+						<div id="tilePaneName">{{name}}</div>
+						<div id="tilePaneDescription">{{description}}</div>
+						<div id="messages">
+							<div class="messagesContainer">
+							{{#isolate}}
+							{{#if hasMessages}}
+								{{#each messages}}
+									{{>message}}
+								{{/each}}
+							{{else}}
+								<div class="noMessagesNotice">NO MESSAGES ADDED</div>
+								{{/if}}
+								{{/isolate}}
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="images">
+					IMAGES!
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="audio">
+					AUDIO!
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="video">
+					VIDEO!
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="code">
+					CODE!
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="fund">
+					FUND!
+				</div>
+				{{/isolate}}
+				{{#isolate}}
+				<div class="tilePane" data-pane="play">
+					<iframe id="gamePlayer" seamless sandbox="allow-scripts" src="{{gameSrc}}"></iframe>
+				</div>
+				{{/isolate}}
 			</div>
-			<div id="messages">
-				MESSAGES
-			</div>
+			{{>textEntryBox}}
 			{{/with}}
 		</div>
 		{{/isolate}}

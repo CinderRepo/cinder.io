@@ -19,7 +19,7 @@
 	right 0
 	bottom 0
 	left 0
-	border-bottom 1px solid rgba(255,255,255,0.8)
+	border-bottom 1px solid rgba(255,255,255,0.6)
 	box-shadow 0 0 1px midnightBlue
 	pointer-events none
 #nav .circleButton
@@ -40,6 +40,68 @@
 	left 0
 	height 80px
 	padding 20px
+	z-index 99
+#navScrollerWrapper
+	position absolute
+	right 0
+	bottom -40px
+	left 0
+	height 40px
+	background rgba(255,255,255,0.6)
+	opacity 0
+	pointer-events none
+	transition transform normalSpeed, opacity normalSpeed
+#navScrollerWrapper:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-bottom 1px solid rgba(255,255,255,0.8)
+	box-shadow 0 0 1px midnightBlue
+	pointer-events none
+#navScroller
+	width 280px
+	width 80px
+	height inherit
+	margin 0 auto
+	list-style none
+	padding 5px
+	overflow hidden
+	color clouds
+	text-align center
+.navScrollerItem
+	width 30px
+	height 30px
+	margin 0 10px 0 0
+	float left
+	cursor pointer
+.navScrollerItem:last-child
+	margin 0 0 0 0
+
+//Specific navScrollerItem icon Styles
+.navScrollerItem[data-pane="info"]
+	padding 4px 0 6px 0
+.navScrollerItem[data-pane="images"]
+	padding 0 0 0 0
+	display none
+.navScrollerItem[data-pane="audio"]
+	padding 0 0 1px 0
+	display none
+.navScrollerItem[data-pane="video"]
+	padding 0 0 3px 0
+	display none
+.navScrollerItem[data-pane="code"]
+	padding 0 0 1px 0
+	display none
+.navScrollerItem[data-pane="fund"]
+	padding 2px 0 3px 0
+	display none
+.navScrollerItem[data-pane="play"]
+	padding 0 0 2px 0
+	transform rotateZ(-35deg)
+
 .notification
 	float right
 	//width 200px
