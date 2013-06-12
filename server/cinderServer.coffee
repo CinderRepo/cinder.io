@@ -190,14 +190,14 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("OfficeSweetheart")
 
-  if Games.find().count() == 0
+  ###if Games.find().count() == 0
     Games.insert
       name: "Alan Wake's American Nightmare"
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/alan-wakes-american-nightmare.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -208,7 +208,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/alone-in-the-dark.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -219,7 +219,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/amnesia-the-dark-descent.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -230,7 +230,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/and-yet-it-moves.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -241,7 +241,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/bastion.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -252,7 +252,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/batman-arkham-asylum.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -263,7 +263,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/batman-arkham-city.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -274,7 +274,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/bioshock.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -285,7 +285,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/bioshock-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -296,7 +296,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/bioshock-infinite.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -307,7 +307,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/bit-trip-runner.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -318,7 +318,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/borderlands-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -329,7 +329,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/braid.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -340,7 +340,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/brutal-legend.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -351,7 +351,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/catherine.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -362,7 +362,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/cave-story-plus.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -373,7 +373,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/cogs.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -384,7 +384,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/counter-strike-source.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -395,7 +395,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/crayon-physics-deluxe.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -406,7 +406,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/dark-souls.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -417,7 +417,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/dark-void.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -428,7 +428,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/darksiders-i.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -439,7 +439,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/darksiders-ii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -450,7 +450,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/day-of-defeat-source.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -461,7 +461,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/dead-island.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -472,7 +472,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/deadly-premonition.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -483,7 +483,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/demons-souls.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -494,7 +494,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/devil-may-cry-1.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -505,7 +505,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/devil-may-cry-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -516,7 +516,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/devil-may-cry-3.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -527,7 +527,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/devil-may-cry-4.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -538,7 +538,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/devil-may-cry-5.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -549,7 +549,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/digital-devil-saga.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -560,7 +560,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/disgaea.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -571,7 +571,7 @@ Meteor.startup ->
       genre: "Strategy"
       gameBy: "test"
       previewSrc: "/img/preview/dungeon-defenders.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -582,7 +582,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/eternal-sonata.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -593,7 +593,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-crystal-chronicles.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -604,7 +604,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-i.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -615,7 +615,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-ii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -626,7 +626,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-iii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -637,7 +637,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-iv.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -648,7 +648,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-v.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -659,7 +659,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-vi.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -670,7 +670,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-vii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -681,7 +681,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-viii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -692,7 +692,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-ix.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -703,7 +703,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-x.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -714,7 +714,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-x-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -725,7 +725,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-xi.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -736,7 +736,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-xii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -747,7 +747,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-xiii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -758,7 +758,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/final-fantasy-xiv.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -769,7 +769,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/folklore.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -780,7 +780,7 @@ Meteor.startup ->
       genre: "Simulation"
       gameBy: "test"
       previewSrc: "/img/preview/garrys-mod.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -791,7 +791,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/gotham-city-imposters.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -802,7 +802,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/gratuitous-space-battles.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -813,7 +813,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/half-life-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -824,7 +824,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/half-life-2-episode-one.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -835,7 +835,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/half-life-2-episode-two.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -846,7 +846,7 @@ Meteor.startup ->
       genre: "Simulation"
       gameBy: "test"
       previewSrc: "/img/preview/harvest-moon-magical-melody.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -857,7 +857,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/hitman-blood-money.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -868,7 +868,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/hitman-contracts.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -879,7 +879,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/hitman-codename-47.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -890,7 +890,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/hitman-2-silent-assassin.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -901,7 +901,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/hitman-absolution.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -912,7 +912,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/just-cause-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -923,7 +923,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/killing-floor.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -934,7 +934,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/kingdom-hearts-1.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -945,7 +945,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/kingdom-hearts-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -956,7 +956,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/la-noire.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -967,7 +967,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/left-4-dead.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -978,7 +978,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/left-4-dead-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -989,7 +989,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/legend-of-grimrock.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1000,7 +1000,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/limbo.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1011,7 +1011,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/lone-survivor.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1022,7 +1022,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/lost-odyssey.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1033,7 +1033,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/machinarium.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1044,7 +1044,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/magicka.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1055,7 +1055,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/metal-gear-solid-the-twin-snakes.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1066,7 +1066,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/metal-gear-solid-2-sons-of-liberty.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1077,7 +1077,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/metal-gear-solid-3-snake-eater.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1088,7 +1088,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/metal-gear-solid-4-guns-of-the-patriots.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1099,7 +1099,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/metal-gear-rising-revengeance.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1110,7 +1110,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/might-and-magic-clash-of-heroes.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1121,7 +1121,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/minecraft.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1132,7 +1132,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/mini-ninjas.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1143,7 +1143,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/mirrors-edge.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1154,7 +1154,7 @@ Meteor.startup ->
       genre: "Massively Multiplayer"
       gameBy: "test"
       previewSrc: "/img/preview/mount-and-blade.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1165,7 +1165,7 @@ Meteor.startup ->
       genre: "Massively Multiplayer"
       gameBy: "test"
       previewSrc: "/img/preview/mount-and-blade-warband.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1176,7 +1176,7 @@ Meteor.startup ->
       genre: "Massively Multiplayer"
       gameBy: "test"
       previewSrc: "/img/preview/mount-and-blade-with-fire-and-sword.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1187,7 +1187,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/nier.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1198,7 +1198,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/okami.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1209,7 +1209,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/paper-mario.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1220,7 +1220,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/paper-mario-the-thousand-year-door.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1231,7 +1231,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/portal.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1242,7 +1242,7 @@ Meteor.startup ->
       genre: "Puzzle"
       gameBy: "test"
       previewSrc: "/img/preview/portal-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1253,7 +1253,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/prince-of-persia-the-forgotten-sands.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1264,7 +1264,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/prince-of-persia-warrior-within.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1275,7 +1275,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/prince-of-persia-the-two-thrones.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1286,7 +1286,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/prince-of-persia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1297,7 +1297,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/psychonauts.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1308,7 +1308,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/shank.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1319,7 +1319,7 @@ Meteor.startup ->
       genre: "Strategy"
       gameBy: "test"
       previewSrc: "/img/preview/sid-meiers-civilization-v.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1330,7 +1330,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/silent-hill-hd-collection.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1341,7 +1341,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/skyrim.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1352,7 +1352,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/sonic-generations.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1363,7 +1363,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/spec-ops-the-line.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1374,7 +1374,7 @@ Meteor.startup ->
       genre: "Free to Play"
       gameBy: "test"
       previewSrc: "/img/preview/spiral-knights.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1385,7 +1385,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/star-ocean-the-last-hope.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1396,7 +1396,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/star-wars-jedi-knight-ii-jedi-outcast.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1407,7 +1407,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/star-wars-knights-of-the-old-republic.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1418,7 +1418,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/super-meat-boy.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1429,7 +1429,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/super-paper-mario.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1440,7 +1440,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/superbrothers-sword-and-sworcery-ep.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1451,7 +1451,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-abyss.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1462,7 +1462,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-destiny.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1473,7 +1473,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-destiny-ii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1484,7 +1484,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-eternia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1495,7 +1495,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-graces.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1506,7 +1506,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-hearts.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1517,7 +1517,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-innocence.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1528,7 +1528,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-legendia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1539,7 +1539,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-phantasia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1550,7 +1550,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-rebirth.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1561,7 +1561,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-symphonia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1572,7 +1572,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-symphonia-dawn-of-the-new-world.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1583,7 +1583,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-vesperia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1594,7 +1594,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/tales-of-xillia.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1605,7 +1605,7 @@ Meteor.startup ->
       genre: "Free to Play"
       gameBy: "test"
       previewSrc: "/img/preview/team-fortress-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1616,7 +1616,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/the-darkness.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1627,7 +1627,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/the-darkness-ii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1638,7 +1638,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/the-legend-of-zelda-ocarina-of-time.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1649,7 +1649,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/the-legend-of-zelda-majoras-mask.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1660,7 +1660,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/the-legend-of-zelda-wind-waker.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1671,7 +1671,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/the-legend-of-zelda-twilight-princess.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1682,7 +1682,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/the-legend-of-zelda-skyward-sword.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1693,7 +1693,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/the-witcher-i.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1704,7 +1704,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/the-witcher-ii.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1715,7 +1715,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/tomb-raider.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1726,7 +1726,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/torchlight.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1737,7 +1737,7 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/torchlight-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1748,7 +1748,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/trine.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1759,7 +1759,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/trine-2.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1770,7 +1770,7 @@ Meteor.startup ->
       genre: "Strategy"
       gameBy: "test"
       previewSrc: "/img/preview/valkyria-chronicles.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1781,7 +1781,7 @@ Meteor.startup ->
       genre: "Platformer"
       gameBy: "test"
       previewSrc: "/img/preview/vvvvvv.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1792,7 +1792,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/warhammer-40k-space-marine.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1803,7 +1803,7 @@ Meteor.startup ->
       genre: "Action"
       gameBy: "test"
       previewSrc: "/img/preview/wet.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1814,7 +1814,7 @@ Meteor.startup ->
       genre: "Role Playing"
       gameBy: "test"
       previewSrc: "/img/preview/white-knight-chronicles.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
@@ -1825,8 +1825,8 @@ Meteor.startup ->
       genre: "Adventure"
       gameBy: "test"
       previewSrc: "/img/preview/year-walk.jpg"
-      gameSrc: "/default/game.html"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
-      featured: false
+      featured: false###
