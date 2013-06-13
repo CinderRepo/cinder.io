@@ -1,5 +1,5 @@
 @import 'nib'
-@import '../palette'
+@import '../variables'
 
 //Circle Button Styles
 .circleButton
@@ -11,13 +11,12 @@
 	height 30px
 	max-height 30px
 	border-radius 30px
-	background darkGrey
+	background silver
 	cursor pointer
 	text-align center
 	line-height 30px
-	color offWhite
-	transition transform normalSpeed
-
+	//color clouds
+	transition transform normalSpeed, opacity normalSpeed
 //Circle Button States
 .circleButton.muted
 	opacity 0.4

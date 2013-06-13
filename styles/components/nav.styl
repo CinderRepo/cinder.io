@@ -1,0 +1,140 @@
+@import 'nib'
+@import '../variables'
+
+#nav
+	position fixed
+	top -720px
+	left 0
+	right 0
+	z-index 100
+	height 800px
+	//background clouds
+	background rgba(236,240,241,0.9)
+	transition transform normalSpeed
+	//opacity 0.9
+#nav:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-bottom 1px solid rgba(255,255,255,0.6)
+	box-shadow 0 0 1px midnightBlue
+	pointer-events none
+#nav .circleButton
+	position absolute
+	top 25px
+#nav .circleButton:nth-of-type(1)
+	left 20px
+#nav .circleButton:nth-of-type(2)
+	right 100px
+#nav .dualButtonWrapper
+	position absolute
+	left 50%
+	margin-left -50px
+#navWrapper
+	position absolute
+	bottom 0
+	right 0
+	left 0
+	height 80px
+	padding 20px
+	z-index 99
+#navScrollerWrapper
+	position absolute
+	right 0
+	bottom -40px
+	left 0
+	height 40px
+	background rgba(255,255,255,0.6)
+	opacity 0
+	pointer-events none
+	transition transform normalSpeed, opacity normalSpeed
+#navScrollerWrapper:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	border-bottom 1px solid rgba(255,255,255,0.8)
+	box-shadow 0 0 1px midnightBlue
+	pointer-events none
+#navScroller
+	width 280px
+	width 80px
+	height inherit
+	margin 0 auto
+	list-style none
+	padding 5px
+	overflow hidden
+	color clouds
+	text-align center
+.navScrollerItem
+	width 30px
+	height 30px
+	margin 0 10px 0 0
+	float left
+	cursor pointer
+.navScrollerItem:last-child
+	margin 0 0 0 0
+
+//Specific navScrollerItem icon Styles
+.navScrollerItem[data-pane="info"]
+	padding 4px 0 6px 0
+.navScrollerItem[data-pane="images"]
+	padding 0 0 0 0
+	display none
+.navScrollerItem[data-pane="audio"]
+	padding 0 0 1px 0
+	display none
+.navScrollerItem[data-pane="video"]
+	padding 0 0 3px 0
+	display none
+.navScrollerItem[data-pane="code"]
+	padding 0 0 1px 0
+	display none
+.navScrollerItem[data-pane="fund"]
+	padding 2px 0 3px 0
+	display none
+.navScrollerItem[data-pane="play"]
+	padding 0 0 2px 0
+	transform rotateZ(-35deg)
+
+.notification
+	float right
+	//width 200px
+	height 40px
+	border-radius 3px
+	position relative
+	background sunflower
+	position relative
+.notificationText
+	border-radius 3px
+	background sunflower
+	color clouds
+	line-height 40px
+	padding 0 20px 0 20px
+	font-size 18px
+	float left
+	height 40px
+.notification:after
+	content ''
+	position absolute
+	top 0
+	right 0
+	bottom -5px
+	left 0
+	z-index -1
+	background orange
+	border-radius 3px
+#nav .notification .circleButton
+	position static
+	float left
+.notification .circleButton[data-state="no"]
+	margin-top 6px
+	margin-right 10px
+.notification .circleButton[data-state="yes"]
+	margin-top 6px
+	margin-right 10px

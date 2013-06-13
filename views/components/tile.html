@@ -1,10 +1,14 @@
 <template name="tile">
 	{{#isolate}}
-	<div class="tileWrapper {{revealedDown}}">
-		<div class="tile">
-			<div class="tileContent" style="background-image: url('{{src}}');">
-				<div class="tileInfo">{{name}}</div>
-				{{>button view}}
+	<div class="tileWrapper" data-genre="{{genre}}">
+		<div class="tile" data-href="{{_id}}">
+			<div class="tileContainer">
+				<div class="tileContent" style="background-image: url('{{previewSrc}}');">
+					<div class="tileInfo">
+						<h2 class="tileName">{{name}}</h2>
+						<div class="tileDescription">{{description}}</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 <template name="modal">
-	<div class="modal" data-state="{{state}}">
+	{{#isolate}}
+	<div id="modal" data-state="{{state}}">
 		<form class="modalForm">
 			<div class="modalFormHeader">
 				{{>button logout}}
@@ -19,8 +20,9 @@
 	    		<input class="modalFormInput" type="{{inputThreeType}}" placeholder="{{inputThreePlaceholder}}">
 	    	</div>
 	    	<div class="modalFormInputButtons">
-	    		{{>button confirm}}
+	    		<input class="modalButton" type="submit" value="{{modalButtonValue}}" />
 	    	</div>
 	    </form>
 	</div>
+	{{/isolate}}
 </template>
