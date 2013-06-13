@@ -127,16 +127,24 @@ Template.modal.events
 				Session.set('appState','view')
 				Session.set('modalState',undefined)
 		else if state == 'feedback'
-			log 'HELLO FEEDBACK'
-			textAreaValue = t.find('.modalFormTextArea').value
+        log 'HELLO FEEDBACK'
+        textAreaValue = t.find('.modalFormTextArea').value
 
 			#Call the sendEmail method on the server
-			Meteor.call('sendEmail',
-				'feedback@cinder.io',
-				Meteor.user().emails[0],
-				Meteor.user().username + ' gave us feedback!'
-				textAreaValue
-			)
+      if Meteor.user()
+        Meteor.call('sendEmail',
+                    'feedback@cinder.io',
+                    Meteor.user().emails[0],
+                    Meteor.user().username + ' gave us feedback!',
+                    textAreaValue
+                    )
+      else
+        Meteor.call('sendEmail',
+                    'feedback@cinder.io',
+                    'guest@guest.com',
+                    'A logged out guest gave us feedback!',
+                    textAreaValue
+                    )
 
 			#Close the modal
 			Session.set('modalState',undefined)
