@@ -90,6 +90,9 @@ Template.nav.events
       Meteor.Router.to '/' + Session.get('activeTile')
 
 Template.nav.preserve({
+  '#nav'
+  '#navWrapper'
   '#navScrollerWrapper'
-  '.nav'
+  '.circleButton[data-state="feedback"]'
+  '.circleButton[data-state="exit"]'
 })

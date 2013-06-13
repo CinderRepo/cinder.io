@@ -1,5 +1,5 @@
-Template.circleButton.state = ->
-	if Session.equals('appState','view') then 'exit' else this.state
+#Template.circleButton.state = ->
+	#this.state
 
 Template.circleButton.active = ->
 	if Session.equals('activeCircleButton',this._id) then 'active' else ''

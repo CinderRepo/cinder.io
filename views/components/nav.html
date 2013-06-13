@@ -3,11 +3,15 @@
   <div id="nav">
     {{>modal}}
     <div id="navWrapper">
+    {{#isolate}}
     {{#if viewing}}
       {{>circleButton exit}}
     {{/if}}
+    {{/isolate}}
 
+    {{#isolate}}
     {{>circleButton feedback}}
+    {{/isolate}}
 
     {{#if notification}}
       <div class="notification">
