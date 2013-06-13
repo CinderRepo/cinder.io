@@ -57,6 +57,8 @@ Template.modal.isFeedback = ->
 		true
 	else
 		false
+Template.modal.textareaPlaceholder = ->
+	Session.get('textareaPlaceholder')
 Template.modal.inputOnePlaceholder = ->
 	Session.get('inputOnePlaceholder')
 Template.modal.inputTwoPlaceholder = ->
