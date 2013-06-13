@@ -43,7 +43,7 @@ Template.nav.playing = ->
   if Session.equals('appState','play') then true else false
 
 Template.nav.viewing = ->
-  if Session.equals('appState','view') then true else false
+  if Session.equals('appState','view') or Session.equals('appState','play') then true else false
 
 Template.nav.notification = ->
   if Session.equals('activeNotification',true) then true else false
