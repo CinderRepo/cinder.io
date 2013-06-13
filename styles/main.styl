@@ -1,50 +1,359 @@
 @import 'nib'
-@import 'palette'
+@import 'variables'
 
-//Main Styles
-.paneWrapper
-	position absolute
-	top 70px
+//Container Styles
+#container
+	//position fixed
+	//top 80px
+	//right 0
+	//bottom 0
+	//left 0
+	//z-index 101
+	height 100%
+	overflow-x hidden
+	overflow-y scroll
+	//background midnightBlue
+	transition transform normalSpeed
+
+//Tile Container Styles
+#tiles
+	margin 0 auto
+	background clouds
+	height 100%
+	position relative
+	z-index 1
+	transition transform normalSpeed
+
+#tilesWrapper
+	width 800px
+	//background red
+	margin 0 auto
+	position relative
+	padding 80px 0 20px 0
+#tilesWrapper:after
+	content ''
+	display table
+	clear both
+
+//ONE COLUMN LAYOUT
+@media only screen and (max-width : 800px)
+	#tilesWrapper
+		width 400px
+
+//TWO COLUMN LAYOUT
+@media only screen and (min-width : 801px) and (max-width : 1200px)
+	#tilesWrapper
+		width 800px
+
+//THREE COLUMN LAYOUT
+@media only screen and (min-width : 1201px) and (max-width : 1600px)
+	#tilesWrapper
+		width 1200px
+
+//FOUR COLUMN LAYOUT
+@media only screen and (min-width : 1601px) and (max-width : 2000px)
+	#tilesWrapper
+		width 1600px
+
+//FIVE COLUMN LAYOUT
+@media only screen and (min-width : 2001px) and (max-width : 2400px)
+	#tilesWrapper
+		width 2000px
+
+//SIX COLUMN LAYOUT
+@media only screen and (min-width : 2401px) and (max-width : 2800px)
+	#tilesWrapper
+		width 2400px
+
+//SEVEN COLUMN LAYOUT
+@media only screen and (min-width : 2801px) and (max-width : 3200px)
+	#tilesWrapper
+		width 2800px
+
+//EIGHT COLUMN LAYOUT
+@media only screen and (min-width : 3201px) and (max-width : 3600px)
+	#tilesWrapper
+		width 3200px
+
+//NINE COLUMN LAYOUT
+@media only screen and (min-width : 3601px) and (max-width : 4000px)
+	#tilesWrapper
+		width 3600px
+
+//TEN COLUMN LAYOUT
+@media only screen and (min-width : 4001px) and (max-width : 4400px)
+	#tilesWrapper
+		width 4000px
+
+//Messages Styles
+/*#messages
+	position fixed
+	top 380px
 	right 0
 	bottom 0
 	left 0
-	transition transform normalSpeed
-	transform translate3d(0,0,0)
-	background darkestGrey
-.paneWrapper.revealedDown
-	transform translate3d(0,220px,0)
+	z-index 101
+	background clouds
+	color midnightBlue
+	perspective 100px
+	perspective-origin 50% 50%
+	perspective-origin 0 0
+	transform-style flat
 
-//paneWrapper - Browse Pane Styles
-.paneWrapper .pane.browse
-	pointer-events none
-.paneWrapper .pane.browse .tile
-	pointer-events auto
-
-//paneWrapper - Profile Pane Styles
-.paneWrapper .pane.profile
-	//pointer-events auto	
-
-//paneWrapper - Browse State Styles - Active
-.paneWrapper[data-activePane="browse"] .pane.browse .tileWrapper
-	background darkestGrey
-.paneWrapper[data-activePane="browse"] .pane.browse .tile
-	transform scale3d(1,1,1)
-
-//paneWrapper - Profile State Styles - Active
-.paneWrapper[data-activePane="profile"] .pane.profile
-	pointer-events auto
-.paneWrapper[data-activePane="profile"] .pane.profile .contentViewer
-	margin 0 0 20px 0
-	border-radius 5px
-.paneWrapper[data-activePane="profile"] .pane.profile .contentViewerToolbar,
-.paneWrapper[data-activePane="profile"] .pane.profile .messages
-	opacity 1
-.paneWrapper[data-activePane="profile"] .pane.profile .button[data-state="view"]
-	opacity 0
-
-.pane
+.messagesContainer
 	position absolute
 	top 0
-	right 10px
+	right 0
+	bottom 100px
+	left 0
+	overflow-x hidden
+	overflow-y scroll
+
+.noMessagesNotice
+	text-align center
+	height 42px
+	width 600px
+	font-size 42px
+	position absolute
+	top 50%
+	left 50%
+	margin -21px 0 0 -300px*/
+
+//tilePanes Styles
+#tilePanes
+	position fixed
+	top 0
+	right 0
 	bottom 0
-	left 10px
+	left 0
+	z-index 1
+	transform scale3d(0,0,0)
+	opacity 0
+	transition transform normalSpeed, opacity normalSpeed
+	pointer-events none
+	overflow hidden
+#tilePanesWrapper
+	position absolute
+	top 0
+	bottom 0
+	width 200%
+	color clouds
+	text-shadow 0 1px 1px midnightBlue
+	transition transform normalSpeed
+	overflow hidden
+
+//TilePanesWrapper activePane States
+#tilePanesWrapper[data-activePane="info"]
+	transform translate3d(0,0,0)
+/*#tilePanesWrapper[data-activePane="images"]
+	transform translate3d(-14.285714286%,0,0)
+#tilePanesWrapper[data-activePane="audio"]
+	transform translate3d(-14.285714286*2%,0,0)
+#tilePanesWrapper[data-activePane="video"]
+	transform translate3d(-14.285714286*3%,0,0)
+#tilePanesWrapper[data-activePane="code"]
+	transform translate3d(-14.285714286*4%,0,0)
+#tilePanesWrapper[data-activePane="fund"]
+	transform translate3d(-14.285714286*5%,0,0)*/
+#tilePanesWrapper[data-activePane="play"]
+	//transform translate3d(-14.285714286*6%,0,0)
+	transform translate3d(-50%,0,0)
+
+//tilePane positionings
+.tilePane
+	//position absolute
+	//top 0
+	//bottom 0
+	position absolute
+	top 0
+	bottom 0
+	width 14.285714286%
+	width 50%
+	//float left
+	//clear both
+	background-size cover
+	background-repeat no-repeat
+	background-position 50% 50%
+	overflow-y scroll
+//Different tilePane positionings
+.tilePane[data-pane="info"]
+	background-color turquoise
+	left 0
+.tilePane[data-pane="images"]
+	background-color emerland
+	left 14.285714286%
+	display none
+.tilePane[data-pane="audio"]
+	background-color peterRiver
+	left 14.285714286*2%
+	display none
+.tilePane[data-pane="video"]
+	background-color amethyst
+	left 14.285714286*3%
+	display none
+.tilePane[data-pane="code"]
+	background-color wetAsphalt
+	left 14.285714286*4%
+	display none
+.tilePane[data-pane="fund"]
+	background-color sunflower
+	left 14.285714286*5%
+	display none
+.tilePane[data-pane="play"]
+	background-color carrot
+	left 14.285714286*6%
+	left 50%
+
+.tilePaneInfoWrapper
+	position absolute
+	top 600px
+	bottom 0
+	float left
+	height 100%
+	width 100%
+
+#tilePaneName
+	/*position absolute
+	bottom 300px
+	left 0
+	right 0*/
+	height 80px
+	font-size 40px
+	line-height 40px
+	padding 20px
+	opacity 0.9
+	float left
+	width 100%
+#tilePaneDescription
+	/*position absolute
+	right 0
+	bottom 80px
+	left 0px*/
+	height 220px
+	padding 20px
+	opacity 0.9
+	float left
+	width 100%
+
+#messages
+	float left
+	width 100%
+	min-height 100px
+	background clouds
+	color midnightBlue
+	//padding 0 0 100px 0
+.noMessagesNotice
+	text-align center
+	height 100px
+	width 600px
+	font-size 42px
+	line-height 100px
+	text-shadow none
+	margin 0 auto
+
+#tilePanesWrapper .button[data-state="play"]
+	margin 0 auto
+	width 200px
+	height 60px
+	line-height 60px
+	font-size 24px
+	color clouds
+	background alizarin
+	display block
+	margin-bottom 20px
+#tilePanesWrapper .button[data-state="play"] .buttonText
+	background alizarin
+	z-index 1
+#tilePanesWrapper .button[data-state="play"]:after
+	background pomegranate
+	z-index 0
+
+//Handle tilePaneName Genre Styles
+#tilePanesWrapper[data-genre="Free to Play"] #tilePaneName,
+#tilePanesWrapper[data-genre="Free to Play"] .textEntryBox
+	background turquoise
+#tilePanesWrapper[data-genre="Platformer"] #tilePaneName,
+#tilePanesWrapper[data-genre="Platformer"] .textEntryBox
+	background emerland
+#tilePanesWrapper[data-genre="Action"] #tilePaneName,
+#tilePanesWrapper[data-genre="Action"] .textEntryBox
+	background peterRiver
+#tilePanesWrapper[data-genre="Adventure"] #tilePaneName,
+#tilePanesWrapper[data-genre="Adventure"] .textEntryBox
+	background amethyst
+#tilePanesWrapper[data-genre="Strategy"] #tilePaneName,
+#tilePanesWrapper[data-genre="Strategy"] .textEntryBox
+	background wetAsphalt
+#tilePanesWrapper[data-genre="Role Playing"] #tilePaneName,
+#tilePanesWrapper[data-genre="Role Playing"] .textEntryBox
+	background sunflower
+#tilePanesWrapper[data-genre="Massively Multiplayer"] #tilePaneName,
+#tilePanesWrapper[data-genre="Massively Multiplayer"] .textEntryBox
+	background carrot
+#tilePanesWrapper[data-genre="Simulation"] #tilePaneName,
+#tilePanesWrapper[data-genre="Simulation"] .textEntryBox
+	background alizarin
+#tilePanesWrapper[data-genre="Puzzle"] #tilePaneName,
+#tilePanesWrapper[data-genre="Puzzle"] .textEntryBox
+	background purpleRain
+#tilePanesWrapper[data-genre="Sports"] #tilePaneName,
+#tilePanesWrapper[data-genre="Sports"] .textEntryBox
+	background concrete
+
+//Handle tilePaneDescription Genre Styles
+#tilePanesWrapper[data-genre="Free to Play"] #tilePaneDescription
+	background greenSea
+#tilePanesWrapper[data-genre="Platformer"] #tilePaneDescription
+	background nephritis
+#tilePanesWrapper[data-genre="Action"] #tilePaneDescription
+	background belizeHole
+#tilePanesWrapper[data-genre="Adventure"] #tilePaneDescription
+	background wisteria
+#tilePanesWrapper[data-genre="Strategy"] #tilePaneDescription
+	background midnightBlue
+#tilePanesWrapper[data-genre="Role Playing"] #tilePaneDescription
+	background orange
+#tilePanesWrapper[data-genre="Massively Multiplayer"] #tilePaneDescription
+	background pumpkin
+#tilePanesWrapper[data-genre="Simulation"] #tilePaneDescription
+	background pomegranate
+#tilePanesWrapper[data-genre="Puzzle"] #tilePaneDescription
+	background risingTyphoon
+#tilePanesWrapper[data-genre="Sports"] #tilePaneDescription
+	background asbestos
+
+//Handle Application States
+#container[data-state="view"],
+#container[data-state="play"]
+	//We disable pointer events on the container so that the browse page doesn't scroll anymore.
+	pointer-events none
+#container[data-state="view"] #nav,
+#container[data-state="play"] #nav
+	//We still want pointer events when the user clicks on the navigation however, so we enable it here.
+	pointer-events auto
+#container[data-state="view"] #tiles,
+#container[data-state="play"] #tiles
+	//Prevent the user from accidentally clicking or scrolling the tiles page
+	pointer-events none
+#container[data-state="view"] #tilePanes,
+#container[data-state="play"] #tilePanes
+	//Allow the user to interact with the tilePane
+	transform scale3d(1,1,1)
+	opacity 1
+	pointer-events auto
+#container[data-state="view"] #navScrollerWrapper,
+#container[data-state="play"] #navScrollerWrapper
+	//transform translate3d(0,120px,0)
+	opacity 1
+	pointer-events auto
+
+//Handle Modal States
+#container[data-modal="login"] #nav,
+#container[data-modal="profile"] #nav
+	transform translate3d(0,240px,0)
+
+
+//GamePlayer Styles
+#gamePlayer
+	width 100%
+	height 100%

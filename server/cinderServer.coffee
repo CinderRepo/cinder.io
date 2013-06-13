@@ -1,3 +1,8 @@
+#Publish Subscriptions
+Meteor.publish('games',()->
+  Games.find()
+)
+
 #Basic Web Auth
 ###connect = Npm.require('connect');
   options =
@@ -185,1054 +190,1643 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("OfficeSweetheart")
 
-  if Games.find().count() == 0
+  ###if Games.find().count() == 0
     Games.insert
       name: "Alan Wake's American Nightmare"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/alan-wakes-american-nightmare.jpg"
-      comments: []
+      previewSrc: "/img/preview/alan-wakes-american-nightmare.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
-    Games.insert
-      name: "Alice Madness Returns"
-      genre: "Sim"
-      gameBy: "test"
-      src: "img/preview/alice-madness-returns.jpg"
-      comments: []
-      active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Alone in the Dark"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/alone-in-the-dark.jpg"
-      comments: []
+      previewSrc: "/img/preview/alone-in-the-dark.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Amnesia the Dark Descent"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/amnesia-the-dark-descent.jpg"
-      comments: []
+      previewSrc: "/img/preview/amnesia-the-dark-descent.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "And Yet it Moves"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/and-yet-it-moves.jpg"
-      comments: []
+      previewSrc: "/img/preview/and-yet-it-moves.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Bastion"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/bastion.jpg"
-      comments: []
+      previewSrc: "/img/preview/bastion.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Batman Arkham Asylum"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/batman-arkham-asylum.jpg"
-      comments: []
+      previewSrc: "/img/preview/batman-arkham-asylum.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
-      name: "Batman Arkhum City"
-      genre: "RPG"
+      name: "Batman Arkham City"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/batman-arkham-city.jpg"
-      comments: []
+      previewSrc: "/img/preview/batman-arkham-city.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Bioshock"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/bioshock.jpg"
-      comments: []
+      previewSrc: "/img/preview/bioshock.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Bioshock 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/bioshock-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/bioshock-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Bioshock Infinite"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/bioshock-infinite.jpg"
-      comments: []
+      previewSrc: "/img/preview/bioshock-infinite.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: true
     Games.insert
       name: "Bit Trip Runner"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/bit-trip-runner.jpg"
-      comments: []
+      previewSrc: "/img/preview/bit-trip-runner.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Borderlands 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/borderlands-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/borderlands-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Braid"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/braid.jpg"
-      comments: []
+      previewSrc: "/img/preview/braid.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Brutal Legend"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/brutal-legend.jpg"
-      comments: []
+      previewSrc: "/img/preview/brutal-legend.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Catherine"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/catherine.jpg"
-      comments: []
+      previewSrc: "/img/preview/catherine.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Cave Story Plus"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/cave-story-plus.jpg"
-      comments: []
+      previewSrc: "/img/preview/cave-story-plus.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Cogs"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/cogs.jpg"
-      comments: []
+      previewSrc: "/img/preview/cogs.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Counter Strike Source"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/counter-strike-source.jpg"
-      comments: []
+      previewSrc: "/img/preview/counter-strike-source.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Crayon Physics Deluxe"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/crayon-physics-deluxe.jpg"
-      comments: []
+      previewSrc: "/img/preview/crayon-physics-deluxe.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Dark Souls"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/dark-souls.jpg"
-      comments: []
+      previewSrc: "/img/preview/dark-souls.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Dark Void"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/dark-void.jpg"
-      comments: []
+      previewSrc: "/img/preview/dark-void.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Darksiders I"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/darksiders-i.jpg"
-      comments: []
+      previewSrc: "/img/preview/darksiders-i.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Darksiders II"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/darksiders-ii.jpg"
-      comments: []
+      previewSrc: "/img/preview/darksiders-ii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Day of Defeat Source"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/day-of-defeat-source.jpg"
-      comments: []
+      previewSrc: "/img/preview/day-of-defeat-source.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Dead Island"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/dead-island.jpg"
-      comments: []
+      previewSrc: "/img/preview/dead-island.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Deadly Premonition"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/deadly-premonition.jpg"
-      comments: []
+      previewSrc: "/img/preview/deadly-premonition.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Demon's Souls"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/demons-souls.jpg"
-      comments: []
+      previewSrc: "/img/preview/demons-souls.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
-    ###Games.insert
+      version: ''
+      featured: false
+    Games.insert
       name: "Devil May Cry One"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/devil-may-cry-1.jpg"
-      comments: []
+      previewSrc: "/img/preview/devil-may-cry-1.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Devil May Cry Two"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/devil-may-cry-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/devil-may-cry-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Devil May Cry Three"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/devil-may-cry-3.jpg"
-      comments: []
+      previewSrc: "/img/preview/devil-may-cry-3.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Devil May Cry Four"
-      genre: "RPG"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/devil-may-cry-4.jpg"
-      comments: []
+      previewSrc: "/img/preview/devil-may-cry-4.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Devil may Cry Five"
-      genre: "Sim"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/devil-may-cry-5.jpg"
-      comments: []
+      previewSrc: "/img/preview/devil-may-cry-5.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Digital Devil Saga"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/digital-devil-saga.jpg"
-      comments: []
+      previewSrc: "/img/preview/digital-devil-saga.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Disgaea"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/disgaea.jpg"
-      comments: []
+      previewSrc: "/img/preview/disgaea.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Dungeon Defenders"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Strategy"
       gameBy: "test"
-      src: "img/preview/dungeon-defenders.jpg"
-      comments: []
+      previewSrc: "/img/preview/dungeon-defenders.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Eternal Sonata"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/eternal-sonata.jpg"
-      comments: []
+      previewSrc: "/img/preview/eternal-sonata.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy Crystal Chronicles"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-crystal-chronicles.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-crystal-chronicles.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy I"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-i.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-i.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy II"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-ii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-ii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy III"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-iii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-iii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy IV"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-iv.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-iv.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy V"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-v.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-v.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy VI"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-vi.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-vi.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy VII"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-vii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-vii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy VIII"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-viii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-viii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy IX"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-ix.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-ix.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy X"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-x.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-x.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy X-2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-x-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-x-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy XI"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-xi.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-xi.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy XII"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-xii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-xii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy XIII"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-xiii.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-xiii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Final Fantasy XIV"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/final-fantasy-xiv.jpg"
-      comments: []
+      previewSrc: "/img/preview/final-fantasy-xiv.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Folklore"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/folklore.jpg"
-      comments: []
+      previewSrc: "/img/preview/folklore.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Garry's Mod"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Simulation"
       gameBy: "test"
-      src: "img/preview/garrys-mod.jpg"
-      comments: []
+      previewSrc: "/img/preview/garrys-mod.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Gotham City Imposters"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/gotham-city-imposters.jpg"
-      comments: []
+      previewSrc: "/img/preview/gotham-city-imposters.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Gratuitious Space Battles"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/gratuitous-space-battles.jpg"
-      comments: []
+      previewSrc: "/img/preview/gratuitous-space-battles.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Half Life 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/half-life-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/half-life-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Half Life 2 Episode One"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/half-life-2-episode-one.jpg"
-      comments: []
+      previewSrc: "/img/preview/half-life-2-episode-one.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Half Life 2 Episode Two"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/half-life-2-episode-two.jpg"
-      comments: []
+      previewSrc: "/img/preview/half-life-2-episode-two.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Harvest Moon Magical Melody"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Simulation"
       gameBy: "test"
-      src: "img/preview/harvest-moon-magical-melody.jpg"
-      comments: []
+      previewSrc: "/img/preview/harvest-moon-magical-melody.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Hitman Blood Money"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/hitman-blood-money.jpg"
-      comments: []
+      previewSrc: "/img/preview/hitman-blood-money.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Hitman Contracts"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/hitman-contracts.jpg"
-      comments: []
+      previewSrc: "/img/preview/hitman-contracts.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Hitman Codename 47"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/hitman-codename-47.jpg"
-      comments: []
+      previewSrc: "/img/preview/hitman-codename-47.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Hitman 2 Silent Assassin"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/hitman-2-silent-assassin.jpg"
-      comments: []
+      previewSrc: "/img/preview/hitman-2-silent-assassin.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Hitman Absolution"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/hitman-absolution.jpg"
-      comments: []
+      previewSrc: "/img/preview/hitman-absolution.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Just Cause 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/just-cause-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/just-cause-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Killing Floor"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/killing-floor.jpg"
-      comments: []
+      previewSrc: "/img/preview/killing-floor.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Kingdom Hearts"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/kingdom-hearts-1.jpg"
-      comments: []
+      previewSrc: "/img/preview/kingdom-hearts-1.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Kingdom Hearts 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/kingdom-hearts-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/kingdom-hearts-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "L.A. Noire"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/la-noire.jpg"
-      comments: []
+      previewSrc: "/img/preview/la-noire.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Left 4 Dead"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/left-4-dead.jpg"
-      comments: []
+      previewSrc: "/img/preview/left-4-dead.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Left 4 Dead 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/left-4-dead-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/left-4-dead-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Legend of Grimrock"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/legend-of-grimrock.jpg"
-      comments: []
+      previewSrc: "/img/preview/legend-of-grimrock.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Limbo"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/limbo.jpg"
-      comments: []
+      previewSrc: "/img/preview/limbo.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Lone Survivor"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/lone-survivor.jpg"
-      comments: []
+      previewSrc: "/img/preview/lone-survivor.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Lost Odyssey"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/lost-odyssey.jpg"
-      comments: []
+      previewSrc: "/img/preview/lost-odyssey.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Machinarium"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/machinarium.jpg"
-      comments: []
+      previewSrc: "/img/preview/machinarium.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Magicka"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/magicka.jpg"
-      comments: []
+      previewSrc: "/img/preview/magicka.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Metal Gear Solid: The Twin Snakes"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/metal-gear-solid-the-twin-snakes.jpg"
-      comments: []
+      previewSrc: "/img/preview/metal-gear-solid-the-twin-snakes.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Metal Gear Solid 2: Sons of Liberty"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/metal-gear-solid-2-sons-of-liberty.jpg"
-      comments: []
+      previewSrc: "/img/preview/metal-gear-solid-2-sons-of-liberty.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Metal Gear Solid 3: Snake Eater"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/metal-gear-solid-3-snake-eater.jpg"
-      comments: []
+      previewSrc: "/img/preview/metal-gear-solid-3-snake-eater.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Metal Gear Solid 4: Guns of the Patriots"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/metal-gear-solid-4-guns-of-the-patriots.jpg"
-      comments: []
+      previewSrc: "/img/preview/metal-gear-solid-4-guns-of-the-patriots.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Metal Gear Rising Revengeance"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/metal-gear-rising-revengeance.jpg"
-      comments: []
+      previewSrc: "/img/preview/metal-gear-rising-revengeance.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Might and Magic: Clash of Heroes"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/might-and-magic-clash-of-heroes.jpg"
-      comments: []
+      previewSrc: "/img/preview/might-and-magic-clash-of-heroes.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Minecraft"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/minecraft.jpg"
-      comments: []
+      previewSrc: "/img/preview/minecraft.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Mini Ninjas"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/mini-ninjas.jpg"
-      comments: []
+      previewSrc: "/img/preview/mini-ninjas.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Mirrors Edge"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/mirrors-edge.jpg"
-      comments: []
+      previewSrc: "/img/preview/mirrors-edge.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Mount and Blade"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Massively Multiplayer"
       gameBy: "test"
-      src: "img/preview/mount-and-blade.jpg"
-      comments: []
+      previewSrc: "/img/preview/mount-and-blade.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Mount and Blade: Warband"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Massively Multiplayer"
       gameBy: "test"
-      src: "img/preview/mount-and-blade-warband.jpg"
-      comments: []
+      previewSrc: "/img/preview/mount-and-blade-warband.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Mount and Blade: With Fire and Sword"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Massively Multiplayer"
       gameBy: "test"
-      src: "img/preview/mount-and-blade-with-fire-and-sword.jpg"
-      comments: []
+      previewSrc: "/img/preview/mount-and-blade-with-fire-and-sword.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Nier"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/nier.jpg"
-      comments: []
+      previewSrc: "/img/preview/nier.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Okami"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/okami.jpg"
-      comments: []
+      previewSrc: "/img/preview/okami.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Paper Mario"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/paper-mario.jpg"
-      comments: []
+      previewSrc: "/img/preview/paper-mario.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Paper Mario: The Thousand Year Door"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/paper-mario-the-thousand-year-door.jpg"
-      comments: []
+      previewSrc: "/img/preview/paper-mario-the-thousand-year-door.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Portal"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/portal.jpg"
-      comments: []
+      previewSrc: "/img/preview/portal.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Portal 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Puzzle"
       gameBy: "test"
-      src: "img/preview/portal-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/portal-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Prince of Persia: The Forgotten Sands"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/prince-of-persia-the-forgotten-sands.jpg"
-      comments: []
+      previewSrc: "/img/preview/prince-of-persia-the-forgotten-sands.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Prince of Persia: Warrior Within"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/prince-of-persia-warrior-within.jpg"
-      comments: []
+      previewSrc: "/img/preview/prince-of-persia-warrior-within.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Prince of Persia: The Two Thrones"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/prince-of-persia-the-two-thrones.jpg"
-      comments: []
+      previewSrc: "/img/preview/prince-of-persia-the-two-thrones.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Prince of Persia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/prince-of-persia.jpg"
-      comments: []
+      previewSrc: "/img/preview/prince-of-persia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Psychonauts"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/psychonauts.jpg"
-      comments: []
+      previewSrc: "/img/preview/psychonauts.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Shank"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/shank.jpg"
-      comments: []
+      previewSrc: "/img/preview/shank.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Sid Meier's Civilization V"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Strategy"
       gameBy: "test"
-      src: "img/preview/sid-meiers-civilization-v.jpg"
-      comments: []
+      previewSrc: "/img/preview/sid-meiers-civilization-v.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Silent Hill HD Collection"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/silent-hill-hd-collection.jpg"
-      comments: []
+      previewSrc: "/img/preview/silent-hill-hd-collection.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Skyrim"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/skyrim.jpg"
-      comments: []
+      previewSrc: "/img/preview/skyrim.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Sonic Generations"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/sonic-generations.jpg"
-      comments: []
+      previewSrc: "/img/preview/sonic-generations.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Spec Ops the Line"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/spec-ops-the-line.jpg"
-      comments: []
+      previewSrc: "/img/preview/spec-ops-the-line.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Spiral Knights"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Free to Play"
       gameBy: "test"
-      src: "img/preview/spiral-knights.jpg"
-      comments: []
+      previewSrc: "/img/preview/spiral-knights.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Star Ocean: The Last Hope"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/star-ocean-the-last-hope.jpg"
-      comments: []
+      previewSrc: "/img/preview/star-ocean-the-last-hope.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Star Wars Jedi Knight II: Jedi Outcast"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/star-wars-jedi-knight-ii-jedi-outcast.jpg"
-      comments: []
+      previewSrc: "/img/preview/star-wars-jedi-knight-ii-jedi-outcast.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Star Wars: Knights of the Old Republic"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/star-wars-knights-of-the-old-republic.jpg"
-      comments: []
+      previewSrc: "/img/preview/star-wars-knights-of-the-old-republic.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Super Meat Boy"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/super-meat-boy.jpg"
-      comments: []
+      previewSrc: "/img/preview/super-meat-boy.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Super Paper Mario"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/super-paper-mario.jpg"
-      comments: []
+      previewSrc: "/img/preview/super-paper-mario.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Superbrothers: Sword and Sworcery"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/superbrothers-sword-and-sworcery-ep.jpg"
-      comments: []
+      previewSrc: "/img/preview/superbrothers-sword-and-sworcery-ep.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Abyss"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-abyss.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-abyss.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Destiny"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-destiny.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-destiny.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Destiny II"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-destiny-ii.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-destiny-ii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Eternia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-eternia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-eternia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Graces"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-graces.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-graces.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Hearts"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-hearts.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-hearts.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Innocence"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-innocence.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-innocence.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Legendia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-legendia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-legendia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Phantasia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-phantasia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-phantasia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Rebirth"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-rebirth.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-rebirth.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Symphonia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-symphonia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-symphonia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Symphonia: Dawn of the New World"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-symphonia-dawn-of-the-new-world.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-symphonia-dawn-of-the-new-world.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Vesperia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-vesperia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-vesperia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tales of Xillia"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/tales-of-xillia.jpg"
-      comments: []
+      previewSrc: "/img/preview/tales-of-xillia.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Team Fortress 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Free to Play"
       gameBy: "test"
-      src: "img/preview/team-fortress-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/team-fortress-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Darkness"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/the-darkness.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-darkness.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Darkness II"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/the-darkness-ii.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-darkness-ii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Legend of Zelda: Ocarina of Time"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/the-legend-of-zelda-ocarina-of-time.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-legend-of-zelda-ocarina-of-time.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Legend of Zelda: Majora's Mask"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/the-legend-of-zelda-majoras-mask.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-legend-of-zelda-majoras-mask.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Legend of Zelda: The Wind Waker"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/the-legend-of-zelda-wind-waker.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-legend-of-zelda-wind-waker.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Legend of Zelda: Twilight Princess"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/the-legend-of-zelda-twilight-princess.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-legend-of-zelda-twilight-princess.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Legend of Zelda: Skyward Sword"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/the-legend-of-zelda-skyward-sword.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-legend-of-zelda-skyward-sword.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Witcher"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/the-witcher-i.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-witcher-i.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "The Witcher II"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/the-witcher-ii.jpg"
-      comments: []
+      previewSrc: "/img/preview/the-witcher-ii.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Tomb Raider"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/tomb-raider.jpg"
-      comments: []
+      previewSrc: "/img/preview/tomb-raider.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Torchlight"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/torchlight.jpg"
-      comments: []
+      previewSrc: "/img/preview/torchlight.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Torchlight 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/torchlight-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/torchlight-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Trine"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/trine.jpg"
-      comments: []
+      previewSrc: "/img/preview/trine.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Trine 2"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/trine-2.jpg"
-      comments: []
+      previewSrc: "/img/preview/trine-2.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Valkyria Chronicles"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Strategy"
       gameBy: "test"
-      src: "img/preview/valkyria-chronicles.jpg"
-      comments: []
+      previewSrc: "/img/preview/valkyria-chronicles.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "VVVVVV"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Platformer"
       gameBy: "test"
-      src: "img/preview/vvvvvv.jpg"
-      comments: []
+      previewSrc: "/img/preview/vvvvvv.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Warhammer 40k: Space Marine"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/warhammer-40k-space-marine.jpg"
-      comments: []
+      previewSrc: "/img/preview/warhammer-40k-space-marine.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Wet"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Action"
       gameBy: "test"
-      src: "img/preview/wet.jpg"
-      comments: []
+      previewSrc: "/img/preview/wet.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "White Knight Chronicles"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Role Playing"
       gameBy: "test"
-      src: "img/preview/white-knight-chronicles.jpg"
-      comments: []
+      previewSrc: "/img/preview/white-knight-chronicles.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
       active: true
+      version: ''
+      featured: false
     Games.insert
       name: "Year Walk"
-      genre: "Shooter"
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      genre: "Adventure"
       gameBy: "test"
-      src: "img/preview/year-walk.jpg"
-      comments: []
-      active: true###
+      previewSrc: "/img/preview/year-walk.jpg"
+      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      messages: []
+      active: true
+      version: ''
+      featured: false###

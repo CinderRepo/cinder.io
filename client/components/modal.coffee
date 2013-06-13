@@ -1,5 +1,5 @@
 Template.modal.state = ->
-	state = Session.get('activeModal')
+	state = Session.get('modalState')
 	switch state
 		when 'settings'
 			Session.set('inputOnePlaceholder','Change Username (Coming Soon)')
@@ -15,6 +15,7 @@ Template.modal.state = ->
 			Session.set('inputTwoType','text')
 			Session.set('inputThreePlaceholder',undefined)
 			Session.set('inputThreeType','text')
+			Session.set('modalButtonValue','Add')
 		when 'login'
 			Session.set('inputOnePlaceholder','Username')
 			Session.set('inputOneType','text')
@@ -22,6 +23,7 @@ Template.modal.state = ->
 			Session.set('inputTwoType','password')
 			Session.set('inputThreePlaceholder',undefined)
 			Session.set('inputThreeType','text')
+			Session.set('modalButtonValue','Login')
 		when 'signup'
 			Session.set('inputOnePlaceholder','Username (Coming Soon)')
 			Session.set('inputOneType','text')
@@ -29,15 +31,23 @@ Template.modal.state = ->
 			Session.set('inputTwoType','text')
 			Session.set('inputThreePlaceholder','Password (Coming Soon)')
 			Session.set('inputThreeType','text')
-		else
-			Session.set('inputOnePlaceholder','')
+		when 'profile'
+			Session.set('inputOnePlaceholder','Username (Coming Soon)')
 			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','')
+			Session.set('inputTwoPlaceholder','Email (Coming Soon)')
 			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder','')
+			Session.set('inputThreePlaceholder','Password (Coming Soon)')
 			Session.set('inputThreeType','text')
-			Session.set('inputThreePlaceholder',undefined)
-			Session.set('inputThreeType','text')
+			Session.set('modalButtonValue','Coming Soon')
+		#else
+		#	Session.set('inputOnePlaceholder','')
+		#	Session.set('inputOneType','text')
+		#	Session.set('inputTwoPlaceholder','')
+		#	Session.set('inputTwoType','text')
+		#	Session.set('inputThreePlaceholder','')
+		#	Session.set('inputThreeType','text')
+		#	Session.set('inputThreePlaceholder',undefined)
+		#	Session.set('inputThreeType','text')
 	state
 
 Template.modal.inputOnePlaceholder = ->
@@ -52,41 +62,31 @@ Template.modal.inputTwoType = ->
 	Session.get('inputTwoType')
 Template.modal.inputThreeType = ->
 	Session.get('inputThreeType')
+Template.modal.modalButtonValue = ->
+	Session.get('modalButtonValue')
 Template.modal.cancel = ->
 	state: 'cancel'
 	message: 'Cancel'
 Template.modal.confirm = ->
-	state: 'confirm'
-	message: 'Confirm'
+	if Session.equals('modalState','login')
+		state: 'login'
+		message: 'Login'
+	else if Session.equals('modalState','signup')
+		state: 'signup'
+		message: 'Signup'
 Template.modal.logout = ->
 	state: 'logout'
 	message: 'L'
 
 Template.modal.events
-	'click .button[data-state="logout"]':(e,t)->
-		e.preventDefault()
-		Meteor.logout()
-		Session.set('revealedDown',false)
-		Session.set('revealedDownHeight',0)
-		Session.set('activeModal',undefined)
-	'click .button[data-state="cancel"]':(e,t)->
-		log 'CANCEL STATE'
-		e.preventDefault()
-		Session.set('revealedDown',false)
-		nav = document.querySelector('.nav')
-		nav.classList.remove('active')
-	'click .button[data-state="confirm"],
-	submit .modalForm':(e,t)->
+	'submit .modalForm':(e,t)->
 		log 'SUBMIT FORM'
 		e.preventDefault()
+		e.stopImmediatePropagation()
 		#Get the state
-		log t.find('.modal')
-		currentModal = t.find('.modal')
-		currentState = currentModal.getAttribute('data-state')
-		log 'ASADFDFSDF'
-		log currentState
+		state = Session.get('modalState')
 
-		if currentState == 'login'
+		if state == 'login'
 			usernameField = t.find('.modalFormInputWrapper.one .modalFormInput')
 			passwordField = t.find('.modalFormInputWrapper.two .modalFormInput')
 			username = usernameField.value
@@ -99,10 +99,8 @@ Template.modal.events
 					passwordField.value = ''
 				else
 					log 'Something'
-					Session.set('revealedDown',false)
-					Session.set('revealedDownHeight',0)
-					Session.set('activeDualButtonLeft',undefined)
-		else if currentState == 'add'
+					Session.set('modalState',undefined)
+		else if state == 'add'
 			log 'HELLO ADD'
 			nameField = t.find('.modalFormInputWrapper.one .modalFormInput')
 			genreField = t.find('.modalFormInputWrapper.two .modalFormInput')
@@ -112,10 +110,13 @@ Template.modal.events
 				name: name
 				genre: genre
 				gameBy: Meteor.user().username
-			Session.set('revealedDown',false)
-			Session.set('revealedDownHeight',0)
-			Session.set('activeCircleButton',undefined)
-			log 'asdf'
+			, (err,id) ->
+				log 'Game inserted successfully!'
+				log err
+				log id
+				Session.set('activeTile',id)
+				Session.set('appState','view')
+				Session.set('modalState',undefined)
 
 Template.modal.preserve({
 	'.modal'

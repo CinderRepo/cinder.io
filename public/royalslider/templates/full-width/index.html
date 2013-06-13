@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> Full Width Slider | RoyalSlider Example</title>
+    <meta content="Touch-enabled image gallery and content slider plugin, that focuses on providing great user experience on every desktop and mobile device." name="description">
+    <meta name="keywords" content="content slider, gallery, plugin, jquery, banner rotator">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <meta name="author" content="Dmitry Semenov">
+    <!-- slider JS files -->
+    <script class="rs-file" src="../assets/royalslider/jquery-1.8.3.min.js"></script>
+    <script class="rs-file" src="../assets/royalslider/jquery.royalslider.min.js"></script>
+    <link class="rs-file" href="../assets/royalslider/royalslider.css" rel="stylesheet">
+    <!-- syntax highlighter -->
+    <script src="../assets/preview-assets/js/highlight.pack.js"></script>
+    <script src="../assets/preview-assets/js/jquery-ui-1.8.22.custom.min.js"></script>
+    <script> hljs.initHighlightingOnLoad();</script>
+    <!-- preview-related stylesheets -->
+    <link href="../assets/preview-assets/css/reset.css" rel="stylesheet">
+    <link href="../assets/preview-assets/css/smoothness/jquery-ui-1.8.22.custom.css" rel="stylesheet">
+    <link href="../assets/preview-assets/css/github.css" rel="stylesheet">
+    <!-- slider stylesheets -->
+    <link class="rs-file" href="../assets/royalslider/skins/minimal-white/rs-minimal-white.css" rel="stylesheet">
+    <!-- slider css -->
+    <style>
+      #full-width-slider {
+        width: 100%;
+        color: #000;
+      }
+      .coloredBlock {
+        padding: 12px;
+        background: rgba(255,0,0,0.6);
+        color: #FFF;
+         width: 200px;
+         left: 20%;
+         top: 5%;
+      }
+      .infoBlock {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        left: auto;
+        max-width: 25%;
+        padding-bottom: 0;
+        background: #FFF;
+        background: rgba(255, 255, 255, 0.8);
+        overflow: hidden;
+        padding: 20px;
+      }
+      .infoBlockLeftBlack {
+        color: #FFF;
+        background: #000;
+        background: rgba(0,0,0,0.75);
+        left: 30px;
+        right: auto;
+      }
+      .infoBlock h4 {
+        font-size: 20px;
+        line-height: 1.2;
+        margin: 0;
+        padding-bottom: 3px;
+      }
+      .infoBlock p {
+        font-size: 14px;
+        margin: 4px 0 0;
+      }
+      .infoBlock a {
+        color: #FFF;
+        text-decoration: underline;
+      }
+      .photosBy {
+        position: absolute;
+        line-height: 24px;
+        font-size: 12px;
+        background: #FFF;
+        color: #000;
+        padding: 0px 10px;
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        top: auto;
+        border-radius: 2px;
+        z-index: 25;
+      }
+      .photosBy a {
+        color: #000;
+      }
+      .fullWidth {
+        margin: 0 auto 24px;
+      }
+      @media screen and (min-width:960px) and (min-height:660px) {
+        .heroSlider .rsOverflow,
+        .royalSlider.heroSlider {
+            height: 800px !important;
+        }
+      }
+      @media screen and (min-width:960px) and (min-height:1000px) {
+          .heroSlider .rsOverflow,
+          .royalSlider.heroSlider {
+              height: 1024px !important;
+          }
+      }
+      @media screen and (min-width: 0px) and (max-width: 800px) {
+        .royalSlider.heroSlider,
+        .royalSlider.heroSlider .rsOverflow {
+          height: 900px !important;
+        }
+        .infoBlock {
+          padding: 10px;
+          height: auto;
+          max-height: 100%;
+          min-width: 40%;
+          left: 5px;
+          top: 5px;
+          right: auto;
+          font-size: 12px;
+        }
+        .infoBlock h3 {
+           font-size: 14px;
+           line-height: 17px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- slider code start -->
+    <div class="sliderContainer fullWidth clearfix">
+      <div id="full-width-slider" class="royalSlider heroSlider rsMinW">
+        <div class="rsContent" style="background:red;">
+          <!--<img class="rsImg" src="../img/full-width/1.jpg" alt="" />
+          <div class="infoBlock infoBlockLeftBlack rsABlock" data-fade-effect="" data-move-offset="10" data-move-effect="bottom" data-speed="200">
+            <h4>This is an animated block, add any number of them to any type of slide</h4>
+            <p>Put completely anything inside - text, images, inputs, links, buttons.</p>
+          </div>-->
+        </div>
+        <div class="rsContent" style="background:blue;">
+          <!--<img class="rsImg" src="../img/full-width/2.jpg" alt="" />
+           <div class="infoBlock  rsAbsoluteEl" style="color:#000;" data-fade-effect="" data-move-offset="10" data-move-effect="bottom" data-speed="200">
+            <h4>This is a static HTML block</h4>
+            <p>It's always displayed and not animated by slider.</p>
+          </div>-->
+        </div>
+       <div class="rsContent" style="background:green;">
+          <!--<img class="rsImg" src="../img/full-width/3.jpg" alt="" />
+          <div class="infoBlock rsABlock infoBlockLeftBlack" data-fade-effect="" data-move-offset="10" data-move-effect="bottom" data-speed="200">
+            <h4>You can link to this slide by adding #3 to url.</h4>
+            <p><a href="http://dimsemenov.com/plugins/royal-slider/gallery-with-deeplinking/">Learn more</a></p>
+          </div>-->
+        </div>
+        <div class="rsContent" style="background:yellow;">
+          <!--<img class="rsImg" src="../img/full-width/4.jpg" alt="" />
+          <span class="photosBy rsAbsoluteEl" data-fade-effect="fa;se" data-move-offset="40" data-move-effect="bottom" data-speed="200">Photos by <a href="http://www.flickr.com/photos/gilderic/">Gilderic</a></span>-->
+        </div>
+        <div class="rsContent" style="background:pink;">
+          <!--<img class="rsImg" src="../img/full-width/4.jpg" alt="" />
+          <span class="photosBy rsAbsoluteEl" data-fade-effect="fa;se" data-move-offset="40" data-move-effect="bottom" data-speed="200">Photos by <a href="http://www.flickr.com/photos/gilderic/">Gilderic</a></span>-->
+        </div>
+        <div class="rsContent" style="background:aqua;">
+          <!--<img class="rsImg" src="../img/full-width/4.jpg" alt="" />
+          <span class="photosBy rsAbsoluteEl" data-fade-effect="fa;se" data-move-offset="40" data-move-effect="bottom" data-speed="200">Photos by <a href="http://www.flickr.com/photos/gilderic/">Gilderic</a></span>-->
+        </div>
+        <div class="rsContent" style="background:purple;">
+          <!--<img class="rsImg" src="../img/full-width/4.jpg" alt="" />
+          <span class="photosBy rsAbsoluteEl" data-fade-effect="fa;se" data-move-offset="40" data-move-effect="bottom" data-speed="200">Photos by <a href="http://www.flickr.com/photos/gilderic/">Gilderic</a></span>-->
+        </div>
+      </div>
+    </div>
+  <script id="addJS">
+    jQuery(document).ready(function($) {
+      $('#full-width-slider').royalSlider({
+        arrowsNav: false,
+        imageAlignCenter: true,
+        keyboardNavEnabled: true,
+        controlsInside: false,
+        navigateByClick: false,
+        sliderDrag: false,
+        slidesSpacing: 0,
+        controlNavigation: 'bullets',
+        startSlideId: 0,
+        transitionType:'fade'
+      });
+    });
+  </script>
+  </body>
+</html>

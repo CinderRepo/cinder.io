@@ -1,95 +1,38 @@
-Template.tile.view = ()->
-	state: 'view'
-	message: 'View'
-Template.tile.revealedDown = ->
-	if Session.equals('activeTile',this._id) then 'active' else ''
+Session.setDefault('previousTile',Games.findOne()) #Previous Tile
+Session.setDefault('activeTile',Games.findOne()) #Active Tile
+Session.setDefault('tilesLoadedCount',0) #In the beginning, we have 0 tiles available to us
+Session.setDefault('tilesLoaded',false) #In the beginning, none of the tiles have been loaded yet
+Session.setDefault('tileScrollPosition',0) #Current Position of the skip
+Session.setDefault('rowCount',25) #The number of game rows to display in the list
+
+Template.tile.rendered = () ->
+	#Increment the tilesLoadedCount number if the tiles aren't ready yet
+	if Session.get('tilesLoadedCount') < Session.get('rowCount') - 1 #We minus 1 because the tilesLoadedCount counts up from 0, whereas the rowCount counts up from 1. Silly, but there it is.
+		#log 'DOM IS FUCKING READY!'
+		Session.set('tilesLoadedCount',Session.get('tilesLoadedCount') + 1)
+		#log Session.get('tilesLoadedCount')
+	else
+		#DOM is actually ready and the right number of tiles are now loaded
+		#log 'DOM TILES IS FUCKING READY!!1'
+		Session.set('tilesLoaded',true)
+	#initGrid()
+	#Session.set('tileLoaded',true)
 Template.tile.events
 	'click .tile':(e,t)->
-		log 'CLICKED TILE'
-		transitionProp = getStyleProperty('transition')
-		transitionEndEvent =
-			WebkitTransition: 'webkitTransitionEnd'
-			MozTransition: 'transitionend'
-			OTransition: 'otransitionend'
-			transition: 'transitionend'
-		[{transitionProp}]
-
-		currentTarget = e.currentTarget
-		previousContentSize = getSize(currentTarget)
-
-		#Disable transitions
-		currentTarget.style[transitionProp] = 'none'
-
-		# set current size 
-		currentTarget.style.width = previousContentSize.width + 'px'
-		currentTarget.style.height = previousContentSize.height + 'px'
-		
-		itemElem = currentTarget.parentNode
-		isExpanded = itemElem.classList.contains('expanded')
-		if isExpanded
-			itemElem.classList.remove('expanded')
-		else
-			$('.tileWrapper').removeClass('expanded')
-			itemElem.classList.add('expanded')
-
-		# force redraw
-		redraw = currentTarget.offsetWidth
-
-		# renable default transition
-		currentTarget.style[transitionProp] = ''
-
-		#Reset 100%/100% sizing after transition end
-		if transitionProp
-			log 'Hello?'
-			log transitionProp
-			onTransitionEnd = ->
-				log 'This isn\'t firing, is it?'
-				currentTarget.style.width = ''
-				currentTarget.style.height = ''
-				currentTarget.removeEventListener('webkitTransitionEnd', onTransitionEnd, false)
-			log 'TransitionEnd?'
-			currentTarget.addEventListener('webkitTransitionEnd', onTransitionEnd, false)
-
-		#Set new size
-		log 'itemElem'
-		log itemElem
-		size = getSize(itemElem)
-		currentTarget.style.width = size.width + 'px'
-		currentTarget.style.height = size.height + 'px'
-		if isExpanded
-			grid.layout()
-		else
-			grid.fit itemElem
-	'click .button':(e,t)->
-		log 'TILE BUTTON CLICKED!'
 		e.stopImmediatePropagation()
-
-		#if tileWrapper.hasClass('expanded')
-		#	log 'FIT'
-		#	tileWrapper.removeClass('expanded')
-			#grid.fit(tileWrapper)
+		if Session.equals('appState','browse') or !Session.equals('activeTile',this._id)
+			Meteor.Router.to '/' + $(e.currentTarget).data('href')
+			Session.set('activeTile',this._id)
+			Session.set('appState','view')
 		#else
-		#	log 'LAYOUT'
-		#	$('.tileWrapper').removeClass('expanded')
-		#	tileWrapper.addClass('expanded')
-			#grid.layout()
+		#	Meteor.Router.to '/'
+		#	Session.set('activeTile',undefined)
+		#	Session.set('appState','browse')
 
-		#isExpanded = tileWrapper.hasClass('expanded')
-		#log 'isExpanded: ' + isExpanded
-		#if isExpanded
-		#	log 'isExpanded should be true'
-		#	grid.fit currentTarget
-		#else
-		#	log 'isExpanded should be false'
-		#	grid.layout()
-	###'webkitTransitionEnd .tileWrapper,
-	 transitionend .tileWrapper,
-	 otransitionend .tileWrapper,':(e,t)->
-	 	log 'TRANSITION ENDED'
-	 	currentTarget = t.find('.tile')
-	 	currentTarget.style.width = ''
-	 	currentTarget.style.height = ''###
+Template.tile.currentCursor = ->
+	Games.findOne()
 Template.tile.preserve({
 	'.tileWrapper'
 	'.tile'
+	'*[id]':(node)-> return node.id
 })

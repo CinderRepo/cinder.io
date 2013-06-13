@@ -1,26 +1,33 @@
 @import 'nib'
-@import 'palette'
+@import 'variables'
 
 *
 	box-sizing border-box
-html
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
 body
 	margin 0
 	overflow-x hidden
-	overflow-y scroll
-	background darkestGrey
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
+	//overflow-y scroll
+	background clouds
+	font-family 'Play', sans-serif
+html.scrollingDisabled,
+body.scrollingDisabled
+	overflow hidden
 input, button
 	margin 0
 	border none
-input:focus
+inputfocus
 	outline none
+h1,h2,h3,h4,h5,h6
+	padding 0
+	margin 0
+//Fonts
+@font-face
+	font-family 'Play'
+	font-style normal
+	font-weight 300
+	src local('Play'), url('/fonts/IkErdnKw9ItVkLeeur9GHfesZW2xOQ-xsNqO47m55DA.woff') format('woff')
+@font-face
+	font-family 'Play'
+	font-style normal
+	font-weight 700
+	src local('Play-Bold'), url('/fonts/aBiGxW3iLixHo08CkkYT9gLUuEpTyoUstqEm5AMlJo4.woff') format('woff')

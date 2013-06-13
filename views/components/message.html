@@ -1,7 +1,11 @@
 <template name="message">
+	{{#isolate}}
 	<div class="message">
-		<span class="messageAuthor">{{name}}</span>
-		<div class="messageAuthorAvatar"></div>
-	  	<span class="messageContent">{{text}}</span>
+		<div class="messageWrapper">
+			<span class="messageAuthor">{{username}}</span>
+			<div class="messageAuthorAvatar"></div>
+		  	<span class="messageContentText">{{text}}</span>
+	  	</div>
 	</div>
+	{{/isolate}}
 </template>
