@@ -34,6 +34,11 @@ Template.nav.no = ->
   state: 'no'
   message: 'n'
 
+Template.nav.feedback = ->
+  _id: Meteor.uuid()
+  state: 'feedback'
+  message: 'f'
+
 Template.nav.playing = ->
   if Session.equals('appState','play') then true else false
 
