@@ -39,6 +39,9 @@ Template.modal.state = ->
 			Session.set('inputThreePlaceholder','Password (Coming Soon)')
 			Session.set('inputThreeType','text')
 			Session.set('modalButtonValue','Coming Soon')
+		when 'feedback'
+			Session.set('textareaPlaceholder','Please type your feedback here.')
+			Session.set('modalButtonValue','Send Feedback')
 		#else
 		#	Session.set('inputOnePlaceholder','')
 		#	Session.set('inputOneType','text')
@@ -49,7 +52,13 @@ Template.modal.state = ->
 		#	Session.set('inputThreePlaceholder',undefined)
 		#	Session.set('inputThreeType','text')
 	state
-
+Template.modal.isFeedback = ->
+	if Session.equals('modalState','feedback')
+		true
+	else
+		false
+Template.modal.textareaPlaceholder = ->
+	Session.get('textareaPlaceholder')
 Template.modal.inputOnePlaceholder = ->
 	Session.get('inputOnePlaceholder')
 Template.modal.inputTwoPlaceholder = ->
@@ -117,6 +126,28 @@ Template.modal.events
 				Session.set('activeTile',id)
 				Session.set('appState','view')
 				Session.set('modalState',undefined)
+		else if state == 'feedback'
+        log 'HELLO FEEDBACK'
+        textAreaValue = t.find('.modalFormTextArea').value
+
+			#Call the sendEmail method on the server
+      if Meteor.user()
+        Meteor.call('sendEmail',
+                    'feedback@cinder.io',
+                    Meteor.user().emails[0],
+                    Meteor.user().username + ' gave us feedback!',
+                    textAreaValue
+                    )
+      else
+        Meteor.call('sendEmail',
+                    'feedback@cinder.io',
+                    'guest@guest.com',
+                    'A logged out guest gave us feedback!',
+                    textAreaValue
+                    )
+
+			#Close the modal
+			Session.set('modalState',undefined)
 
 Template.modal.preserve({
 	'.modal'
