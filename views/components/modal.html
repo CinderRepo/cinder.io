@@ -7,6 +7,9 @@
 				<div class="modalFormHeaderTitle">{{state}}</div>
 				<div class="modalFormHeaderButton right"></div>
 			</div>
+			{{#if isFeedback}}
+			<textarea class="modalFormTextArea" placeholder="{{textareaPlaceholder}}"></textarea>
+			{{else}}
 			<div class="modalFormInputWrapper one">
 				<div class="modalFormInputIcon"></div>
 		    	<input class="modalFormInput" type="{{inputOneType}}" placeholder="{{inputOnePlaceholder}}">
@@ -19,6 +22,7 @@
 		    	<div class="modalFormInputIcon"></div>
 	    		<input class="modalFormInput" type="{{inputThreeType}}" placeholder="{{inputThreePlaceholder}}">
 	    	</div>
+	    	{{/if}}
 	    	<div class="modalFormInputButtons">
 	    		<input class="modalButton" type="submit" value="{{modalButtonValue}}" />
 	    	</div>

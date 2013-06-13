@@ -34,11 +34,16 @@ Template.nav.no = ->
   state: 'no'
   message: 'n'
 
+Template.nav.feedback = ->
+  _id: Meteor.uuid()
+  state: 'feedback'
+  message: 'f'
+
 Template.nav.playing = ->
   if Session.equals('appState','play') then true else false
 
 Template.nav.viewing = ->
-  if Session.equals('appState','view') then true else false
+  if Session.equals('appState','view') or Session.equals('appState','play') then true else false
 
 Template.nav.notification = ->
   if Session.equals('activeNotification',true) then true else false
@@ -85,6 +90,9 @@ Template.nav.events
       Meteor.Router.to '/' + Session.get('activeTile')
 
 Template.nav.preserve({
+  '#nav'
+  '#navWrapper'
   '#navScrollerWrapper'
-  '.nav'
+  '.circleButton[data-state="feedback"]'
+  '.circleButton[data-state="exit"]'
 })
