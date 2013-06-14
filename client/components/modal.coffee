@@ -136,14 +136,14 @@ Template.modal.events
                     'feedback@cinder.io',
                     Meteor.user().emails[0],
                     Meteor.user().username + ' gave us feedback!',
-                    textAreaValue
+                    'Browser Agent: ' + navigator.userAgent + ' ' + textAreaValue
                     )
       else
         Meteor.call('sendEmail',
                     'feedback@cinder.io',
                     'guest@guest.com',
                     'A logged out guest gave us feedback!',
-                    textAreaValue
+                    'Browser Agent: ' + navigator.userAgent + ' ' + textAreaValue
                     )
 
 			#Close the modal
