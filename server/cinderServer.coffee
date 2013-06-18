@@ -189,6 +189,13 @@ Meteor.startup ->
       services:
         password:
           srp: Meteor._srp.generateVerifier("OfficeSweetheart")
+    Meteor.users.insert
+      username: "Don"
+      emails: ["don@getyardstick.com"]
+      name: "Don Riep"
+      services:
+        password:
+          srp: Meteor._srp.generateVerifier("YardstickingIt")
 
   if Games.find().count() == 0
     Games.insert
@@ -202,7 +209,7 @@ Meteor.startup ->
       active: true
       version: ''
       featured: false
-    ###Games.insert
+    Games.insert
       name: "Alone in the Dark"
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
       genre: "Action"
@@ -1829,4 +1836,4 @@ Meteor.startup ->
       messages: []
       active: true
       version: ''
-      featured: false###
+      featured: false
