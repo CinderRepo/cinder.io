@@ -1,5 +1,19 @@
 <template name="main">
 	<section id="container" data-state="{{state}}" data-modal="{{modalState}}">
+		{{#isolate}}
+		<div id="welcome">
+			<div id="notifyWrapper">
+				{{>cinderIcon}}
+				<h1 id="title">cinder.<strong>io</strong></h1>
+				<div id="greeting">Cinder.io empowers developers to make the games they want, for the gamers who want to play them.</div>
+				{{>modal notify}}
+				{{#isolate}}
+				<div id="thankyou" data-visible="{{getSession 'thankYouState'}}">Thank You. Really.</div>
+				{{/isolate}}
+			</div>
+			<div id="particles"></div>
+		</div>
+		{{/isolate}}
 		{{>nav}}
 		{{#isolate}}
 		<div id="tiles">

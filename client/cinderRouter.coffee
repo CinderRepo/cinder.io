@@ -4,7 +4,15 @@ Meteor.Router.add
     to: "main"
     and: () ->
       log '/'
+      Session.set('appState','welcome')
+      Session.set('modalState','notify')
+      Session.set('disableScrolling',true)
+  "/browse":
+    to: "main"
+    and: () ->
+      log '/browse'
       Session.set('appState','browse')
+      Session.set('disableScrolling',false)
   "/:_gameId":
     to: "main"
     and: (gameId) ->

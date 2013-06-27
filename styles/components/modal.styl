@@ -186,79 +186,41 @@
 .modalFormInputWrapper.three
 	display none
 
-//Modal Form States - Settings
-/*#modal[data-state="settings"]
-	height 250px
-	max-height 250px
-#modal[data-state="settings"] .modalForm
-	height 200px
-	max-height 200px
-#modal[data-state="settings"] .modalFormHeaderTitle
-	left 50px
+//Notify Modal Styles
+#modal[data-state="notify"]
+	position relative
+	bottom 0
+	left 0
+	margin 0 auto
+	height 50px
+#modal[data-state="notify"] .modalFormHeader,
+#modal[data-state="notify"] .modalFormInputIcon,
+#modal[data-state="notify"] .button[data-state="logout"],
+#modal[data-state="notify"] .button[data-state="logout"] .buttonText,
+#modal[data-state="notify"] .modalFormInputWrapper.two
+#modal[data-state="notify"] .modalFormInputWrapper.three
+	display none
+#modal[data-state="notify"] .modalFormInputWrapper
+	z-index 999999
+	background rgba(255,255,255,1)
+	box-shadow none
+	border-radius 5px
+#modal[data-state="notify"] .modalFormInput
 	right 50px
-#modal[data-state="settings"] .modalFormHeader .button:first-child
-	transform translate3d(0,0,0)
-	opacity 1
-#modal[data-state="settings"] .modalFormInputWrapper.one,
-#modal[data-state="settings"] .modalFormInputWrapper.two,
-#modal[data-state="settings"] .modalFormInputWrapper.three
-	height 50px
-	opacity 1
-	pointer-events auto
-
-//Modal Form States - Login
-#modal[data-state="login"]
-	//background yellow
-	height 200px
-	max-height 200px
-#modal[data-state="login"] .modalForm
-	height 150px
-	max-height 150px
-#modal[data-state="login"] .modalFormInputWrapper.one,
-#modal[data-state="login"] .modalFormInputWrapper.two
-	height 50px
-	opacity 1
-	pointer-events auto
-
-//Modal Form States - Signup
-#modal[data-state="signup"]
-	//background pink
-	height 250px
-	max-height 250px
-#modal[data-state="signup"] .modalForm
-	height 200px
-	max-height 200px
-#modal[data-state="signup"] .modalFormInputWrapper.one,
-#modal[data-state="signup"] .modalFormInputWrapper.two,
-#modal[data-state="signup"] .modalFormInputWrapper.three
-	height 50px
-	opacity 1
-	pointer-events auto
-
-//Modal Form States - Add
-#modal[data-state="add"]
-	//background blue
-	height 200px
-	max-height 200px
-#modal[data-state="add"] .modalForm
-	height 150px
-	max-height 150px
-#modal[data-state="add"] .modalFormInputWrapper.one,
-#modal[data-state="add"] .modalFormInputWrapper.two
-	height 50px
-	opacity 1
-	pointer-events auto
-
-//Modal Form States - Search
-#modal[data-state="search"]
-	//background green
-	height 200px
-	max-height 200px
-#modal[data-state="search"] .modalForm
-	height 150px
-	max-height 150px
-#modal[data-state="search"] .modalFormInputWrapper.one,
-#modal[data-state="search"] .modalFormInputWrapper.two
-	height 50px
-	opacity 1
-	pointer-events auto*/
+	left 0
+#modal[data-state="notify"] .modalFormInputButtons
+	top 0
+	right 0
+	bottom auto
+	left auto
+	z-index 999999
+	width 50px
+#modal[data-state="notify"] .modalButton
+	border-radius 0
+	border-top-right-radius 5px
+	border-bottom-right-radius 5px
+	box-shadow none
+	background rgba(84,96,110,0.85)
+#modal[data-state="notify"] .confirmIcon
+	width 24px
+	height 24px

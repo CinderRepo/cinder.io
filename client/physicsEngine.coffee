@@ -21,22 +21,22 @@ do ->
     window.cancelAnimationFrame = (id) ->
       clearTimeout id
 
-###MATH - RANDOM###
-Random = (min, max) ->
+###MATH - RANDOM - We call it Randall to avoid global conflicts with Meteor###
+@Randall = (min, max) ->
   if not max?
     max = min
     min = 0
   min + Math.random() * (max - min)
-Random.int = (min, max) ->
+@Randall.int = (min, max) ->
   if not max?
     max = min
     min = 0
   Math.floor min + Math.random() * (max - min)
-Random.sign = (prob = 0.5) ->
+@Randall.sign = (prob = 0.5) ->
   if do Math.random < prob then 1 else -1
-Random.bool = (prob = 0.5) ->
+@Randall.bool = (prob = 0.5) ->
   do Math.random < prob
-Random.item = (list) ->
+@Randall.item = (list) ->
   list[ Math.floor Math.random() * list.length ]
 
 ###MATH - VECTOR###
@@ -598,7 +598,23 @@ class @EdgeWrap extends Behaviour
     super
   apply: (p, dt, index) ->
     #super p, dt, index
-    if p.pos.x + p.radius < @min.x
+    #log p.width
+    #log p.height
+    #log p.borderRadius
+    if p.pos.x + p.width < @min.x
+      p.pos.x = @max.x + p.width
+      p.old.pos.x = p.pos.x
+    if p.pos.x - p.width > @max.x
+      p.pos.x = @min.x - p.width
+      p.old.pos.x = p.pos.x
+    if p.pos.y + p.height < @min.y
+      p.pos.y = @max.y + p.height
+      p.old.pos.y = p.pos.y
+    if p.pos.y - p.height > @max.y
+      p.pos.y = @min.y - p.height
+      p.old.pos.y = p.pos.y
+
+    ###if p.pos.x + p.radius < @min.x
       p.pos.x = @max.x + p.radius
       p.old.pos.x = p.pos.x
     else if p.pos.x - p.radius > @max.x
@@ -609,7 +625,7 @@ class @EdgeWrap extends Behaviour
       p.old.pos.y = p.pos.y
     else if p.pos.y - p.radius > @max.y
       p.pos.y = @min.y - p.radius
-      p.old.pos.y = p.pos.y
+      p.old.pos.y = p.pos.y###
 
 ###BEHAVIOUR - WANDER###
 class @Wander extends Behaviour

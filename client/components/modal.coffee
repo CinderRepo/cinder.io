@@ -42,15 +42,9 @@ Template.modal.state = ->
 		when 'feedback'
 			Session.set('textareaPlaceholder','Please type your feedback here.')
 			Session.set('modalButtonValue','Send Feedback')
-		#else
-		#	Session.set('inputOnePlaceholder','')
-		#	Session.set('inputOneType','text')
-		#	Session.set('inputTwoPlaceholder','')
-		#	Session.set('inputTwoType','text')
-		#	Session.set('inputThreePlaceholder','')
-		#	Session.set('inputThreeType','text')
-		#	Session.set('inputThreePlaceholder',undefined)
-		#	Session.set('inputThreeType','text')
+		when 'notify'
+			Session.set('inputOnePlaceholder','Notify me when it\'s ready.')
+			Session.set('inputOneType','text')
 	state
 Template.modal.isFeedback = ->
 	if Session.equals('modalState','feedback')
@@ -95,7 +89,7 @@ Template.modal.events
 		#Get the state
 		state = Session.get('modalState')
 
-		if state == 'login'
+		if state is 'login'
 			usernameField = t.find('.modalFormInputWrapper.one .modalFormInput')
 			passwordField = t.find('.modalFormInputWrapper.two .modalFormInput')
 			username = usernameField.value
@@ -109,7 +103,7 @@ Template.modal.events
 				else
 					log 'Something'
 					Session.set('modalState',undefined)
-		else if state == 'add'
+		else if state is 'add'
 			log 'HELLO ADD'
 			nameField = t.find('.modalFormInputWrapper.one .modalFormInput')
 			genreField = t.find('.modalFormInputWrapper.two .modalFormInput')
@@ -126,28 +120,42 @@ Template.modal.events
 				Session.set('activeTile',id)
 				Session.set('appState','view')
 				Session.set('modalState',undefined)
-		else if state == 'feedback'
-        log 'HELLO FEEDBACK'
-        textAreaValue = t.find('.modalFormTextArea').value
+		else if state is 'feedback'
+			log 'HELLO FEEDBACK'
+			textAreaValue = t.find('.modalFormTextArea').value
 
 			#Call the sendEmail method on the server
-      if Meteor.user()
-        Meteor.call('sendEmail',
-                    'feedback@cinder.io',
-                    Meteor.user().emails[0],
-                    Meteor.user().username + ' gave us feedback!',
-                    textAreaValue + ' Browser Agent: ' + navigator.userAgent
-                    )
-      else
-        Meteor.call('sendEmail',
-                    'feedback@cinder.io',
-                    'guest@guest.com',
-                    'A logged out guest gave us feedback!',
-                    textAreaValue + ' Browser Agent: ' + navigator.userAgent
-                    )
+			if Meteor.user()
+				Meteor.call('sendEmail',
+						'feedback@cinder.io',
+						Meteor.user().emails[0],
+						Meteor.user().username + ' gave us feedback!',
+						textAreaValue + ' Browser Agent: ' + navigator.userAgent
+					)
+			else
+				Meteor.call('sendEmail',
+						'feedback@cinder.io',
+						'guest@guest.com',
+						'A logged out guest gave us feedback!',
+						textAreaValue + ' Browser Agent: ' + navigator.userAgent
+					)
 
 			#Close the modal
 			Session.set('modalState',undefined)
+		else if state is 'notify'
+			log 'NOTIFY'
+			textAreaValue = t.find('.modalFormInput').value
+
+			Meteor.call('sendEmail',
+					'feedback@cinder.io',
+					textAreaValue,
+					'Somebody has signed up to be notified when Cinder is released!',
+					'Somebody signed up to be notified when Cinder is released! Their email address is ' + textAreaValue
+				)
+			Session.set('thankYouState',true)
+			Meteor.setTimeout(()->
+				Session.set('thankYouState',false)
+			2000)
 
 Template.modal.preserve({
 	'.modal'

@@ -10,8 +10,6 @@ Template.dualButton.events
 		log 'DualButton Clicked.'
 		e.stopImmediatePropagation()
 		state = $(e.currentTarget).data('state')
-		log e.currentTarget
-		#e.currentTarget.href= '/downloads/' + Session.get('currentOS') + '/pretendthisisfiremacversion.zip'
 		if state is 'exitGame' or 'create'
 			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else
