@@ -10,13 +10,17 @@ Template.dualButton.events
 		log 'DualButton Clicked.'
 		e.stopImmediatePropagation()
 		state = $(e.currentTarget).data('state')
-		if state is 'exitGame'
+		log e.currentTarget
+		#e.currentTarget.href= '/downloads/' + Session.get('currentOS') + '/pretendthisisfiremacversion.zip'
+		if state is 'exitGame' or 'create'
 			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else
 			if Session.equals('modalState',state)
 				Session.set('modalState',undefined)
 			else
 				Session.set('modalState',state)
+	'hover .dualButton': (e,t) ->
+		e.preventDefault()
 
 Template.dualButton.preserve({
 	'.dualButtonWrapper'

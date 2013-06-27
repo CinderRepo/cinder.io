@@ -22,7 +22,20 @@ Meteor.Router.add
       Session.set('activeTile',gameId)
       Session.set('disableScrolling',true)
       if Meteor.user()
-        GameSessions.insert({},{'userId':Meteor.user()._id, 'gameId':Session.get('activeTile')})
+        GameSessions.insert({},{'userId':Meteor.user().username, 'gameId':Session.get('activeTile')})
+  "/downloads/" + Session.get('currentOS') + "/pretendthisisfiremacversion.zip":
+    to: "main"
+    and: () ->
+      log 'DOWNLOADING'
+      path = Npm.require('path')
+      fs = Npm.require('fs')
+      file = '/downloads/' + Session.get('currentOS') + '/pretendthisisfiremacversion.zip'
+      filename = path.basename(file)
+      [200,
+        'MIME-Type' : 'application/zip'
+        'Content-Type' : 'application/x-unknown'
+        'Content-Disposition' : 'attachment; filename=' + filename
+      ,fs.readFileSync(file)]
   "*":
     to: "main"
     and: () ->

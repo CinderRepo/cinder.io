@@ -12,3 +12,4 @@ accounts-password
 router
 email
 autopublish
+http

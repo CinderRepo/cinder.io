@@ -4,8 +4,21 @@
 @tileHeight = 300
 @expandedTileHeight = null
 
+checkOS = () ->
+  Session.setDefault('currentOS','Unknown OS')
+  if navigator.appVersion.indexOf('Win') isnt -1
+    Session.set('currentOS','windows')
+  if navigator.appVersion.indexOf('Mac') isnt -1
+    Session.set('currentOS','macos')
+  if navigator.appVersion.indexOf('X11') isnt -1
+    Session.set('currentOS','unix')
+  if navigator.appVersion.indexOf('Linux') isnt -1
+    Session.set('currentOS','linux')
+
 Meteor.startup(()->
   Session.setDefault('appState','browse')
+  #Determine OS the user is running
+  checkOS()
   #Calculate windowWidth for grid dimensions
   #getWindowSize()
   #initialize physics
