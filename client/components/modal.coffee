@@ -45,6 +45,9 @@ Template.modal.state = ->
 		when 'notify'
 			Session.set('inputOnePlaceholder','Notify me when it\'s ready.')
 			Session.set('inputOneType','text')
+		when 'thankyou'
+			Session.set('inputOnePlaceholder','Thanks, we\'ll send you an email when we\'re ready.')
+			Session.set('inputOneType','text')
 	state
 Template.modal.isFeedback = ->
 	if Session.equals('modalState','feedback')
@@ -144,14 +147,17 @@ Template.modal.events
 			Session.set('modalState',undefined)
 		else if state is 'notify'
 			log 'NOTIFY'
-			textAreaValue = t.find('.modalFormInput').value
+			input = t.find('.modalFormInput')
+			inputValue = input.value
 
 			Meteor.call('sendEmail',
 					'feedback@cinder.io',
-					textAreaValue,
+					inputValue,
 					'Somebody has signed up to be notified when Cinder is released!',
-					'Somebody signed up to be notified when Cinder is released! Their email address is ' + textAreaValue
+					'Somebody signed up to be notified when Cinder is released! Their email address is ' + inputValue
 				)
+			#Clear the form and display a thank you
+			input.value = 'All done! We\'ll send you an email soon.'
 			Session.set('thankYouState',true)
 			Meteor.setTimeout(()->
 				Session.set('thankYouState',false)
