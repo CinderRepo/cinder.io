@@ -8,6 +8,7 @@ Meteor.saveGame = (file, id) ->
 window.onresize = ->
   #console.log "Resizing!"
   getWindowSize()
+  updatePhysics()
 
 ###SHIMS###
 window.requestAnimationFrame or (window.requestAnimationFrame = window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback, element) ->
@@ -17,9 +18,5 @@ window.requestAnimationFrame or (window.requestAnimationFrame = window.webkitReq
 )
 
 @getWindowSize = () ->
-  Session.set('windowWidth',window.innerWidth - 40) #Account for column padding and gutters
+  Session.set('windowWidth',window.innerWidth)
   Session.set('windowHeight',window.innerHeight)
-
-  unless Session.get('columnCount') and Session.get('columnWidth')
-    calculateColumnCount()
-    calculateColumnWidth()

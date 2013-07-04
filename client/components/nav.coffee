@@ -66,8 +66,9 @@ Template.nav.loggedIn = ->
   buttonLeftText: Meteor.user() and Meteor.user().username
   buttonMiddle: 'u'
   _buttonRightId: Meteor.uuid()
-  buttonRightState: 'browse'
-  buttonRightText: 'Browse'
+  buttonRightState: 'create'
+  buttonRightText: 'Create'
+  buttonRightHref: 'downloads/' + Session.get('currentOS') + '/fire.zip'
 
 Template.nav.exitGame = ->
   _buttonLeftId: Meteor.uuid()
@@ -76,8 +77,9 @@ Template.nav.exitGame = ->
   buttonLeftHref: Session.get('activeTile')
   buttonMiddle: 'u'
   _buttonRightId: Meteor.uuid()
-  buttonRightState: 'browse'
-  buttonRightText: 'Browse'
+  buttonRightState: 'create'
+  buttonRightText: 'Create'
+  buttonRightHref: 'downloads/' + Session.get('currentOS') + '/fire.zip'
 
 Template.nav.events
   'click .navScrollerItem':(e,t)->

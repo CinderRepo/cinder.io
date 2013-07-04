@@ -25,6 +25,9 @@
 	    	{{/if}}
 	    	<div class="modalFormInputButtons">
 	    		<input class="modalButton" type="submit" value="{{modalButtonValue}}" />
+	    		{{#if sessionEquals 'modalState' 'notify'}}
+	    			{{>confirmIcon}}
+	    		{{/if}}
 	    	</div>
 	    </form>
 	</div>

@@ -1,142 +1,50 @@
 ### WebGL Renderer ###
-
 class WebGLRenderer extends Renderer
-
-    # Particle vertex shader source.
-    @PARTICLE_VS = '''
-
-        uniform vec2 viewport;
-        attribute vec3 position;
-        attribute float radius;
-        attribute vec4 colour;
-        varying vec4 tint;
-
-        void main() {
-
-            // convert the rectangle from pixels to 0.0 to 1.0
-            vec2 zeroToOne = position.xy / viewport;
-            zeroToOne.y = 1.0 - zeroToOne.y;
-
-            // convert from 0->1 to 0->2
-            vec2 zeroToTwo = zeroToOne * 2.0;
-
-            // convert from 0->2 to -1->+1 (clipspace)
-            vec2 clipSpace = zeroToTwo - 1.0;
-
-            tint = colour;
-
-            gl_Position = vec4(clipSpace, 0, 1);
-            gl_PointSize = radius * 2.0;
-        }
-    '''
-
-    # Particle fragent shader source.
-    @PARTICLE_FS = '''
-
-        precision mediump float;
-        
-        uniform sampler2D texture;
-        varying vec4 tint;
-
-        void main() {
-            gl_FragColor = texture2D(texture, gl_PointCoord) * tint;
-        }
-    '''
-
-    # Spring vertex shader source.
-    @SPRING_VS = '''
-
-        uniform vec2 viewport;
-        attribute vec3 position;
-
-        void main() {
-
-            // convert the rectangle from pixels to 0.0 to 1.0
-            vec2 zeroToOne = position.xy / viewport;
-            zeroToOne.y = 1.0 - zeroToOne.y;
-
-            // convert from 0->1 to 0->2
-            vec2 zeroToTwo = zeroToOne * 2.0;
-
-            // convert from 0->2 to -1->+1 (clipspace)
-            vec2 clipSpace = zeroToTwo - 1.0;
-
-            gl_Position = vec4(clipSpace, 0, 1);
-        }
-    '''
-
-    # Spring fragent shader source.
-    @SPRING_FS = '''
-
-        void main() {
-            gl_FragColor = vec4(1.0, 1.0, 1.0, 0.1);
-        }
-    '''
-
     constructor: (@usePointSprites = true) ->
-
         super
-
         @particlePositionBuffer = null
         @particleRadiusBuffer = null
         @particleColourBuffer = null
         @particleTexture = null
         @particleShader = null
-
         @springPositionBuffer = null
         @springShader = null
-
         @canvas = document.createElement 'canvas'
-        
         # Init WebGL.
         try @gl = @canvas.getContext 'experimental-webgl' catch error
         finally return new CanvasRenderer() if not @gl
-
         # Set the DOM element.
         @domElement = @canvas
-
     init: (physics) ->
-
         super physics
-
         @initShaders()
         @initBuffers physics
-
         # Create particle texture from canvas.
         @particleTexture = do @createParticleTextureData
-
         # Use additive blending.
         @gl.blendFunc @gl.SRC_ALPHA, @gl.ONE
-
         # Enable the other shit we need from WebGL.
         #@gl.enable @gl.VERTEX_PROGRAM_POINT_SIZE
         #@gl.enable @gl.TEXTURE_2D
         @gl.enable @gl.BLEND
-
     initShaders: ->
-
         # Create shaders.
         @particleShader = @createShaderProgram WebGLRenderer.PARTICLE_VS, WebGLRenderer.PARTICLE_FS
         @springShader = @createShaderProgram WebGLRenderer.SPRING_VS, WebGLRenderer.SPRING_FS
-
         # Store particle shader uniform locations.
         @particleShader.uniforms =
             viewport: @gl.getUniformLocation @particleShader, 'viewport'
-
         # Store spring shader uniform locations.
         @springShader.uniforms =
             viewport: @gl.getUniformLocation @springShader, 'viewport'
-
         # Store particle shader attribute locations.
         @particleShader.attributes =
             position: @gl.getAttribLocation @particleShader, 'position'
             radius: @gl.getAttribLocation @particleShader, 'radius'
             colour: @gl.getAttribLocation @particleShader, 'colour'
-
         # Store spring shader attribute locations.
         @springShader.attributes =
             position: @gl.getAttribLocation @springShader, 'position'
-
         console.log @particleShader
 
     initBuffers: (physics) ->
@@ -155,7 +63,7 @@ class WebGLRenderer extends Renderer
 
             # Break the colour string into RGBA components.
             rgba = (particle.colour or '#FFFFFF').match(/[\dA-F]{2}/gi)
-            
+
             # Parse into integers.
             r = (parseInt rgba[0], 16) or 255
             g = (parseInt rgba[1], 16) or 255
@@ -180,12 +88,12 @@ class WebGLRenderer extends Renderer
 
     # Creates a generic texture for particles.
     createParticleTextureData: (size = 128) ->
-        
+
         canvas = document.createElement 'canvas'
         canvas.width = canvas.height = size
         ctx = canvas.getContext '2d'
         rad = size * 0.5
-        
+
         ctx.beginPath()
         ctx.arc rad, rad, rad, 0, Math.PI * 2, false
         ctx.closePath()
@@ -207,7 +115,7 @@ class WebGLRenderer extends Renderer
         texture.image.onload = =>
 
             @setupTexture texture, texture.image
-        
+
         texture.image.src = source
         texture
 
