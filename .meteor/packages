@@ -11,3 +11,5 @@ accounts-base
 accounts-password
 router
 email
+autopublish
+http

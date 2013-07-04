@@ -34,6 +34,8 @@ Template.main.play = () ->
   href: this._id + '/play'
   message: 'Play'
   _id: this._id
+Template.main.notify = () ->
+  state: 'notify'
 Template.main.hasMessages = ->
   if Session.get('activeTile') and Session.equals('appState','view') and Games.findOne(Session.get('activeTile')).messages.length > 0 or
       Session.get('activeTile') and Session.equals('appState','play') and Games.findOne(Session.get('activeTile')).messages.length > 0
@@ -82,6 +84,15 @@ Template.main.events
     newPosition = Session.get('tileScrollPosition') + 1
     if newPosition > Games.find().count() / Session.get('rowCount') then newPosition = 0 #Wraparound
     Session.set('tileScrollPosition', newPosition)
+  #'mousemove #welcome,
+  #touchmove #welcome':(e,t)->
+    #log 'mousemove'
+    #e.preventDefault()
+    #if e.touches and !!e.touches.length
+    #  touch = e.touches[0]
+    #  physicsMouse.pos.set touch.pageX, touch.pageY, 0
+    #else
+    #  physicsMouse.pos.set e.clientX, e.clientY, 0
 
 Template.main.preserve({
   '#container'
@@ -92,4 +103,6 @@ Template.main.preserve({
   '#gamePlayer'
   '#gamePlayerContent'
   '#messages'
+  '#thankyou'
+  '#particles'
 })
