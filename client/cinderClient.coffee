@@ -1,9 +1,3 @@
-#Tile Dimensions
-@tilesPerspective = 100
-@tileWidth = 400
-@tileHeight = 300
-@expandedTileHeight = null
-
 checkOS = () ->
   Session.setDefault('currentOS','Unknown OS')
   if navigator.appVersion.indexOf('Win') isnt -1
@@ -14,19 +8,6 @@ checkOS = () ->
     Session.set('currentOS','unix')
   if navigator.appVersion.indexOf('Linux') isnt -1
     Session.set('currentOS','linux')
-
-Meteor.startup(()->
-  Session.setDefault('appState','welcome')
-  #Determine OS the user is running
-  checkOS()
-  #Calculate windowWidth for grid dimensions
-  getWindowSize()
-  #initialize physics
-  initPhysics()
-  #Start client request animation frame heartbeat
-  heartbeat()
-  #debugger
-)
 
 logRenders = ->
   _.each Template, (template, name) ->
@@ -65,15 +46,7 @@ notifyUser = (message) ->
   log 'GAME VERSION HAS CHANGED TO ' + message
   Session.set('activeNotification',true)
 
-renderParticles = () ->
-  #log 'renderingParticles'
-  for particle, i in particles
-    matrix3d = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, " + physics.particles[i].pos.x + ", " + physics.particles[i].pos.y + ", " + 0 + ", 1)"
-    particle.style.webkitTransform = matrix3d
-
-heartbeat = (timestamp) ->
-  if Session.equals('physicsInitialized',true)
-    renderParticles()
-  #Step Physics
-  physics.step()
-  requestAnimationFrame heartbeat
+Meteor.startup(()->
+  #Determine OS the user is running
+  checkOS()
+)

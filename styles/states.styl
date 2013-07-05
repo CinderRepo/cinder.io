@@ -1,0 +1,34 @@
+//APPSTATE - VIEW
+#container[data-state="view"] #tiles
+	opacity 0
+#container[data-state="view"] #viewBg
+	opacity 1
+#container[data-state="view"] #view
+	opacity 1
+	pointer-events auto
+
+//APPSTATE - PLAY
+#container[data-state="play"] #tiles
+	opacity 0
+#container[data-state="play"] #game
+	opacity 1
+	pointer-events auto
+
+//APPSTATE -COMMUNITY
+#container[data-state="community"] #viewBg
+	opacity 1
+#container[data-state="community"] #community
+	opacity 1
+	pointer-events auto
+
+//MODAL STATE - LOGIN
+#container[data-modal="login"] #nav
+	transform translate3d(0,240px,0)
+
+//MODAL STATE - PROFILE
+#container[data-modal="profile"] #nav
+	transform translate3d(0,240px,0)
+
+//MODAL STATE - FEEDBACK
+#container[data-modal="feedback"] #nav
+	transform translate3d(0,240px,0)

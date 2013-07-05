@@ -1,76 +1,30 @@
 <template name="nav">
-  {{#isolate}}
-  <div id="nav">
-    {{>modal}}
-    <div id="navWrapper">
-    {{#isolate}}
-    {{#if viewing}}
-      {{>circleButton exit}}
-    {{/if}}
-    {{/isolate}}
-
-    {{#isolate}}
-    {{>circleButton feedback}}
-    {{/isolate}}
-
-    {{#if notification}}
-      <div class="notification">
-        <div class="notificationText">
-          A new version of {{notificationMessage}} is available. Update?
-        </div>
-        {{>circleButton yes}}
-        {{>circleButton no}}
-      </div>
-    {{/if}}
-
-    {{#if currentUser}}
-      {{#with currentUser}}
-        {{#if viewing}}
-          {{!>circleButton exit}}
-        {{else}}
-          {{#if playing}}
-            {{!>circleButton hidden}}
-          {{else}}
-            {{!>circleButton logout}}
-          {{/if}}
-        {{/if}}
-        {{#if playing}}
-          {{>dualButton exitGame}}
-        {{else}}
-          {{>dualButton loggedIn}}
-        {{/if}}
-        {{#if viewing}}
-          {{!>circleButton hidden}}
-        {{else}}
-          {{#if playing}}
-            {{!>circleButton hidden}}
-          {{else}}
-            {{!>circleButton add}}
-          {{/if}}
-        {{/if}}
-      {{/with}}
-    {{else}}
-      {{#if playing}}
-        {{>dualButton exitGame}}
-      {{else}}
-        {{>dualButton loggedOut}}
-      {{/if}}
-      {{#if viewing}}
-        {{!>circleButton hidden}}
-      {{/if}}
-    {{/if}}
-    </div>
-    <div id="navScrollerWrapper">
-      <nav id="navScroller">
-        <li class="navScrollerItem" data-pane="info">{{>infoIcon}}</li>
-        <li class="navScrollerItem" data-pane="images">{{>imageIcon}}</li>
-        <li class="navScrollerItem" data-pane="audio">{{>audioIcon}}</li>
-        <li class="navScrollerItem" data-pane="video">{{>videoIcon}}</li>
-        <li class="navScrollerItem" data-pane="code">{{>codeIcon}}</li>
-        <li class="navScrollerItem" data-pane="fund">{{>fundIcon}}</li>
-        <li class="navScrollerItem" data-pane="play">{{>gameIcon}}</li>
-      </nav>
-    </div>
-  </div>
-  {{/isolate}}
+{{#isolate}}
+	<section id="nav">
+		{{>modal}}
+		<div id="navWrapper">
+			{{#if sessionEquals 'appState' 'browse'}}
+				{{>dualButton}}
+			{{else}}
+				<div class="navButton left" data-href="close">{{>closeIcon}}</div>
+				<div id="gameSectionsNav">
+					<div id="gameSectionsNavWrapper">
+						{{#with viewing}}
+						<h3 class="gameSectionNav outerLeft" data-href="fund">Fund</h3>
+						<h3 class="gameSectionNav innerLeft" data-href="community">Community</h3>
+						<h1 class="gameSectionNav middle" data-href="view">{{name}}</h1>
+						<h3 class="gameSectionNav innerRight" data-href="play">Play</h3>
+						<h3 class="gameSectionNav outerRight" data-href="remix">Remix</h3>
+						<div id="gameSectionsNavSlider"></div>
+						{{/with}}
+					</div>
+				</div>
+				{{#if sessionEquals 'notificationActive' true}}
+				HI NOTIFICATION
+				{{/if}}
+				<div class="navButton right" data-href="feedback">{{>feedbackIcon}}</div>
+			{{/if}}
+		</div>
+	</section>
+{{/isolate}}
 </template>
