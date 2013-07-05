@@ -197,7 +197,7 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("YardstickingIt")
 
-  if Games.find().count() == 0
+  ###if Games.find().count() == 0
     Games.insert
       name: "Alan Wake's American Nightmare"
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
@@ -1836,4 +1836,4 @@ Meteor.startup ->
       messages: []
       active: true
       version: ''
-      featured: false
+      featured: false###

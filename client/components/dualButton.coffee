@@ -10,9 +10,12 @@ Template.dualButton.events
 		log 'DualButton Clicked.'
 		e.stopImmediatePropagation()
 		state = $(e.currentTarget).data('state')
-		if state is 'exitGame' or 'create'
+		log state
+		if state is 'exitGame' or state is 'create'
+			log 'hurp'
 			Meteor.Router.to '/' + $(e.currentTarget).data('href')
 		else
+			log 'Opening form'
 			if Session.equals('modalState',state)
 				Session.set('modalState',undefined)
 			else

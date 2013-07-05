@@ -22,9 +22,9 @@ Meteor.startup(()->
   #Calculate windowWidth for grid dimensions
   getWindowSize()
   #initialize physics
-  initPhysics()
+  #initPhysics()
   #Start client request animation frame heartbeat
-  heartbeat()
+  #heartbeat()
   #debugger
 )
 

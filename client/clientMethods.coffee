@@ -8,7 +8,7 @@ Meteor.saveGame = (file, id) ->
 window.onresize = ->
   #console.log "Resizing!"
   getWindowSize()
-  updatePhysics()
+  #updatePhysics()
 
 ###SHIMS###
 window.requestAnimationFrame or (window.requestAnimationFrame = window.webkitRequestAnimationFrame or window.mozRequestAnimationFrame or window.oRequestAnimationFrame or window.msRequestAnimationFrame or (callback, element) ->
