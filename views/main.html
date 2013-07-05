@@ -1,77 +1,55 @@
 <template name="main">
-	<section id="container" data-state="{{state}}" data-modal="{{modalState}}">
+	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
 		{{>nav}}
+
 		{{#isolate}}
-		<div id="tiles">
+		<section id="tiles">
 			<div id="tilesWrapper">
-				{{!<button id="prev">Prev</button>
-				<button id="next">Next</button>}}
-				{{#each scrollableList}}
+				{{#each games}}
 					{{>tile}}
 				{{/each}}
 			</div>
-		</div>
+		</section>
 		{{/isolate}}
+
 		{{#isolate}}
-		<div id="tilePanes">
+		{{#with viewing}}
+		<section id="viewBg" style="background-image: url({{viewBgSrc}});"></section>
+		{{/with}}
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="view">
 			{{#with viewing}}
-			<div id="tilePanesWrapper" data-genre="{{genre}}" data-activePane="{{activePane}}">
-				{{#isolate}}
-				<div class="tilePane" data-pane="info" style="background-image: url('{{previewSrc}}');">
-					<div class="tilePaneInfoWrapper">
-						{{>button play}}
-						<div id="tilePaneName">{{name}}</div>
-						<div id="tilePaneDescription">{{description}}</div>
-						<div id="messages">
-							<div class="messagesContainer">
-							{{#isolate}}
-							{{#if hasMessages}}
-								{{#each messages}}
-									{{>message}}
-								{{/each}}
-							{{else}}
-								<div class="noMessagesNotice">NO MESSAGES ADDED</div>
-							{{/if}}
-							{{/isolate}}
-							</div>
-						</div>
-					</div>
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="images">
-					IMAGES!
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="audio">
-					AUDIO!
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="video">
-					VIDEO!
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="code">
-					CODE!
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="fund">
-					FUND!
-				</div>
-				{{/isolate}}
-				{{#isolate}}
-				<div class="tilePane" data-pane="play">
-					<iframe id="gamePlayer" seamless allowfullscreen sandbox="allow-scripts allow-same-origin" src="{{gameSrc}}"></iframe>
-				</div>
-				{{/isolate}}
-				{{>textEntryBox}}
-			</div>
+				{{>tile}}
 			{{/with}}
-		</div>
+			<div class="scrollIndicator"></div>
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="game">
+			<div id="gameWrapper">
+			{{#with viewing}}
+			<iframe id="gamePlayer" seamless allowfullscreen sandbox="allow-scripts allow-same-origin" src="{{gameSrc}}"></iframe>
+			{{/with}}
+			</div>
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="community">
+			<div id="communityWrapper">
+			{{#isolate}}
+			{{#with viewing}}
+			{{#each messages}}
+				{{>message}}
+			{{/each}}
+			{{/with}}
+			{{>textEntryBox}}
+			{{/isolate}}
+			</div>
+		</section>
 		{{/isolate}}
 	</section>
 </template>

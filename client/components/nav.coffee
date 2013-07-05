@@ -1,100 +1,31 @@
-Template.nav.settings = ->
-  _id: Meteor.uuid()
-  state: 'settings'
-  message: 's'
-
-Template.nav.logout = ->
-  _id: Meteor.uuid()
-  state: 'logout'
-  message: 'L'
-
-Template.nav.add = ->
-  _id: Meteor.uuid()
-  state: 'add'
-  message: '+'
-
-Template.nav.exit = ->
-  _id: Meteor.uuid()
-  state: 'exit'
-  href: ''
-  message: '<'
-
-Template.nav.hidden = ->
-  _id: Meteor.uuid()
-  state: 'hidden'
-  message: undefined
-
-Template.nav.yes = ->
-  _id: Meteor.uuid()
-  state: 'yes'
-  message: 'y'
-
-Template.nav.no = ->
-  _id: Meteor.uuid()
-  state: 'no'
-  message: 'n'
-
-Template.nav.feedback = ->
-  _id: Meteor.uuid()
-  state: 'feedback'
-  message: 'f'
-
-Template.nav.playing = ->
-  if Session.equals('appState','play') then true else false
-
 Template.nav.viewing = ->
-  if Session.equals('appState','view') or Session.equals('appState','play') then true else false
-
-Template.nav.notification = ->
-  if Session.equals('activeNotification',true) then true else false
+  if Session.get('activeTile')
+    Games.findOne(Session.get('activeTile'))
+  else
+    Games.findOne()
 
 Template.nav.notificationMessage = ->
   Games.findOne(Session.get('activeTile')).name
 
-Template.nav.loggedOut = ->
-  _buttonLeftId: Meteor.uuid()
-  buttonLeftState: 'login'
-  buttonLeftText: 'Login'
-  buttonMiddle: 'c'
-  _buttonRightId: Meteor.uuid()
-  buttonRightState: 'signup'
-  buttonRightText: 'Sign Up'
-
-Template.nav.loggedIn = ->
-  _buttonLeftId: Meteor.uuid()
-  buttonLeftState: 'profile'
-  buttonLeftText: Meteor.user() and Meteor.user().username
-  buttonMiddle: 'u'
-  _buttonRightId: Meteor.uuid()
-  buttonRightState: 'create'
-  buttonRightText: 'Create'
-  buttonRightHref: 'downloads/' + Session.get('currentOS') + '/fire.zip'
-
-Template.nav.exitGame = ->
-  _buttonLeftId: Meteor.uuid()
-  buttonLeftState: 'exitGame'
-  buttonLeftText: 'Exit Game'
-  buttonLeftHref: Session.get('activeTile')
-  buttonMiddle: 'u'
-  _buttonRightId: Meteor.uuid()
-  buttonRightState: 'create'
-  buttonRightText: 'Create'
-  buttonRightHref: 'downloads/' + Session.get('currentOS') + '/fire.zip'
-
 Template.nav.events
-  'click .navScrollerItem':(e,t)->
-    log 'navScrollerItem clicked!'
-    #Set the activePane session
-    Session.set('activePane',$(e.currentTarget).data('pane'))
-    if $(e.currentTarget).data('pane') == 'play'
-      Meteor.Router.to '/' + Session.get('activeTile') + '/play'
+  'click .navButton':(e,t)->
+    e.stopImmediatePropagation()
+    href = $(e.currentTarget).data('href')
+    log 'navButton clicked'
+    if href is 'close'
+      Meteor.Router.to '/'
     else
-      Meteor.Router.to '/' + Session.get('activeTile')
+      if Session.equals('modalState',href)
+        Session.set('modalState',undefined)
+      else
+        Session.set('modalState',href)
+  'click .gameSectionNav':(e,t)->
+    log 'gameSectionNav clicked'
+    e.stopImmediatePropagation()
+    href = $(e.currentTarget).data('href')
+    Meteor.Router.to '/' + Session.get('activeTile') + '/' + href
 
 Template.nav.preserve({
   '#nav'
   '#navWrapper'
-  '#navScrollerWrapper'
-  '.circleButton[data-state="feedback"]'
-  '.circleButton[data-state="exit"]'
 })

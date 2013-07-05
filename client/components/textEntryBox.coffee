@@ -6,8 +6,9 @@ Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
 	e.stopImmediatePropagation()
 	textField = t.find('.textEntryText')
 	text = textField.value
+	log text
 	Games.update
-	  _id: @_id
+	  _id: Session.get('activeTile')
 	,
 	  $addToSet:
 	    messages:
