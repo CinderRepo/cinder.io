@@ -44,7 +44,7 @@ Deps.autorun(toggleScrolling = ()->
 
 notifyUser = (message) ->
   log 'GAME VERSION HAS CHANGED TO ' + message
-  Session.set('activeNotification',true)
+  Session.set('notificationActive',true)
 
 Meteor.startup(()->
   #Determine OS the user is running
