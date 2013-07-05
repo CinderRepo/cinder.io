@@ -197,19 +197,21 @@ Meteor.startup ->
         password:
           srp: Meteor._srp.generateVerifier("YardstickingIt")
 
-  ###if Games.find().count() == 0
+  if Games.find().count() == 0
     Games.insert
-      name: "Alan Wake's American Nightmare"
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+      name: "Sword and Sworcery"
+      description: "Superbrothers: Sword & Sworcery EP is an exploratory action adventure videogame with an emphasis on audiovisual style. Traverse a mythic little realm, use a sword to do battle & evoke sworcery to solve mystical musical mysteries. Co-operate with friends via Twitter, experience a videogame world that is affected by moon phases & help a wandering warrior monk complete her woeful errand.
+With Jim Guthrie's companion album available on vinyl & audiocassette, the project has been warmly received by audiences & critics, reaching more than a million people."
       genre: "Adventure"
-      gameBy: "test"
-      previewSrc: "/img/preview/alan-wakes-american-nightmare.jpg"
+      gameBy: "Superbrothers"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
       gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
       messages: []
       active: true
       version: ''
       featured: false
-    Games.insert
+    ###Games.insert
       name: "Alone in the Dark"
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
       genre: "Action"

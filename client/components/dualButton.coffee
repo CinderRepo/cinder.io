@@ -1,31 +1,20 @@
-Template.dualButton.activeDualButtonLeft = ->
-	#log 'Checking active'
-	#if Session.equals('activeDualButtonLeft',this._buttonLeftId) or Session.equals('activePane',this._buttonLeftState) then 'active' else ''
-
-Template.dualButton.activeDualButtonRight = ->
-	#if Session.equals('activeDualButtonRight',this._buttonRightId) or Session.equals('activePane',this._buttonRightState)  then 'active' else ''
-
 Template.dualButton.events
-	'click .dualButton': (e,t) ->
-		log 'DualButton Clicked.'
+	'click .innerDualButton': (e,t) ->
+		log 'innerDualButton Clicked.'
 		e.stopImmediatePropagation()
-		state = $(e.currentTarget).data('state')
-		log state
-		if state is 'exitGame' or state is 'create'
-			log 'hurp'
-			Meteor.Router.to '/' + $(e.currentTarget).data('href')
+		href = $(e.currentTarget).data('href')
+		log href
+		if href is 'create'
+			Meteor.Router.to '/downloads/' + Session.get('currentOS') + '/fire.zip'
 		else
-			log 'Opening form'
-			if Session.equals('modalState',state)
+			if Session.equals('modalState',href)
 				Session.set('modalState',undefined)
 			else
-				Session.set('modalState',state)
-	'hover .dualButton': (e,t) ->
-		e.preventDefault()
+				Session.set('modalState',href)
 
 Template.dualButton.preserve({
-	'.dualButtonWrapper'
-	'.dualButton.left'
-	'.dualButtonMiddle'
-	'.dualButton.right'
+	'.dualButton'
+	'.innerDualButton.left'
+	'.middleButton'
+	'.innerDualButton.right'
 })

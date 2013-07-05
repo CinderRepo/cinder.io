@@ -1,7 +1,27 @@
 <template name="dualButton">
-	<div class="dualButtonWrapper">
-		<div class="dualButton left {{activeDualButtonLeft}}" data-state="{{buttonLeftState}}" data-href="{{buttonLeftHref}}">{{buttonLeftText}}</div>
-		<div class="dualButtonMiddle">{{buttonMiddle}}</div>
-		<div class="dualButton right {{activeDualButtonRight}}" data-state="{{buttonRightState}}" data-href="{{buttonRightHref}}">{{buttonRightText}}</div>
+	{{#isolate}}
+	<div class="dualButton">
+		{{#if currentUser}}
+		{{#with currentUser}}
+		<div class="innerDualButton left" data-href="profile">{{username}}</div>
+		{{/with}}
+		{{else}}
+		<div class="innerDualButton left" data-href="login">Login</div>
+		{{/if}}
+		<div class="middleButton">
+			{{#if currentUser}}
+			{{#with currentUser}}
+
+			{{/with}}
+			{{else}}
+				{{>cinderIcon}}
+			{{/if}}
+		</div>
+		{{#if currentUser}}
+		<div class="innerDualButton right" data-href="create">Create</div>
+		{{else}}
+		<div class="innerDualButton right" data-href="signup">Signup</div>
+		{{/if}}
 	</div>
+	{{/isolate}}
 </template>

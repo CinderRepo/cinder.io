@@ -3,7 +3,8 @@
   "dependencies": {
     "basePackages": {
       "router": {},
-      "Mesosphere": {}
+      "Mesosphere": {},
+      "regulate.js": {}
     },
     "packages": {
       "router": {
@@ -15,6 +16,11 @@
         "git": "https://github.com/copleykj/Mesosphere.git",
         "tag": "v0.0.1",
         "commit": "2ebf8bc6bd5267852aa06620f249730b310ccf44"
+      },
+      "regulate.js": {
+        "git": "https://github.com/eddflrs/regulate-meteor.git",
+        "tag": "v0.1.3.4",
+        "commit": "fabcebbabcc50f0466fbb0cc9a7c3d010ffa25bf"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

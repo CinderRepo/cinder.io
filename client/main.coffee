@@ -1,19 +1,5 @@
 Template.main.games = ->
   Games.find()
-Template.main.loggedOut = ->
-  state: 'loggedOut'
-  buttonLeftState: 'login'
-  buttonLeftText: 'Login'
-  buttonMiddle: 'c'
-  buttonRightState: 'signUp'
-  buttonRightText: 'lolwut?'
-Template.main.loggedIn = ->
-  state: 'loggedIn'
-  buttonLeftState: 'viewProfile'
-  buttonLeftText: Meteor.user().username
-  buttonMiddle: 'u'
-  buttonRightState: 'browseGames'
-  buttonRightText: 'lolwut?'
 Template.main.logout = ->
   state: 'logout'
   message: 'x'
@@ -42,6 +28,9 @@ Template.main.hasMessages = ->
     true
   else
     false
+Template.main.messages = ->
+  if Session.get('activeTile')
+    Games.findOne(Session.get('activeTile')).messages
 Template.main.viewing = ->
   if Session.get('activeTile')
     Games.findOne(Session.get('activeTile'))
@@ -56,53 +45,12 @@ Session.setDefault('activePane','info')
 Template.main.activePane = ->
   Session.get('activePane')
 
-Template.main.events
-  'mousewheel #container':(e,t)->
-    #log e
-    Session.set('scrollPosition',window.scrollY)
-    #if Session.equals('appState','view')
-      #e.stopImmediatePropagation()
-      #e.preventDefault()
-  ###'mousewheel #tiles':(e,t)->
-    if e.wheelDeltaY < 0
-      log 'SCROLLING UP!'
-    else if e.wheelDeltaY > 0
-      log 'SCROLLING DOWN!'
-    else
-      log 'Scrolling stopped?'###
-  'webkitTransitionEnd #tilePanes':(e,t)->
-    e.stopImmediatePropagation()
-    if Session.equals('appState','view')
-      Session.set('disableScrolling',true)
-    else
-      Session.set('disableScrolling',false)
-  'click #prev':(e,t)->
-    newPosition = Session.get('tileScrollPosition') - 1
-    if newPosition < 0 then Games.find().count() / Session.get('rowCount') #Wraparound
-    Session.set('tileScrollPosition',newPosition)
-  'click #next':(e,t)->
-    newPosition = Session.get('tileScrollPosition') + 1
-    if newPosition > Games.find().count() / Session.get('rowCount') then newPosition = 0 #Wraparound
-    Session.set('tileScrollPosition', newPosition)
-  #'mousemove #welcome,
-  #touchmove #welcome':(e,t)->
-    #log 'mousemove'
-    #e.preventDefault()
-    #if e.touches and !!e.touches.length
-    #  touch = e.touches[0]
-    #  physicsMouse.pos.set touch.pageX, touch.pageY, 0
-    #else
-    #  physicsMouse.pos.set e.clientX, e.clientY, 0
-
 Template.main.preserve({
   '#container'
   '#tiles'
-  '#tilePage'
-  '#tilePageWrapper'
-  '.tilePane[data-pane="info"]'
+  '#viewBg'
+  '#view'
   '#gamePlayer'
   '#gamePlayerContent'
   '#messages'
-  '#thankyou'
-  '#particles'
 })
