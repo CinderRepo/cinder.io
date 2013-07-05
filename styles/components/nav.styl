@@ -70,3 +70,31 @@
 //Nav Hover States
 .gameSectionNav:hover
 	color steelBlue
+
+//Notification Styles
+.notification
+	position fixed
+	top 80px
+	background rgba(245,245,245,0.8)
+	color midnight
+	left 0
+	right 0
+	height 30px
+	line-height 30px
+	box-shadow 0 0 1px #2b3d4f
+	opacity 0
+	transition opacity normalSpeed
+	text-align center
+.notificationContent
+	display inline-block
+	margin 0 auto
+.notification[data-state="true"]
+	opacity 1
+.notificationText
+	float left
+.notificationButton
+	margin 0 0 0 20px
+	float left
+	cursor pointer
+.notificationButton:hover
+	color steelBlue

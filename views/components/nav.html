@@ -19,9 +19,15 @@
 						{{/with}}
 					</div>
 				</div>
-				{{#if sessionEquals 'notificationActive' true}}
-				HI NOTIFICATION
-				{{/if}}
+				{{#with viewing}}
+				<div class="notification" data-state="{{getSession 'notificationActive'}}">
+					<div class="notificationContent">
+						<div class="notificationText"><strong>{{name}}</strong> has been updated. Would you like to reload the game?</div>
+						<div class="notificationButton left" data-href="yes">Yes</div>
+						<div class="notificationButton right" data-href="no">No</div>
+					</div>
+				</div>
+				{{/with}}
 				<div class="navButton right" data-href="feedback">{{>feedbackIcon}}</div>
 			{{/if}}
 		</div>
