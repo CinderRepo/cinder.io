@@ -19,6 +19,9 @@
 						{{/with}}
 					</div>
 				</div>
+				{{#if sessionEquals 'notificationActive' true}}
+				HI NOTIFICATION
+				{{/if}}
 				<div class="navButton right" data-href="feedback">{{>feedbackIcon}}</div>
 			{{/if}}
 		</div>

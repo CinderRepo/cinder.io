@@ -1,5 +1,5 @@
 <template name="main">
-	<section id="container" data-state="{{state}}" data-modal="{{modalState}}">
+	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
 		{{>nav}}
 
 		{{#isolate}}
