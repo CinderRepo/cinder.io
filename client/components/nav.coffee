@@ -24,8 +24,19 @@ Template.nav.events
     e.stopImmediatePropagation()
     href = $(e.currentTarget).data('href')
     Meteor.Router.to '/' + Session.get('activeTile') + '/' + href
+  'click .notificationButton':(e,t)->
+    log 'notificationButton clicked'
+    e.stopImmediatePropagation()
+    href = $(e.currentTarget).data('href')
+    #If the user selects yes, reload the gamePlayer window.
+    if href is 'yes'
+      $('#gamePlayer')[0].contentWindow.location.reload(true)
+      Session.set('notificationActive',false)
+    else
+      Session.set('notificationActive',false)
 
 Template.nav.preserve({
   '#nav'
   '#navWrapper'
+  '.notification'
 })
