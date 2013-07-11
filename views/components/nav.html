@@ -9,6 +9,7 @@
 			<div class="navButton left" data-href="close">{{>closeIcon}}</div>
 				<div id="gameSectionsNav">
 					<div id="gameSectionsNavWrapper">
+						{{#if getSession 'activeTile'}}
 						{{#with viewing}}
 						<h3 class="gameSectionNav outerLeft" data-href="fund">Fund</h3>
 						<h3 class="gameSectionNav innerLeft" data-href="community">Community</h3>
@@ -17,6 +18,9 @@
 						<h3 class="gameSectionNav outerRight" data-href="remix">Remix</h3>
 						<div id="gameSectionsNavSlider"></div>
 						{{/with}}
+						{{else}}
+						<h1 class="gameSectionNav middle">CREATE GAME HURP</h1>
+						{{/if}}
 					</div>
 				</div>
 				{{#with viewing}}

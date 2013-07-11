@@ -10,6 +10,18 @@
 	opacity 1
 	pointer-events auto
 
+//APPSTATE - CREATE
+#container[data-state="create"] #tiles
+	opacity 0
+#container[data-state="create"] #viewBg
+	opacity 1
+#container[data-state="create"] #view
+	opacity 1
+	pointer-events auto
+#container[data-state="create"] #explainer[data-cinderFireInstalled="false"]
+	opacity 1
+	pointer-events auto
+
 //APPSTATE - PLAY
 #container[data-state="play"] #tiles
 	opacity 0

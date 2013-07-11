@@ -13,6 +13,11 @@ Meteor.Router.add
       Session.set('appState','view')
       Session.set('activeTile',gameId)
       #Session.set('disableScrolling',true)
+  "/create":
+    to: "main"
+    and: () ->
+        Session.set('appState','create')
+        Session.set('activeTile',undefined)
   "/:_gameId/play":
     to: "main"
     and: (gameId) ->

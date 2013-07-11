@@ -25,28 +25,34 @@
 	height navHeight
 	margin 0 auto
 	line-height navHeight
-	position relative
+	position absolute
+	right 80px
+	left 80px
 #gameSectionsNavWrapper
-	width gameSectionsNavWidth
+	background red
+	height navHeight
 	margin 0 auto
 .gameSectionNav
-	float left
 	font-size 16px
 	text-align center
 	overflow ellipsis
-	width gameSectionNavWidth
 	cursor pointer
+	display box
 .gameSectionNav.outerLeft
-	opacity 0
+	background green
+	opacity 1
 .gameSectionNav.innerLeft
+	background blue
 	opacity 1
 .gameSectionNav.middle
-	width gameSectionNavWidth*4
+	background pink
 	font-size 36px
 .gameSectionNav.innerRight
+	background purple
 	opacity 1
 .gameSectionNav.outerRight
-	opacity 0
+	background orange
+	opacity 1
 #gameSectionsNavSlider
 	width gameSectionNavWidth
 	height 4px

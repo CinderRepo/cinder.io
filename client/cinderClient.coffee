@@ -1,3 +1,23 @@
+#Handle client side subscriptions to data from the server
+#Notify User of an Updated Game
+Meteor.subscribe('games',()->
+  Deps.autorun(@checkGameVersion = () ->
+    if Session.get('activeTile') and Session.get('activeTile') is not 'create'
+      game = Games.findOne({_id:Session.get('activeTile')},{})
+      if Session.get('currentGameVersion') != game.version
+      #if !Session.equals('currentGameVersion',game.version)
+        #The game's version has updated
+        log 'game\'s version has been updated!'
+        log game.version
+        Session.set('currentGameVersion',game.version)
+        if Session.get('activeTile') and Session.equals('appState','play')
+          notifyUser(game.version)
+  )
+)
+
+#Publish user data to the client from the server
+Meteor.subscribe 'userData'
+
 checkOS = () ->
   Session.setDefault('currentOS','Unknown OS')
   if navigator.appVersion.indexOf('Win') isnt -1
@@ -16,22 +36,6 @@ logRenders = ->
     template.rendered = ->
       console.log name, "render count: ", ++counter
       oldRender and oldRender.apply(this, arguments_)
-
-#Notify User of an Updated Game
-Meteor.subscribe('games',()->
-  Deps.autorun(@checkGameVersion = () ->
-    if Session.get('activeTile')
-      game = Games.findOne({_id:Session.get('activeTile')},{})
-      if Session.get('currentGameVersion') != game.version
-      #if !Session.equals('currentGameVersion',game.version)
-        #The game's version has updated
-        log 'game\'s version has been updated!'
-        log game.version
-        Session.set('currentGameVersion',game.version)
-        if Session.get('activeTile') and Session.equals('appState','play')
-          notifyUser(game.version)
-  )
-)
 
 #Prevent Scrolling when appState is view - THIS IS A HACK because Meteor doesn't allow for attributes on the body, which is so fucking dumb that I dont even want to begin to get into it. Ugh.
 Deps.autorun(toggleScrolling = ()->

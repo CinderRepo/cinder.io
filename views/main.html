@@ -1,7 +1,6 @@
 <template name="main">
 	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
 		{{>nav}}
-
 		{{#isolate}}
 		<section id="tiles">
 			<div id="tilesWrapper">
@@ -24,6 +23,9 @@
 				{{>tile}}
 			{{/with}}
 			<div class="scrollIndicator"></div>
+			{{#with currentUser}}
+				{{>explainer}}
+			{{/with}}
 		</section>
 		{{/isolate}}
 
