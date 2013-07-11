@@ -1,0 +1,3 @@
+Template.explainer.preserve({
+	'#explainer'
+})

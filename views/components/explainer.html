@@ -1,0 +1,24 @@
+<template name="explainer">
+	<section id="explainer" data-cinderFireInstalled="{{cinderFireInstalled}}" data-state="{{getSession 'currentExplainerState'}}">
+		{{>installFireIcon}}
+		{{>waitingIcon}}
+		{{>folderIcon}}
+		{{>newIcon}}
+		{{>deployIcon}}
+		{{>ideaIcon}}
+		<div id="explainerText">
+			Hurpy Durpy Text
+		</div>
+		<div id="explainerButton">
+			Hurpy Durpy Button
+		</div>
+		<ul id="explainerProgress">
+			<li class="explainerProgressDot"></li>
+			<li class="explainerProgressDot"></li>
+			<li class="explainerProgressDot"></li>
+			<li class="explainerProgressDot"></li>
+			<li class="explainerProgressDot"></li>
+			<li class="explainerProgressDot"></li>
+		</div>
+	</section>
+</template>
