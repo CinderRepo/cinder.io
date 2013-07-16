@@ -11,6 +11,8 @@ Template.main.viewing = ->
     Games.findOne(Session.get('activeTile'))
   else
     Games.findOne()
+Template.main.notificationMessage = ->
+  Games.findOne(Session.get('activeTile')).name
 
 Template.main.preserve({
   '#container'

@@ -2,6 +2,7 @@
   "packages": {
     "router": {},
     "Mesosphere": {},
-    "regulate.js": {}
+    "regulate.js": {},
+    "humane": {}
   }
 }

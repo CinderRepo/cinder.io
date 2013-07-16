@@ -28,31 +28,43 @@
 	position absolute
 	right 80px
 	left 80px
+	overflow hidden
 #gameSectionsNavWrapper
-	background red
+	//background red
 	height navHeight
+	width 100%
 	margin 0 auto
+	display flex
+	//display -webkit-box
+	-webkit-justify-content center
+	-webkit-box-pack center
+	-moz-box-pack center
+	//-webkit-flex-row row
 .gameSectionNav
 	font-size 16px
 	text-align center
 	overflow ellipsis
 	cursor pointer
-	display box
+	min-width 40px //IconWidth
+	line-height navHeight
 .gameSectionNav.outerLeft
-	background green
-	opacity 1
+	padding 0 30px 0 0
+	line-height (navHeight + 5) //Center subnavigation with the text
+	opacity 0
 .gameSectionNav.innerLeft
-	background blue
+	padding 0 30px 0 0
+	line-height (navHeight + 5)
 	opacity 1
 .gameSectionNav.middle
-	background pink
+	padding 0 30px 0 0
 	font-size 36px
 .gameSectionNav.innerRight
-	background purple
+	padding 0 30px 0 0
+	line-height (navHeight + 5)
 	opacity 1
 .gameSectionNav.outerRight
-	background orange
-	opacity 1
+	line-height (navHeight + 5)
+	opacity 0
 #gameSectionsNavSlider
 	width gameSectionNavWidth
 	height 4px
@@ -61,6 +73,7 @@
 	bottom 0
 	left 10px
 	opacity 0
+	display none
 .navButton
 	width navButtonWidth
 	height navButtonHeight
@@ -75,32 +88,4 @@
 
 //Nav Hover States
 .gameSectionNav:hover
-	color steelBlue
-
-//Notification Styles
-.notification
-	position fixed
-	top 80px
-	background rgba(245,245,245,0.8)
-	color midnight
-	left 0
-	right 0
-	height 30px
-	line-height 30px
-	box-shadow 0 0 1px #2b3d4f
-	opacity 0
-	transition opacity normalSpeed
-	text-align center
-.notificationContent
-	display inline-block
-	margin 0 auto
-.notification[data-state="true"]
-	opacity 1
-.notificationText
-	float left
-.notificationButton
-	margin 0 0 0 20px
-	float left
-	cursor pointer
-.notificationButton:hover
 	color steelBlue

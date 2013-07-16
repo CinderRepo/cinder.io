@@ -242,14 +242,14 @@ Meteor.startup ->
 
   if Games.find().count() == 0
     Games.insert
-      name: "Sword and Sworcery"
-      description: "Superbrothers: Sword & Sworcery EP is an exploratory action adventure videogame with an emphasis on audiovisual style. Traverse a mythic little realm, use a sword to do battle & evoke sworcery to solve mystical musical mysteries. Co-operate with friends via Twitter, experience a videogame world that is affected by moon phases & help a wandering warrior monk complete her woeful errand.
-With Jim Guthrie's companion album available on vinyl & audiocassette, the project has been warmly received by audiences & critics, reaching more than a million people."
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
       genre: "Adventure"
-      gameBy: "Superbrothers"
+      gameBy: "Little Workshop"
       previewSrc: "/img/preview/sword-and-sworcery.png"
       viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
-      gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
       messages: []
       active: true
       version: ''

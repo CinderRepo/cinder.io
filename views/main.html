@@ -1,6 +1,8 @@
 <template name="main">
 	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
+		{{#with viewing}}
 		{{>nav}}
+		{{/with}}
 		{{#isolate}}
 		<section id="tiles">
 			<div id="tilesWrapper">
@@ -33,6 +35,7 @@
 		<section id="game">
 			<div id="gameWrapper">
 			{{#with viewing}}
+			{{>notification}}
 			<iframe id="gamePlayer" seamless allowfullscreen sandbox="allow-scripts allow-same-origin" src="{{gameSrc}}"></iframe>
 			{{/with}}
 			</div>
