@@ -1,10 +1,11 @@
 Template.tile.events
 	'click .tile,
 	click .tileInfoButton':(e,t)->
-		log 'tileInfoButton clicked'
 		e.stopImmediatePropagation()
 		href = $(e.currentTarget).data('href')
+		#Set the active game
 		Session.set('activeTile',this._id)
+    	#Go to the proper page
 		Meteor.Router.to '/' + Session.get('activeTile') + '/' + href
 
 Template.tile.preserve({

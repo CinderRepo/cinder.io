@@ -1,35 +1,109 @@
 <template name="modal">
 {{#isolate}}
-	<div id="modal" data-state="{{state}}">
-		<form class="modalForm">
+	<section class="modal">
+		{{!Begin Login Modal}}
+		<div class="modalFormWrapper login" data-state="{{#if sessionEquals 'modalState' 'login'}}active{{/if}}">
 			<div class="modalFormHeader">
-				{{!>button logout}}
-				<div class="modalFormHeaderTitle">{{state}}</div>
-				<div class="modalFormHeaderButton right"></div>
+				<div class="modalFormHeaderIcon">{{>loginIcon}}</div>
+				<h2 class="modalFormHeaderTitle">Login</h2>
 			</div>
-			{{#if isFeedback}}
-			<textarea class="modalFormTextArea" placeholder="{{textareaPlaceholder}}"></textarea>
-			{{else}}
-			<div class="modalFormInputWrapper one">
-				<div class="modalFormInputIcon"></div>
-		    	<input class="modalFormInput" type="{{inputOneType}}" placeholder="{{inputOnePlaceholder}}">
-		    </div>
-		    <div class="modalFormInputWrapper two">
-		    	<div class="modalFormInputIcon"></div>
-	    		<input class="modalFormInput" type="{{inputTwoType}}" placeholder="{{inputTwoPlaceholder}}">
-	    	</div>
-	    	<div class="modalFormInputWrapper three">
-		    	<div class="modalFormInputIcon"></div>
-	    		<input class="modalFormInput" type="{{inputThreeType}}" placeholder="{{inputThreePlaceholder}}">
-	    	</div>
-	    	{{/if}}
-	    	<div class="modalFormInputButtons">
-	    		<input class="modalButton" type="submit" value="{{modalButtonValue}}" />
-	    		{{#if sessionEquals 'modalState' 'notify'}}
-	    			{{>confirmIcon}}
-	    		{{/if}}
-	    	</div>
-	    </form>
-	</div>
+			<form class="modalForm" name="login">
+				<div class="modalFormInputWrapper top" data-state="{{getSession 'topModalFormInputWrapperState'}}">
+					{{#constant}}
+					<input class="modalFormInput" type="text" name="username" autocomplete="off">
+					<div class="modalFormInputPlaceholder">
+						<span class="modalFormInputPlaceholderText">Username</span>
+					</div>
+					{{/constant}}
+					<div class="modalFormInputMessage">{{getSession 'topModalFormInputMessage'}}</div>
+					<div class="modalFormInputIcon">{{>usernameIcon}}</div>
+				</div>
+				<div class="modalFormInputWrapper bottom" data-state="{{getSession 'bottomModalFormInputWrapperState'}}">
+					{{#constant}}
+					<input class="modalFormInput" type="password" name="password" autocomplete="off">
+					<div class="modalFormInputPlaceholder">
+						<span class="modalFormInputPlaceholderText">Password</span>
+					</div>
+					{{/constant}}
+					<div class="modalFormInputMessage">{{getSession 'bottomModalFormInputMessage'}}</div>
+					<div class="modalFormInputIcon">{{>passwordIcon}}</div>
+				</div>
+				<div class="modalFormButtons">
+					<input class="modalFormButton" type="submit" value="{{modalButtonValue}}" />
+					<div class="modalFormButtonIcon">
+						{{>forwardIcon}}
+					</div>
+				</div>
+			</form>
+		</div>
+		{{!End Login Modal}}
+
+		{{!Begin Signup Modal}}
+		<div class="modalFormWrapper signup" data-state="{{#if sessionEquals 'modalState' 'signup'}}active{{/if}}">
+			<div class="modalFormHeader">
+				<div class="modalFormHeaderIcon">{{>signupIcon}}</div>
+				<h2 class="modalFormHeaderTitle">Signup</h2>
+			</div>
+			<form class="modalForm" name="signup">
+				<div class="modalFormInputWrapper top" data-state="{{getSession 'topModalFormInputWrapperState'}}">
+					{{#constant}}
+					<input class="modalFormInput" type="text" name="username" autocomplete="off">
+					<div class="modalFormInputPlaceholder">
+						<span class="modalFormInputPlaceholderText">Username</span>
+					</div>
+					{{/constant}}
+					<div class="modalFormInputMessage">{{getSession 'topModalFormInputMessage'}}</div>
+					<div class="modalFormInputIcon">{{>usernameIcon}}</div>
+				</div>
+				<div class="modalFormInputWrapper middle" data-state="{{getSession 'middleModalFormInputWrapperState'}}">
+					{{#constant}}
+					<input class="modalFormInput" type="text" name="email" autocomplete="off">
+					<div class="modalFormInputPlaceholder">
+						<span class="modalFormInputPlaceholderText">Email</span>
+					</div>
+					{{/constant}}
+					<div class="modalFormInputMessage">{{getSession 'middleModalFormInputMessage'}}</div>
+					<div class="modalFormInputIcon">{{>emailIcon}}</div>
+				</div>
+				<div class="modalFormInputWrapper bottom" data-state="{{getSession 'bottomModalFormInputWrapperState'}}">
+					{{#constant}}
+					<input class="modalFormInput" type="password" name="password" autocomplete="off">
+					<div class="modalFormInputPlaceholder">
+						<span class="modalFormInputPlaceholderText">Password</span>
+					</div>
+					{{/constant}}
+					<div class="modalFormInputMessage">{{getSession 'bottomModalFormInputMessage'}}</div>
+					<div class="modalFormInputIcon">{{>passwordIcon}}</div>
+				</div>
+				<div class="modalFormButtons">
+					<input class="modalFormButton" type="submit" value="{{modalButtonValue}}" />
+					<div class="modalFormButtonIcon">
+						{{>forwardIcon}}
+					</div>
+				</div>
+			</form>
+		</div>
+		{{!End Signup Modal}}
+
+		{{!Begin Feedback Modal}}
+		<div class="modalFormWrapper feedback" data-state="{{#if sessionEquals 'modalState' 'feedback'}}active{{/if}}">
+			<div class="modalFormHeader">
+				<div class="modalFormHeaderIcon">{{>feedbackIcon}}</div>
+				<h2 class="modalFormHeaderTitle">Feedback</h2>
+			</div>
+			<form class="modalForm" name="feedback">
+				{{#constant}}
+				<textarea class="modalFormTextArea"></textarea>
+				{{/constant}}
+				<div class="modalFormButtons">
+					<input class="modalFormButton" type="submit" value="{{modalButtonValue}}" />
+					<div class="modalFormButtonIcon">
+						{{>forwardIcon}}
+					</div>
+				</div>
+			</form>
+		</div>
+		{{!End Feedback Modal}}
+	</section>
 {{/isolate}}
 </template>

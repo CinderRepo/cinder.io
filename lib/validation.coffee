@@ -1,6 +1,4 @@
-Regulate 'modalForm', [
-  name: 'email'
-  email: true
-  display_as: 'Email'
-  display_error: '.modalFormInputWrapper.one .modalFormInputMessage'
-]
+@nonEmptyString = Match.Where((x) ->
+  check x, String
+  x.length isnt 0
+)

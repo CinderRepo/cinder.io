@@ -3,41 +3,64 @@ Meteor.Router.add
   "/":
     to: "main"
     and: () ->
-      log '/'
+      #Keep track of the previous application state, if there is one
+      Session.set('oldAppState',Session.get('appState'))
       Session.set('appState','browse')
-      #Session.set('disableScrolling',false)
   "/:_gameId/view":
     to: "main"
     and: (gameId) ->
-      log 'VIEWING VIEW STATE'
+      Session.set('oldAppState',Session.get('appState'))
       Session.set('appState','view')
       Session.set('activeTile',gameId)
-      #Session.set('disableScrolling',true)
+      #Disable any open modals, if there are any
+      if Session.get('modalState')
+        Session.set('oldModalState',Session.get('modalState'))
+        Session.set('modalState',undefined)
+  "/:_userId/profile":
+    to: "main"
+    and: () ->
+      Session.set('oldAppState',Session.get('appState'))
+      Session.set('appState','profile')
+      Session.set('activeTile',undefined)
+      #Disable any open modals, if there are any
+      if Session.get('modalState')
+        Session.set('oldModalState',Session.get('modalState'))
+        Session.set('modalState',undefined)
   "/create":
     to: "main"
     and: () ->
-        Session.set('appState','create')
-        Session.set('activeTile',undefined)
+      Session.set('oldAppState',Session.get('appState'))
+      Session.set('appState','create')
+      Session.set('activeTile',undefined)
+      #Disable any open modals, if there are any
+      if Session.get('modalState')
+        Session.set('oldModalState',Session.get('modalState'))
+        Session.set('modalState',undefined)
   "/:_gameId/play":
     to: "main"
     and: (gameId) ->
-      log 'VIEWING GAME STATE'
+      Session.set('oldAppState',Session.get('appState'))
       Session.set('appState','play')
       Session.set('activeTile',gameId)
-      #Session.set('disableScrolling',true)
       if Meteor.user()
         GameSessions.insert({},{'userId':Meteor.user().username, 'gameId':Session.get('activeTile')})
+      #Disable any open modals, if there are any
+      if Session.get('modalState')
+        Session.set('oldModalState',Session.get('modalState'))
+        Session.set('modalState',undefined)
   "/:_gameId/community":
     to: "main"
     and: (gameId) ->
-      log 'VIEWING COMMUNITY STATE'
+      Session.set('oldAppState',Session.get('appState'))
       Session.set('appState','community')
       Session.set('activeTile',gameId)
-      #Session.set('disableScrolling',true)
+      #Disable any open modals, if there are any
+      if Session.get('modalState')
+        Session.set('oldModalState',Session.get('modalState'))
+        Session.set('modalState',undefined)
   "/downloads/" + Session.get('currentOS') + "/fire.zip":
     to: "main"
     and: () ->
-      log 'DOWNLOADING'
       path = Npm.require('path')
       fs = Npm.require('fs')
       file = '/downloads/' + Session.get('currentOS') + '/fire.zip'
@@ -47,7 +70,8 @@ Meteor.Router.add
         'Content-Type' : 'application/x-unknown'
         'Content-Disposition' : 'attachment; filename=' + filename
       ,fs.readFileSync(file)]
+      analytics.track 'User downloaded Cinder Fire'
   "*":
     to: "main"
     and: () ->
-      log 'FUCKING'
+      analytics.track 'Error Page Encountered at ' + this.path

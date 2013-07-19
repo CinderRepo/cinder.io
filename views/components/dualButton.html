@@ -3,7 +3,7 @@
 	<div class="dualButton">
 		{{#if currentUser}}
 		{{#with currentUser}}
-		<div class="innerDualButton left" data-href="profile">{{username}}</div>
+		<div class="innerDualButton left" data-href="{{_id}}/profile">{{username}}</div>
 		{{/with}}
 		{{else}}
 		<div class="innerDualButton left" data-href="login">Login</div>

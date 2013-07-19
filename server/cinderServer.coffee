@@ -27,7 +27,7 @@ Meteor.startup ->
       emails: ["pieterjparker@gmail.com"]
       name: "Pieter Parker"
       avatar: "/avatars/pieter/avatar.png"
-      cinderFireInstalled: 'FUCK'
+      cinderFireInstalled: false
       services:
         password:
           srp: Meteor._srp.generateVerifier("Cinder")
@@ -241,6 +241,318 @@ Meteor.startup ->
           srp: Meteor._srp.generateVerifier("YardstickingIt")
 
   if Games.find().count() == 0
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
+    Games.insert
+      name: "BrowserQuest"
+      description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."
+      genre: "Adventure"
+      gameBy: "Little Workshop"
+      previewSrc: "/img/preview/sword-and-sworcery.png"
+      viewBgSrc: "/img/viewBg/sword-and-sworcery-bg.png"
+      #gameSrc: "http://games.cinder.io/51b8d7938f795e6b8200b4a1/index.html"
+      gameSrc: "http://browserquest.mozilla.org/"
+      messages: []
+      active: true
+      version: ''
+      featured: false
     Games.insert
       name: "BrowserQuest"
       description: "BrowserQuest is a game which draws a lot of inspiration from its old predecessors - most notably role-playing games from the 90's. This project is a tribute to those retro video-games which have amazed us and have forged our desire to build compelling and fun experiences in the first place."

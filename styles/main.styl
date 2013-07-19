@@ -8,13 +8,17 @@
 	overflow-x hidden
 	overflow-y scroll
 
+//Generic Page Styles
+.page
+	pointer-events none
+	opacity 0
+	transition opacity normalSpeed
+
 //Tile Container Styles
 #tiles
 	width 100%
 	height 100%
-	//padding 90px 10px 10px 10px
 	padding navHeight 0 10px 0
-	transition opacity normalSpeed
 	position relative
 	z-index 1
 #tilesWrapper
@@ -30,7 +34,6 @@
 	position fixed
 	background-color clouds
 	background-position 50% 50%
-	//background-attachment fixed
 	background-size cover
 	background-repeat no-repeat
 	top 0
@@ -47,9 +50,6 @@
 	position absolute
 	top 0
 	z-index 2
-	opacity 0
-	transition opacity normalSpeed
-	pointer-events none
 #view .tile
 	position absolute
 	top 50%
@@ -69,6 +69,18 @@
 	margin-left -(scrollIndicatorWidth/2)
 	cursor pointer
 	opacity 0
+	transition opacity normalSpeed
+
+//Profile Styles
+#profile
+	min-height 100%
+	position fixed
+	top 0
+	right 0
+	left 0
+	opacity 0
+	z-index 4
+	background clouds
 
 //Game Styles
 #game
@@ -78,9 +90,6 @@
 	bottom 0
 	left 0
 	z-index 1
-	opacity 0
-	transition opacity normalSpeed
-	pointer-events none
 	background clouds
 #gameWrapper
 	position absolute
@@ -99,9 +108,6 @@
 	right 0
 	left 0
 	z-index 3
-	opacity 0
-	transition opacity normalSpeed
-	pointer-events none
 	padding 0 0 20px 0
 #communityWrapper
 	padding 90px 10px 0 10px
@@ -112,7 +118,6 @@
 	min-height 100px
 	background clouds
 	color midnightBlue
-	//padding 0 0 100px 0
 .noMessagesNotice
 	text-align center
 	height 100px

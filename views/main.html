@@ -4,7 +4,7 @@
 		{{>nav}}
 		{{/with}}
 		{{#isolate}}
-		<section id="tiles">
+		<section id="tiles" class="page">
 			<div id="tilesWrapper">
 				{{#each games}}
 					{{>tile}}
@@ -20,7 +20,7 @@
 		{{/isolate}}
 
 		{{#isolate}}
-		<section id="view">
+		<section id="view" class="page">
 			{{#with viewing}}
 				{{>tile}}
 			{{/with}}
@@ -32,7 +32,13 @@
 		{{/isolate}}
 
 		{{#isolate}}
-		<section id="game">
+		<section id="profile" class="page">
+			{{>profile}}
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="game" class="page">
 			<div id="gameWrapper">
 			{{#with viewing}}
 			{{>notification}}
@@ -43,7 +49,7 @@
 		{{/isolate}}
 
 		{{#isolate}}
-		<section id="community">
+		<section id="community" class="page">
 			<div id="communityWrapper">
 			{{#isolate}}
 			{{#with viewing}}

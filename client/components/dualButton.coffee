@@ -1,17 +1,17 @@
 Template.dualButton.events
 	'click .innerDualButton': (e,t) ->
-		log 'innerDualButton Clicked.'
 		e.stopImmediatePropagation()
-		href = $(e.currentTarget).data('href')
-		log href
-		if href is 'create'
+		target = $(e.currentTarget)
+		href = target.data('href')
+		if Meteor.user()
 			Meteor.Router.to '/' + href
-			#Session.set('appState',href)
 			#Meteor.Router.to '/downloads/' + Session.get('currentOS') + '/fire.zip'
 		else
 			if Session.equals('modalState',href)
+				Session.set('oldModalState',Session.get('modalState'))
 				Session.set('modalState',undefined)
 			else
+				Session.set('oldModalState',Session.get('modalState'))
 				Session.set('modalState',href)
 
 Template.dualButton.preserve({
