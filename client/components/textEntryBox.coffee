@@ -2,11 +2,10 @@ Template.textEntryBox.signedIn = ->
   Meteor.user()
 
 Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
-	log 'TextEntryBox Submitted.'
+	e.preventDefault()
 	e.stopImmediatePropagation()
 	textField = t.find('.textEntryText')
 	text = textField.value
-	log text
 	Games.update
 	  _id: Session.get('activeTile')
 	,
@@ -14,8 +13,12 @@ Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
 	    messages:
 	      username: Meteor.user().username
 	      text: text
-	textField.value = ''
-	false
+	, (err)->
+		analytics.track 'User created message'
+		if err
+			return alert err
+			analytics.track 'User encountered error while submitting message',
+				err: err
 
 Template.textEntryBox.preserve({
 	'.textEntryBox'

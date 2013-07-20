@@ -2,225 +2,192 @@
 @import '../variables'
 
 //Modal Styles
-#modal
-	width 380px
-	height 200px
-	border-radius 5px
-	position absolute
-	bottom 85px
-	left 50%
-	margin-left -190px
-#modal:after
-	content ''
+.modal
+	height 100%
+	min-width tileWidth - 20
+	max-width tileWidth - 20
 	position absolute
 	top 0
 	right 0
-	bottom -5px
 	left 0
-	z-index -1
-	//background belizeHole
-	border-radius 5px
+	margin 0 auto
+	transition transform normalSpeed
+.modalFormWrapper
+	position absolute
+	right 0
+	bottom 95px
+	left 0
+	transition transform normalSpeed, opacity normalSpeed
+	transform scale3d(0.9,0.9,0.9)
+	opacity 0
+	pointer-events none
+.modalFormWrapper[data-state="active"]
+	transform scale3d(1,1,1)
+	opacity 1
+	pointer-events auto
 .modalForm
-	//transition height normalSpeed, max-height normalSpeed
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	border-radius 5px
-
+	position relative
+	overflow hidden
 //Modal Form Header Styles
 .modalFormHeader
 	height 50px
-	line-height 50px
-	//background wetAsphalt
-	//background rgba(189,195,199,0.5)
-	background rgba(236,240,241,0.4)
-	background transparent
-	background rgba(52,152,219,0.15)
-	background rgba(44,62,80,0.1)
-	box-shadow inset 0 0 1px rgba(44,62,80,0.5), 0 0 2px rgba(255,255,255,1)
-	color midnightBlue
-	border-top-left-radius 5px
-	border-top-right-radius 5px
+	color midnight
 	position relative
+.modalFormHeaderIcon
+	position: absolute
+	top 50%
+	left 0
+	margin -12px 0 0 0
+	height 24px
+	width 24px
 .modalFormHeaderTitle
 	position absolute
 	top 0
 	right 0
 	bottom 0
-	left 0
-	padding 0 20px 0 20px
-	text-transform capitalize
-	//transition left normalSpeed, right normalSpeed
-
-//Modal Form Header Button Styles
-.modalFormHeader .button
-	position absolute
-	top 0
-	bottom 0
-	width 50px
-	min-height 50px
-	height 50px
-	max-height 50px
+	left 24px
+	padding 0 15px 0 15px
 	line-height 50px
-	//transition transform normalSpeed, opacity normalSpeed
-	opacity 0
-	text-align center
-	//background turquoise
-	cursor pointer
-.modalFormHeader .button:first-child
-	//transform translate3d(-50px,0,0)
-	left 0
-	border-radius 0
-	border-top-left-radius 5px
-.modalFormHeader .button:last-child
-	//transform translate3d(50px,0,0)
-	right 0
-	border-radius 0
-	border-top-right-radius 5px
-
-//Modal Form Text Area Styles
-.modalFormTextArea
-	border 0
-	width 100%
-	height 100px
-	padding 20px
-	resize none
+	text-transform capitalize
 
 //Modal Form Input Styles
 .modalFormInputWrapper
-	position relative
-	width 100%
 	height 50px
-	background rgba(255,255,255,0.1)
-	box-shadow inset 0 0 1px rgba(44,62,80,0.5), 0 0 2px rgba(255,255,255,1)
-	//background white
-	//height 0
-	//opacity 0
-	//transition height normalSpeed, opacity normalSpeed
-	//pointer-events none
-	//background offWhite
+	width 330px
+	position relative
+	background white
+	overflow hidden
+.modalFormInputWrapper.top
+	border-top-left-radius radius
+.modalFormWrapper.middle
+	border-radius none
+.modalFormInputWrapper.bottom
+	border-bottom-left-radius radius
 .modalFormInputIcon
 	position absolute
-	top 0
-	left 0
-	width 50px
-	height 50px
-	//border-bottom 2px solid offWhite
-	//border-bottom 1px solid lighterGrey
+	top 50%
+	left 15px
+	width 24px
+	height 24px
+	margin-top -12px
+	transition opacity normalSpeed
 .modalFormInput
 	position absolute
 	right 0
-	left 50px
+	left 39px
 	height 50px
 	border none
 	outline none
 	margin 0
-	background transparent
-	//border-bottom 2px solid offWhite
-	//border-left 1px solid lighterGrey
-	//border-bottom 1px solid lighterGrey
-	padding 0 20px 0 20px
+	padding 0 15px 0 15px
 	font-size 14px
-.modalFormInput::-webkit-input-placeholder
-	color midnightBlue
-.modalFormInput::-moz-placeholder
-	color midnightBlue
-.modalFormInput:-ms-input-placeholder
-	color midnightBlue
-//Modal Form Input Button Styles
-.modalFormInputButtons
-	position absolute
-	bottom 0
-	right 0
-	left 0
-	min-height 50px
-	cursor pointer
-.modalFormInputButtons .modalButton
-	position absolute
-	right 0
-	left 0
-	border-radius 0
-	min-height 100%
-	height 100%
-	color midnightBlue
-	line-height 50px
-	text-align center
-	box-shadow inset 0 0 1px rgba(44,62,80,0.5), 0 0 2px rgba(255,255,255,1)
-	//background peterRiver
-	cursor pointer
-	font-size 18px
-	background transparent
-	background rgba(44,62,80,0.1)
-	border-bottom-left-radius 5px
-	border-bottom-right-radius 5px
-.modalFormInputButtons .modalButton[data-state="cancel"]
-	right 50%
-	left 0
-	border-bottom-left-radius 5px
-.modalFormInputButtons .modalButton[data-state="confirm"]
-	right 0
-	left 0
-	border-bottom-left-radius 5px
-	border-bottom-right-radius 5px
-
-//Profile Modal Styles
-#modal[data-state="profile"] .modalFormHeaderTitle
-	left 60px
-	padding 0 20px 0 0
-#modal[data-state="profile"] .button[data-state="logout"]
-	opacity 1
-	background rgba(44,62,80,0.03)
-	box-shadow inset 0 0 1px rgba(44,62,80,0.25), 0 0 2px rgba(255,255,255,1)
-	//background midnightBlue
-	color midnightBlue
-#modal[data-state="profile"] .button[data-state="logout"]:after
-	background transparent
-#modal[data-state="profile"] .button[data-state="logout"] .buttonText
-	//background midnightBlue
-	border-radius 0
-	border-top-left-radius 5px
-	background transparent
-
-.modalFormInputWrapper.three
-	display none
-
-//Notify Modal Styles
-#modal[data-state="notify"]
-	position relative
-	bottom 0
-	left 0
-	margin 0 auto
+.modalFormInputPlaceholder
 	height 50px
-#modal[data-state="notify"] .modalFormHeader,
-#modal[data-state="notify"] .modalFormInputIcon,
-#modal[data-state="notify"] .button[data-state="logout"],
-#modal[data-state="notify"] .button[data-state="logout"] .buttonText,
-#modal[data-state="notify"] .modalFormInputWrapper.two
-#modal[data-state="notify"] .modalFormInputWrapper.three
-	display none
-#modal[data-state="notify"] .modalFormInputWrapper
-	z-index 999999
-	background rgba(255,255,255,1)
-	box-shadow none
-	border-radius 5px
-#modal[data-state="notify"] .modalFormInput
-	right 50px
-	left 0
-#modal[data-state="notify"] .modalFormInputButtons
+	line-height 50px
+	position absolute
+	right 0
+	left 39px
+	border none
+	outline none
+	margin 0
+	background white
+	padding 0 15px 0 15px
+	font-size 14px
+	opacity 0
+	pointer-events none
+	transition opacity normalSpeed
+.modalFormInputPlaceholderText
+	opacity 1
+	transition opacity normalSpeed
+.modalFormInputMessage
+	background steelBlue
+	line-height 50px
+	color clouds
+	position absolute
 	top 0
 	right 0
-	bottom auto
-	left auto
-	z-index 999999
+	bottom 0
+	left 0
+	transform translate3d(0,-50px,0)
+	opacity 0
+	transition transform normalSpeed, opacity normalSpeed
+	padding 0 0 0 50px
+	pointer-events none
+
+//Modal Form Text Area Styles
+.modalFormTextArea
+	height 150px
+	width 330px
+	padding 15px
+	font-size 14px
+	border-top-left-radius radius
+	border-bottom-left-radius radius
+
+//Modal Form Input Wrapper Message Styles
+.modalFormInputWrapper.top .modalFormInputMessage
+	border-radius radius 0 0 0
+.modalFormInputWrapper.middle .modalFormInputMessage
+	border-radius 0 0 0 0
+.modalFormInputWrapper.bottom .modalFormInputMessage
+	border-radius 0 0 0 radius
+
+//Modal Form Input Button Styles
+.modalFormButtons
 	width 50px
-#modal[data-state="notify"] .modalButton
-	border-radius 0
-	border-top-right-radius 5px
-	border-bottom-right-radius 5px
-	box-shadow none
-	background rgba(84,96,110,0.85)
-#modal[data-state="notify"] .confirmIcon
-	width 24px
+	position absolute
+	top 0
+	right 0
+	bottom 0
+.modalFormButton
+	position absolute
+	top 0
+	right 0
+	bottom 0
+	left 0
+	background steelBlue80
+	padding 0
+	border-top-right-radius radius
+	border-bottom-right-radius radius
+	cursor pointer
+.modalFormButtonIcon
+	position absolute
+	top 50%
 	height 24px
+	width 24px
+	left 0
+	right 0
+	margin -12px auto 0 auto
+
+//Forward Icon Fill Styles
+.no-touch .modalFormButtonIcon:hover .forwardIconBorder,
+.no-touch .modalFormButtonIcon:hover .forwardIconArrow
+.modalFormButtonIcon .forwardIconBorder,
+.modalFormButtonIcon .forwardIconArrow
+	fill clouds
+
+//Modal Form Input Wrapper States
+.modalFormInputWrapper[data-state="placeholder"] .modalFormInputPlaceholder
+	opacity 1
+.modalFormInputWrapper[data-state="error"] .modalFormInputMessage
+	transform translate3d(0,0,0)
+	opacity 1
+.modalFormInputWrapper[data-state="error"] .usernameIcon,
+.modalFormInputWrapper[data-state="error"] .emailIcon,
+.modalFormInputWrapper[data-state="error"] .passwordIcon
+	opacity 1
+//Override Default Icon Styles
+.modalFormInputWrapper[data-state="error"] .usernameIconHead,
+.modalFormInputWrapper[data-state="error"] .usernameIconBody,
+.modalFormInputWrapper[data-state="error"] .emailIconFill,
+.modalFormInputWrapper[data-state="error"] .passwordIconFill
+	fill white
+
+//Modal Form Input Wrapper Hover States
+.modalFormInputWrapper:hover .modalFormInputPlaceholderText
+	opacity 0.5
+
+//Modal Form Button Hover States
+.modalFormButtons:hover .modalFormButton
+	background ironBlue
+.modalFormButtons:hover .forwardIcon
+	opacity 1

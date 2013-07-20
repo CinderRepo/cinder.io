@@ -1,0 +1,46 @@
+@import 'nib'
+@import '../variables'
+
+//Notification Styles
+.notification
+	min-height 60px
+	height 60px
+	max-height 60px
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position fixed
+	top 100px
+	background rgba(245,245,245,0.8)
+	color midnight
+	left 0
+	right 0
+	box-shadow 0 0 1px #2b3d4f
+	opacity 0
+	transition opacity normalSpeed, transform normalSpeed
+	margin 0 auto
+	border-radius radius
+	transform translate3d(0,-100px,0)
+.notificationContent
+	position absolute
+	top 10px
+	right 110px
+	bottom 10px
+	left 15px
+.notification[data-state="true"]
+	transform translate3d(0,0,0)
+	opacity 1
+.notificationText
+	overflow ellipsis
+.notificationName
+	overflow ellipsis
+.notificationButton
+	height 30px
+	width 30px
+	position absolute
+	top 50%
+	margin -15px 0 0 0
+	cursor pointer
+.notificationButton.right
+	right 15px
+.notificationButton.left
+	right 60px

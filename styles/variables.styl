@@ -88,3 +88,29 @@ scrollIndicatorHeight = 48px
 fastSpeed = 112ms linear
 normalSpeed = 512ms linear
 slowSpeed = 768ms ease-in-out
+superSlowSpeed = 5000ms linear
+
+//Animations - Rotate
+@keyframes rotate
+	0%
+		transform rotateZ(0deg)
+	100%
+		transform rotateZ(360deg)
+@keyframes sway
+	0%
+		transform rotateZ(10deg)
+	50%
+		transform rotateZ(-10deg)
+	100%
+		transform rotateZ(10deg)
+
+@keyframes pulse
+	0%
+		transform scale3d(1,1,1)
+		opacity 1
+	50%
+		transform scale3d(0.9,0.9,0.9)
+		opacity 0
+	100%
+		transform scale3d(1,1,1)
+		opacity 1

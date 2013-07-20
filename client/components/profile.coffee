@@ -1,0 +1,3 @@
+Template.dualButton.preserve({
+	'.profileNotice'
+})
