@@ -4,30 +4,35 @@
 		{{>modal}}
 		<div id="navWrapper">
 			{{#if sessionEquals 'appState' 'browse'}}
+				{{#if currentUser}}
+				<div class="navButton left" data-href="logout">{{>logoutIcon}}</div>
+				{{/if}}
+			{{else}}
+				<div class="navButton left" data-href="close">{{>closeIcon}}</div>
+			{{/if}}
+			{{#if sessionEquals 'appState' 'browse'}}
 				{{>dualButton}}
 			{{else}}
-			<div class="navButton left" data-href="close">{{>closeIcon}}</div>
 				<div id="gameSectionsNav">
 					<div id="gameSectionsNavWrapper">
-						{{#with viewing}}
+						{{#if getSession 'activeTile'}}
 						<h3 class="gameSectionNav outerLeft" data-href="fund">Fund</h3>
 						<h3 class="gameSectionNav innerLeft" data-href="community">Community</h3>
 						<h1 class="gameSectionNav middle" data-href="view">{{name}}</h1>
 						<h3 class="gameSectionNav innerRight" data-href="play">Play</h3>
 						<h3 class="gameSectionNav outerRight" data-href="remix">Remix</h3>
 						<div id="gameSectionsNavSlider"></div>
+						{{/if}}
+						{{#if sessionEquals 'appState' 'create'}}
+						<h1 class="gameSectionNav middle">Create Game</h1>
+						{{/if}}
+						{{#if sessionEquals 'appState' 'profile'}}
+						{{#with currentUser}}
+						<h1 class="gameSectionNav middle">{{username}}</h1>
 						{{/with}}
+						{{/if}}
 					</div>
 				</div>
-				{{#with viewing}}
-				<div class="notification" data-state="{{getSession 'notificationActive'}}">
-					<div class="notificationContent">
-						<div class="notificationText"><strong>{{name}}</strong> has been updated. Would you like to reload the game?</div>
-						<div class="notificationButton left" data-href="yes">Yes</div>
-						<div class="notificationButton right" data-href="no">No</div>
-					</div>
-				</div>
-				{{/with}}
 			{{/if}}
 			<div class="navButton right" data-href="feedback">{{>feedbackIcon}}</div>
 		</div>

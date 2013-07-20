@@ -2,26 +2,21 @@
 @import '../variables'
 
 .closeIcon
-	position absolute
-	top 50%
-	left 50%
-	//margin -12px 0 0 -12px
-	margin -11px 0 0 -14px
-	height 24px
-	width 24px
-	pointer-events none
+	height 100%
+	width 100%
+	opacity 0.5
+	-webkit-user-select none
+.no-touch .closeIcon:hover
+	opacity 1
 .closeIconBorder
-	fill none
-	stroke steelBlue
-	stroke-width 6px
-	stroke-miterlimit 10
+	fill midnight
 .closeIconLeftLine
 	fill none
-	stroke steelBlue
+	stroke midnight
 	stroke-width 6px
 	stroke-miterlimit 10
 .closeIconRightLine
 	fill none
-	stroke steelBlue
+	stroke midnight
 	stroke-width 6px
 	stroke-miterlimit 10

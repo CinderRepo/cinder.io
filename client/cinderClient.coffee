@@ -1,13 +1,59 @@
-checkOS = () ->
-  Session.setDefault('currentOS','Unknown OS')
-  if navigator.appVersion.indexOf('Win') isnt -1
-    Session.set('currentOS','windows')
-  if navigator.appVersion.indexOf('Mac') isnt -1
-    Session.set('currentOS','macos')
-  if navigator.appVersion.indexOf('X11') isnt -1
-    Session.set('currentOS','unix')
-  if navigator.appVersion.indexOf('Linux') isnt -1
-    Session.set('currentOS','linux')
+#Handle client side subscriptions to data from the server
+#Publish user data to the client from the server
+Meteor.subscribe 'userData'
+
+#Notify User of an Updated Game
+Meteor.subscribe('games',()->
+  Deps.autorun(@checkGameVersion = () ->
+    if Session.get('activeTile') and Session.get('activeTile') is not 'create'
+      game = Games.findOne({_id:Session.get('activeTile')},{})
+      if Session.get('currentGameVersion') != game.version
+      #if !Session.equals('currentGameVersion',game.version)
+        #The game's version has updated
+        log 'game\'s version has been updated!'
+        log game.version
+        Session.set('currentGameVersion',game.version)
+        analytics.track 'User updated game'
+        #analytics.track game.name + ' updated to version ' + game.version
+        if Session.get('activeTile') and Session.equals('appState','play')
+          notifyUser(game.version)
+  )
+)
+
+#We track only on startup to prevent misc. pushes to the analytics of data we don't need, as well as undefined values.
+Meteor.startup(()->
+  #Track changes to the modalState and push them to analytics
+  Deps.autorun(@trackModalStateChanges = ()->
+    modalState = Session.get('modalState')
+    oldModalState = Session.get('oldModalState')
+
+    if modalState
+      if modalState isnt oldModalState
+        if oldModalState
+          analytics.track 'User stopped viewing ' + oldModalState + ' modal'
+        analytics.track 'User started viewing ' + modalState + ' modal'
+    else
+      if oldModalState
+        #Triggers if the modal is closed, yet a previous modal has been opened before.
+        analytics.track 'User stopped viewing ' + oldModalState + ' modal'
+  )
+
+  #Track changes to the appState and push them to analytics
+  Deps.autorun(@trackAppStateChanges = () ->
+    appState = Session.get('appState')
+    oldAppState = Session.get('oldAppState')
+
+    if appState
+      if appState isnt oldAppState
+        if oldAppState
+          analytics.track 'User stopped viewing ' + oldAppState + ' page'
+        analytics.track 'User started viewing ' + appState + ' page'
+  )
+)
+
+notifyUser = (message) ->
+  log 'GAME VERSION HAS CHANGED TO ' + message
+  Session.set('notificationActive',true)
 
 logRenders = ->
   _.each Template, (template, name) ->
@@ -17,35 +63,7 @@ logRenders = ->
       console.log name, "render count: ", ++counter
       oldRender and oldRender.apply(this, arguments_)
 
-#Notify User of an Updated Game
-Meteor.subscribe('games',()->
-  Deps.autorun(@checkGameVersion = () ->
-    if Session.get('activeTile')
-      game = Games.findOne({_id:Session.get('activeTile')},{})
-      if Session.get('currentGameVersion') != game.version
-      #if !Session.equals('currentGameVersion',game.version)
-        #The game's version has updated
-        log 'game\'s version has been updated!'
-        log game.version
-        Session.set('currentGameVersion',game.version)
-        if Session.get('activeTile') and Session.equals('appState','play')
-          notifyUser(game.version)
-  )
-)
-
-#Prevent Scrolling when appState is view - THIS IS A HACK because Meteor doesn't allow for attributes on the body, which is so fucking dumb that I dont even want to begin to get into it. Ugh.
-Deps.autorun(toggleScrolling = ()->
-  #Disable scrolling when the webkitTransition is completed
-  if Session.equals('disableScrolling',true)
-    $('html,body').addClass('scrollingDisabled')
-  else
-    $('html,body').removeClass('scrollingDisabled')
-)
-
-notifyUser = (message) ->
-  log 'GAME VERSION HAS CHANGED TO ' + message
-  Session.set('notificationActive',true)
-
+#Client Init Code
 Meteor.startup(()->
   #Determine OS the user is running
   checkOS()

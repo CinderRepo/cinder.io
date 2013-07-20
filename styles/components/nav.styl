@@ -5,47 +5,65 @@
 	height navHeight
 	background offWhite90
 	position fixed
-	top -720px
+	top -230px
 	right 0
 	left 0
 	z-index 99
-	height 800px
+	height 310px
 	box-shadow 0 0 1px midnight
 	transition transform normalSpeed
-#nav .dualButton
-	position relative
-	top 20px
 #navWrapper
 	position absolute
 	bottom 0
 	right 0
 	left 0
 	height 80px
+#nav .dualButton
+	position relative
+	top 20px
 #gameSectionsNav
 	height navHeight
 	margin 0 auto
 	line-height navHeight
-	position relative
+	position absolute
+	right 80px
+	left 80px
+	overflow hidden
 #gameSectionsNavWrapper
-	width gameSectionsNavWidth
+	//background red
+	height navHeight
+	width 100%
 	margin 0 auto
+	display flex
+	//display -webkit-box
+	-webkit-justify-content center
+	-webkit-box-pack center
+	-moz-box-pack center
+	//-webkit-flex-row row
 .gameSectionNav
-	float left
 	font-size 16px
 	text-align center
 	overflow ellipsis
-	width gameSectionNavWidth
 	cursor pointer
+	min-width 40px //IconWidth
+	line-height navHeight
 .gameSectionNav.outerLeft
+	padding 0 30px 0 0
+	line-height (navHeight + 5) //Center subnavigation with the text
 	opacity 0
 .gameSectionNav.innerLeft
+	padding 0 30px 0 0
+	line-height (navHeight + 5)
 	opacity 1
 .gameSectionNav.middle
-	width gameSectionNavWidth*4
+	padding 0 30px 0 0
 	font-size 36px
 .gameSectionNav.innerRight
+	padding 0 30px 0 0
+	line-height (navHeight + 5)
 	opacity 1
 .gameSectionNav.outerRight
+	line-height (navHeight + 5)
 	opacity 0
 #gameSectionsNavSlider
 	width gameSectionNavWidth
@@ -55,6 +73,7 @@
 	bottom 0
 	left 10px
 	opacity 0
+	display none
 .navButton
 	width navButtonWidth
 	height navButtonHeight
@@ -68,33 +87,5 @@
 	right 20px
 
 //Nav Hover States
-.gameSectionNav:hover
-	color steelBlue
-
-//Notification Styles
-.notification
-	position fixed
-	top 80px
-	background rgba(245,245,245,0.8)
-	color midnight
-	left 0
-	right 0
-	height 30px
-	line-height 30px
-	box-shadow 0 0 1px #2b3d4f
-	opacity 0
-	transition opacity normalSpeed
-	text-align center
-.notificationContent
-	display inline-block
-	margin 0 auto
-.notification[data-state="true"]
-	opacity 1
-.notificationText
-	float left
-.notificationButton
-	margin 0 0 0 20px
-	float left
-	cursor pointer
-.notificationButton:hover
+.no-touch .gameSectionNav:hover
 	color steelBlue

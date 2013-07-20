@@ -1,0 +1,12 @@
+<template name="notification">
+{{#isolate}}
+	<div class="notification" data-state="{{getSession 'notificationActive'}}">
+		<div class="notificationContent">
+			<div class="notificationText">Wanna try a new version of</div>
+			<div class="notificationName"><strong>{{name}}</strong>?</div>
+		</div>
+		<div class="notificationButton left" data-href="yes">{{>yesIcon}}</div>
+		<div class="notificationButton right" data-href="no">{{>noIcon}}</div>
+	</div>
+{{/isolate}}
+</template>

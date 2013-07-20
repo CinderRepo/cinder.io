@@ -1,129 +1,22 @@
-Template.modal.state = ->
-	state = Session.get('modalState')
-	switch state
-		when 'settings'
-			Session.set('inputOnePlaceholder','Change Username (Coming Soon)')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','Change Email (Coming Soon)')
-			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder','Change Password (Coming Soon)')
-			Session.set('inputThreeType','text')
-		when 'add'
-			Session.set('inputOnePlaceholder','Game Name')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','Genre')
-			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder',undefined)
-			Session.set('inputThreeType','text')
-			Session.set('modalButtonValue','Add')
-		when 'login'
-			Session.set('inputOnePlaceholder','Username')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','Password')
-			Session.set('inputTwoType','password')
-			Session.set('inputThreePlaceholder',undefined)
-			Session.set('inputThreeType','text')
-			Session.set('modalButtonValue','Login')
-		when 'signup'
-			Session.set('inputOnePlaceholder','Username (Coming Soon)')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','Email (Coming Soon)')
-			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder','Password (Coming Soon)')
-			Session.set('inputThreeType','text')
-		when 'profile'
-			Session.set('inputOnePlaceholder','Username (Coming Soon)')
-			Session.set('inputOneType','text')
-			Session.set('inputTwoPlaceholder','Email (Coming Soon)')
-			Session.set('inputTwoType','text')
-			Session.set('inputThreePlaceholder','Password (Coming Soon)')
-			Session.set('inputThreeType','text')
-			Session.set('modalButtonValue','Coming Soon')
-		when 'feedback'
-			Session.set('textareaPlaceholder','Please type your feedback here.')
-			Session.set('modalButtonValue','Send Feedback')
-		when 'notify'
-			Session.set('inputOnePlaceholder','Notify me when it\'s ready.')
-			Session.set('inputOneType','text')
-		when 'thankyou'
-			Session.set('inputOnePlaceholder','Thanks, we\'ll send you an email when we\'re ready.')
-			Session.set('inputOneType','text')
-	state
-Template.modal.isFeedback = ->
-	if Session.equals('modalState','feedback')
-		true
-	else
-		false
-Template.modal.textareaPlaceholder = ->
-	Session.get('textareaPlaceholder')
-Template.modal.inputOnePlaceholder = ->
-	Session.get('inputOnePlaceholder')
-Template.modal.inputTwoPlaceholder = ->
-	Session.get('inputTwoPlaceholder')
-Template.modal.inputThreePlaceholder = ->
-	Session.get('inputThreePlaceholder')
-Template.modal.inputOneType = ->
-	Session.get('inputOneType')
-Template.modal.inputTwoType = ->
-	Session.get('inputTwoType')
-Template.modal.inputThreeType = ->
-	Session.get('inputThreeType')
-Template.modal.modalButtonValue = ->
-	Session.get('modalButtonValue')
-Template.modal.cancel = ->
-	state: 'cancel'
-	message: 'Cancel'
-Template.modal.confirm = ->
-	if Session.equals('modalState','login')
-		state: 'login'
-		message: 'Login'
-	else if Session.equals('modalState','signup')
-		state: 'signup'
-		message: 'Signup'
-Template.modal.logout = ->
-	state: 'logout'
-	message: 'L'
+Session.setDefault('topModalFormInputWrapperState','placeholder')
+Session.setDefault('middleModalFormInputWrapperState','placeholder')
+Session.setDefault('bottomModalFormInputWrapperState','placeholder')
 
 Template.modal.events
 	'submit .modalForm':(e,t)->
-		log 'SUBMIT FORM'
 		e.preventDefault()
 		e.stopImmediatePropagation()
 		#Get the state
 		state = Session.get('modalState')
-
 		if state is 'login'
-			usernameField = t.find('.modalFormInputWrapper.one .modalFormInput')
-			passwordField = t.find('.modalFormInputWrapper.two .modalFormInput')
-			username = usernameField.value
-			password = passwordField.value
-			log 'asdf'
-			Meteor.loginWithPassword username, password, (err) ->
-				if err
-					return alert(err)
-					usernameField.value = ''
-					passwordField.value = ''
-				else
-					log 'Something'
-					Session.set('modalState',undefined)
-		else if state is 'add'
-			log 'HELLO ADD'
-			nameField = t.find('.modalFormInputWrapper.one .modalFormInput')
-			genreField = t.find('.modalFormInputWrapper.two .modalFormInput')
-			name = nameField.value
-			genre = genreField.value
-			Games.insert
-				name: name
-				genre: genre
-				gameBy: Meteor.user().username
-			, (err,id) ->
-				log 'Game inserted successfully!'
-				log err
-				log id
-				Session.set('activeTile',id)
-				Session.set('appState','view')
-				Session.set('modalState',undefined)
-		else if state is 'feedback'
+			username = $('.modalFormInput[name="username"]').attr('value')
+			password = $('.modalFormInput[name="password"]').attr('value')
+			loginUser(username,password)
+		if state is 'signup'
+			username = $('.modalFormInput[name="username"]').attr('value')
+			email = $('.modalFormInput[name="email"]').attr('value')
+			password = $('.modalFormInput[name="password"]').attr('value')
+		if state is 'feedback'
 			log 'HELLO FEEDBACK'
 			textAreaValue = t.find('.modalFormTextArea').value
 
@@ -142,16 +35,86 @@ Template.modal.events
 						'A logged out guest gave us feedback!',
 						textAreaValue + ' Browser Agent: ' + navigator.userAgent
 					)
-
 			#Close the modal
+			analytics.track 'User sent site feedback'
+			Session.set('oldModalState',Session.get('modalState'))
 			Session.set('modalState',undefined)
+	'click .modal':(e,t)->
+		#This event only exists to prevent the container click event from firing when the user clicks on modal.
+		#e.stopImmediatePropagation()
+		#log 'This event only exists to prevent the container click event from firing when the user clicks on modal.'
+	'click .modalFormInputWrapper .modalFormInput,
+	focus .modalFormInputWrapper .modalFormInput':(e,t)->
+		#e.stopImmediatePropagation()
+		target = $(e.currentTarget)
+		targetParent = target.parent('.modalFormInputWrapper')
+		if targetParent.hasClass('top')
+			Session.set('topModalFormInputWrapperState',undefined)
+		if targetParent.hasClass('middle')
+			Session.set('middleModalFormInputWrapperState',undefined)
+		if targetParent.hasClass('bottom')
+			Session.set('bottomModalFormInputWrapperState',undefined)
+	'blur .modalFormInputWrapper .modalFormInput':(e,t)->
+		#e.stopImmediatePropagation()
+		target = $(e.currentTarget)
+		targetParent = target.parent('.modalFormInputWrapper')
+		if targetParent.hasClass('top') and target.attr('value') is ''
+			Session.set('topModalFormInputWrapperState','placeholder')
+		if targetParent.hasClass('middle') and target.attr('value') is ''
+			Session.set('middleModalFormInputWrapperState','placeholder')
+		if targetParent.hasClass('bottom') and target.attr('value') is ''
+			Session.set('bottomModalFormInputWrapperState','placeholder')
+
+loginUser = (username,password) ->
+	log 'loginUser called'
+	Meteor.loginWithPassword username, password, (err) ->
+		if err
+			log err
+			Session.set('topModalFormInputWrapperState','error')
+			Session.set('topModalFormInputMessage',err.reason)
+			analytics.track 'User encountered error while logging in',
+				err: err
+			return err
+		else
+			log 'Logging in'
+			Session.set('oldModalState',Session.get('modalState'))
+			Session.set('modalState',undefined)
+
+signupUser = () ->
+	log 'signupUser called'
+
+sendFeedback = () ->
+	log 'sendFeedback called'
 
 Template.modal.preserve({
 	'.modal'
-	'.modalFormInputWrapper.one'
-	'.modalFormInputWrapper.two'
-	'.modalFormInputWrapper.three'
+	'.modalFormHeader'
+	'.modalFormHeaderIcon'
+	'.modalForm'
+	'.modalFormWrapper.login'
+	'.modalFormWrapper.signup'
+	'.modalFormWrapper.feedback'
+	'.modal'
 	'.modalFormHeaderTitle'
-	'.modalFormHeaderButton.left'
-	'.modalFormHeaderButton.right'
+	'.modalFormInputWrapper.top'
+	'.modalFormInputWrapper.middle'
+	'.modalFormInputWrapper.bottom'
+	'.modalFormInputWrapper.top .modalFormInputIcon'
+	'.modalFormInputWrapper.middle .modalFormInputIcon'
+	'.modalFormInputWrapper.bottom .modalFormInputIcon'
+	'.modalFormInputWrapper.top .modalFormInput'
+	'.modalFormInputWrapper.middle .modalFormInput'
+	'.modalFormInputWrapper.bottom .modalFormInput'
+	'.modalFormInputWrapper.top .modalFormInputPlaceholder'
+	'.modalFormInputWrapper.middle .modalFormInputPlaceholder'
+	'.modalFormInputWrapper.bottom .modalFormInputPlaceholder'
+	'.modalFormInputWrapper.top .modalFormInputPlaceholderText'
+	'.modalFormInputWrapper.middle .modalFormInputPlaceholderText'
+	'.modalFormInputWrapper.bottom .modalFormInputPlaceholderText'
+	'.modalFormInputWrapper.top .modalFormInputMessage'
+	'.modalFormInputWrapper.middle .modalFormInputMessage'
+	'.modalFormInputWrapper.bottom .modalFormInputMessage'
+	'.modalFormButtons'
+	'.modalFormButton'
+	'.modalFormButtonIcon'
 })

@@ -1,0 +1,25 @@
+@import 'nib'
+@import '../variables'
+
+.waitingIcon
+	height 100%
+	width 100%
+	opacity 0.5
+	-webkit-user-select none
+.no-touch .waitingIcon:hover
+	opacity 1
+.waitingIconClock
+	fill midnight
+.waitingIconClockMinuteHand
+	fill midnight
+	transform-origin 50% 100%
+	animation rotate superSlowSpeed infinite
+.waitingIconClockPendulum
+	fill midnight
+	transform-origin 50% 0%
+	animation sway superSlowSpeed infinite
+.waitingIconClockBird
+	fill black
+	transform-origin 0% 100%
+	transform translate3d(10px,0,0) rotateZ(90deg)
+	transition transform normalSpeed
