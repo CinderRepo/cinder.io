@@ -29,6 +29,8 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainer .waitingIcon
 	display block
 	height explainerIconHeight
@@ -36,6 +38,8 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainer .folderIcon
 	display block
 	height explainerIconHeight
@@ -43,6 +47,8 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainer .newIcon
 	display block
 	height explainerIconHeight
@@ -50,6 +56,8 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainer .deployIcon
 	display block
 	height explainerIconHeight
@@ -57,6 +65,8 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainer .ideaIcon
 	display block
 	height explainerIconHeight
@@ -64,25 +74,40 @@ explainerButtonHeight = 50px
 	max-width tileWidth - 20
 	position absolute
 	top 0
+	opacity 0
+	transition opacity normalSpeed
 #explainerText
 	min-width tileWidth - 20
 	max-width tileWidth - 20
 	margin 0 auto explainerGutterHeight auto
 	font-size 24px
-#explainerButton
+#explainerText .cinderIcon
+	height 24px
+	width 24px
+	display inline
+	position relative
+	top 3px
+	left 1px
+#explainerButtonWrapper
 	height explainerButtonHeight
 	min-width tileWidth - 20
 	max-width tileWidth - 20
 	margin 0 auto explainerGutterHeight auto
-	background steelBlue
+	text-align center
+#explainerButton
+	height explainerButtonHeight
+	max-width tileWidth - 20
+	background midnight90
 	font-size 20px
 	line-height explainerButtonHeight
 	text-align center
-	color clouds
+	display inline-block
+	padding 0 20px 0 20px
+	color offWhite90
 	border-radius radius
 	cursor pointer
 .no-touch #explainerButton:hover
-	background ironBlue
+	color radiantBlue
 #explainerProgressWrapper
 	height 40px
 	width 100%
@@ -94,7 +119,7 @@ explainerButtonHeight = 50px
 	padding 10px 0 10px 0
 	margin 0
 .explainerProgressDot
-	background ironBlue
+	background midnight90
 	height 20px
 	width 20px
 	border-radius 20px
@@ -102,6 +127,34 @@ explainerButtonHeight = 50px
 	margin 0 10px 0 0
 	cursor pointer
 .explainerProgressDot:hover
-	background steelBlue
+	background radiantBlue
 .explainerProgressDot:last-child
 	margin 0 0 0 0
+
+//Explainer States
+#explainer[data-state="0"] .installFireIcon
+	opacity 1
+#explainer[data-state="1"] .waitingIcon
+	opacity 1
+#explainer[data-state="2"] .folderIcon,
+#ecplainer[data-state="2"] .newIcon
+	opacity 1
+#explainer[data-state="3"] .folderIcon,
+#explainer[data-state="3"] .deployIcon
+	opacity 1
+#explainer[data-state="4"] .ideaIcon
+	opacity 1
+
+//Explainer Progress States
+#explainer[data-state="0"] .explainerProgressDot[data-href="0"]
+	background radiantBlue
+#explainer[data-state="1"] .explainerProgressDot[data-href="1"]
+	background radiantBlue
+#explainer[data-state="2"] .explainerProgressDot[data-href="2"]
+	background radiantBlue
+#explainer[data-state="3"] .explainerProgressDot[data-href="3"]
+	background radiantBlue
+#explainer[data-state="4"] .explainerProgressDot[data-href="4"]
+	background radiantBlue
+#explainer[data-state="5"] .explainerProgressDot[data-href="5"]
+	background radiantBlue

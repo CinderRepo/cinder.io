@@ -4,19 +4,26 @@
 .closeIcon
 	height 100%
 	width 100%
-	opacity 0.5
 	-webkit-user-select none
-.no-touch .closeIcon:hover
-	opacity 1
+
+//Close Icon Fill States
 .closeIconBorder
-	fill midnight
+	fill midnight90
 .closeIconLeftLine
 	fill none
-	stroke midnight
+	stroke midnight90
 	stroke-width 6px
 	stroke-miterlimit 10
 .closeIconRightLine
 	fill none
-	stroke midnight
+	stroke midnight90
 	stroke-width 6px
 	stroke-miterlimit 10
+
+//Close Icon Hover States
+.closeIcon:hover .closeIconBorder
+	fill radiantBlue
+.closeIcon:hover .closeIconLeftLine
+	stroke radiantBlue
+.closeIcon:hover .closeIconRightLine
+	stroke radiantBlue

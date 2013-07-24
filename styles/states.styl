@@ -49,11 +49,29 @@
 //MODAL STATE - LOGIN
 #container[data-modal="login"] #nav
 	transform translate3d(0,180px,0)
+#container[data-modal="login"] #nav .innerDualButton.left
+	color radiantBlue
 
 //MODAL STATE - SIGNUP
 #container[data-modal="signup"] #nav
 	transform translate3d(0,230px,0)
+#container[data-modal="signup"] #nav .innerDualButton.right
+	color radiantBlue
 
 //MODAL STATE - FEEDBACK
-#container[data-modal="feedback"] #nav
-	transform translate3d(0,230px,0)
+#container[data-modal="feedback"]
+	#nav
+		transform translate3d(0,230px,0)
+	#navWrapper
+		.feedbackIcon .feedbackIconBorder
+			fill radiantBlue
+		.feedbackIcon .feedbackIconPen
+			fill radiantBlue
+		.feedbackIcon .feedbackIconTopLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconMidTopLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconMidBottomLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconBottomLine
+			fill radiantBlue

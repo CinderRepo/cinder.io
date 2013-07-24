@@ -7,13 +7,13 @@
 	-webkit-user-select none
 html
 	overflow-x hidden
-	background clouds
+	background offWhite90
 body
 	margin 0
 	min-width 400px
 	overflow-x hidden
 	//overflow-y scroll
-	background clouds
+	background offWhite90
 	font-family 'Play', sans-serif
 html.scrollingDisabled,
 body.scrollingDisabled
@@ -36,6 +36,9 @@ h1,h2,h3,h4,h5,h6
 	padding 0
 	margin 0
 	font-weight normal
+[placeholder]:focus::-webkit-input-placeholder
+	transition opacity normalSpeed
+	opacity 0.5
 //Fonts
 @font-face
 	font-family 'Play'

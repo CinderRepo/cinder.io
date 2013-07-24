@@ -1,9 +1,13 @@
 Template.dualButton.events
 	'click .innerDualButton': (e,t) ->
 		e.stopImmediatePropagation()
-		target = $(e.currentTarget)
-		href = target.data('href')
+		href = e.currentTarget.getAttribute('data-href')
+		log href
+		#href = target.data('href')
+		#log href
 		if Meteor.user()
+			#log 'This one'
+			#log href
 			Meteor.Router.to '/' + href
 			#Meteor.Router.to '/downloads/' + Session.get('currentOS') + '/fire.zip'
 		else

@@ -69,17 +69,18 @@
 	left 15px
 	width 24px
 	height 24px
+	z-index 1
 	margin-top -12px
 	transition opacity normalSpeed
 .modalFormInput
 	position absolute
 	right 0
-	left 39px
+	left 0
 	height 50px
 	border none
 	outline none
 	margin 0
-	padding 0 15px 0 15px
+	padding 0 15px 0 54px
 	font-size 14px
 .modalFormInputPlaceholder
 	height 50px
@@ -99,20 +100,6 @@
 .modalFormInputPlaceholderText
 	opacity 1
 	transition opacity normalSpeed
-.modalFormInputMessage
-	background steelBlue
-	line-height 50px
-	color clouds
-	position absolute
-	top 0
-	right 0
-	bottom 0
-	left 0
-	transform translate3d(0,-50px,0)
-	opacity 0
-	transition transform normalSpeed, opacity normalSpeed
-	padding 0 0 0 50px
-	pointer-events none
 
 //Modal Form Text Area Styles
 .modalFormTextArea
@@ -122,14 +109,6 @@
 	font-size 14px
 	border-top-left-radius radius
 	border-bottom-left-radius radius
-
-//Modal Form Input Wrapper Message Styles
-.modalFormInputWrapper.top .modalFormInputMessage
-	border-radius radius 0 0 0
-.modalFormInputWrapper.middle .modalFormInputMessage
-	border-radius 0 0 0 0
-.modalFormInputWrapper.bottom .modalFormInputMessage
-	border-radius 0 0 0 radius
 
 //Modal Form Input Button Styles
 .modalFormButtons
@@ -144,7 +123,7 @@
 	right 0
 	bottom 0
 	left 0
-	background steelBlue80
+	background midnight90
 	padding 0
 	border-top-right-radius radius
 	border-bottom-right-radius radius
@@ -159,35 +138,13 @@
 	margin -12px auto 0 auto
 
 //Forward Icon Fill Styles
-.no-touch .modalFormButtonIcon:hover .forwardIconBorder,
-.no-touch .modalFormButtonIcon:hover .forwardIconArrow
-.modalFormButtonIcon .forwardIconBorder,
-.modalFormButtonIcon .forwardIconArrow
-	fill clouds
+.modalFormButtons .forwardIconBorder,
+.modalFormButtons .forwardIconArrow
+	fill offWhite
+.no-touch .modalFormButtons:hover .forwardIconBorder,
+.no-touch .modalFormButtons:hover .forwardIconArrow
+	fill radiantBlue
 
 //Modal Form Input Wrapper States
 .modalFormInputWrapper[data-state="placeholder"] .modalFormInputPlaceholder
-	opacity 1
-.modalFormInputWrapper[data-state="error"] .modalFormInputMessage
-	transform translate3d(0,0,0)
-	opacity 1
-.modalFormInputWrapper[data-state="error"] .usernameIcon,
-.modalFormInputWrapper[data-state="error"] .emailIcon,
-.modalFormInputWrapper[data-state="error"] .passwordIcon
-	opacity 1
-//Override Default Icon Styles
-.modalFormInputWrapper[data-state="error"] .usernameIconHead,
-.modalFormInputWrapper[data-state="error"] .usernameIconBody,
-.modalFormInputWrapper[data-state="error"] .emailIconFill,
-.modalFormInputWrapper[data-state="error"] .passwordIconFill
-	fill white
-
-//Modal Form Input Wrapper Hover States
-.modalFormInputWrapper:hover .modalFormInputPlaceholderText
-	opacity 0.5
-
-//Modal Form Button Hover States
-.modalFormButtons:hover .modalFormButton
-	background ironBlue
-.modalFormButtons:hover .forwardIcon
 	opacity 1

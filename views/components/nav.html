@@ -16,12 +16,14 @@
 				<div id="gameSectionsNav">
 					<div id="gameSectionsNavWrapper">
 						{{#if getSession 'activeTile'}}
+						{{#with viewing}}
 						<h3 class="gameSectionNav outerLeft" data-href="fund">Fund</h3>
 						<h3 class="gameSectionNav innerLeft" data-href="community">Community</h3>
 						<h1 class="gameSectionNav middle" data-href="view">{{name}}</h1>
 						<h3 class="gameSectionNav innerRight" data-href="play">Play</h3>
 						<h3 class="gameSectionNav outerRight" data-href="remix">Remix</h3>
 						<div id="gameSectionsNavSlider"></div>
+						{{/with}}
 						{{/if}}
 						{{#if sessionEquals 'appState' 'create'}}
 						<h1 class="gameSectionNav middle">Create Game</h1>
