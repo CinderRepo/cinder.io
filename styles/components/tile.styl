@@ -14,7 +14,7 @@
 	background-position 50% 50%
 	background-size cover
 	position relative
-	margin 10px
+	margin 0 10px 0 10px
 .tileWrapper:after
 	content ''
 	position absolute
@@ -77,7 +77,7 @@
 .tileInfoButton
 	height tileInfoButtonHeight
 	width ((tileWidth - 20)/2)
-	background steelBlue90
+	background midnight90
 	position absolute
 	top 0
 	font-size 24px
@@ -86,7 +86,6 @@
 	color clouds
 .tileInfoButton.left
 	left 0
-	border-right 1px solid clouds30
 .tileInfoButton.right
 	right 0
 
@@ -96,7 +95,7 @@
 .no-touch .tileWrapper:hover .tileInfoContent
 	opacity 1
 .no-touch .tileInfoButton:hover
-	background ironBlue
+	color radiantBlue
 
 //Message Tile
 .tileHeader

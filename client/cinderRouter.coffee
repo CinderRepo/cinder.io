@@ -33,9 +33,9 @@ Meteor.Router.add
       Session.set('appState','create')
       Session.set('activeTile',undefined)
       #Disable any open modals, if there are any
-      if Session.get('modalState')
-        Session.set('oldModalState',Session.get('modalState'))
-        Session.set('modalState',undefined)
+      #if Session.get('modalState')
+      #  Session.set('oldModalState',Session.get('modalState'))
+      #  Session.set('modalState',undefined)
   "/:_gameId/play":
     to: "main"
     and: (gameId) ->

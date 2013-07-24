@@ -1,8 +1,6 @@
 <template name="main">
 	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
-		{{#with viewing}}
 		{{>nav}}
-		{{/with}}
 		{{#isolate}}
 		<section id="tiles" class="page">
 			<div id="tilesWrapper">
