@@ -1,5 +1,6 @@
 <template name="explainer">
-	<section id="explainer" data-cinderFireInstalled="{{cinderFireInstalled}}" data-state="{{getSession 'currentExplainerState'}}">
+{{#isolate}}
+	<section id="explainer" data-explainerVisible="{{getSession 'explainerVisible'}}" data-cinderFireInstalled="{{profile.cinderFireInstalled}}" data-state="{{getSession 'explainerState'}}">
 		<div id="explainerIconsWrapper">
 			{{>installFireIcon}}
 			{{>waitingIcon}}
@@ -9,20 +10,58 @@
 			{{>ideaIcon}}
 		</div>
 		<div id="explainerText">
-			Hurpy Durpy Text
+			{{#if sessionEquals 'explainerState' 0}}
+			Whoa there cowboy, not so fast. We're going to need you to download our app first before you can make a game.
+			{{/if}}
+
+			{{#if sessionEquals 'explainerState' 1}}
+			Wicked. Install and login to the app now, we'll wait.
+			{{/if}}
+
+			{{#if sessionEquals 'explainerState' 2}}
+			Creating a game in cinder.io is simple. Just make a new folder in the cinder.io folder. Boom. Done.
+			{{/if}}
+
+			{{#if sessionEquals 'explainerState' 3}}
+			Cool. Now click on the {{>cinderIcon}} icon, click "Deploy", and go grab a coffee. We'll do the rest.
+			{{/if}}
+
+			{{#if sessionEquals 'explainerState' 4}}
+			We're all done here! Go get started on your next big idea. Make it count!
+			{{/if}}
 		</div>
-		<div id="explainerButton">
-			Hurpy Durpy Button
+		<div id="explainerButtonWrapper">
+			<div id="explainerButton">
+				{{#if sessionEquals 'explainerState' 0}}
+				<div class="explainerButtonLink" data-href="/downloads/{{getSession 'currentOS'}}/fire.zip">Download</div>
+				{{/if}}
+
+				{{#if sessionEquals 'explainerState' 1}}
+				My App is Ready!
+				{{/if}}
+
+				{{#if sessionEquals 'explainerState' 2}}
+				You Got It!
+				{{/if}}
+
+				{{#if sessionEquals 'explainerState' 3}}
+				Coffee, Grabbed!
+				{{/if}}
+
+				{{#if sessionEquals 'explainerState' 4}}
+				<div class="explainerButtonLink" data-href="/{{getSession 'activeTile'}}/view">View Your Game</div>
+				{{/if}}
+			</div>
 		</div>
 		<div id="explainerProgressWrapper">
 			<ul id="explainerProgress">
-				<li class="explainerProgressDot"></li>
-				<li class="explainerProgressDot"></li>
-				<li class="explainerProgressDot"></li>
-				<li class="explainerProgressDot"></li>
-				<li class="explainerProgressDot"></li>
-				<li class="explainerProgressDot"></li>
+				<li class="explainerProgressDot" data-href="0"></li>
+				<li class="explainerProgressDot" data-href="1"></li>
+				<li class="explainerProgressDot" data-href="2"></li>
+				<li class="explainerProgressDot" data-href="3"></li>
+				<li class="explainerProgressDot" data-href="4"></li>
 			</div>
 		</div>
 	</section>
+{{/isolate}}
 </template>

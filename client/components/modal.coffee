@@ -6,72 +6,34 @@ Template.modal.events
 	'submit .modalForm':(e,t)->
 		e.preventDefault()
 		e.stopImmediatePropagation()
+		target = $(e.currentTarget)
+		log target
 		#Get the state
 		state = Session.get('modalState')
 		if state is 'login'
-			username = $('.modalFormInput[name="username"]').attr('value')
-			password = $('.modalFormInput[name="password"]').attr('value')
+			username = target.find('.modalFormInput[name="username"]').attr('value')
+			password = target.find('.modalFormInput[name="password"]').attr('value')
 			loginUser(username,password)
 		if state is 'signup'
-			username = $('.modalFormInput[name="username"]').attr('value')
-			email = $('.modalFormInput[name="email"]').attr('value')
-			password = $('.modalFormInput[name="password"]').attr('value')
+			username = target.find('.modalFormInput[name="username"]').attr('value')
+			email = target.find('.modalFormInput[name="email"]').attr('value')
+			password = target.find('.modalFormInput[name="password"]').attr('value')
+			signupUser(username,email,password)
 		if state is 'feedback'
 			log 'HELLO FEEDBACK'
-			textAreaValue = t.find('.modalFormTextArea').value
-
-			#Call the sendEmail method on the server
-			if Meteor.user()
-				Meteor.call('sendEmail',
-						'feedback@cinder.io',
-						Meteor.user().emails[0],
-						Meteor.user().username + ' gave us feedback!',
-						textAreaValue + ' Browser Agent: ' + navigator.userAgent
-					)
-			else
-				Meteor.call('sendEmail',
-						'feedback@cinder.io',
-						'guest@guest.com',
-						'A logged out guest gave us feedback!',
-						textAreaValue + ' Browser Agent: ' + navigator.userAgent
-					)
-			#Close the modal
-			analytics.track 'User sent site feedback'
-			Session.set('oldModalState',Session.get('modalState'))
-			Session.set('modalState',undefined)
+			message = $('.modalFormTextArea').attr('value')
+			log message
+			sendFeedback(message)
 	'click .modal':(e,t)->
 		#This event only exists to prevent the container click event from firing when the user clicks on modal.
 		#e.stopImmediatePropagation()
 		#log 'This event only exists to prevent the container click event from firing when the user clicks on modal.'
-	'click .modalFormInputWrapper .modalFormInput,
-	focus .modalFormInputWrapper .modalFormInput':(e,t)->
-		#e.stopImmediatePropagation()
-		target = $(e.currentTarget)
-		targetParent = target.parent('.modalFormInputWrapper')
-		if targetParent.hasClass('top')
-			Session.set('topModalFormInputWrapperState',undefined)
-		if targetParent.hasClass('middle')
-			Session.set('middleModalFormInputWrapperState',undefined)
-		if targetParent.hasClass('bottom')
-			Session.set('bottomModalFormInputWrapperState',undefined)
-	'blur .modalFormInputWrapper .modalFormInput':(e,t)->
-		#e.stopImmediatePropagation()
-		target = $(e.currentTarget)
-		targetParent = target.parent('.modalFormInputWrapper')
-		if targetParent.hasClass('top') and target.attr('value') is ''
-			Session.set('topModalFormInputWrapperState','placeholder')
-		if targetParent.hasClass('middle') and target.attr('value') is ''
-			Session.set('middleModalFormInputWrapperState','placeholder')
-		if targetParent.hasClass('bottom') and target.attr('value') is ''
-			Session.set('bottomModalFormInputWrapperState','placeholder')
 
 loginUser = (username,password) ->
 	log 'loginUser called'
 	Meteor.loginWithPassword username, password, (err) ->
 		if err
 			log err
-			Session.set('topModalFormInputWrapperState','error')
-			Session.set('topModalFormInputMessage',err.reason)
 			analytics.track 'User encountered error while logging in',
 				err: err
 			return err
@@ -80,11 +42,50 @@ loginUser = (username,password) ->
 			Session.set('oldModalState',Session.get('modalState'))
 			Session.set('modalState',undefined)
 
-signupUser = () ->
+signupUser = (username,email,password) ->
 	log 'signupUser called'
+	log username
+	log email
+	log password
+	Accounts.createUser
+		username: username
+		email: email
+		password: password
+		profile:
+			avatar: '/avatars/default.png'
+			cinderFireInstalled: false
+	, (err) ->
+		if err
+			log err
+			analytics.track 'User encountered error while creating account',
+				err: err
+			return err
+		else
+			log 'Creating user!'
+			Session.set('oldModalState',Session.get('modalState'))
+			Session.set('modalState',undefined)
 
-sendFeedback = () ->
+sendFeedback = (message) ->
 	log 'sendFeedback called'
+	log message
+	Meteor.call('sendEmail',
+		'feedback@cinder.io',
+		'users@cinder.io',
+		'A user gave us feedback!',
+		message + ' Browse Agent: ' + navigator.userAgent
+		, (err) ->
+			if err
+				log err
+				analytics.track 'User encountered error while sending feedback',
+					err: err
+				return err
+			else
+				log 'Sending feedback!'
+				#Close the modal
+				analytics.track 'User sent site feedback'
+				Session.set('oldModalState',Session.get('modalState'))
+				Session.set('modalState',undefined)
+	)
 
 Template.modal.preserve({
 	'.modal'
