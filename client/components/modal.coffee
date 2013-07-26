@@ -22,7 +22,6 @@ Template.modal.events
 		if state is 'feedback'
 			log 'HELLO FEEDBACK'
 			message = $('.modalFormTextArea').attr('value')
-			log message
 			sendFeedback(message)
 	'click .modal':(e,t)->
 		#This event only exists to prevent the container click event from firing when the user clicks on modal.

@@ -1,9 +1,6 @@
 {
   "packages": {
     "router": {},
-    "Mesosphere": {},
-    "regulate.js": {},
-    "humane": {},
     "tracker": {}
   }
 }
