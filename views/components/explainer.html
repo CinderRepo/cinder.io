@@ -2,16 +2,12 @@
 {{#isolate}}
 	<section id="explainer" data-explainerVisible="{{getSession 'explainerVisible'}}" data-cinderFireInstalled="{{profile.cinderFireInstalled}}" data-state="{{getSession 'explainerState'}}">
 		<div id="explainerIconsWrapper">
-			{{#constant}}
-				{{#isolate}}
-				{{>installFireIcon}}
-				{{>waitingIcon}}
-				{{>folderIcon}}
-				{{>newIcon}}
-				{{>deployIcon}}
-				{{>ideaIcon}}
-				{{/isolate}}
-			{{/constant}}
+			{{>installFireIcon}}
+			{{>waitingIcon}}
+			{{>folderIcon}}
+			{{>newIcon}}
+			{{>deployIcon}}
+			{{>ideaIcon}}
 		</div>
 		<div id="explainerText">
 			{{#isolate}}

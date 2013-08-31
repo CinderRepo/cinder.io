@@ -1,11 +1,33 @@
+Router.configure
+  layout: 'layout'
+  loadingTemplate: 'loading'
+  notFoundTemplate: 'notFound'
+
+  before: () ->
+    log 'HELLO FROM BEFORE ROUTER!'
+
+Router.map ->
+  @route 'games',
+    path: '/'
+    template:
+      'games':
+        to: 'layout'
+    data:
+      games: () ->
+        Games.find {},
+          sort:
+            order: 1
+    waitOn: () ->
+      Meteor.subscribe 'games', this.params._id
 #Handle different application states
-Meteor.Router.add
+###Meteor.Router.add
   "/":
     to: "main"
     and: () ->
       #Keep track of the previous application state, if there is one
       Session.set('oldAppState',Session.get('appState'))
       Session.set('appState','browse')
+      Session.set('activeTile',undefined)
   "/:_gameId/view":
     to: "main"
     and: (gameId) ->
@@ -74,4 +96,4 @@ Meteor.Router.add
   "*":
     to: "main"
     and: () ->
-      analytics.track 'Error Page Encountered at ' + this.path
+      analytics.track 'Error Page Encountered at ' + this.path###

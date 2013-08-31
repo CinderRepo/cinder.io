@@ -51,7 +51,7 @@ signupUser = (username,email,password) ->
 		email: email
 		password: password
 		profile:
-			avatar: '/avatars/default.png'
+			avatar: undefined
 			cinderFireInstalled: false
 	, (err) ->
 		if err

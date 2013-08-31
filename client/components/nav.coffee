@@ -19,11 +19,26 @@ Template.nav.events
       else
         Session.set('oldModalState',Session.get('modalState'))
         Session.set('modalState',href)
-  'click .gameSectionNav':(e,t)->
+  'click .gameSectionNavText':(e,t)->
     e.stopImmediatePropagation()
     href = e.currentTarget.getAttribute('data-href')
     Meteor.Router.to '/' + Session.get('activeTile') + '/' + href
 
 Template.nav.preserve({
   '#nav'
+  '#gameSectionsNav'
+  '#navButtonLeft1'
+  '#navButtonLeft2'
+  '.gameSectionNav.outerLeft'
+  '#gameSectionNavOuterLeftText1'
+  '.gameSectionNav.innerLeft'
+  '#gameSectionNavInnerLeftText1'
+  '.gameSectionNav.middle'
+  '#gameSectionNavMiddleText1'
+  '#gameSectionNavMiddleText2'
+  '#gameSectionNavMiddleText3'
+  '.gameSectionNav.innerRight'
+  '#gameSectionNavInnerRightText1'
+  '.gameSectionNav.outerRight'
+  '#gameSectionNavOuterRightText1'
 })

@@ -1,27 +1,34 @@
 <template name="dualButton">
-	{{#isolate}}
-	<div class="dualButton">
-		{{#if currentUser}}
-		{{#with currentUser}}
-		<div class="innerDualButton left" data-href="{{_id}}/profile">{{username}}</div>
-		{{/with}}
-		{{else}}
-		<div class="innerDualButton left" data-href="login">Login</div>
-		{{/if}}
-		<div class="middleButton">
-			{{#if currentUser}}
-			{{#with currentUser}}
-				<div class="avatar" style="background-image: url({{profile.avatar}});"></div>
-			{{/with}}
-			{{else}}
-				{{>cinderIcon}}
-			{{/if}}
+{{#isolate}}
+	<div class="dualButton" data-state="{{#if sessionEquals 'appState' 'browse'}}active{{/if}}">
+		<div class="innerDualButton left">
+			<div id="leftInnerDualButtonText1" class="innerDualButtonText" data-state="{{#if not currentUser}}active{{/if}}" data-href="login">
+				Login
+			</div>
+			<div id="leftInnerDualButtonText2" class="innerDualButtonText" data-state="{{#if currentUser}}active{{/if}}" data-href="{{currentUser._id}}/profile">
+				Profile
+			</div>
 		</div>
-		{{#if currentUser}}
-		<div class="innerDualButton right" data-href="create">Create</div>
-		{{else}}
-		<div class="innerDualButton right" data-href="signup">Signup</div>
-		{{/if}}
+
+		<div class="middleButton">
+			<div id="avatar1" class="avatar cinder" data-state="{{#if not currentUser}}active{{/if}}">
+				{{>cinderIcon}}
+			</div>
+			<div id="avatar2" class="avatar default" data-state="{{#if currentUser}}active{{/if}}">
+				{{>profileIcon}}
+			</div>
+			<div id="avatar3" class="avatar profile" data-state="{{#if profile.avatar}}active{{/if}}">
+				<div class="avatarIcon" style="background-image: url({{profile.avatar}});"></div>
+			</div>
+		</div>
+		<div class="innerDualButton right">
+			<div id="rightInnerDualButtonText1" class="innerDualButtonText" data-state="{{#if not currentUser}}active{{/if}}" data-href="signup">
+				Signup
+			</div>
+			<div id="rightInnerDualButtonText2" class="innerDualButtonText" data-state="{{#if currentUser}}active{{/if}}" data-href="create">
+				Create
+			</div>
+		</div>
 	</div>
-	{{/isolate}}
+{{/isolate}}
 </template>

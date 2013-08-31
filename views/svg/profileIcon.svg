@@ -1,0 +1,5 @@
+<svg class="profileIcon" viewBox="0 0 100 100">
+	<path class="profileIconBorder" d="M50,0C22.385,0,0,22.386,0,50c0,27.615,22.385,50,50,50c27.615,0,50-22.385,50-50 C100.002,22.386,77.615,0,50,0z M50,90.277C27.755,90.277,9.723,72.244,9.723,50h80.554C90.277,72.246,72.246,90.277,50,90.277z"/>
+	<circle class="profileIconLeftEye" cx="35.653" cy="59.399" r="6.48"/>
+	<circle class="profileIconRightEye" cx="64.35" cy="59.399" r="6.48"/>
+</svg>

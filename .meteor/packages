@@ -8,6 +8,16 @@ coffeescript
 stylus
 accounts-base
 accounts-password
-router
 email
 http
+iron-router
+standard-app-packages
+tracker
+daigo-core
+daigo-points
+daigo-levels
+daigo-titles
+daigo-badges
+daigo-achievements
+daigo-quests
+daigo-rewards

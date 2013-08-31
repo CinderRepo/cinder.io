@@ -2,8 +2,11 @@
 #Publish user data to the client from the server
 Meteor.subscribe 'userData'
 
+App = subs:
+  posts: Meteor.subscribe 'games'
+
 #Notify User of an Updated Game
-Meteor.subscribe('games',()->
+###Meteor.subscribe('games',()->
   Deps.autorun(@checkGameVersion = () ->
     if Session.get('activeTile') and Session.get('activeTile') is not 'create'
       game = Games.findOne({_id:Session.get('activeTile')},{})
@@ -18,7 +21,7 @@ Meteor.subscribe('games',()->
         if Session.get('activeTile') and Session.equals('appState','play')
           notifyUser(game.version)
   )
-)
+)###
 
 #We track only on startup to prevent misc. pushes to the analytics of data we don't need, as well as undefined values.
 Meteor.startup(()->

@@ -1,12 +1,10 @@
-<template name="main">
+<template name="layout">
 	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
 		{{>nav}}
 		{{#isolate}}
 		<section id="tiles" class="page">
 			<div id="tilesWrapper">
-				{{#each games}}
-					{{>tile}}
-				{{/each}}
+				{{yield 'games'}}
 			</div>
 		</section>
 		{{/isolate}}
@@ -61,4 +59,11 @@
 		</section>
 		{{/isolate}}
 	</section>
+</template>
+
+<template name="games">
+	FUCKING GAMES
+	{{#each games}}
+		{{>tile}}
+	{{/each}}
 </template>
