@@ -2,7 +2,7 @@
   "packages": {
     "smart-collections": {},
     "streams": {},
-    "iron-router": {},
+    "router": {},
     "handlebar-helpers": {},
     "Mesosphere": {},
     "flare": {
