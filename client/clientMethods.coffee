@@ -1,5 +1,5 @@
 #Initialize Analytics
-@analytics = new Tracker()
+@analytics = new Flare()
 analytics.register GoogleAnalyticsTracker,
 	account: 'UA-42498225-1'
 analytics.register MixpanelTracker,
