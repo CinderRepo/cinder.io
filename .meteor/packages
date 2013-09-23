@@ -3,11 +3,50 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-preserve-inputs
-coffeescript
-stylus
-accounts-base
-accounts-password
-router
-email
-http
+#First Party Core Meteor Packages - Standard Packages.
+meteor #Core Meteor Environment.
+webapp #Serve up a Meteor app over HTTP.
+reload #Reload the page while preserving application state within a Meteor app.
+minimongo #Meteor's client-side datastore: a port of MongoDB to Javascript.
+mongo-livedata #Adaptor for using MongoDB and Minimongo over the DDP Protocol.
+session #Enables the use of Session variables within a Meteor app.
+templating #Allows for templates to be defined from within .html files.
+check #Check whether a value matches a pattern.
+deps #Dependency mananger to allow reactive callbacks from within a Meteor app.
+ejson #Extended and Extensible JSON library.
+handlebars #Simple semantic templating language.
+http #Make HTTP calls to remote servers from within a Meteor app.
+email #Send email messages from within a Meteor app.
+
+#Additional Meteor Packages
+accounts-base #User account system for use within a Meteor app.
+accounts-password #Password support for user accounts systems within a Meteor app.
+amplify #API for Persistent Storage, PubSub and Request.
+#appcache #Enable the application cache in the browser.
+audit-argument-checks #Try to detect inadequate input sanitization.
+coffeescript #Javascript dialect with fewer braces and semicolons.
+#force-ssl #Force the application to use secure transport protocol (HTTPS).
+random #Random number generator and utilities.
+preserve-inputs #Automatically preserve all form fields with a unique ID.
+spiderable #Makes the application crawlable to web spiders.
+stylus #Expressive, dynamic, robust CSS preprocessor.
+underscore #Collection of small helper functions: _.map, _.each, ...
+jquery #Manipulate the DOM using CSS selectors.
+
+#Third Party Meteorite Packages
+smart-collections #Smart Mongo Collections Implementation that improves performance.
+streams #Realtime communication for Meteor without making use of MongoDB.
+iron-router #A reactive, highly customizable router that is Meteor specific.
+handlebar-helpers #A group of handlebar helpers for Meteor.
+Mesosphere #A dual client/server side form data validation and transformation package for Meteor.
+flare #Analytics tracking system for the cinder.io platform.
+inferno #Live collaborative editing for the cinder.io platform.
+tinder #Online payments system for the cinder.io platform.
+daigo-core #Gamification core system for use within a Meteor app.
+daigo-points #Gamification points system for use within a Meteor app.
+daigo-levels #Gamification levels system for use within a Meteor app.
+daigo-titles #Gamification titles system for use within a Meteor app.
+daigo-badges #Gamification badges system for use within a Meteor app.
+daigo-achievements #Gamification achievements system for use within a Meteor app.
+daigo-quests #Gamification quests system for use within a Meteor app.
+daigo-rewards #Gamification rewards system for use within a Meteor app.
