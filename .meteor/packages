@@ -36,7 +36,7 @@ jquery #Manipulate the DOM using CSS selectors.
 #Third Party Meteorite Packages
 smart-collections #Smart Mongo Collections Implementation that improves performance.
 streams #Realtime communication for Meteor without making use of MongoDB.
-iron-router #A reactive, highly customizable router that is Meteor specific.
+router #A reactive, highly customizable router that is Meteor specific.
 handlebar-helpers #A group of handlebar helpers for Meteor.
 Mesosphere #A dual client/server side form data validation and transformation package for Meteor.
 flare #Analytics tracking system for the cinder.io platform.
