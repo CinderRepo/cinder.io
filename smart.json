@@ -1,9 +1,42 @@
 {
   "packages": {
-    "router": {},
+    "smart-collections": {},
+    "streams": {},
+    "iron-router": {},
+    "handlebar-helpers": {},
     "Mesosphere": {},
-    "regulate.js": {},
-    "humane": {},
-    "tracker": {}
+    "flare": {
+      "git": "https://github.com/CinderRepo/flare"
+    },
+    "inferno": {
+      "git": "https://github.com/CinderRepo/inferno"
+    },
+    "tinder": {
+      "git": "https://github.com/CinderRepo/tinder"
+    },
+    "daigo-core": {
+      "git": "https://github.com/meteor-daigo/daigo-core"
+    },
+    "daigo-points": {
+      "git": "https://github.com/meteor-daigo/daigo-points"
+    },
+    "daigo-levels": {
+      "git": "https://github.com/meteor-daigo/daigo-levels"
+    },
+    "daigo-titles": {
+      "git": "https://github.com/meteor-daigo/daigo-titles"
+    },
+    "daigo-badges": {
+      "git": "https://github.com/meteor-daigo/daigo-badges"
+    },
+    "daigo-achievements": {
+      "git": "https://github.com/meteor-daigo/daigo-achievements"
+    },
+    "daigo-quests": {
+      "git": "https://github.com/meteor-daigo/daigo-quests"
+    },
+    "daigo-rewards": {
+      "git": "https://github.com/meteor-daigo/daigo-rewards"
+    }
   }
 }
