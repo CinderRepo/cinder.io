@@ -13,8 +13,8 @@ Meteor.subscribe('games',()->
         log 'game\'s version has been updated!'
         log game.version
         Session.set('currentGameVersion',game.version)
-        analytics.track 'User updated game'
-        #analytics.track game.name + ' updated to version ' + game.version
+        analytics.emit 'User updated game'
+        #analytics.emit game.name + ' updated to version ' + game.version
         if Session.get('activeTile') and Session.equals('appState','play')
           notifyUser(game.version)
   )
@@ -30,12 +30,12 @@ Meteor.startup(()->
     if modalState
       if modalState isnt oldModalState
         if oldModalState
-          analytics.track 'User stopped viewing ' + oldModalState + ' modal'
-        analytics.track 'User started viewing ' + modalState + ' modal'
+          analytics.emit 'User stopped viewing ' + oldModalState + ' modal'
+        analytics.emit 'User started viewing ' + modalState + ' modal'
     else
       if oldModalState
         #Triggers if the modal is closed, yet a previous modal has been opened before.
-        analytics.track 'User stopped viewing ' + oldModalState + ' modal'
+        analytics.emit 'User stopped viewing ' + oldModalState + ' modal'
   )
 
   #Track changes to the appState and push them to analytics
@@ -46,8 +46,8 @@ Meteor.startup(()->
     if appState
       if appState isnt oldAppState
         if oldAppState
-          analytics.track 'User stopped viewing ' + oldAppState + ' page'
-        analytics.track 'User started viewing ' + appState + ' page'
+          analytics.emit 'User stopped viewing ' + oldAppState + ' page'
+        analytics.emit 'User started viewing ' + appState + ' page'
   )
 )
 
