@@ -1,8 +1,8 @@
 #Initialize Analytics
 @analytics = new Flare()
-analytics.register GoogleAnalyticsTracker,
+analytics.register GoogleAnalytics,
 	account: 'UA-42498225-1'
-analytics.register MixpanelTracker,
+analytics.register Mixpanel,
 	account: '70a86db45c5533029c063ade1a6fc437'
 
 #Handle Window Resizing
