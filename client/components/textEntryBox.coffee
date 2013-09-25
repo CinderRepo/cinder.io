@@ -14,10 +14,10 @@ Template.textEntryBox.events 'submit .textEntryForm':(e,t) ->
 	      username: Meteor.user().username
 	      text: text
 	, (err)->
-		analytics.track 'User created message'
+		analytics.emit 'User created message'
 		if err
 			return alert err
-			analytics.track 'User encountered error while submitting message',
+			analytics.emit 'User encountered error while submitting message',
 				err: err
 
 Template.textEntryBox.preserve({
