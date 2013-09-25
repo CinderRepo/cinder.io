@@ -70,8 +70,8 @@ Meteor.Router.add
         'Content-Type' : 'application/x-unknown'
         'Content-Disposition' : 'attachment; filename=' + filename
       ,fs.readFileSync(file)]
-      analytics.track 'User downloaded Cinder Fire'
+      analytics.emit 'User downloaded Cinder Fire'
   "*":
     to: "main"
     and: () ->
-      analytics.track 'Error Page Encountered at ' + this.path
+      analytics.emit 'Error Page Encountered at ' + this.path
