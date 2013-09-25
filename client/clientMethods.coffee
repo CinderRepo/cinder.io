@@ -20,10 +20,10 @@ window.onbeforeunload = ->
 @shutdownCinder = () ->
 	log 'Aw :( Window is closing..deallocate some values for analytics'
 	if Session.get('modalState')
-		analytics.track 'User stopped viewing ' + Session.get('modalState') + ' modal'
+		analytics.emit 'User stopped viewing ' + Session.get('modalState') + ' modal'
 	if Session.get('appState')
-		analytics.track 'User stopped viewing ' + Session.get('appState') + ' page'
-	analytics.track 'User exited or refreshed window'
+		analytics.emit 'User stopped viewing ' + Session.get('appState') + ' page'
+	analytics.emit 'User exited or refreshed window'
 
 #Check user's operating system
 @checkOS = () ->
