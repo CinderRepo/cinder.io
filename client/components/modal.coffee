@@ -34,7 +34,7 @@ loginUser = (username,password) ->
 	Meteor.loginWithPassword username, password, (err) ->
 		if err
 			log err
-			analytics.track 'User encountered error while logging in',
+			analytics.emit 'User encountered error while logging in',
 				err: err
 			return err
 		else
@@ -57,7 +57,7 @@ signupUser = (username,email,password) ->
 	, (err) ->
 		if err
 			log err
-			analytics.track 'User encountered error while creating account',
+			analytics.emit 'User encountered error while creating account',
 				err: err
 			return err
 		else
@@ -76,13 +76,13 @@ sendFeedback = (message) ->
 		, (err) ->
 			if err
 				log err
-				analytics.track 'User encountered error while sending feedback',
+				analytics.emit 'User encountered error while sending feedback',
 					err: err
 				return err
 			else
 				log 'Sending feedback!'
 				#Close the modal
-				analytics.track 'User sent site feedback'
+				analytics.emit 'User sent site feedback'
 				Session.set('oldModalState',Session.get('modalState'))
 				Session.set('modalState',undefined)
 	)
