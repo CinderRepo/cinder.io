@@ -1,0 +1,36 @@
+<template name="home">
+  <h2>WELCOME TO CINDER!</h2>
+  <div id="messages"></div>
+  {{#with currentUser}}
+    {{username}}
+  {{/with}}
+  <ul>
+  {{#each notifications}}
+    HI :)
+    <li>
+      {{field}}
+      {{message}}
+    </li>
+  {{/each}}
+  </ul>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <ul>
+    {{#each time}}
+    <li>{{>time}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+
+  <template name="time">
+    HELLO
+    THE FUCKING MESSAGE IS: {{message}}
+  </template>

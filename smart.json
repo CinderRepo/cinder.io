@@ -2,41 +2,45 @@
   "packages": {
     "smart-collections": {},
     "streams": {},
-    "router": {},
+    "iron-router": {},
     "handlebar-helpers": {},
-    "Mesosphere": {},
+    "simple-schema": {},
+    "collection2": {},
+    "autoform": {},
+    "bootstrap-3": {},
+    "accounts-anonymous": {},
     "flare": {
-      "git": "https://github.com/CinderRepo/flare"
+      "path": "../packages/flare"
     },
     "inferno": {
-      "git": "https://github.com/CinderRepo/inferno"
+      "path": "../packages/inferno"
     },
     "tinder": {
-      "git": "https://github.com/CinderRepo/tinder"
+      "path": "../packages/tinder"
     },
     "daigo-core": {
-      "git": "https://github.com/meteor-daigo/daigo-core"
+      "path": "../packages/daigo-core"
     },
     "daigo-points": {
-      "git": "https://github.com/meteor-daigo/daigo-points"
+      "path": "../packages/daigo-points"
     },
     "daigo-levels": {
-      "git": "https://github.com/meteor-daigo/daigo-levels"
+      "path": "../packages/daigo-levels"
     },
     "daigo-titles": {
-      "git": "https://github.com/meteor-daigo/daigo-titles"
+      "path": "../packages/daigo-titles"
     },
     "daigo-badges": {
-      "git": "https://github.com/meteor-daigo/daigo-badges"
+      "path": "../packages/daigo-badges"
     },
     "daigo-achievements": {
-      "git": "https://github.com/meteor-daigo/daigo-achievements"
+      "path": "../packages/daigo-achievements"
     },
     "daigo-quests": {
-      "git": "https://github.com/meteor-daigo/daigo-quests"
+      "path": "../packages/daigo-quests"
     },
     "daigo-rewards": {
-      "git": "https://github.com/meteor-daigo/daigo-rewards"
+      "path": "../packages/daigo-rewards"
     }
   }
 }
