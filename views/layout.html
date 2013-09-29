@@ -1,0 +1,69 @@
+<template name="layout">
+	<section id="container" data-state="{{getSession 'appState'}}" data-modal="{{getSession 'modalState'}}">
+		{{>nav}}
+		{{#isolate}}
+		<section id="tiles" class="page">
+			<div id="tilesWrapper">
+				{{yield 'games'}}
+			</div>
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		{{#with viewing}}
+		<section id="viewBg" style="background-image: url({{viewBgSrc}});"></section>
+		{{/with}}
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="view" class="page">
+			{{#with viewing}}
+				{{>tile}}
+			{{/with}}
+			<div class="scrollIndicator"></div>
+			{{#with currentUser}}
+				{{>explainer}}
+			{{/with}}
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="profile" class="page">
+			{{>profile}}
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="game" class="page">
+			<div id="gameWrapper">
+			{{#with viewing}}
+			{{>notification}}
+			<iframe id="gamePlayer" seamless allowfullscreen sandbox="allow-scripts allow-same-origin" src="{{gameSrc}}"></iframe>
+			{{/with}}
+			</div>
+		</section>
+		{{/isolate}}
+
+		{{#isolate}}
+		<section id="community" class="page">
+			<div id="communityWrapper">
+			{{#isolate}}
+			{{#with viewing}}
+			{{#each messages}}
+				{{>message}}
+			{{/each}}
+			{{/with}}
+			{{>textEntryBox}}
+			{{/isolate}}
+			</div>
+		</section>
+		{{/isolate}}
+	</section>
+</template>
+
+<template name="games">
+	FUCKING GAMES
+	{{#each games}}
+		{{>tile}}
+	{{/each}}
+</template>
