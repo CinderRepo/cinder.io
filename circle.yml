@@ -1,8 +1,10 @@
-#Install Meteor
-curl https://install.meteor.com | /bin/sh
-
-#Install Meteorite and Laika
-npm install -g meteorite laika
+#Install Meteor, Meteorite and Laika
+dependencies:
+  pre:
+    - curl https://install.meteor.com | /bin/sh
+    - npm install -g meteorite laika
 
 #Run Tests
-laika
+test:
+  override:
+    - laika
