@@ -1,0 +1,21 @@
+@import 'nib'
+@import '../variables'
+
+.logoutIconWrapper
+	transition transform normalSpeed
+.logoutIcon
+	height inherit
+	width inherit
+	-webkit-user-select none
+
+//Logout Fill States
+.logoutIconBar
+	fill midnight90
+.logoutIconOutline
+	fill midnight90
+
+//Logout Hover States
+.no-touch .logoutIcon:hover .logoutIconBar
+	fill radiantBlue
+.no-touch .logoutIcon:hover .logoutIconOutline
+	fill radiantBlue

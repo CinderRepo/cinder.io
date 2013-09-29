@@ -1,0 +1,77 @@
+@import 'nib'
+@import 'variables'
+
+//APPSTATE - BROWSE
+#container[data-state="browse"] #tiles
+	opacity 1
+	pointer-events auto
+
+//APPSTATE - VIEW
+#container[data-state="view"] #tiles
+	opacity 0
+#container[data-state="view"] #viewBg
+	opacity 1
+#container[data-state="view"] #view
+	opacity 1
+	pointer-events auto
+
+//APPSTATE - CREATE
+#container[data-state="create"] #tiles
+	opacity 0
+#container[data-state="create"] #viewBg
+	opacity 1
+#container[data-state="create"] #view
+	opacity 1
+	pointer-events auto
+#container[data-state="create"] #explainer[data-cinderFireInstalled="false"]
+	opacity 1
+	pointer-events auto
+
+//APPSTATE - PLAY
+#container[data-state="play"] #tiles
+	opacity 0
+#container[data-state="play"] #game
+	opacity 1
+	pointer-events auto
+
+//APPSTATE -COMMUNITY
+#container[data-state="community"] #viewBg
+	opacity 1
+#container[data-state="community"] #community
+	opacity 1
+	pointer-events auto
+
+//APPSTATE - PROFILE
+#container[data-state="profile"] #profile
+	opacity 1
+	pointer-events auto
+
+//MODAL STATE - LOGIN
+#container[data-modal="login"] #nav
+	transform translate3d(0,180px,0)
+#container[data-modal="login"] #nav .innerDualButton.left .innerDualButtonText
+	color radiantBlue
+
+//MODAL STATE - SIGNUP
+#container[data-modal="signup"] #nav
+	transform translate3d(0,230px,0)
+#container[data-modal="signup"] #nav .innerDualButton.right .innerDualButtonText
+	color radiantBlue
+
+//MODAL STATE - FEEDBACK
+#container[data-modal="feedback"]
+	#nav
+		transform translate3d(0,230px,0)
+	#navWrapper
+		.feedbackIcon .feedbackIconBorder
+			fill radiantBlue
+		.feedbackIcon .feedbackIconPen
+			fill radiantBlue
+		.feedbackIcon .feedbackIconTopLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconMidTopLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconMidBottomLine
+			fill radiantBlue
+		.feedbackIcon .feedbackIconBottomLine
+			fill radiantBlue

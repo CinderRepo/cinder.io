@@ -1,0 +1,213 @@
+@import 'nib'
+@import '../variables'
+
+explainerIconHeight = 380px
+explainerGutterHeight = 50px
+explainerButtonHeight = 50px
+
+#explainer
+	background offWhite90
+	height 100%
+	opacity 0
+	pointer-events none
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 1
+	overflow hidden
+#explainerIconsWrapper
+	height explainerIconHeight
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position relative
+	margin 100px auto explainerGutterHeight auto
+#explainer .installFireIconWrapper
+	height explainerIconHeight
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position absolute
+	top 0
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,-120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .waitingIconWrapper
+	display block
+	height explainerIconHeight
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position absolute
+	top 0
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .folderIconWrapper
+	display block
+	height explainerIconHeight
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position absolute
+	top 0
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .newIconWrapper
+	height 140px
+	width 140px
+	max-width tileWidth - 20
+	position relative
+	top 150px
+	margin 0 auto
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
+	.newIconBorder
+		fill offWhite90
+	.newIconSymbol
+		fill offWhite90
+#explainer .deployIconWrapper
+	height 140px
+	width 140px
+	max-width tileWidth - 20
+	position relative
+	top 10px
+	margin 0 auto
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+	.deployIconFill
+		fill offWhite90
+#explainer .ideaIconWrapper
+	display block
+	height explainerIconHeight
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	position absolute
+	top 0
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainerText
+	min-width tileWidth - 20
+	max-width tileWidth - 20
+	height 120px
+	vertical-align middle
+	font-size 24px
+	margin 0 auto explainerGutterHeight auto
+	position relative
+	overflow hidden
+.explainerTextContent
+	position absolute
+	top 0
+	display table
+	opacity 0
+	pointer-events none
+	transform scale3d(0.9,0.9,0.9)
+	transition opacity fastSpeed, transform fastSpeed
+.explainerTextContentText
+	height 120px
+	display table-cell
+	vertical-align middle
+#explainerText .cinderIconWrapper
+	height 24px
+	width 24px
+	display inline
+	position relative
+	top 3px
+	left 1px
+#explainerButton
+	height explainerButtonHeight
+	max-width tileWidth - 20
+	background midnight90
+	text-align center
+	font-size 20px
+	line-height explainerButtonHeight
+	display block
+	margin 0 auto 50px auto
+	color offWhite90
+	border-radius radius
+	cursor pointer
+	transition width fastSpeed
+	whitespace nowrap
+	position relative
+.no-touch #explainerButton:hover
+	color radiantBlue
+.explainerButtonContent
+	width 100%
+	position absolute
+	top 0
+	display table
+	opacity 0
+	transform scale3d(0.9,0.9,0.9)
+	pointer-events none
+	transition opacity fastSpeed, transform fastSpeed
+.explainerButtonContentText
+	width 100%
+#explainerProgressWrapper
+	height 40px
+	width 100%
+	overflow hidden
+	text-align center
+#explainerProgress
+	height inherit
+	list-style none
+	padding 10px 0 10px 0
+	margin 0
+.explainerProgressDot
+	background midnight90
+	height 20px
+	width 20px
+	border-radius 20px
+	display inline-block
+	margin 0 10px 0 0
+	cursor pointer
+.explainerProgressDot:hover
+	background radiantBlue
+.explainerProgressDot:last-child
+	margin 0 0 0 0
+
+//Explainer Progress States
+#explainer[data-state="0"]
+	#explainerButton
+		width 160px
+	.installFireIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="1"]
+	#explainerButton
+		width 240px
+	.waitingIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="2"]
+	#explainerButton
+		width 160px
+	.folderIconWrapper,
+	.newIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="3"]
+	#explainerButton
+		width 220px
+	.folderIconWrapper,
+	.deployIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="4"]
+	#explainerButton
+		width 250px
+	.ideaIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+
+//Explainer Active States
+.explainerTextContent[data-state="active"]
+	opacity 1
+	transform scale3d(1,1,1)
+.explainerButtonContent[data-state="active"]
+	opacity 1
+	pointer-events auto
+	transform scale3d(1,1,1)
+.explainerProgressDot[data-state="active"]
+	background radiantBlue

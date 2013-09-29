@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 smart-collections
 iron-router
 flare
 inferno
 tinder
+=======
+router
+tracker
+page-js-ie-support
+HTML5-History-API
+sharejs
+ace
+iron-router
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8
 daigo-core
 daigo-points
 daigo-levels
@@ -11,6 +21,7 @@ daigo-badges
 daigo-achievements
 daigo-quests
 daigo-rewards
+<<<<<<< HEAD
 blade
 handlebar-helpers
 streams
@@ -27,3 +38,9 @@ simple-schema
 collection2
 bootstrap-3
 sharejs
+=======
+smart-collections
+reactive-ace
+inferno
+tinder
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8

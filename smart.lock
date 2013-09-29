@@ -2,6 +2,7 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
+<<<<<<< HEAD
       "smart-collections": {},
       "streams": {},
       "iron-router": {},
@@ -55,12 +56,66 @@
         "git": "https://github.com/arunoda/meteor-streams.git",
         "tag": "v0.1.17",
         "commit": "9fcbbc9b7bf542827babc92089c19e730892a22f"
+=======
+      "tracker": {
+        "git": "https://github.com/CinderRepo/meteor-tracker",
+        "branch": "master"
+      },
+      "iron-router": {},
+      "inferno": {
+        "git": "https://github.com/CinderRepo/inferno",
+        "branch": "master"
+      },
+      "tinder": {
+        "git": "https://github.com/CinderRepo/tinder",
+        "branch": "master"
+      },
+      "daigo-core": {
+        "git": "https://github.com/meteor-daigo/daigo-core",
+        "branch": "master"
+      },
+      "daigo-points": {
+        "git": "https://github.com/meteor-daigo/daigo-points",
+        "branch": "master"
+      },
+      "daigo-levels": {
+        "git": "https://github.com/meteor-daigo/daigo-levels",
+        "branch": "master"
+      },
+      "daigo-titles": {
+        "git": "https://github.com/meteor-daigo/daigo-titles",
+        "branch": "master"
+      },
+      "daigo-badges": {
+        "git": "https://github.com/meteor-daigo/daigo-badges",
+        "branch": "master"
+      },
+      "daigo-achievements": {
+        "git": "https://github.com/meteor-daigo/daigo-achievements",
+        "branch": "master"
+      },
+      "daigo-quests": {
+        "git": "https://github.com/meteor-daigo/daigo-quests",
+        "branch": "master"
+      },
+      "daigo-rewards": {
+        "git": "https://github.com/meteor-daigo/daigo-rewards",
+        "branch": "master"
+      }
+    },
+    "packages": {
+      "tracker": {
+        "git": "https://github.com/CinderRepo/meteor-tracker",
+        "branch": "master",
+        "commit": "e436fe8a097bf2090ab742306c9cc31a826e41b6"
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.5.4",
         "commit": "3e0e22ff85630b7503d0daa1538c6d90abb84020"
       },
+<<<<<<< HEAD
       "handlebar-helpers": {
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
         "tag": "v0.0.9",
@@ -123,6 +178,62 @@
       },
       "daigo-rewards": {
         "path": "../packages/daigo-rewards"
+=======
+      "inferno": {
+        "git": "https://github.com/CinderRepo/inferno",
+        "branch": "master",
+        "commit": "8e7170acb4ab07986af764e8eb80207b06bb897e"
+      },
+      "tinder": {
+        "git": "https://github.com/CinderRepo/tinder",
+        "branch": "master",
+        "commit": "19964c2e8bcaa07eab4256cd6bcf71e2f829a076"
+      },
+      "daigo-core": {
+        "git": "https://github.com/meteor-daigo/daigo-core",
+        "branch": "master",
+        "commit": "f9ff06299dadee16941de88273da48717e747c50"
+      },
+      "daigo-points": {
+        "git": "https://github.com/meteor-daigo/daigo-points",
+        "branch": "master",
+        "commit": "2213bf851177dda8922f4c6de80c7ba8ce7c8161"
+      },
+      "daigo-levels": {
+        "git": "https://github.com/meteor-daigo/daigo-levels",
+        "branch": "master",
+        "commit": "489ad9037c52fda605a0a5d0c4c7922f59c63716"
+      },
+      "daigo-titles": {
+        "git": "https://github.com/meteor-daigo/daigo-titles",
+        "branch": "master",
+        "commit": "3e5691c29d711c045649256586a5b64b28a4fd48"
+      },
+      "daigo-badges": {
+        "git": "https://github.com/meteor-daigo/daigo-badges",
+        "branch": "master",
+        "commit": "5094f74405e97bdb0c19ea33bed877098b0e5846"
+      },
+      "daigo-achievements": {
+        "git": "https://github.com/meteor-daigo/daigo-achievements",
+        "branch": "master",
+        "commit": "9ed27460f572249afd883607e477cf639343958e"
+      },
+      "daigo-quests": {
+        "git": "https://github.com/meteor-daigo/daigo-quests",
+        "branch": "master",
+        "commit": "542a0c582c7cf9c2189a5388b7a42c20e7114fc8"
+      },
+      "daigo-rewards": {
+        "git": "https://github.com/meteor-daigo/daigo-rewards",
+        "branch": "master",
+        "commit": "12c12fb3bbafe837096506c8a50fe21d559091c2"
+      },
+      "smart-collections": {
+        "git": "https://github.com/arunoda/meteor-smart-collections.git",
+        "tag": "v0.3.2",
+        "commit": "c497bdc8fcec8bfe45b456c28822d80466f1b798"
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8
       }
     }
   }

@@ -1,0 +1,35 @@
+<template name="nav">
+{{#isolate}}
+	<section id="nav">
+		{{>modal}}
+		<div id="navWrapper">
+			<div id="navButtonLeft1" class="navButton left" data-state="{{#if currentUser}}{{#if sessionEquals 'appState' 'browse'}}active{{/if}}{{/if}}" data-href="logout">{{>logoutIcon}}</div>
+			<div id="navButtonLeft2" class="navButton left" data-state="{{#if sessionNotEquals 'appState' 'browse'}}active{{/if}}" data-href="close">{{>closeIcon}}</div>
+			{{>dualButton}}
+			<div id="gameSectionsNav" data-state="{{#if sessionNotEquals 'appState' 'browse'}}active{{/if}}">
+				<div id="gameSectionsNavWrapper">
+					<h3 class="gameSectionNav outerLeft">
+						<span id="gameSectionNavOuterLeftText1" class="gameSectionNavText" data-state="{{#if viewing}}active{{/if}}" data-href="fund">Fund</span>
+					</h3>
+					<h3 class="gameSectionNav innerLeft">
+						<span id="gameSectionNavInnerLeftText1" class="gameSectionNavText" data-state="{{#if viewing}}active{{/if}}" data-href="community">Community</span>
+					</h3>
+					<h1 class="gameSectionNav middle">
+						<span id="gameSectionNavMiddleText1" class="gameSectionNavText" data-state="{{#if viewing}}active{{/if}}" data-href="view">{{viewing.name}}</span>
+						<span id="gameSectionNavMiddleText2" class="gameSectionNavText" data-state="{{#if sessionEquals 'appState' 'create'}}active{{/if}}" data-href="create">Create Game</span>
+						<span id="gameSectionNavMiddleText3" class="gameSectionNavText" data-state="{{#if sessionEquals 'appState' 'profile'}}active{{/if}}" data-href="{{currentUser._id}}/profile">{{currentUser.username}}</span>
+					</h1>
+					<h3 class="gameSectionNav innerRight">
+						<span id="gameSectionNavInnerRightText1" class="gameSectionNavText" data-state="{{#if viewing}}active{{/if}}" data-href="play">Play</span>
+					</h3>
+					<h3 class="gameSectionNav outerRight">
+						<span id="gameSectionNavOuterRightText1" class="gameSectionNavText" data-state="{{#if viewing}}active{{/if}}" data-href="remix">Remix</span>
+					</h3>
+					<div id="gameSectionsNavSlider"></div>
+				</div>
+			</div>
+			<div class="navButton right" data-href="feedback">{{>feedbackIcon}}</div>
+		</div>
+	</section>
+{{/isolate}}
+</template>
