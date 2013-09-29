@@ -1,7 +1,11 @@
 #Install Meteor, Meteorite and Laika
+machine:
+  environment:
+    PATH: ~/meteor/:$PATH
 dependencies:
   pre:
-    - curl https://install.meteor.com | /bin/sh
+    - git clone https://github.com/meteor/meteor.git ~/meteor
+    - brew update && brew install phantomjs
     - npm install -g meteorite laika
 
 #Run Tests
