@@ -11,4 +11,4 @@ dependencies:
 #Run Tests
 test:
   override:
-    METEOR_PATH
+    - METEOR_PATH
