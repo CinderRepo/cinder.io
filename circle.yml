@@ -4,6 +4,8 @@ machine:
     PATH: ~/meteor/:$PATH
 dependencies:
   pre:
+    - mkdir homebrew && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C homebrew
+    - brew update && brew install phantomjs
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
 
