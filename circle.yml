@@ -5,6 +5,7 @@ machine:
 dependencies:
   pre:
     - git clone https://github.com/meteor/meteor.git ~/meteor
+    - brew update && brew install phantomjs
     - npm install -g meteorite laika
 
 #Run Tests
