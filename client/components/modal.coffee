@@ -22,7 +22,6 @@ Template.modal.events
 		if state is 'feedback'
 			log 'HELLO FEEDBACK'
 			message = $('.modalFormTextArea').attr('value')
-			log message
 			sendFeedback(message)
 	'click .modal':(e,t)->
 		#This event only exists to prevent the container click event from firing when the user clicks on modal.
@@ -34,7 +33,7 @@ loginUser = (username,password) ->
 	Meteor.loginWithPassword username, password, (err) ->
 		if err
 			log err
-			analytics.emit 'User encountered error while logging in',
+			analytics.track 'User encountered error while logging in',
 				err: err
 			return err
 		else
@@ -52,12 +51,12 @@ signupUser = (username,email,password) ->
 		email: email
 		password: password
 		profile:
-			avatar: '/avatars/default.png'
+			avatar: undefined
 			cinderFireInstalled: false
 	, (err) ->
 		if err
 			log err
-			analytics.emit 'User encountered error while creating account',
+			analytics.track 'User encountered error while creating account',
 				err: err
 			return err
 		else
@@ -76,13 +75,13 @@ sendFeedback = (message) ->
 		, (err) ->
 			if err
 				log err
-				analytics.emit 'User encountered error while sending feedback',
+				analytics.track 'User encountered error while sending feedback',
 					err: err
 				return err
 			else
 				log 'Sending feedback!'
 				#Close the modal
-				analytics.emit 'User sent site feedback'
+				analytics.track 'User sent site feedback'
 				Session.set('oldModalState',Session.get('modalState'))
 				Session.set('modalState',undefined)
 	)

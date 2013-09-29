@@ -1,7 +1,46 @@
+<<<<<<< HEAD
+smart-collections
+iron-router
+flare
+inferno
+tinder
+=======
 router
-page-js-ie-support
-Mesosphere
-underscore-string
-regulate.js
-humane
 tracker
+page-js-ie-support
+HTML5-History-API
+sharejs
+ace
+iron-router
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8
+daigo-core
+daigo-points
+daigo-levels
+daigo-titles
+daigo-badges
+daigo-achievements
+daigo-quests
+daigo-rewards
+<<<<<<< HEAD
+blade
+handlebar-helpers
+streams
+redis
+Mesosphere
+underscore-string-latest
+errors
+accounts-anonymous
+user-session
+client-call
+remote-debug
+autoform
+simple-schema
+collection2
+bootstrap-3
+sharejs
+=======
+smart-collections
+reactive-ace
+inferno
+tinder
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8

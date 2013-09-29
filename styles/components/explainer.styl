@@ -6,7 +6,7 @@ explainerGutterHeight = 50px
 explainerButtonHeight = 50px
 
 #explainer
-	background clouds
+	background offWhite90
 	height 100%
 	opacity 0
 	pointer-events none
@@ -22,16 +22,17 @@ explainerButtonHeight = 50px
 	min-width tileWidth - 20
 	max-width tileWidth - 20
 	position relative
-	margin 0 auto explainerGutterHeight auto
-#explainer .installFireIcon
+	margin 100px auto explainerGutterHeight auto
+#explainer .installFireIconWrapper
 	height explainerIconHeight
 	min-width tileWidth - 20
 	max-width tileWidth - 20
 	position absolute
 	top 0
 	opacity 0
-	transition opacity normalSpeed
-#explainer .waitingIcon
+	transform scale3d(0.9,0.9,0.9) translate3d(0,-120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .waitingIconWrapper
 	display block
 	height explainerIconHeight
 	min-width tileWidth - 20
@@ -39,8 +40,9 @@ explainerButtonHeight = 50px
 	position absolute
 	top 0
 	opacity 0
-	transition opacity normalSpeed
-#explainer .folderIcon
+	transform scale3d(0.9,0.9,0.9) translate3d(0,120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .folderIconWrapper
 	display block
 	height explainerIconHeight
 	min-width tileWidth - 20
@@ -48,8 +50,35 @@ explainerButtonHeight = 50px
 	position absolute
 	top 0
 	opacity 0
-	transition opacity normalSpeed
-#explainer .newIcon
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
+#explainer .newIconWrapper
+	height 140px
+	width 140px
+	max-width tileWidth - 20
+	position relative
+	top 150px
+	margin 0 auto
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
+	.newIconBorder
+		fill offWhite90
+	.newIconSymbol
+		fill offWhite90
+#explainer .deployIconWrapper
+	height 140px
+	width 140px
+	max-width tileWidth - 20
+	position relative
+	top 10px
+	margin 0 auto
+	opacity 0
+	transform scale3d(0.9,0.9,0.9) translate3d(0,120px,0)
+	transition opacity normalSpeed, transform normalSpeed
+	.deployIconFill
+		fill offWhite90
+#explainer .ideaIconWrapper
 	display block
 	height explainerIconHeight
 	min-width tileWidth - 20
@@ -57,57 +86,64 @@ explainerButtonHeight = 50px
 	position absolute
 	top 0
 	opacity 0
-	transition opacity normalSpeed
-#explainer .deployIcon
-	display block
-	height explainerIconHeight
-	min-width tileWidth - 20
-	max-width tileWidth - 20
-	position absolute
-	top 0
-	opacity 0
-	transition opacity normalSpeed
-#explainer .ideaIcon
-	display block
-	height explainerIconHeight
-	min-width tileWidth - 20
-	max-width tileWidth - 20
-	position absolute
-	top 0
-	opacity 0
-	transition opacity normalSpeed
+	transform scale3d(0.9,0.9,0.9) translate3d(0,0,0)
+	transition opacity normalSpeed, transform normalSpeed
 #explainerText
 	min-width tileWidth - 20
 	max-width tileWidth - 20
-	margin 0 auto explainerGutterHeight auto
+	height 120px
+	vertical-align middle
 	font-size 24px
-#explainerText .cinderIcon
+	margin 0 auto explainerGutterHeight auto
+	position relative
+	overflow hidden
+.explainerTextContent
+	position absolute
+	top 0
+	display table
+	opacity 0
+	pointer-events none
+	transform scale3d(0.9,0.9,0.9)
+	transition opacity fastSpeed, transform fastSpeed
+.explainerTextContentText
+	height 120px
+	display table-cell
+	vertical-align middle
+#explainerText .cinderIconWrapper
 	height 24px
 	width 24px
 	display inline
 	position relative
 	top 3px
 	left 1px
-#explainerButtonWrapper
-	height explainerButtonHeight
-	min-width tileWidth - 20
-	max-width tileWidth - 20
-	margin 0 auto explainerGutterHeight auto
-	text-align center
 #explainerButton
 	height explainerButtonHeight
 	max-width tileWidth - 20
 	background midnight90
+	text-align center
 	font-size 20px
 	line-height explainerButtonHeight
-	text-align center
-	display inline-block
-	padding 0 20px 0 20px
+	display block
+	margin 0 auto 50px auto
 	color offWhite90
 	border-radius radius
 	cursor pointer
+	transition width fastSpeed
+	whitespace nowrap
+	position relative
 .no-touch #explainerButton:hover
 	color radiantBlue
+.explainerButtonContent
+	width 100%
+	position absolute
+	top 0
+	display table
+	opacity 0
+	transform scale3d(0.9,0.9,0.9)
+	pointer-events none
+	transition opacity fastSpeed, transform fastSpeed
+.explainerButtonContentText
+	width 100%
 #explainerProgressWrapper
 	height 40px
 	width 100%
@@ -131,30 +167,47 @@ explainerButtonHeight = 50px
 .explainerProgressDot:last-child
 	margin 0 0 0 0
 
-//Explainer States
-#explainer[data-state="0"] .installFireIcon
-	opacity 1
-#explainer[data-state="1"] .waitingIcon
-	opacity 1
-#explainer[data-state="2"] .folderIcon,
-#ecplainer[data-state="2"] .newIcon
-	opacity 1
-#explainer[data-state="3"] .folderIcon,
-#explainer[data-state="3"] .deployIcon
-	opacity 1
-#explainer[data-state="4"] .ideaIcon
-	opacity 1
-
 //Explainer Progress States
-#explainer[data-state="0"] .explainerProgressDot[data-href="0"]
-	background radiantBlue
-#explainer[data-state="1"] .explainerProgressDot[data-href="1"]
-	background radiantBlue
-#explainer[data-state="2"] .explainerProgressDot[data-href="2"]
-	background radiantBlue
-#explainer[data-state="3"] .explainerProgressDot[data-href="3"]
-	background radiantBlue
-#explainer[data-state="4"] .explainerProgressDot[data-href="4"]
-	background radiantBlue
-#explainer[data-state="5"] .explainerProgressDot[data-href="5"]
+#explainer[data-state="0"]
+	#explainerButton
+		width 160px
+	.installFireIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="1"]
+	#explainerButton
+		width 240px
+	.waitingIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="2"]
+	#explainerButton
+		width 160px
+	.folderIconWrapper,
+	.newIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="3"]
+	#explainerButton
+		width 220px
+	.folderIconWrapper,
+	.deployIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+#explainer[data-state="4"]
+	#explainerButton
+		width 250px
+	.ideaIconWrapper
+		opacity 1
+		transform scale3d(1,1,1) translate3d(0,0,0)
+
+//Explainer Active States
+.explainerTextContent[data-state="active"]
+	opacity 1
+	transform scale3d(1,1,1)
+.explainerButtonContent[data-state="active"]
+	opacity 1
+	pointer-events auto
+	transform scale3d(1,1,1)
+.explainerProgressDot[data-state="active"]
 	background radiantBlue

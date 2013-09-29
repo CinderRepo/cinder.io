@@ -1,4 +1,0 @@
-<svg class="backwardIcon" viewBox="0 0 100 100">
-	<circle class="backwardIconBorder" cx="50" cy="50" r="47"/>
-	<polygon class="backwardIconArrow" points="79,53 32,53 46,67 38,67 21,50 38,33 46,33 32,47 79,47"/>
-</svg>

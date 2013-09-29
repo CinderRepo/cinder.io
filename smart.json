@@ -1,13 +1,52 @@
 {
   "packages": {
+<<<<<<< HEAD
     "smart-collections": {},
     "streams": {},
-    "router": {},
+    "iron-router": {},
     "handlebar-helpers": {},
-    "Mesosphere": {},
+    "simple-schema": {},
+    "collection2": {},
+    "autoform": {},
+    "bootstrap-3": {},
+    "accounts-anonymous": {},
     "flare": {
-      "git": "https://github.com/CinderRepo/flare"
+      "path": "../packages/flare"
     },
+    "inferno": {
+      "path": "../packages/inferno"
+    },
+    "tinder": {
+      "path": "../packages/tinder"
+    },
+    "daigo-core": {
+      "path": "../packages/daigo-core"
+    },
+    "daigo-points": {
+      "path": "../packages/daigo-points"
+    },
+    "daigo-levels": {
+      "path": "../packages/daigo-levels"
+    },
+    "daigo-titles": {
+      "path": "../packages/daigo-titles"
+    },
+    "daigo-badges": {
+      "path": "../packages/daigo-badges"
+    },
+    "daigo-achievements": {
+      "path": "../packages/daigo-achievements"
+    },
+    "daigo-quests": {
+      "path": "../packages/daigo-quests"
+    },
+    "daigo-rewards": {
+      "path": "../packages/daigo-rewards"
+=======
+    "tracker": {
+      "git": "https://github.com/CinderRepo/meteor-tracker"
+    },
+    "iron-router": {},
     "inferno": {
       "git": "https://github.com/CinderRepo/inferno"
     },
@@ -37,6 +76,7 @@
     },
     "daigo-rewards": {
       "git": "https://github.com/meteor-daigo/daigo-rewards"
+>>>>>>> 5d449498d84fc262ee899c1fc3914341b1fe21a8
     }
   }
 }

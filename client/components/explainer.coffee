@@ -5,21 +5,13 @@ Template.explainer.events
 	'click #explainerProgress':(e,t)->
 		log 'explainerProgress clicked'
 		e.stopImmediatePropagation()
-	'click #explainerButton':(e,t)->
-		log 'explainerButton clicked'
-		target = $(e.currentTarget).find('.explainerButtonLink')
-		href = target.data('href')
-		log href
+	'click .explainerButtonContent':(e,t)->
+		log 'explainerButtonContent clicked'
 		e.stopImmediatePropagation()
-		#IF we've reached the max amount of explainer states, make it invisible
-		if Session.equals('explainerState',maxExplainerStates)
-			#Meteor.Router.to '/view'
-		else
-			#Download Cinder Fire if it's the first step
-			if Session.equals('explainerState',0)
-				log 'Download here'
+		href = e.currentTarget.getAttribute('data-href')
+		unless Session.equals('explainerState',maxExplainerStates)
+			if href
 				Meteor.Router.to href
-			#Advance the explainer forward when the user clicks on the button
 			Session.set('explainerState',Session.get('explainerState')+1)
 	'click .explainerProgressDot':(e,t)->
 		log 'explainerProgressDot clicked'
@@ -29,4 +21,29 @@ Template.explainer.events
 
 Template.explainer.preserve({
 	'#explainer'
+	'#explainerIconsWrapper'
+	'#explainerText'
+	'#explainerText0'
+	'#explainerText1'
+	'#explainerText2'
+	'#explainerText3'
+	'#explainerText4'
+	'#explainerButton'
+	'#explainerButton0'
+	'#explainerButton1'
+	'#explainerButton2'
+	'#explainerButton3'
+	'#explainerButton4'
+	'#explainerProgress'
+	'#explainerProgress0'
+	'#explainerProgress1'
+	'#explainerProgress2'
+	'#explainerProgress3'
+	'#explainerProgress4'
+	'.installFireIconWrapper'
+	'.waitingIconWrapper'
+	'.folderIconWrapper'
+	'.newIconWrapper'
+	'.deployIconWrapper'
+	'.ideaIconWrapper'
 })
