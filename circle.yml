@@ -1,0 +1,8 @@
+#Install Meteor
+curl https://install.meteor.com | /bin/sh
+
+#Install Meteorite and Laika
+npm install -g meteorite laika
+
+#Run Tests
+laika
