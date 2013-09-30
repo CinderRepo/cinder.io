@@ -10,37 +10,13 @@
     "bootstrap-3": {},
     "accounts-anonymous": {},
     "flare": {
-      "path": "../packages/flare"
+      "path": "https://github.com/cinderRepo/flare"
     },
     "inferno": {
-      "path": "../packages/inferno"
+      "path": "https://github.com/cinderRepo/inferno"
     },
     "tinder": {
-      "path": "../packages/tinder"
-    },
-    "daigo-core": {
-      "path": "../packages/daigo-core"
-    },
-    "daigo-points": {
-      "path": "../packages/daigo-points"
-    },
-    "daigo-levels": {
-      "path": "../packages/daigo-levels"
-    },
-    "daigo-titles": {
-      "path": "../packages/daigo-titles"
-    },
-    "daigo-badges": {
-      "path": "../packages/daigo-badges"
-    },
-    "daigo-achievements": {
-      "path": "../packages/daigo-achievements"
-    },
-    "daigo-quests": {
-      "path": "../packages/daigo-quests"
-    },
-    "daigo-rewards": {
-      "path": "../packages/daigo-rewards"
+      "path": "https://github.com/cinderRepo/tinder"
     }
   }
 }
