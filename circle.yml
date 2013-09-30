@@ -2,6 +2,8 @@
 machine:
   environment:
     PATH: ~/meteor/:$PATH
+  node:
+    version: 0.10.11
 
 dependencies:
   override:
