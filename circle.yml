@@ -9,9 +9,10 @@ dependencies:
   override:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
-    - meteor --version
+    - cd /home/ubuntu/cinder.io; nohup bash -c "meteor &"
+    - python /home/cinder.io/MeteorUptest.py
 
 #Run Tests
 test:
   override:
-    - METEOR_PATH=/home/ubuntu/meteor laika -t 5000
+    - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -D -t 5000
