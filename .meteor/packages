@@ -12,7 +12,6 @@ email
 http
 iron-router
 standard-app-packages
-tracker
 #daigo-core
 #daigo-points
 #daigo-levels
@@ -21,3 +20,9 @@ tracker
 #daigo-achievements
 #daigo-quests
 #daigo-rewards
+collection2
+autoform
+simple-schema
+smart-collections
+flare
+tinder
