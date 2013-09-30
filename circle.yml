@@ -9,7 +9,7 @@ dependencies:
   override:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
-    - meteor --help
+    - meteor --version
 
 #Run Tests
 test:
