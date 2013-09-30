@@ -1,8 +1,10 @@
 #Install Meteor, Meteorite and Laika
 machine:
   pre:
-    - curl https://install.meteor.com | /bin/sh
+    - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
+  environment:
+    PATH: ~/meteor/:$PATH
 
 #Run Tests
 test:
