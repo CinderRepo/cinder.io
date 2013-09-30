@@ -9,7 +9,7 @@ dependencies:
   override:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
-    - ./home/ubuntu/meteor/scripts/generate-dev-bundle.sh
+    - bash /home/ubuntu/meteor/scripts/generate-dev-bundle.sh
 
 #Run Tests
 test:
