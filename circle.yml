@@ -9,6 +9,7 @@ dependencies:
   override:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
+    - npm install -g coffee-script
 
 #Run Tests
 test:
