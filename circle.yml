@@ -10,7 +10,7 @@ dependencies:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
     - cd /home/ubuntu/cinder.io; nohup bash -c "meteor &"
-    - python /home/cinder.io/MeteorUptest.py
+    - python /home/ubuntu/cinder.io/MeteorUptest.py
 
 #Run Tests
 test:
