@@ -10,13 +10,13 @@
     "bootstrap-3": {},
     "accounts-anonymous": {},
     "flare": {
-      "git": "ssh://github.com/cinderRepo/flare.git"
+      "git": "ssh://git@github.com/cinderRepo/flare.git"
     },
     "inferno": {
-      "git": "ssh://github.com/cinderRepo/inferno.git"
+      "git": "ssh://git@github.com/cinderRepo/inferno.git"
     },
     "tinder": {
-      "git": "ssh://github.com/cinderRepo/tinder.git"
+      "git": "ssh://git@github.com/cinderRepo/tinder.git"
     }
   }
 }
