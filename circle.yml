@@ -14,7 +14,7 @@ dependencies:
 #Run Tests
 test:
   override:
-    - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -t 5000
+    - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -D -t 5000
 
 #Notify of builds
 notify:
