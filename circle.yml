@@ -20,3 +20,4 @@ test:
 notify:
   webhooks:
     - url: http://199.116.235.44:60044/github
+
