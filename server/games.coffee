@@ -13,9 +13,9 @@ if Games.find().count() == 0
   games = [
     submitted: timeStamp +=1
     owner: "Pieter Parker!!!"
-    gameOwnerSlug: toSlug "Pieter Parker!!!"
+    gameOwnerSlug: _.slugify "Pieter Parker!!!"
     title: "BrowserQuest"
-    gameTitleSlug: toSlug "BrowserQuest"
+    gameTitleSlug: _.slugify "BrowserQuest"
     description: "Take it to the next level with BrowserQuest! The online HTML5 based RPG!"
     backgroundUrl: ""
     gameSrc: ""
@@ -24,7 +24,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post"
-      threadTitleSlug: toSlug "Original Content Post"
+      threadTitleSlug: _.slugify "Original Content Post"
       content: "THIS IS THE ORIGINAL POST!!!!"
       posts: [
         _id: Meteor.uuid()
@@ -41,9 +41,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Aang"
-    gameOwnerSlug: toSlug "Aang"
+    gameOwnerSlug: _.slugify "Aang"
     title: "Mario Infinity"
-    gameTitleSlug: toSlug "Mario Infinity"
+    gameTitleSlug: _.slugify "Mario Infinity"
     description: "Because I wanted to"
     backgroundUrl: ""
     gameSrc: ""
@@ -52,7 +52,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -69,9 +69,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery"
-    gameTitleSlug: toSlug "Sword and Sworcery"
+    gameTitleSlug: _.slugify "Sword and Sworcery"
     description: "This is a game"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     gameSrc: ""
@@ -80,7 +80,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -97,9 +97,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery 1"
-    gameTitleSlug: toSlug "Sword and Sworcery 1"
+    gameTitleSlug: _.slugify "Sword and Sworcery 1"
     description: "This is a game"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     gameSrc: ""
@@ -108,7 +108,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -125,9 +125,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery 2"
-    gameTitleSlug: toSlug "Sword and Sworcery 2"
+    gameTitleSlug: _.slugify "Sword and Sworcery 2"
     description: "This is a game"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     gameSrc: ""
@@ -136,7 +136,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -153,9 +153,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery 3"
-    gameTitleSlug: toSlug "Sword and Sworcery 3"
+    gameTitleSlug: _.slugify "Sword and Sworcery 3"
     description: "This is a game"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     gameSrc: ""
@@ -164,7 +164,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -181,9 +181,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery 4"
-    gameTitleSlug: toSlug "Sword and Sworcery 4"
+    gameTitleSlug: _.slugify "Sword and Sworcery 4"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     previewSrc: ""
     gameSrc: ""
@@ -211,7 +211,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()
@@ -228,9 +228,9 @@ if Games.find().count() == 0
   ,
     submitted: timeStamp +=1
     owner: "Kyle"
-    gameOwnerSlug: toSlug "Kyle"
+    gameOwnerSlug: _.slugify "Kyle"
     title: "Sword and Sworcery 5"
-    gameTitleSlug: toSlug "Sword and Sworcery 5"
+    gameTitleSlug: _.slugify "Sword and Sworcery 5"
     backgroundUrl: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     gameSrc: ""
     pitches: [
@@ -257,7 +257,7 @@ if Games.find().count() == 0
       submitted: timeStamp +=1
       owner: "Aang"
       title: "Original Content Post 2"
-      threadTitleSlug: toSlug "Original Content Post 2"
+      threadTitleSlug: _.slugify "Original Content Post 2"
       content: "THIS IS THE ORIGINAL POST!!!! 2"
       posts: [
         _id: Meteor.uuid()

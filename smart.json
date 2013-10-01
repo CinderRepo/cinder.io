@@ -4,6 +4,7 @@
     "streams": {},
     "iron-router": {},
     "handlebar-helpers": {},
+    "underscore-string-latest": {},
     "simple-schema": {},
     "collection2": {},
     "autoform": {},

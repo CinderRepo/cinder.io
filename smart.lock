@@ -6,6 +6,7 @@
       "streams": {},
       "iron-router": {},
       "handlebar-helpers": {},
+      "underscore-string-latest": {},
       "simple-schema": {},
       "collection2": {},
       "autoform": {},
@@ -44,6 +45,11 @@
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
         "tag": "v0.0.9",
         "commit": "71e94c99462b8801a34c5363510758b6ff5f5ac7"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
