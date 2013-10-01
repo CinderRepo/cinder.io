@@ -1,7 +1,7 @@
 #Install Meteor, Meteorite and Laika
 machine:
   environment:
-    PATH: ~/meteor/:$PATH
+    PATH: /home/ubuntu/meteor/:$PATH
   node:
     version: 0.10.11
 
@@ -9,8 +9,14 @@ dependencies:
   override:
     - git clone https://github.com/meteor/meteor.git ~/meteor
     - npm install -g meteorite laika
+    - npm install -g coffee-script
 
 #Run Tests
 test:
   override:
-    - METEOR_PATH=~/meteor laika -t 5000
+    - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -t 5000
+
+#Notify of builds
+notify:
+  webhooks:
+    - url: http://199.116.235.44:60044/github
