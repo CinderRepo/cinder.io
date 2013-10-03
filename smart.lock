@@ -10,7 +10,6 @@
       "simple-schema": {},
       "collection2": {},
       "autoform": {},
-      "bootstrap-3": {},
       "accounts-anonymous": {},
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",
@@ -22,6 +21,10 @@
       },
       "tinder": {
         "git": "ssh://git@github.com/CinderRepo/tinder.git",
+        "branch": "master"
+      },
+      "sticks": {
+        "git": "ssh://git@github.com/CinderRepo/sticks.git",
         "branch": "master"
       }
     },
@@ -53,8 +56,8 @@
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.2.7",
-        "commit": "1989849e97ee20f8226dd58b2630a6c6e3416598"
+        "tag": "v0.2.8",
+        "commit": "613c1df092a92aeefc3bcaa776ba259e7c3e4cf4"
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
@@ -63,13 +66,8 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.3.4",
-        "commit": "449ef4994a3e2dfe0616183cb998c9912c528c03"
-      },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v0.3.5",
-        "commit": "47996f67f3987c9f82117394effcbe1586a4fe29"
+        "commit": "31ac7088249df7fcf1d0f175cf104b70e09b041c"
       },
       "accounts-anonymous": {
         "git": "https://github.com/culshaw/meteor-accounts-anonymous.git",
@@ -90,6 +88,11 @@
         "git": "ssh://git@github.com/CinderRepo/tinder.git",
         "branch": "master",
         "commit": "cacad1e83a5e2c4d99a01404bc3391c05ef7ecde"
+      },
+      "sticks": {
+        "git": "ssh://git@github.com/CinderRepo/sticks.git",
+        "branch": "master",
+        "commit": "3f596f6d61a31e743a8961f1bf3bedaf4144d654"
       }
     }
   }

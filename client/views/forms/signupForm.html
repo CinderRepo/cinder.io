@@ -1,46 +1,16 @@
 <template name="signupForm">
-    {{#autoForm schema='Persons' validation="keyup" novalidate="novalidate" id="personsForm"}}
-    <fieldset>
-        <legend>Add a Person</legend>
-        <div class="form-group{{#if afFieldIsInvalid 'username'}} has-error{{/if}}">
-            {{afFieldLabel 'username'}}
-            {{afFieldInput 'username'}}
-            {{#if afFieldIsInvalid 'username'}}
-            <span class="help-block">{{afFieldMessage 'username'}}</span>
-            {{/if}}
-        </div>
-        <div class="form-group{{#if afFieldIsInvalid 'lastName'}} has-error{{/if}}">
-            {{afFieldLabel 'lastName'}}
-            {{afFieldInput 'lastName'}}
-            {{#if afFieldIsInvalid 'lastName'}}
-            <span class="help-block">{{afFieldMessage 'lastName'}}</span>
-            {{/if}}
-        </div>
-    </fieldset>
-    <button type="submit" class="btn btn-primary insert">Insert</button>
+    <section class="signupForm form" data-state="{{state}}">
+    {{#autoForm schema=signupFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit}}
+    <div class="form-group{{#if afFieldIsInvalid 'username'}} error{{/if}}">
+        {{afFieldInput "username" placeholder="Username" autocomplete="off"}}
+    </div>
+    <div class="form-group{{#if afFieldIsInvalid 'email'}} error{{/if}}">
+        {{afFieldInput "email" placeholder="myemail@email.com" autocomplete="off"}}
+    </div>
+    <div class="form-group{{#if afFieldIsInvalid 'password'}} error{{/if}}">
+        {{afFieldInput "password" type="password" placeholder="Password" autocomplete="off"}}
+    </div>
+    <button type="submit" class="form-button">></button>
     {{/autoForm}}
-    <table class="table table-bordered table-striped table-hover" style="margin: 25px 0;">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each users}}
-            <tr>
-                <td>{{_Id}}</td>
-                <td>{{username}}</td>
-                <td>{{#each emails}}{{address}}{{/each}}</td>
-                <td>
-                    {{#autoForm schema='Persons' doc=this novalidate="novalidate"}}
-                    <button type="submit" class="btn btn-primary remove">Delete</button>
-                    {{/autoForm}}
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    </section>
 </template>

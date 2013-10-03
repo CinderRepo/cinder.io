@@ -8,7 +8,6 @@
     "simple-schema": {},
     "collection2": {},
     "autoform": {},
-    "bootstrap-3": {},
     "accounts-anonymous": {},
     "flare": {
       "git": "ssh://git@github.com/CinderRepo/flare.git"
@@ -18,6 +17,9 @@
     },
     "tinder": {
       "git": "ssh://git@github.com/CinderRepo/tinder.git"
+    },
+    "sticks": {
+      "git": "ssh://git@github.com/CinderRepo/sticks.git"
     }
   }
 }

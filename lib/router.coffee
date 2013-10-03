@@ -1,57 +1,46 @@
 Router.map ->
   @route "home",
     path: "/"
+    data: ->
+      content: Content.find()
 
+  #GAMES FILTER
   @route "games",
     path: "/games"
     data: ->
-      #log 'games!'
-      games: Games.find()
+      games: Content.find
+        type: 'game'
 
-  @route "viewGame",
-    path: "/:gameOwnerSlug/:gameTitleSlug"
+  #MOVIE SPECIFIC ROUTES
+  @route "movies",
+    path: "/movies"
     data: ->
-      currentGame = Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
-      Session.set('currentGame',currentGame._id)
-      game: currentGame
+      movies: Content.find
+        type: 'movie'
 
-  @route "viewGameCommunity",
-    path: "/:gameOwnerSlug/:gameTitleSlug/community"
+  #SHOW SPECIFIC ROUTES
+  @route "shows",
+    path: "/shows"
     data: ->
-      #log 'viewGameCommunity!'
-      #log @params
-      game: Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
+      shows: Content.find
+        type: 'show'
 
-  @route "viewGameCommunityThread",
-    path: "/:gameOwnerSlug/:gameTitleSlug/community/:threadTitleSlug"
+  #PROFILE ROUTE
+  ###@route "viewContent",
+    path: "/:ownerSlug"
     data: ->
-      #log 'viewGameCommunityThread!'
-      #log @params
-      game: Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
+      contentOwner = Content.findOne
+        ownerSlug: @params.ownerSlug
+      contentOwnerUserId = Meteor.users.findOne
 
-  @route "playGame",
-    path: "/:gameOwnerSlug/:gameTitleSlug/play"
-    data: ->
-      #log 'playGame!'
-      #log @params
-      game: Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
+      Session.set('currentContent',contentOwner._id)
+      currentContent: contentOwner###
 
-  @route "fundGame",
-    path: "/:gameOwnerSlug/:gameTitleSlug/fund"
+  #CONTENT ROUTE
+  @route "viewContent",
+    path: "/:ownerSlug/:titleSlug"
     data: ->
-      #log 'fundGame!'
-      #log @params
-      game: Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
-
-  @route "remixGame",
-    path: "/:gameOwnerSlug/:gameTitleSlug/remix"
-    data: ->
-      #log 'remixGame!'
-      #log @params
-      game: Games.findOne
-        gameTitleSlug: @params.gameTitleSlug
+      currentContent = Content.findOne
+        titleSlug: @params.titleSlug
+      Session.set('currentContent',currentContent._id)
+      currentContent: currentContent

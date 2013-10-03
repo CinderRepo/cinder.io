@@ -1,3 +1,4 @@
+@Content = new Meteor.SmartCollection "content"
 @Games = new Meteor.SmartCollection "games"
 @Movies = new Meteor.SmartCollection "videos"
 @Shows = new Meteor.SmartCollection "shows"

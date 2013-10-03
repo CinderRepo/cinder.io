@@ -1,0 +1,22 @@
+@import 'nib'
+@import '../variables'
+
+.contentInfo
+  position(relative)
+  //whiteTheme(0.9)
+  minSize(auto,auto)
+  size(auto,auto)
+  maxSize(auto,auto)
+  &.cell
+    margin 10px 0 10px 0
+  &[data-editable="true"]:hover
+    whiteTheme(0.9)
+.removeContentInfo
+  minSize(40,40)
+  size(40,40)
+  maxSize(40,40)
+  border-radius 40px
+  background green
+  cursor pointer
+  &:hover
+    background purple

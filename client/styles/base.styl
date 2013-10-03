@@ -4,7 +4,7 @@
 *
   box-sizing border-box
   -webkit-tap-highlight-color transparent
-  color midnight(0.9)
+  color white(0.9)
 html
   height 100%
   background white(0.9)
@@ -27,6 +27,13 @@ input,button,textarea
 input:focus,
 textarea:focus
   outline none
+//Placeholder Styles
+input::-webkit-input-placeholder
+  color white(0.5)
+input::-moz-placeholder
+  color white(0.5)
+input:-ms-input-placeholder
+  color white(0.5)
 select
   cursor pointer
 nav,ul,ol
@@ -49,4 +56,5 @@ a
 p
   margin 0
 a:hover,a:active,a[data-active="true"]
+  text-decoration none
   color radiantBlue(0.9)

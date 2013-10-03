@@ -1,5 +1,30 @@
 <template name="rightSidebar">
   <section class="sidebar right">
-    RIGHT SIDEBAR
+    <nav class="sidebarHeader">
+      {{#if currentUser}}
+      {{#with currentUser}}
+      <li class="sidebarHeaderItem">
+          Hello, {{username}}
+      </li>
+      <li class="sidebarHeaderItem">
+        <a data-action="logout">
+          Logout
+        </a>
+      </li>
+      {{/with}}
+      {{else}}
+      <li class="sidebarHeaderItem"><a data-action="loginForm">Login</a></li>
+      <li class="sidebarHeaderItem"><a data-action="signupForm">Signup</a></li>
+      {{/if}}
+    </nav>
+    <div class="sidebarContent">
+      {{>signupForm}}
+    </div>
+    <ul class="sidebarNotches">
+      <li class="sidebarNotch"></li>
+      <li class="sidebarNotch"></li>
+      <li class="sidebarNotch"></li>
+      <li class="sidebarNotch"></li>
+    </ul>
   </section>
 </template>

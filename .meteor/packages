@@ -42,7 +42,6 @@ handlebar-helpers #A group of handlebar helpers for Meteor.
 #Mesosphere #A dual client/server side form data validation and transformation package for Meteor.
 simple-schema #A simple, reactive schema validation smart package for Meteor.
 collection2 #Validate collections against a schema.
-bootstrap-3 #Bootstrap 3.0 packaged for Meteor.
 autoform #Easily create reactive forms with validation.
 accounts-anonymous #Anonymous account support.
 #sharejs #Add ShareJS editors to an app. Includes the Ace editor.
@@ -58,3 +57,4 @@ daigo-achievements #Gamification achievements system for use within a Meteor app
 daigo-quests #Gamification quests system for use within a Meteor app.
 daigo-rewards #Gamification rewards system for use within a Meteor app.
 underscore-string-latest #underscore.string repackaged for Meteor
+sticks #A responsive mobile first flexbox based grid layout system for Meteor.

@@ -12,7 +12,5 @@ Router.configure
       to: "rightSidebar"
 
 @Subscriptions =
-  games: Meteor.subscribe "allGames"
-  movies: Meteor.subscribe "allMovies"
-  shows: Meteor.subscribe "allShows"
+  content: Meteor.subscribe "allContent"
   users: Meteor.subscribe "allUsers"

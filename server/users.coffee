@@ -1,3 +1,9 @@
+#Disable calling createUser from the client
+#Accounts.config(
+  #sendVerificationEmail: true
+  #forbidClientAccountCreation: true
+#)
+
 Meteor.users.allow
   insert: () ->
     true
@@ -9,45 +15,39 @@ Meteor.users.allow
 Meteor.publish "allUsers", ->
   Meteor.users.find()
 
-#Validate user creation and to the user object
-###Accounts.validateNewUser (user) ->
-  log "validateNewUser called."
-  log "user:",user
+#We check the schema again on the server to be sure that we're not
+#Having calls bypassed via Accounts.CreateUser() from the client
+Schema.newUserSchema = new SimpleSchema
+  username:
+    type: String
+    min: 3
+  email:
+    type: String
+    regEx: SchemaRegEx.Email
+    min: 3
 
-  if user.anonymous and !user.username and !user.emails and !user.password
-    #log 'User is anonymous, and no username/emails/passwords have been passed in. Create an empty anonymous user.'
+#Check that doc fits with business logic
+Accounts.validateNewUser (doc) ->
+  log "validateNewUser called, checking business logic."
+  #We input the values into a schema and test it against our
+  #signupFormSchema to be sure the values are the same in both areas.
+  #log "doc: ",doc
+  userObject =
+    username: doc.username
+    email: doc.emails[0].address
+  check(userObject,Schema.newUserSchema)
+  log "Returning true?"
+  true
+
+#Check that a user with that username doesn't exist already
+Accounts.validateNewUser (doc) ->
+  log "validateNewUser called, checking to see if username already exists."
+  unless Meteor.users.findOne("username": doc.username)
     true
-  else
-    #Only fire if all arguments are properly passed in and user is not anonymous.
-    log "CHECKING THIS SHIT!"
-    rawFormData = [
-      name: "username"
-      value: user.username
-    ,
-      name: "email"
-      value: user.emails[0].address
-    ,
-      name: "password"
-      value: user.services.password
-    ]
 
-    validationObject = Mesosphere.signupForm.validate(rawFormData)
-    #If errors exist, generate the proper notifications to send back to the client.
-    if validationObject.errors
-      _.each validationObject.formData, (value,key) ->
-        if validationObject.errors[key]
-          #Send a notification and return false if there's an error
-          sendNotification
-            field: key
-            message: validationObject.errors[key].message
-          false
-        else
-          #Clear a notification if there's no error for that field,
-          #this is to clear errors that may exist already but have since
-          #been corrected by validation.
-          clearNotification
-            field: key
-            message: value.message
-    else
-      #No errors exist, we can return true and create the user.
-      true###
+#Check that a user with that email doesn't exist already
+Accounts.validateNewUser (doc) ->
+  log "validateNewUser called, checking to see if email already exists."
+  log "doc:",doc
+  unless Meteor.users.findOne("addresses.0.email": doc.emails[0].address)
+    true
