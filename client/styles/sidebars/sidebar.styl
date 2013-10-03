@@ -10,6 +10,8 @@
     position(fixed,20,auto,20,20)
     .sidebarHeader
       left 0
+      &:after
+        left 0
     .sidebarNotches
       right 0
     .sidebarContent
@@ -18,6 +20,8 @@
     position(fixed,20,20,20,auto)
     .sidebarHeader
       right 0
+      &:after
+        right 0
     .sidebarNotches
       left 0
     .sidebarContent
@@ -31,12 +35,14 @@
     minSize(300,0)
     size(300,0)
     maxSize(300,0)
-    position(absolute,auto,0,0,auto)
+    position(absolute,auto,auto,0,auto)
     border-bottom 1px solid white(0.9)
+    pointer-events none
   .sidebarHeaderItem
     float left
     size(auto,inherit)
     padding 0 10px 0 10px
+    cursor pointer
     &:first-child
       padding 0 10px 0 0
     &:last-child

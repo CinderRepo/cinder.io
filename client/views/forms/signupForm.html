@@ -1,5 +1,5 @@
 <template name="signupForm">
-    <section class="signupForm form" data-state="{{state}}">
+    <section id="signupForm" class="form" data-active="{{$.Session.get 'signupFormActive'}}">
     {{#autoForm schema=signupFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit}}
     <div class="form-group{{#if afFieldIsInvalid 'username'}} error{{/if}}">
         {{afFieldInput "username" placeholder="Username" autocomplete="off"}}

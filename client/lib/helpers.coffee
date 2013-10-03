@@ -1,4 +1,4 @@
-Handlebars.registerHelper "userCanEdit", (user, owner) ->
+#Handlebars.registerHelper "userCanEdit", (user, owner) ->
   #log 'userIsOwner handlebars helper called'
   #log "user: ",user.hash
   #log "owner: ",owner

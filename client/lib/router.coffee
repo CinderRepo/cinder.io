@@ -4,8 +4,6 @@ Router.configure
   loadingTemplate: "loading"
 
   renderTemplates:
-    "header":
-      to: "header"
     "leftSidebar":
       to: "leftSidebar"
     "rightSidebar":

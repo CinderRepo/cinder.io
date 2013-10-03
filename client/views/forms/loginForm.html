@@ -1,11 +1,13 @@
 <template name="loginForm">
-  <section class="form login">
-    <form class="form" id="loginForm" name="loginForm">
-      <input type="text" name="usernameOrEmail" placeholder="usernameOrEmail"/>
-      <div class="error" data-field="usernameOrEmail"></div>
-      <input type="password" name="password" placeholder="password"/>
-      <div class="error" data-field="password"></div>
-      <button class="formSubmit" type="submit">Submit</button>
-    </form>
-  </section>
+  <section id="loginForm" class="form" data-active="{{$.Session.get 'loginFormActive'}}">
+    {{#autoForm schema=loginFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit}}
+    <div class="form-group{{#if afFieldIsInvalid 'usernameOrEmail'}} error{{/if}}">
+        {{afFieldInput "usernameOrEmail" placeholder="Username or Email" autocomplete="off"}}
+    </div>
+    <div class="form-group{{#if afFieldIsInvalid 'password'}} error{{/if}}">
+        {{afFieldInput "password" type="password" placeholder="Password" autocomplete="off"}}
+    </div>
+    <button type="submit" class="form-button">></button>
+    {{/autoForm}}
+    </section>
 </template>

@@ -7,18 +7,23 @@
           Hello, {{username}}
       </li>
       <li class="sidebarHeaderItem">
-        <a data-action="logout">
+        <a class="sidebarHeaderItemLink" data-action="logout">
           Logout
         </a>
       </li>
       {{/with}}
       {{else}}
-      <li class="sidebarHeaderItem"><a data-action="loginForm">Login</a></li>
-      <li class="sidebarHeaderItem"><a data-action="signupForm">Signup</a></li>
+      <li class="sidebarHeaderItem"><a class="sidebarHeaderItemLink" data-action="loginForm">Login</a></li>
+      <li class="sidebarHeaderItem"><a class="sidebarHeaderItemLink" data-action="signupForm">Signup</a></li>
       {{/if}}
     </nav>
     <div class="sidebarContent">
-      {{>signupForm}}
+      {{#if currentUser}}
+        Logged In Content Will Go Here
+      {{else}}
+        {{>signupForm}}
+        {{>loginForm}}
+      {{/if}}
     </div>
     <ul class="sidebarNotches">
       <li class="sidebarNotch"></li>
