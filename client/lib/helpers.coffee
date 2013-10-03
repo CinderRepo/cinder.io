@@ -1,3 +1,8 @@
+Handlebars.registerHelper 'icon', (context) ->
+  #Only output if the template actually exists
+  log "context: ",context
+  if typeof(Template[context + 'Icon']) is 'function'
+    new Handlebars.SafeString(Template[context + 'Icon']())
 #Handlebars.registerHelper "userCanEdit", (user, owner) ->
   #log 'userIsOwner handlebars helper called'
   #log "user: ",user.hash

@@ -1,12 +1,15 @@
 <template name="viewContent">
   {{#with currentContent}}
-  <secion id="viewContentWallpaper" style="background-image: url('{{contentBg}}');"></secion>
-  <div class="publishContentInfo">p</div>
+  <section class="viewContentWallpaper" style="background-image: url('{{contentBg}}');"></section>
   <section id="viewContent" class="grid maxWidth600">
-    <div class="addContentInfo">+</div>
-    {{#each pitches}}
-      {{>contentInfo}}
-    {{/each}}
+    <h1 class="contentTitle">{{title}}</h1>
+    {{#if pitches}}
+      {{#each pitches}}
+        {{>contentInfo}}
+      {{/each}}
+    {{else}}
+      PITCHES ARE EMPTY, HERE COMES INTRO TEXT?
+    {{/if}}
   </section>
   {{/with}}
 </template>

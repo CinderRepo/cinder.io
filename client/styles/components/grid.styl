@@ -2,8 +2,9 @@
 @import '../variables'
 
 .grid
-  margin 80px 40px 0 40px
+  margin 80px 400px 0 400px
   background transparent
+  padding 0 0 20px 0
 .cell
   minSize(auto,auto)
   size(auto,auto)
@@ -13,6 +14,12 @@
   cursor pointer
   float left
   padding 10px
+  z-index 1
+  &.tile
+    border 1px solid white(0.4)
+    minSize(inherit,400px)
+    size(auto,400px)
+    maxSize(inherit,400px)
 .cellTitle
   font-size 18px
 .cellContent

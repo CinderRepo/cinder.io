@@ -1,4 +1,7 @@
 <template name="movies">
+  {{#with featured}}
+  <section class="viewContentWallpaper" style="background-image: url('{{contentBg}}');"></section>
+  {{/with}}
   <section id="movies" class="grid">
   {{#each movies}}
     {{>cell}}

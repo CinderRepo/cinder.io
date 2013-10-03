@@ -11,6 +11,7 @@
       "collection2": {},
       "autoform": {},
       "accounts-anonymous": {},
+      "sharejs": {},
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",
         "branch": "master"
@@ -31,8 +32,8 @@
     "packages": {
       "smart-collections": {
         "git": "https://github.com/arunoda/meteor-smart-collections.git",
-        "tag": "v0.3.19",
-        "commit": "84851247b458614a95d1484f583a8ec257d9399d"
+        "tag": "v0.3.22",
+        "commit": "34710960d08dddc206abefbb59dc17c93735a721"
       },
       "streams": {
         "git": "https://github.com/arunoda/meteor-streams.git",
@@ -73,6 +74,11 @@
         "git": "https://github.com/culshaw/meteor-accounts-anonymous.git",
         "tag": "v0.0.2",
         "commit": "1daf8961ae461ec370d3ce841f9e78b828aa1aec"
+      },
+      "sharejs": {
+        "git": "https://github.com/mizzao/meteor-sharejs.git",
+        "tag": "v0.3.0",
+        "commit": "a3aa23ecec193fa68df88bc1aef93286d13cf461"
       },
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",

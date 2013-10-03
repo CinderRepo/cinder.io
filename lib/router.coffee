@@ -3,12 +3,17 @@ Router.map ->
     path: "/"
     data: ->
       content: Content.find()
+      featured: Content.findOne
+        featured: true
 
   #GAMES FILTER
   @route "games",
     path: "/games"
     data: ->
       games: Content.find
+        type: 'game'
+      featured: Content.findOne
+        featured: true
         type: 'game'
 
   #MOVIE SPECIFIC ROUTES
@@ -17,12 +22,18 @@ Router.map ->
     data: ->
       movies: Content.find
         type: 'movie'
+      featured: Content.findOne
+        featured: true
+        type: 'movie'
 
   #SHOW SPECIFIC ROUTES
   @route "shows",
     path: "/shows"
     data: ->
       shows: Content.find
+        type: 'show'
+      featured: Content.findOne
+        featured: true
         type: 'show'
 
   #PROFILE ROUTE

@@ -17,6 +17,7 @@ if Content.find().count() == 0
     description: "You can't make 500 million friends without making a few enemies."
     contentBg: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     contentSrc: ""
+    featured: true
     pitches: []
     threads: [
       submitted: timeStamp +=1
@@ -46,6 +47,7 @@ if Content.find().count() == 0
     description: "Picture a life without limits. Then go beyond it."
     contentBg: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     contentSrc: ""
+    featured: false
     pitches: []
     threads: [
       submitted: timeStamp +=1
@@ -104,6 +106,7 @@ if Content.find().count() == 0
     description: "Punch that shit."
     contentBg: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     contentSrc: ""
+    featured: true
     pitches: []
     threads: [
       submitted: timeStamp +=1
@@ -133,6 +136,7 @@ if Content.find().count() == 0
     description: "Never eat marshmallows."
     contentBg: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     contentSrc: ""
+    featured: true
     pitches: []
     threads: [
       submitted: timeStamp +=1
@@ -162,6 +166,7 @@ if Content.find().count() == 0
     description: "Never eat pumpkin pie."
     contentBg: "/games/sword-and-sworcery/background/sword-and-sworcery-bg.png"
     contentSrc: ""
+    featured: false
     pitches: []
     threads: [
       submitted: timeStamp +=1
@@ -197,6 +202,7 @@ if Content.find().count() == 0
       description: contentData.description
       contentBg: contentData.contentBg
       contentSrc: contentData.contentSrc
+      featured: contentData.featured
       pitches: contentData.pitches
       threads: contentData.threads
 

@@ -36,7 +36,7 @@
     size(300,0)
     maxSize(300,0)
     position(absolute,auto,auto,0,auto)
-    border-bottom 1px solid white(0.9)
+    border-bottom 1px solid white(0.4)
     pointer-events none
   .sidebarHeaderItem
     float left
@@ -47,15 +47,19 @@
       padding 0 10px 0 0
     &:last-child
       padding 0 0 0 10px
+    .sidebarHeaderItemLink
+      color white(0.4)
+      &:hover
+        color white(0.9)
 .sidebarNotches
   size(40,auto)
   position(absolute,60px,auto,auto,auto)
   .sidebarNotch
     size(40,40)
-    whiteTheme(0.95)
     margin 0 0 20px 0
 .sidebarContent
   minSize(300,auto)
   size(300,auto)
   maxSize(300,auto)
   position(absolute,60px,auto,auto,auto)
+  color white(0.4)

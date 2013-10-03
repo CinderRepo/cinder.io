@@ -9,6 +9,7 @@
     "collection2": {},
     "autoform": {},
     "accounts-anonymous": {},
+    "sharejs": {},
     "flare": {
       "git": "ssh://git@github.com/CinderRepo/flare.git"
     },

@@ -44,7 +44,7 @@ simple-schema #A simple, reactive schema validation smart package for Meteor.
 collection2 #Validate collections against a schema.
 autoform #Easily create reactive forms with validation.
 accounts-anonymous #Anonymous account support.
-#sharejs #Add ShareJS editors to an app. Includes the Ace editor.
+sharejs #Add ShareJS editors to an app. Includes the Ace editor.
 flare #Analytics tracking system for the cinder.io platform.
 inferno #Live collaborative editing for the cinder.io platform.
 tinder #Online payments system for the cinder.io platform.

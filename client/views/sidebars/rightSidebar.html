@@ -4,7 +4,9 @@
       {{#if currentUser}}
       {{#with currentUser}}
       <li class="sidebarHeaderItem">
-          Hello, {{username}}
+        <a class="sidebarHeaderItemLink">
+          {{username}}
+        </a>
       </li>
       <li class="sidebarHeaderItem">
         <a class="sidebarHeaderItemLink" data-action="logout">
@@ -20,6 +22,11 @@
     <div class="sidebarContent">
       {{#if currentUser}}
         Logged In Content Will Go Here
+        {{#if currentContent}}
+          {{title}}
+          <div class="publishContentInfo">p</div>
+          <div class="addContentInfo">+</div>
+        {{/if}}
       {{else}}
         {{>signupForm}}
         {{>loginForm}}
@@ -29,7 +36,7 @@
       <li class="sidebarNotch"></li>
       <li class="sidebarNotch"></li>
       <li class="sidebarNotch"></li>
-      <li class="sidebarNotch"></li>
+      <li class="sidebarNotch">{{icon 'edit'}}</li>
     </ul>
   </section>
 </template>
