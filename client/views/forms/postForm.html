@@ -1,9 +1,7 @@
 <template name="postForm">
   <section id="postForm" class="form">
     {{#autoForm schema=postFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
-    <div class="formSection">
-        {{afFieldInput "content" class="formInput" placeholder="Write a post.." autocomplete="off"}}
-    </div>
+    {{afFieldInput "content" class="formInput expanding" placeholder="Write a post.." autocomplete="off" rows="10"}}
     <button type="submit" class="formSubmit">Add Post</button>
     {{/autoForm}}
     </section>

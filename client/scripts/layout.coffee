@@ -31,19 +31,25 @@ $(window).on("keyup",(e)->
   else
     Session.set("coverHidden",false)
 
+#Make it so that all textareas expand based on text content in the application
+Template.layout.rendered = () ->
+  log "contentInfo Rendered"
+  textareas = $(this.findAll(".expanding"))
+  textareas.expandingTextarea()
+
 Template.layout.events
   "keyup textarea":(e,t)->
-    log "typing.."
-    log "e.which:",e.which
-    log "@: ",@
+    #log "typing.."
+    #log "e.which:",e.which
+    #log "@: ",@
     form = $(t.find("form"))
-    log "form: ",form
+    #log "form: ",form
     if e.which is 13 and !e.shiftKey
       e.preventDefault()
-      log "Enter pressed in a text area!"
-      form.submit((e)->
-        false
-      )
+      #log "Enter pressed in a text area!"
+      #form.submit((e)->
+      #  false
+      #)
   "blur [contenteditable='true']":(e,t)->
     #Persist any changes the user has made to the appropriate collection.
     log "blurred!"
@@ -126,11 +132,3 @@ Template.contentInfo.helpers
     self = this
     log "self: ",self
     Posts.find(parent: self._id)
-Template.layout.rendered = () ->
-  log "contentInfo Rendered"
-  log "this: ",this
-  textareas = $(this.findAll(".expanding"))
-  log "textareas: ",textareas
-  #textareas.expandingTextArea()
-  log "$.expandingTextArea: ",$.expandingTextArea
-  $(".expanding").expandingTextArea()
