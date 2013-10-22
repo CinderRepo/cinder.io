@@ -1,0 +1,40 @@
+<template name="cover">
+  <section id="cover" data-hidden="{{$.Session.get 'coverHidden'}}">
+    <div id="closeCover">
+      {{icon 'add'}}
+    </div>
+    <div id="coverContentWrapper">
+      <div id="centeredCoverContent">
+        {{#if coverIs 'signup'}}
+          <div class="cinder">
+            {{icon 'cinder'}}
+          </div>
+          {{!<h2 id="coverTitle">Signup</h2>}}
+          <div id="coverContent">
+
+          </div>
+          {{>signupForm}}
+        {{/if}}
+
+        {{#if coverIs 'login'}}
+          <div class="cinder">
+            {{icon 'cinder'}}
+          </div>
+          {{!<h2 id="coverTitle">Login</h2>}}
+          <div id="coverContent">
+
+          </div>
+          {{>loginForm}}
+        {{/if}}
+
+        {{#if coverIs 'create'}}
+          {{!<h2 id="coverTitle">Create</h2>}}
+          <div id="coverContent">
+
+          </div>
+          {{>createForm}}
+        {{/if}}
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,0 +1,60 @@
+@import 'nib'
+@import 'variables'
+
+tileWidth = 300px
+tilePadding = 40px
+totalSidebarWidths = 500px // 250 + 250
+
+//The math we use for detecting the appropriate content widths is:
+//Desired Detected Screen Real Estate + Left Sidebar Width + Left Sidebar Margin + Right Sidebar Width + Right Sidebar Margin
+//800 + 250 + 20 + 250 + 20 = 1340
+
+//ONE COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+/*@media only screen and (max-width : 1340px)
+	#centeredContent
+		width tileWidth+tilePadding
+
+//TWO COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 1341px) and (max-width : 1840px)
+	#centeredContent
+		width tileWidth*2
+
+//THREE COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 1841px) and (max-width : 2140px)
+	#centeredContent
+		width tileWidth*3
+
+//FOUR COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 2141px) and (max-width : 2540px)
+	#centeredContent
+		width tileWidth*4
+
+//FIVE COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 2541px) and (max-width : 2940px)
+	#centeredContent
+		width tileWidth*5
+
+//SIX COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 2941px) and (max-width : 3340px)
+	#centeredContent
+		width tileWidth*6
+
+//SEVEN COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 3341px) and (max-width : 3740px)
+	#centeredContent
+		width tileWidth*7
+
+//EIGHT COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 3741px) and (max-width : 4140px)
+	#centeredContent
+		width tileWidth*8
+
+//NINE COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 4141px) and (max-width : 4540px)
+	#centeredContent
+		width tileWidth*9
+
+//TEN COLUMN LAYOUT - ACCOUNTS FOR WIDTHS OF LEFT AND RIGHT SIDEBARS
+@media only screen and (min-width : 4541px) and (max-width : 4940px)
+	#centeredContent
+		width tileWidth*10*/

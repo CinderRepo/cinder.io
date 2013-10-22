@@ -1,0 +1,16 @@
+@import 'nib'
+@import '../variables'
+
+.iconWrapper
+  height inherit
+  width inherit
+  cursor pointer
+.icon
+  height inherit
+  width inherit
+  -webkit-user-select none
+  position(absolute)
+  display block //Prevents the icon from being treated like a text element when aligning text
+.icon:hover > *,
+.icon:focus > *
+  fill midnight(0.9)

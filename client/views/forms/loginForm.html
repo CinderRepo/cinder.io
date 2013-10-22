@@ -1,0 +1,13 @@
+<template name="loginForm">
+  <section id="loginForm" class="form">
+    {{#autoForm schema=loginFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
+    <div class="formSection">
+        {{afFieldInput "usernameOrEmail" class="formInput" placeholder="Username or Email" autocomplete="off"}}
+    </div>
+    <div class="formSection">
+        {{afFieldInput "password" class="formInput" type="password" placeholder="Password" autocomplete="off"}}
+    </div>
+    <button type="submit" class="formSubmit">Login</button>
+    {{/autoForm}}
+    </section>
+</template>

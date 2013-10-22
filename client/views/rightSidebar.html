@@ -1,0 +1,32 @@
+<template name="rightSidebar">
+  <section class="sidebar right">
+    <div class="sidebarContentSection">
+      {{#if content}}
+      {{#with content}}
+      <h2 class="sidebarContentSectionHeader">Info</h2>
+      <nav class="sidebarList">
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/about"><div class="sidebarListItemIcon"></div>About</a>
+        </li>
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/community"><div class="sidebarListItemIcon"></div>Community</a>
+        </li>
+        {{#with hidden}}
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/rewards"><div class="sidebarListItemIcon"></div>Rewards</a>
+        </li>
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/commissions"><div class="sidebarListItemIcon"></div>Commissions</a>
+        </li>
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/updates"><div class="sidebarListItemIcon"></div>Updates</a>
+        </li>
+        {{/with}}
+      </nav>
+      {{/with}}
+      {{else}}
+      Recommended Channels
+      {{/if}}
+    </div>
+  </section>
+</template>

@@ -1,0 +1,77 @@
+@import 'nib'
+@import 'variables'
+
+.contentInfo
+  position(relative)
+  cursor default
+  margin 0 0 20px 0
+  border 1px solid rgba(0, 0, 0, 0.1)
+  border-radius 4px
+  background rgba(235,235,235,0.5)
+  .contentOwner
+    display inline-block
+    padding 10px 0 0 10px
+    font-weight bold
+  .contentPost
+    //padding 10px
+    .title
+      font-size 24px
+      min-height 50px
+      padding 10px
+      border-bottom 1px solid rgba(0,0,0,0.1)
+  .form
+    max-width none
+    min-height 40px
+    .formSection
+      margin 0
+      .formInput
+        padding 10px
+        border-radius 0 0 4px 4px
+        height 40px
+        font-size 14px
+        background rgba(245,245,245,0.5)
+        border-top 1px solid rgba(0,0,0,0.1)
+    .formSubmit
+      display none
+  //margin 0 30px 10px 30px
+  //This is for handling nested content styles (i.e. posts and replies)
+  .contentInfo
+    padding 0
+    margin 0
+    border none
+    border-top 1px solid rgba(0,0,0,0.1)
+    background rgba(225,225,225,0.3)
+    border-radius 0
+  //We have this so that the mouse cursor is a pointer if the user is able to edit,
+  //It has no actual functional purpose, and is merely meant to serve aesthetics.
+  &[data-editable="true"]
+    cursor pointer
+  .content
+    line-height 1.5
+    padding 0 10px 10px 10px
+    //padding 10px 0 10px 0
+    //margin 0 30px 0 30px
+    .post
+      padding 0
+  &:last-of-type
+    //margin 0 30px 0 30px
+  &:hover
+    [contenteditable="true"]
+      //border-color rgba(0,0,0,0.5)
+    .remove
+      display block
+  .postContentInfo
+    minSize(auto,40)
+    border-top 1px solid rgba(0,0,0,0.1)
+    color midnight(0.5)
+    &:hover, &:focus
+      color midnight(0.9)
+.remove
+  minSize(24,24)
+  size(24,24)
+  maxSize(24,24)
+  cursor pointer
+  position(absolute,auto,auto,auto,0)
+  top 50%
+  margin -12px 0 0 0
+  display none

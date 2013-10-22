@@ -1,0 +1,52 @@
+@import 'nib'
+@import 'variables'
+
+.cinder
+  size(40,40)
+  position(fixed,20px,auto,auto,20px)
+  z-index 99
+#cover
+  position(fixed,0,0,0,0)
+  background rgba(240,240,240,1)
+  z-index 100
+  color black
+  .cinder
+    position(static)
+    margin 0 auto 40px auto
+    size(240,240)
+    .iconWrapper
+      cursor auto
+    .icon > *
+      //fill white(0.5)
+  &[data-hidden="true"]
+    display none
+  #closeCover
+    position(absolute,20px,20px,auto,auto)
+    size(40,40)
+    transform rotate(45deg)
+    transform-origin 50% 50%
+    z-index 100
+    .icon > *
+      //fill white(0.5)
+  #coverContentWrapper
+    text-align center
+    position(absolute,0,0,0,0)
+    overflow(hidden,scroll)
+    &:before
+      content ""
+      display inline-block
+      height 100%
+      vertical-align middle
+    #centeredCoverContent
+      display inline-block
+      vertical-align middle
+      min-width 360px
+      max-width 800px
+      padding 20px 0 20px 0
+    #coverTitle
+      text-transform uppercase
+      font-size 48px
+      //margin 0 0 20px 0
+     //background blue
+  #coverContent
+    //width 800px

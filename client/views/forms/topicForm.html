@@ -1,0 +1,13 @@
+<template name="topicForm">
+  <section id="topicForm" class="form">
+    {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
+    <div class="formSection">
+        {{afFieldInput "title" class="formInput" placeholder="Title" autocomplete="off"}}
+    </div>
+    <div class="formSection">
+        {{afFieldInput "content" class="formInput expanding" placeholder="Write a topic.." autocomplete="off" rows="10"}}
+    </div>
+    <button type="submit" class="formSubmit">Add Topic</button>
+    {{/autoForm}}
+    </section>
+</template>

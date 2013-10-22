@@ -1,0 +1,18 @@
+<template name="layout">
+  <section id="layout">
+    <div class="cinder" data-action="toggleOverlay">
+      {{icon 'cinder'}}
+    </div>
+    <section id="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}">
+    {{>leftSidebar}}
+    <section id="content">
+      <section id="centeredContent">
+      {{yield}}
+      </section>
+    </section>
+    {{>rightSidebar}}
+    </section>
+    {{>player}}
+  </section>
+  {{>cover}}
+</template>

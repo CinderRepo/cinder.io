@@ -1,0 +1,44 @@
+<template name="leftSidebar">
+  <section class="sidebar left">
+    <div class="sidebarContentSection">
+      {{!Browse Section}}
+      <h2 class="sidebarContentSectionHeader">Browse</h2>
+      <nav class="sidebarList">
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/"><div class="sidebarListItemIcon"></div>Home</a></li>
+        {{!<li class="sidebarListItem"><a class="sidebarListItemLink" href="/all"><div class="sidebarListItemIcon"></div>All</a></li>}}
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/games"><div class="sidebarListItemIcon">{{icon 'game'}}</div>Games</a></li>
+        {{!We use this as a hacky way to hide items we don't want to render to the front end yet, but don't want to delete. Hidden is a result that will never return true, thus it will never show.}}
+        {{#with hidden}}
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/movies"><div class="sidebarListItemIcon">{{icon 'movie'}}</div>Movies</a></li>
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/shorts"><div class="sidebarListItemIcon">{{icon 'short'}}</div>Shorts</a></li>
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/songs"><div class="sidebarListItemIcon">{{icon 'song'}}</div>Songs</a></li>
+        {{/with}}
+      </nav>
+
+      {{!Get Started Section}}
+      <h2 class="sidebarContentSectionHeader">Get Started</h2>
+      <nav class="sidebarList">
+        {{#if $not currentUser}}<li class="sidebarListItem" data-action="toggleCover" data-cover="signup"><a class="sidebarListItemLink"><div class="sidebarListItemIcon"></div>Signup</a></li>{{/if}}
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href=""><div class="sidebarListItemIcon"></div>Get the app</a></li>
+        <li class="sidebarListItem" data-action="toggleCover" data-cover="{{#if currentUser}}create{{else}}signup{{/if}}"><a class="sidebarListItemLink" href=""><div class="sidebarListItemIcon"></div>Create</a></li>
+      </nav>
+
+      {{!Following Section}}
+      {{!<h2 class="sidebarContentHeader">Following</h2>}}
+
+      {{!Account Section}}
+      <h2 class="sidebarContentSectionHeader">Account</h2>
+      <nav class="sidebarList">
+      {{#if currentUser}}
+        {{#with currentUser}}
+        <li class="sidebarListItem"><a class="sidebarListItemLink" href="/users/{{toSlug username}}"><div class="sidebarListItemIcon"></div>{{username}}</a></li>
+        {{/with}}
+        <li class="sidebarListItem" data-action="logout"><a class="sidebarListItemLink"><div class="sidebarListItemIcon"></div>Logout</a></li>
+      {{else}}
+        <li class="sidebarListItem" data-action="toggleCover" data-cover="login"><a class="sidebarListItemLink"><div class="sidebarListItemIcon"></div>Login</a></li>
+        <li class="sidebarListItem" data-action="toggleCover" data-cover="signup"><a class="sidebarListItemLink"><div class="sidebarListItemIcon"></div>Signup</a></li>
+      {{/if}}
+      </nav>
+    </div>
+  </section>
+</template>
