@@ -1,0 +1,53 @@
+<template name="content">
+  <section id="contentPane">
+  {{#with content}}
+    <div id="contentMasthead">
+      <div id="contentPreview" style="background-image: url('{{contentPreview}}');">
+        <div id="contentPlay" data-action="play">{{icon 'play'}}</div>
+      </div>
+      <h1 id="contentTitle" contenteditable="true" spellcheck="false" data-collection="Content" data-value="title" data-action="update">{{title}}</h1>
+      <a id="contentOwner" href="/users/{{ownerSlug}}">{{owner}}</a>
+      <ul class="contentList">
+        <li class="contentListItem"><div class="contentListItemIcon"></div><a class="contentListItemLink" data-action="play">Play</a></li>
+        <li class="contentListItem"><div class="contentListItemIcon"></div><a class="contentListItemLink">Follow</a></li>
+      </ul>
+    </div>
+    {{#if currentUser}}
+    <div id="contentEntry">
+      <section id="contentToolbar">
+        <nav class="toolbarList">
+        {{#if currentParamIs 'contentInfo' 'about'}}
+        <li class="toolbarListItem" data-action="text">
+          <div class="toolbarListItemIcon">{{icon 'text'}}</div>
+          Add Text
+        </li>
+        {{/if}}
+        {{#if currentParamIs  'contentInfo' 'community'}}
+        <li class="toolbarListItem" data-action="addTopic">
+          <div class="toolbarListItemIcon">{{icon 'add'}}</div>
+          Add Topic
+        </li>
+        {{/if}}
+        </nav>
+      </section>
+      <div class="contentBox">
+        {{>topicForm}}
+      </div>
+    </div>
+    {{/if}}
+  {{/with}}
+  {{>contentInfo}}
+
+    {{#with user}}
+    <div id="contentMasthead">
+      <div id="contentPreview" style="background-image: url('{{contentPreview}}');">
+        <div id="contentPlay">{{icon 'play'}}</div>
+      </div>
+      <h1 id="contentTitle" contenteditable="true" spellcheck="false" data-collection="Meteor.Users" data-field="username" data-value="username" data-action="update">{{username}}</h1>
+    </div>
+    {{/with}}
+    {{#each creations}}
+      {{>tile}}
+    {{/each}}
+  </section>
+</template>

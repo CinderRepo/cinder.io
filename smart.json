@@ -2,14 +2,17 @@
   "packages": {
     "smart-collections": {},
     "streams": {},
-    "iron-router": {},
+    "iron-router": {
+      "git": "ssh://git@github.com/EventedMind/iron-router.git",
+      "branch": "dev"
+    },
     "handlebar-helpers": {},
     "underscore-string-latest": {},
     "simple-schema": {},
     "collection2": {},
     "autoform": {},
     "accounts-anonymous": {},
-    "sharejs": {},
+    "collectionFS": {},
     "flare": {
       "git": "ssh://git@github.com/CinderRepo/flare.git"
     },
@@ -18,9 +21,6 @@
     },
     "tinder": {
       "git": "ssh://git@github.com/CinderRepo/tinder.git"
-    },
-    "sticks": {
-      "git": "ssh://git@github.com/CinderRepo/sticks.git"
     }
   }
 }

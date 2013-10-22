@@ -1,9 +1,3 @@
-#Disable calling createUser from the client
-#Accounts.config(
-  #sendVerificationEmail: true
-  #forbidClientAccountCreation: true
-#)
-
 Meteor.users.allow
   insert: () ->
     true
@@ -26,12 +20,24 @@ Schema.newUserSchema = new SimpleSchema
     regEx: SchemaRegEx.Email
     min: 3
 
+Accounts.onCreateUser (options, user) ->
+  log "Adding slug to user"
+  log "options: ",options
+  log "user: ",user
+  user.ownerSlug = _.slugify user.username
+  user.profile = {}
+  user.profile.content = []
+  log "user.ownerSlug: ",user.ownerSlug
+  #We still want the default hook's 'profile' behavior.
+  if options.profile
+    user.profile = options.profile
+  user
+
 #Check that doc fits with business logic
 Accounts.validateNewUser (doc) ->
   log "validateNewUser called, checking business logic."
   #We input the values into a schema and test it against our
   #signupFormSchema to be sure the values are the same in both areas.
-  #log "doc: ",doc
   userObject =
     username: doc.username
     email: doc.emails[0].address

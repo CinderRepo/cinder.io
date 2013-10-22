@@ -44,5 +44,12 @@ if Meteor.isClient
         Meteor.loginWithPassword(
           insertDoc.usernameOrEmail
           insertDoc.password
+        ,
+          (err)->
+            if err
+              log "err: ",err
+            else
+              log "Successfully logged in!"
+              toggleCover()
         )
         false

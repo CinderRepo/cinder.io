@@ -47,5 +47,15 @@ if Meteor.isClient
       #the user will get automatically logged in, as the Accounts package does that by default.
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.signupFormSchema)
-        Accounts.createUser(insertDoc)
+        log "insertDoc: ",insertDoc
+        Accounts.createUser(
+          insertDoc
+        ,
+          (err)->
+            if err
+              log "err: ",err
+            else
+              log "Successfully signed up!"
+              toggleCover()
+        )
         false

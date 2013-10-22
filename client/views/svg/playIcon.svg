@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="playIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<g id="playIconBorder">
+	<path d="M50,6c24.262,0,44,19.738,44,44S74.262,94,50,94S6,74.262,6,50S25.738,6,50,6 M50,0C22.386,0,0,22.386,0,50
+		s22.386,50,50,50s50-22.386,50-50S77.614,0,50,0L50,0z"/>
+</g>
+<polygon id="playIconFill" points="35.106,26.598 73.404,49.959 35.106,73.322 "/>
+</svg>

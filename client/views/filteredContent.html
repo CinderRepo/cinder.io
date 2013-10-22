@@ -1,0 +1,21 @@
+<template name="filteredContent">
+  {{#if isNotEmpty filteredContent}}
+  <div id="contentMasthead">
+    <div id="contentPreview" style="background-image: url('{{contentPreview}}');"></div>
+    <h1 id="contentTitle">{{currentParam 'type'}}</h1>
+    <a id="contentOwner" href="/users/{{ownerSlug}}">{{owner}}</a>
+  </div>
+  {{#each filteredContent}}
+    {{>tile}}
+  {{/each}}
+  {{else}}
+  <div id="filteredContentWrapper">
+    <div id="centeredFilteredContent">
+      <div class="cinder">
+        {{icon 'cinder'}}
+      </div>
+      If you're seeing this, that means you are in a very unique position, as you are one of the first people to view the Cinder platform ever, and you will be the creator of one of the first projects on the Cinder platform ever. Go ahead and get started by {{#if $not currentUser}}<a class="contentLink" data-action="toggleCover" data-cover="signup">signing up</a> and {{/if}} <a class="contentLink" data-action="toggleCover" data-cover="create">creating a project</a>.
+    </div>
+  </div>
+  {{/if}}
+</template>

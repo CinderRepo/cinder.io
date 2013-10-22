@@ -25,6 +25,9 @@ accounts-password #Password support for user accounts systems within a Meteor ap
 amplify #API for Persistent Storage, PubSub and Request.
 #appcache #Enable the application cache in the browser.
 #audit-argument-checks #Try to detect inadequate input sanitization.
+browser-policy #Configure security policies enforced by the browser.
+#browser-policy-content #Configure content security policies.
+#browser-policy-framing #Restrict which websites can frame your app.
 coffeescript #Javascript dialect with fewer braces and semicolons.
 #force-ssl #Force the application to use secure transport protocol (HTTPS).
 random #Random number generator and utilities.
@@ -44,7 +47,8 @@ simple-schema #A simple, reactive schema validation smart package for Meteor.
 collection2 #Validate collections against a schema.
 autoform #Easily create reactive forms with validation.
 accounts-anonymous #Anonymous account support.
-sharejs #Add ShareJS editors to an app. Includes the Ace editor.
+#sharejs #Add ShareJS editors to an app. Includes the Ace editor.
+collectionFS #Meteor filesystem based on gridFS, Meteor.collections and filehandlers.
 flare #Analytics tracking system for the cinder.io platform.
 inferno #Live collaborative editing for the cinder.io platform.
 tinder #Online payments system for the cinder.io platform.
@@ -57,4 +61,4 @@ daigo-achievements #Gamification achievements system for use within a Meteor app
 daigo-quests #Gamification quests system for use within a Meteor app.
 daigo-rewards #Gamification rewards system for use within a Meteor app.
 underscore-string-latest #underscore.string repackaged for Meteor
-sticks #A responsive mobile first flexbox based grid layout system for Meteor.
+#sticks #A responsive mobile first flexbox based grid layout system for Meteor.
