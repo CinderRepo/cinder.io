@@ -63,21 +63,38 @@
 @About = new Meteor.Collection2 "about",
   smart: true
   schema:
-    "about":
-      type: [Object]
-      optional: true
-    "about.$._id":
+    #"about":
+    #  type: [Object]
+    #  optional: true
+    #"about.$._id":
+    #  type: String
+    #  min: 3
+    #  optional: true
+    "parent":
       type: String
       min: 3
-      optional: true
-    "about.$.type":
+      max: 20
+    "parentSlug":
       type: String
-      allowedValues: ["text","gallery","music","video"]
-      optional: true
-    "about.$.content":
+      min: 3
+    "owner":
       type: String
-      min: 20
-      optional: true
+      min: 3
+      max: 20
+    #"title":
+    #  type: String
+    #  min: 3
+    #  max: 200
+    #"titleSlug":
+    #  type: String
+    #  min: 3
+    #"about.$.type":
+    #  type: String
+    #  allowedValues: ["text","gallery","music","video"]
+    #  optional: true
+    "content":
+      type: String
+      min: 3
 
 @Community = new Meteor.Collection2 "community",
   smart: true
@@ -136,52 +153,64 @@
       type: String
       min: 3
       optional: true
+    "posts":
+      type: [String]
 
 @Commissions = new Meteor.Collection2 "commissions",
   smart: true
   schema:
-    "commissions":
-      type: [Object]
-      optional: true
-    "commissions.$._id":
+    "parent":
+      type: String
+      min: 3
+      max: 20
+    "parentSlug":
+      type: String
+      min: 3
+    "owner":
       type: String
       min: 3
       optional: true
-    "commissions.$.owner":
+    "title":
       type: String
       min: 3
       optional: true
-    "commissions.$.title":
+    "titleSlug":
+      type: String
+      min: 3
+    "content":
       type: String
       min: 3
       optional: true
-    "commissions.$.content":
-      type: String
-      min: 3
-      optional: true
+    "posts":
+      type: [String]
 
 @Updates = new Meteor.Collection2 "updates",
   smart: true
   schema:
-    "updates":
-      type: [Object]
-      optional: true
-    "updates.$._id":
+    "parent":
+      type: String
+      min: 3
+      max: 20
+    "parentSlug":
+      type: String
+      min: 3
+    "owner":
       type: String
       min: 3
       optional: true
-    "updates.$.owner":
+    "title":
       type: String
       min: 3
       optional: true
-    "updates.$.title":
+    "titleSlug":
+      type: String
+      min: 3
+    "content":
       type: String
       min: 3
       optional: true
-    "updates.$.content":
-      type: String
-      min: 3
-      optional: true
+    "posts":
+      type: [String]
 
 @Posts = new Meteor.Collection2 "posts",
   smart: true

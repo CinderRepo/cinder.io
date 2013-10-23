@@ -40,25 +40,27 @@ if Meteor.isClient
     topicFormSchema: ->
       topicForm
     onSubmit: ->
+      log "onSubmit topicForm!"
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
       (insertDoc,updateDoc,currentDoc)->
+        log "onSubmit called!"
         check(insertDoc,Schema.topicFormSchema)
-        log "creating a topic!"
-        log "insertDoc: ",insertDoc
+        #log "creating a topic!"
+        #log "insertDoc: ",insertDoc
         self = this
-        log "self: ",self
+        #log "self: ",self
         contentInfoParam = Router.current().params['contentInfo']
         currentUser = Meteor.user() if Meteor.user()?
         titleSlug = Router.current().params['titleSlug']
         parent = Content.findOne(titleSlug: titleSlug) if titleSlug?
-        log "parent: ",parent
+        #log "parent: ",parent
         insertDoc.parent = parent._id
         insertDoc.parentSlug = parent.titleSlug
         insertDoc.owner = currentUser.username
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.posts = []
-        log "Updated insertDoc: ",insertDoc
+        #log "Updated insertDoc: ",insertDoc
         window[_.capitalize contentInfoParam].insert(
           insertDoc
         ,

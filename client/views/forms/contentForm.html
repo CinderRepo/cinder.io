@@ -1,0 +1,8 @@
+<template name="contentForm">
+  <section id="contentForm" class="form">
+    {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
+    {{afFieldInput "content" class="formInput expanding" placeholder="Write a post.." autocomplete="off" rows="10"}}
+    <button type="submit" class="formSubmit">Add Content</button>
+    {{/autoForm}}
+    </section>
+</template>

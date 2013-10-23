@@ -1,5 +1,5 @@
 #Specifiy the valid formats for data submitted from the signup form.
-Schema.postFormSchema = new SimpleSchema
+Schema.contentFormSchema = new SimpleSchema
   content:
     type: String
     label: "Content"
@@ -7,7 +7,7 @@ Schema.postFormSchema = new SimpleSchema
     min: 3
 
 #Customize output messages sent to the user when an error is come across.
-Schema.postFormSchema.messages
+Schema.contentFormSchema.messages
   required: "[label] is required!"
   minString: "[label] must be at least [min] characters!"
   maxString: "[label] cannot exceed [max] characters!"
@@ -29,9 +29,9 @@ Schema.postFormSchema.messages
 
 #Create a new AutoForm instance that adheres to the schema provided, and create a template helper for it.
 if Meteor.isClient
-  postForm = new AutoForm(Schema.postFormSchema)
+  contentForm = new AutoForm(Schema.contentFormSchema)
 
-  Template.postForm.events
+  Template.contentForm.events
     "change [name='type']":(e,t)->
       currentTarget = e.currentTarget
       projectType = $("[data-schema-key='type']")
@@ -43,9 +43,9 @@ if Meteor.isClient
       projectType = $("[data-schema-key='type']")
       projectType.val("game")
 
-  Template.postForm.helpers
-    postFormSchema: ->
-      postForm
+  Template.contentForm.helpers
+    contentFormSchema: ->
+      contentForm
     onSubmit: ->
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
@@ -53,8 +53,8 @@ if Meteor.isClient
       context = this
       #log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
-        check(insertDoc,Schema.postFormSchema)
-        #log "creating a comment!"
+        check(insertDoc,Schema.contentFormSchema)
+        log "creating an about!"
         #log "insertDoc: ",insertDoc
         #log "updateDoc: ",updateDoc
         #log "currentDoc: ",currentDoc
@@ -66,20 +66,23 @@ if Meteor.isClient
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
         insertDoc.owner = currentUser.username
-        #log "Updated insertDoc: ",insertDoc
-        Posts.insert(
+        log "Updated insertDoc: ",insertDoc
+        log "contentInfoParam: ",_.capitalize contentInfoParam
+        window[_.capitalize contentInfoParam].insert(
           insertDoc
         ,
           (err,result)->
             if err
               log "err: ",err
             else
-              "Add the post ID to the current contentInfo"
-              window[_.capitalize contentInfoParam].update(
-                _id: context._id
+              #Add the topic ID to the current content
+              modifier = $push: {}
+              modifier.$push[contentInfoParam] = result
+
+              Content.update(
+                _id: parent._id
               ,
-                $push:
-                  "posts": result
+                modifier
               ,
                 (err,result)->
                   if err
@@ -88,5 +91,6 @@ if Meteor.isClient
                     log "result: ",result
                     self.resetForm()
               )
-        )
+            log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
+        ) if contentInfoParam?
         false

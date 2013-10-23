@@ -38,18 +38,23 @@ Template.layout.rendered = () ->
   textareas.expandingTextarea()
 
 Template.layout.events
-  "keyup textarea":(e,t)->
-    #log "typing.."
-    #log "e.which:",e.which
-    #log "@: ",@
-    form = $(t.find("form"))
-    #log "form: ",form
+  "keydown textarea":(e,t)->
+    #We capture this event on keydown so that the caret doesn't move and automatically
+    #create a new line when the user is typing and hits enter. We also allow the user to
+    #enter new lines by making use of shift + enter, should they choose to do so.
+    currentTarget = $(e.currentTarget)
+    #We use DOM traversal here to take advantage of global form submission.
+    formSubmit = currentTarget.parents(".form").find(".formSubmit")
     if e.which is 13 and !e.shiftKey
       e.preventDefault()
-      #log "Enter pressed in a text area!"
-      #form.submit((e)->
-      #  false
-      #)
+      #XXX: While it'd be nice if we were able to just call submit of the form
+      #itself, we have to simulate a jquery click event on the hidden submit button
+      #since the defaultform submission way doesn't seem to be caught by the autoforms
+      #template event listeners, wheras manually firing a click event on the button does,
+      #so we'll use that instead.
+      formSubmit.click()
+      #log "form.find('.formSubmit'): ",form.find('.formSubmit')
+      #form.find(".formSubmit").click()
   "blur [contenteditable='true']":(e,t)->
     #Persist any changes the user has made to the appropriate collection.
     log "blurred!"
@@ -130,5 +135,5 @@ Template.contentInfo.helpers
   contentDetails: ->
     log "contentDetails helper called!"
     self = this
-    log "self: ",self
+    #log "self: ",self
     Posts.find(parent: self._id)

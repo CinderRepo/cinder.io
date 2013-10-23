@@ -35,9 +35,9 @@ Router.map ->
         contentInfoParam = _.capitalize @params.contentInfo
         #Create the correct collection selector based on the url param
         content = Content.findOne(titleSlug: @params.titleSlug)
-        log "content: ",content
+        #log "content: ",content
         contentInfo = window[contentInfoParam].find(parent: content._id)
-        log "contentInfo: ",contentInfo
+        #log "contentInfo: ",contentInfo
         content: content
         contentInfo: contentInfo
         #XXX: Eventually we'll want this to be included in the router, but since handlebars doesn't
