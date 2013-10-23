@@ -19,7 +19,7 @@ Meteor.methods
 
 		#Just check the verifier output when the same identity and salt are passed. Don't bother with a full exchange.
 		verifier = user.services.password.srp
-		newVerifier = Meteor._srp.generateVerifier(password,
+		newVerifier = SRP.generateVerifier(password,
 			identity: verifier.identity
 			salt: verifier.salt
 		)
