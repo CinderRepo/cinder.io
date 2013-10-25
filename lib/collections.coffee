@@ -1,4 +1,5 @@
-@Content = new Meteor.Collection2 "content",
+@Content = new Meteor.Collection "content"
+###2 "content",
   smart: true
   schema:
     "owner":
@@ -58,7 +59,7 @@
     "updates":
       type: [String]
       optional: true
-      min: 3
+      min: 3###
 
 @About = new Meteor.Collection2 "about",
   smart: true

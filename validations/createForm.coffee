@@ -90,6 +90,6 @@ if Meteor.isClient
                     self.resetForm()
                     Router.go("/users/#{insertDoc.ownerSlug}/#{insertDoc.titleSlug}/about")
               )
-            log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
+            #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
         )
         false

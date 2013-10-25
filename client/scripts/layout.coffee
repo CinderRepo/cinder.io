@@ -1,6 +1,7 @@
-Session.setDefault("overlayHidden",false)
+Session.setDefault("overlayHidden",true)
 Session.setDefault("coverHidden",true)
 Session.setDefault("isPlaying",false)
+Session.setDefault("isVisualizing",false)
 
 
 #XXX: Hacky, but it demonstrates the functionality, which is all I want right now.
@@ -38,6 +39,11 @@ Template.layout.rendered = () ->
   textareas.expandingTextarea()
 
 Template.layout.events
+  "click #playerIcon":(e,t)->
+    #Activate the visualizer
+    if Session.equals("isVisualizing",false)
+      activateVisualizer(t.find("#playerWrapper"))
+      Session.set("isVisualizing",true)
   "keydown textarea":(e,t)->
     #We capture this event on keydown so that the caret doesn't move and automatically
     #create a new line when the user is typing and hits enter. We also allow the user to
@@ -127,6 +133,8 @@ Template.layout.events
 Template.layout.preserve({
   "#layout"
   "#content"
+  "#playerWrapper"
+  "#playerIcon"
 })
 
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when

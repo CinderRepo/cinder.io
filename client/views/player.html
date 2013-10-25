@@ -1,5 +1,13 @@
 <template name="player">
   <section id="playerWrapper">
+    {{#isolate}}
+    <div id="playerIcon" data-isVisualizing="{{$.Session.get 'isVisualizing'}}">
+    {{icon 'cinder'}}
+    </div>
+    {{/isolate}}
+    <div id="promise">
+      November 21, 2013
+    </div>
     {{#if playing}}
     {{#with playing}}
     <iframe id="player" src="{{contentSrc}}" sandbox="allow-scripts allow-pointer-lock" seamless></iframe>
