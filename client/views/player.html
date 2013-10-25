@@ -10,7 +10,7 @@
     </div>
     {{#if playing}}
     {{#with playing}}
-    <iframe id="player" src="https://www.games.cinder.io" sandbox="allow-scripts allow-pointer-lock" seamless></iframe>
+    <iframe id="player" src="{{contentSrc}}" sandbox="allow-scripts allow-pointer-lock" seamless></iframe>
     {{/with}}
 
     {{#if $eq type 'game'}}
