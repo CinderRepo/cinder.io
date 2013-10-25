@@ -25,7 +25,7 @@ accounts-password #Password support for user accounts systems within a Meteor ap
 amplify #API for Persistent Storage, PubSub and Request.
 #appcache #Enable the application cache in the browser.
 #audit-argument-checks #Try to detect inadequate input sanitization.
-browser-policy #Configure security policies enforced by the browser.
+#browser-policy #Configure security policies enforced by the browser.
 #browser-policy-content #Configure content security policies.
 #browser-policy-framing #Restrict which websites can frame your app.
 coffeescript #Javascript dialect with fewer braces and semicolons.
