@@ -41,9 +41,9 @@ Template.layout.rendered = () ->
 Template.layout.events
   "click #playerIcon":(e,t)->
     #Activate the visualizer
-    if Session.equals("isVisualizing",false)
-      activateVisualizer(t.find("#playerWrapper"))
-      Session.set("isVisualizing",true)
+    #if Session.equals("isVisualizing",false)
+      #activateVisualizer(t.find("#playerWrapper"))
+      #Session.set("isVisualizing",true)
   "keydown textarea":(e,t)->
     #We capture this event on keydown so that the caret doesn't move and automatically
     #create a new line when the user is typing and hits enter. We also allow the user to
