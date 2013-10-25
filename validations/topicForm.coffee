@@ -60,7 +60,7 @@ if Meteor.isClient
         insertDoc.owner = currentUser.username
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.posts = []
-        #log "Updated insertDoc: ",insertDoc
+        log "Updated insertDoc: ",insertDoc
         window[_.capitalize contentInfoParam].insert(
           insertDoc
         ,
