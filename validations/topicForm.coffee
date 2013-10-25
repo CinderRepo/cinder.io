@@ -84,7 +84,7 @@ if Meteor.isClient
                     log "result: ",result
                     self.resetForm()
               )
-            log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
+            #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
         ) if contentInfoParam?
         ###Content.insert(
           insertDoc
