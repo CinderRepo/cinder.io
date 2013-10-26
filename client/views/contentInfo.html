@@ -1,6 +1,6 @@
 <template name="contentInfo">
   {{#isolate}}
-  <article class="contentInfo">
+  <article class="contentInfo" data-context="{{currentParam 'contentInfo'}}">
     <div class="contentPost">
       {{#if title}}
       <div class="title" data-type="topic" data-field="title" contenteditable="true" spellcheck="false">{{title}}</div>
@@ -8,17 +8,25 @@
       {{#if currentParamIsNot 'contentInfo' 'about' 'rewards'}}
       <a class="contentOwner" href="/users/{{toSlug owner}}">{{owner}}</a>
       {{/if}}
+      {{#if currentParamIs 'contentInfo' 'rewards'}}
+      <div class="contentOptions">
+        <div class="contentIcon" style="background-image:url({{rewardIcon}});" data-image="{{#if rewardIcon}}true{{/if}}">
+          {{#if rewardIcon}}
+          <div class="contentIconEdit">
+          {{icon 'upload'}}
+          <span class="contentIconText">Update File</span>
+          </div>
+          {{else}}
+          {{icon 'upload'}}
+          <span class="contentIconText">Upload File</span>
+          {{/if}}
+        </div>
+        <input type="text" class="contentOptionsButton" data-type="topic" data-field="price" contenteditable="true" placeholder="Enter Price" value="{{price}}" spellcheck="false"/>
+      </div>
+      {{/if}}
       <div class="content" data-type="topic" data-field="content" contenteditable="true" spellcheck="false">
         {{toHtml content}}
       </div>
-      {{#if currentParamIs 'contentInfo' 'rewards'}}
-      <div class="contentIcon" style="background-image:url({{icon}});"></div>
-      {{/if}}
-      {{#if currentParamIs 'contentInfo' 'rewards'}}
-      <div class="contentPrice">
-        Price
-      </div>
-      {{/if}}
       <a class="permalink" href="/users/{{toSlug owner}}/{{toSlug parentSlug}}/{{currentParam 'contentInfo'}}/{{toSlug title}}"></a>
     </div>
     {{#if userCanEdit}}

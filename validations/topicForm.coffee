@@ -7,10 +7,6 @@ Schema.topicFormSchema = new SimpleSchema
   content:
     type: String
     label: "Content"
-  price:
-    type: Number
-    label: "Price"
-    optional: true
 
 #Customize output messages sent to the user when an error is come across.
 Schema.topicFormSchema.messages

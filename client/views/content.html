@@ -35,6 +35,9 @@
       {{else}}
         {{>contentForm}}
       {{/if}}
+      {{#if currentParamIs 'contentInfo' 'rewards'}}
+        {{>paymentForm}}
+      {{/if}}
     </div>
     {{/if}}
   {{/with}}

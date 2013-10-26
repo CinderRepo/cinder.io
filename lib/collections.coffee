@@ -156,11 +156,11 @@
       optional: true
     "posts":
       type: [String]
-    "icon":
+    "rewardIcon":
       type: String
       optional: true
     "price":
-      type: Number
+      type: String
       optional: true
 
 @Commissions = new Meteor.Collection2 "commissions",
