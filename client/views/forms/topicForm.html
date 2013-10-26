@@ -3,6 +3,9 @@
     {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
     {{afFieldInput "title" class="formInput expanding" placeholder="Title" autocomplete="off" rows="10"}}
     {{afFieldInput "content" class="formInput expanding" placeholder="Write a topic.." autocomplete="off" rows="10"}}
+    {{#if currentParamIs 'contentInfo' 'rewards'}}
+    {{afFieldInput "price" class="formInput expanding" placeholder="$0.00" data-a-sign="$" autocomplete="off"}}
+    {{/if}}
     <button type="submit" class="formSubmit">Add Topic</button>
     {{/autoForm}}
     </section>

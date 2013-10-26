@@ -37,6 +37,9 @@ Template.layout.rendered = () ->
   log "contentInfo Rendered"
   textareas = $(this.findAll(".expanding"))
   textareas.expandingTextarea()
+  Dropzone.autoDiscover = false
+  #Set automatic pricing
+  $("[name='price']").autoNumeric("init")
 
 Template.layout.events
   "click #playerIcon":(e,t)->
@@ -137,6 +140,48 @@ Template.layout.preserve({
   "#playerIcon"
 })
 
+Template.contentInfo.rendered = ->
+  #We select from within the template instance because we only want to apply dropzone to this one context, and
+  #still be reactive when a new context is created for the first time, without conflicting with other existing
+  #dropzones.
+  self = this
+  contentIcon = this.find(".contentIcon")
+  #log "contentIcon: ",contentIcon
+  dropzone = new Dropzone(contentIcon,
+    url: "/"
+    maxFilesize: 10
+    thumbnailWidth: 80
+    thumbnailHeight: 80
+    previewTemplate:
+      """<div class="preview file-preview">
+          <div class="details">
+            <div class="filename"><span data-dz-name></span></div>
+            <div class="size" data-dz-size></div>
+            <img data-dz-thumbnail />
+          </div>
+          <div class="progress"><span class="upload" data-dz-uploadprogress></span></div>
+          <div class="success-mark"><span>✔</span></div>
+          <div class="error-mark"><span>✘</span></div>
+          <div class="error-message"><span data-dz-errormessage></span></div>
+        </div>"""
+  )
+
+  dropzone.on("thumbnail",(file,dataURL)->
+    log "Thumbnail generated!"
+    Rewards.update
+      _id: self.data._id
+    ,
+      $set:
+        "icon":dataURL
+    ,
+      (err,result)->
+        if err
+          log "err: ",err
+        else
+          #Add the document ID to the current user
+          log "result: ",result
+  )
+
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.
 Template.contentInfo.helpers
@@ -145,3 +190,12 @@ Template.contentInfo.helpers
     self = this
     #log "self: ",self
     Posts.find(parent: self._id)
+  icon: ->
+    #XXX: For reasons I can't fully understand, the template doesn't return an icon as something that the browser
+    #can understand unless we specify this as an actual helper, as it doesn't seem to currently be getting picked up
+    #from the current parent data context. This gets the image displaying and synching happily now, and we can revisit
+    #this after Spacebars and some Iron Router updates to see if global data contexts + the new Meteor rendering engine
+    #has changed how data context cases such as this one are handled in the future as part of an optimization week. Doing
+    #things this way right now, let's us move forward much faster than to find a better fix or to change our structure.
+    self = this
+    self.icon

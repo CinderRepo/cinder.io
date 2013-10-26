@@ -5,30 +5,40 @@
       {{#if title}}
       <div class="title" data-type="topic" data-field="title" contenteditable="true" spellcheck="false">{{title}}</div>
       {{/if}}
-      {{#if currentParamIsNot 'contentInfo' 'about'}}
+      {{#if currentParamIsNot 'contentInfo' 'about' 'rewards'}}
       <a class="contentOwner" href="/users/{{toSlug owner}}">{{owner}}</a>
       {{/if}}
       <div class="content" data-type="topic" data-field="content" contenteditable="true" spellcheck="false">
         {{toHtml content}}
       </div>
+      {{#if currentParamIs 'contentInfo' 'rewards'}}
+      <div class="contentIcon" style="background-image:url({{icon}});"></div>
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'rewards'}}
+      <div class="contentPrice">
+        Price
+      </div>
+      {{/if}}
       <a class="permalink" href="/users/{{toSlug owner}}/{{toSlug parentSlug}}/{{currentParam 'contentInfo'}}/{{toSlug title}}"></a>
     </div>
     {{#if userCanEdit}}
     <div class="remove contentInfo">{{icon 'delete'}}</div>
     {{/if}}
-    {{#each contentDetails}}
-      <article class="contentInfo">
-        <div class="contentPost">
-          <a class="contentOwner" href="/users/{{toSlug owner}}">{{owner}}</a>
-          <div class="content" data-type="topic" data-field="content" contenteditable="true" spellcheck="false">
-            {{toHtml content}}
+    {{#if currentParamIsNot 'contentInfo' 'rewards'}}
+      {{#each contentDetails}}
+        <article class="contentInfo">
+          <div class="contentPost">
+            <a class="contentOwner" href="/users/{{toSlug owner}}">{{owner}}</a>
+            <div class="content" data-type="topic" data-field="content" contenteditable="true" spellcheck="false">
+              {{toHtml content}}
+            </div>
           </div>
-        </div>
-      </article>
-    {{/each}}
-    {{#if currentUser}}
-      {{#if currentParamIsNot 'contentInfo' 'about'}}
-        {{>postForm}}
+        </article>
+      {{/each}}
+      {{#if currentUser}}
+        {{#if currentParamIsNot 'contentInfo' 'about'}}
+          {{>postForm}}
+        {{/if}}
       {{/if}}
     {{/if}}
   </article>

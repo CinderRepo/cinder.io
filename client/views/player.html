@@ -12,7 +12,7 @@
     {{/with}}
     {{#if playing}}
     {{#with playing}}
-    <iframe id="player" src="{{contentSrc}}" sandbox="allow-scripts allow-pointer-lock" seamless></iframe>
+    <iframe id="player" src="{{contentSrc}}" sandbox="allow-scripts allow-pointer-lock allow-same-origin" seamless></iframe>
     {{/with}}
 
     {{#if $eq type 'game'}}

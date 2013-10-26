@@ -156,6 +156,12 @@
       optional: true
     "posts":
       type: [String]
+    "icon":
+      type: String
+      optional: true
+    "price":
+      type: Number
+      optional: true
 
 @Commissions = new Meteor.Collection2 "commissions",
   smart: true

@@ -11,6 +11,7 @@
       "collection2": {},
       "autoform": {},
       "collectionFS": {},
+      "Dropzonejs": {},
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",
         "branch": "master"
@@ -69,6 +70,11 @@
         "git": "https://github.com/raix/Meteor-CollectionFS.git",
         "tag": "v0.3.6",
         "commit": "e28922685d07fc2bd17e23571eeb050cd85176f7"
+      },
+      "Dropzonejs": {
+        "git": "https://github.com/devonbarrett/meteor-dropzone.git",
+        "tag": "v1.0.0",
+        "commit": "460673419e762af10b0acec9e95bbd9567f3c534"
       },
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",

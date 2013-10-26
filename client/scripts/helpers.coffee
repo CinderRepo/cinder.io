@@ -14,10 +14,12 @@ Handlebars.registerHelper "player", (context) ->
   new Handlebars.SafeString(Template["player"]())
 Handlebars.registerHelper "toSlug", (context) ->
   _.slugify context
-Handlebars.registerHelper "currentParamIs", (param,context) ->
-  Router.current().params[param] is context
-Handlebars.registerHelper "currentParamIsNot", (param,context) ->
-  Router.current().params[param] isnt context
+Handlebars.registerHelper "currentParamIs", (param,a,b) ->
+  currentParam = Router.current().params[param]
+  currentParam is a or currentParam is b
+Handlebars.registerHelper "currentParamIsNot", (param,a,b) ->
+  currentParam = Router.current().params[param]
+  currentParam isnt a and currentParam isnt b
 Handlebars.registerHelper "currentParam", (context) ->
   Router.current().params[context]
 Handlebars.registerHelper "coverIs", (context) ->

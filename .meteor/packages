@@ -49,6 +49,7 @@ autoform #Easily create reactive forms with validation.
 #accounts-anonymous #Anonymous account support.
 #sharejs #Add ShareJS editors to an app. Includes the Ace editor.
 collectionFS #Meteor filesystem based on gridFS, Meteor.collections and filehandlers.
+Dropzonejs #DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.
 flare #Analytics tracking system for the cinder.io platform.
 inferno #Live collaborative editing for the cinder.io platform.
 tinder #Online payments system for the cinder.io platform.
