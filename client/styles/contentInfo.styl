@@ -12,6 +12,25 @@
     width 100%
     float left
     overflow hidden
+    .form
+      max-width none
+      border none
+      border-top 1px solid rgba(0,0,0,0.1)
+      border-radius 0 0 4px 4px
+      width 100%
+      float left
+      .formInput
+        padding 10px
+        //min-height 40px
+        font-size 14px
+        background rgba(245,245,245,0.5)
+    .contentInfo
+      padding 0
+      margin 0
+      border none
+      border-top 1px solid rgba(0,0,0,0.1)
+      background rgba(225,225,225,0.3)
+      border-radius 0
     &[data-context="rewards"]
       size(390,192)
       margin 0 20px 20px 0
@@ -116,25 +135,6 @@
         min-height 50px
         padding 10px
         border-bottom 1px solid rgba(0,0,0,0.1)
-    .form
-      max-width none
-      border none
-      border-top 1px solid rgba(0,0,0,0.1)
-      border-radius 0 0 4px 4px
-      .formInput
-        padding 10px
-        //min-height 40px
-        font-size 14px
-        background rgba(245,245,245,0.5)
-    //margin 0 30px 10px 30px
-    //This is for handling nested content styles (i.e. posts and replies)
-    .contentInfo
-      padding 0
-      margin 0
-      border none
-      border-top 1px solid rgba(0,0,0,0.1)
-      background rgba(225,225,225,0.3)
-      border-radius 0
     //We have this so that the mouse cursor is a pointer if the user is able to edit,
     //It has no actual functional purpose, and is merely meant to serve aesthetics.
     &[data-editable="true"]
