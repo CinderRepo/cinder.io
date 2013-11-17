@@ -1,60 +1,143 @@
 <template name="content">
-  <section id="contentPane">
-  {{#with content}}
-    <div id="contentMasthead">
-      <div id="contentPreview" style="background-image: url('{{contentPreview}}');">
-        <div id="contentPlay" data-action="play">{{icon 'play'}}</div>
+  <div class="contentMasthead">
+    {{#if content}}
+      {{#with content}}
+      <div class="contentMastheadImage"></div>
+      <div class="contentHeader">
+        <div class="contentHeaderText">
+          {{title}}
+        </div>
       </div>
-      <h1 id="contentTitle" contenteditable="true" spellcheck="false" data-collection="Content" data-value="title" data-action="update">{{title}}</h1>
-      <a id="contentOwner" href="/users/{{ownerSlug}}">{{owner}}</a>
-      <ul class="contentList">
-        <li class="contentListItem"><div class="contentListItemIcon"></div><a class="contentListItemLink" data-action="play">Play</a></li>
-        <li class="contentListItem"><div class="contentListItemIcon"></div><a class="contentListItemLink">Follow</a></li>
-      </ul>
-    </div>
-    {{#if currentUser}}
-    <div id="contentEntry">
-      <section id="contentToolbar">
-        <nav class="toolbarList">
-        {{#if currentParamIs 'contentInfo' 'about'}}
-        <li class="toolbarListItem" data-action="text">
-          <div class="toolbarListItemIcon">{{icon 'text'}}</div>
-          Add Text
-        </li>
-        {{/if}}
-        {{#if currentParamIs  'contentInfo' 'community'}}
-        <li class="toolbarListItem" data-action="addTopic">
-          <div class="toolbarListItemIcon">{{icon 'add'}}</div>
-          Add Topic
-        </li>
-        {{/if}}
-        </nav>
-      </section>
-      {{#if currentParamIsNot 'contentInfo' 'about'}}
-        {{>topicForm}}
-      {{else}}
-        {{>contentForm}}
-      {{/if}}
-      {{#if currentParamIs 'contentInfo' 'rewards'}}
-        {{>paymentForm}}
-      {{/if}}
-    </div>
+      <div class="contentHeaderContent">
+        {{description}}
+      </div>
+      {{/with}}
+    {{else}}
+      {{#with owner}}
+      <div class="contentMastheadImage"></div>
+      <div class="contentHeader">
+        <div class="contentHeaderText">
+          {{username}}
+        </div>
+      </div>
+      <div class="contentHeaderContent">
+        {{profile.description}}
+      </div>
+      {{/with}}
     {{/if}}
-  {{/with}}
-  {{#each contentInfo}}
-    {{>contentInfo}}
-  {{/each}}
-
-    {{#with user}}
-    <div id="contentMasthead">
-      <div id="contentPreview" style="background-image: url('{{contentPreview}}');">
-        <div id="contentPlay">{{icon 'play'}}</div>
+    {{#if content}}
+      {{#with content}}
+      <div class="buttonsWrapper">
+        <a data-action="play" class="button contentHeaderButton">Play</a>
+        <div class="toggle white off">
+          <div class="toggleOptions">
+            <div class="toggleOptionsTrack">
+              <div class="toggleOption">Unfavorite</div>
+              <div class="toggleOption">Favorite</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <h1 id="contentTitle" contenteditable="true" spellcheck="false" data-collection="Meteor.Users" data-field="username" data-value="username" data-action="update">{{username}}</h1>
-    </div>
-    {{/with}}
-    {{#each creations}}
-      {{>tile}}
+      {{/with}}
+    {{else}}
+      {{#with owner}}
+        {{#if isNotOwner}}
+        <div class="toggle white off">
+          <div class="toggleOptions">
+            <div class="toggleOptionsTrack">
+              <div class="toggleOption">Unfollow</div>
+              <div class="toggleOption">Follow</div>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      {{/with}}
+    {{/if}}
+  </div>
+  {{#if currentParamIs 'contentInfo' 'about'}}
+    {{#if userCanEdit}}
+      {{>contentForm}}
+    {{/if}}
+    {{#each contentInfo}}
+      {{>post}}
     {{/each}}
-  </section>
+  {{/if}}
+  {{#if currentParamIs 'contentInfo' 'community'}}
+    {{#if userCanEdit}}
+      {{>topicForm}}
+    {{/if}}
+    {{#each contentInfo}}
+      {{>topic}}
+    {{/each}}
+  {{/if}}
+  {{#if currentParamIs 'context' 'profile'}}
+    <div class="section">
+      <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
+      {{#if currentParamIs 'contentInfo' 'creations'}}
+        {{#each ownerContent}}
+          {{>tile}}
+        {{/each}}
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'favorites'}}
+        {{#each ownerContent}}
+          {{>tile}}
+        {{/each}}
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'dashboard'}}
+        {{#each ownerContent}}
+        <div class="column">
+          <div class="columnTitle">{{title}}</div>
+          <div class="columnIcon">$700,000</div>
+          <div class="columnGross">$1,000,000</div>
+          <div class="columnFee">- $300,000</div>
+          <div class="columnNet">$700,000</div>
+          <div class="columnHistory">$2,000,000 earned overall from 100 people</div>
+          <div class="columnFollowers">Followed by 300 people</div>
+        </div>
+        {{/each}}
+        <a class="button">Request Monetization</a>
+      </div>
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'settings'}}
+        <div class="column">
+          <div class="columnTitle">Info</div>
+          <div class="columnIcon"></div>
+          <form class="columnForm">
+            <input type="text" placeholder="Username" class="formInput"/>
+            <input type="email" placeholder="email@email.com" class="formInput"/>
+            <input type="password" placeholder="Password" class="formInput"/>
+            <input type="password" placeholder="Confirm Password" class="formInput"/>
+            <button type="submit" class="button formSubmit">Update User Info</button>
+          </form>
+        </div>
+        <div class="column">
+          <div class="columnTitle">Payment</div>
+          <div class="columnIcon"></div>
+          <form class="columnForm">
+            <input type="text" placeholder="1234 1234 1234" class="formInput"/>
+            <input type="text" placeholder="MM / YY" class="formInput"/>
+            <input type="text" placeholder="CVC" class="formInput"/>
+            <div class="toggle black off">
+              <div class="toggleOptions">
+                <div class="toggleOptionsTrack">
+                  <div class="toggleOption">Yes</div>
+                  <div class="toggleOption">No</div>
+                </div>
+              </div>
+              <div class="toggleLabel">Remember Card?</div>
+            </div>
+            <button type="submit" class="button formSubmit">Update Credit Card</button>
+          </form>
+        </div>
+        <div class="column">
+          <div class="columnTitle">Account</div>
+          <div class="columnIcon"></div>
+          <div class="columnForm">
+            <div class="button">Remove Credit Card</div>
+            <div class="button">Delete Account</div>
+          </div>
+        </div>
+      {{/if}}
+      </div>
+  {{/if}}
 </template>

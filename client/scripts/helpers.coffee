@@ -28,22 +28,24 @@ Handlebars.registerHelper "isEmpty", (context) ->
   context.count() is 0 if context?
 Handlebars.registerHelper "isNotEmpty", (context) ->
   context.count() isnt 0 if context?
-Handlebars.registerHelper "userCanEdit", (user, owner) ->
+Handlebars.registerHelper "userCanEdit", (context) ->
   userCanEdit = false
-  #log "USER:",user
-  #log "OWNER:",owner
-  #log "THIS:",this
-  ###self = this
-  if self._id and Meteor.user()
-    #Check if the current user has edit access to the content
-    userContentIds = Meteor.user().profile.content
-    currentContentId = self._id
-    #log self._id
-    #Loop through the user's owned content to see if
-    #they have access to the current content being viewed
-    _.each userContentIds, (userContentId) ->
-      if currentContentId is userContentId
-        #log "match!!!"
-        userCanEdit = true
-  #log "Returning this shit!",userCanEdit
-  userCanEdit###
+  self = this
+  collaborators = self.content.collaborators
+  userId = Meteor.userId()
+  _.each collaborators, (collaboratorId) ->
+    if collaboratorId is userId
+      userCanEdit = true
+  userCanEdit
+Handlebars.registerHelper "isNotOwner", (context) ->
+  self = this
+  userId = Meteor.userId()
+  #log "self._id: ",self._id
+  #log "userId: ",userId
+  userId isnt self._id
+Handlebars.registerHelper "isOwner", (context) ->
+  self = this
+  userId = Meteor.userId()
+  #log "self: ",self.owner
+  #log "userId: ",userId
+  userId is self._id

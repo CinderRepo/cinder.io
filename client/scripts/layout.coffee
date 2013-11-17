@@ -38,38 +38,17 @@ Template.layout.rendered = () ->
   textareas = $(this.findAll(".expanding"))
   textareas.expandingTextarea()
   Dropzone.autoDiscover = false
+  $(".topicSidebarInfo").stick_in_parent offset_top: 10
 
 Template.layout.events
   "blur [data-name='price']":(e,t)->
     currentTarget = $(e.currentTarget)
     currentTarget.autoNumeric("init")
-  "click #playerIcon":(e,t)->
-    #Activate the visualizer
-    #if Session.equals("isVisualizing",false)
-      #activateVisualizer(t.find("#playerWrapper"))
-      #Session.set("isVisualizing",true)
-  "keydown textarea":(e,t)->
-    #We capture this event on keydown so that the caret doesn't move and automatically
-    #create a new line when the user is typing and hits enter. We also allow the user to
-    #enter new lines by making use of shift + enter, should they choose to do so.
-    currentTarget = $(e.currentTarget)
-    #We use DOM traversal here to take advantage of global form submission.
-    formSubmit = currentTarget.parents(".form").find(".formSubmit")
-    if e.which is 13 and !e.shiftKey
-      e.preventDefault()
-      #XXX: While it'd be nice if we were able to just call submit of the form
-      #itself, we have to simulate a jquery click event on the hidden submit button
-      #since the defaultform submission way doesn't seem to be caught by the autoforms
-      #template event listeners, wheras manually firing a click event on the button does,
-      #so we'll use that instead.
-      formSubmit.click()
-      #log "form.find('.formSubmit'): ",form.find('.formSubmit')
-      #form.find(".formSubmit").click()
   "blur [contenteditable='true']":(e,t)->
     #Persist any changes the user has made to the appropriate collection.
     log "blurred!"
     self = this
-    log "self: ",self
+    #log "self: ",self
 
     data = t.data
     log "data: ",data
@@ -118,31 +97,30 @@ Template.layout.events
   "click [data-action='logout']":(e,t)->
     log "logout Clicked."
     Meteor.logout()
-  "click [data-action='toggleCover'],
-   click #closeCover":(e,t)->
+  "click [data-action='toggleCover']":(e,t)->
     log "toggleCover clicked!"
     currentTarget = $(e.currentTarget)
     log "action: ",currentTarget.data("action")
     log "cover: ",currentTarget.data("cover")
     cover = currentTarget.data("cover")
     #If there's a cover data-attribute, set the current cover to be that ID
-    if cover
-      Session.set("cover",cover)
+    Session.set("cover",cover) if cover?
     toggleCover()
+  "click [data-action='switchCover']":(e,t)->
+    log "switchCover clicked!"
+    currentTarget = $(e.currentTarget)
+    log "cover: ",currentTarget.data("cover")
+    cover = currentTarget.data("cover")
+    Session.set("cover",cover) if cover?
   "click [data-action='toggleOverlay']":(e,t)->
     toggleOverlay()
   "click [data-action='play']":(e,t)->
     Session.set("playing",@._id)
     toggleOverlay()
+  "click .toggle":(e,t)->
+    log ".toggle clicked!"
 
-Template.layout.preserve({
-  "#layout"
-  "#content"
-  "#playerWrapper"
-  "#playerIcon"
-})
-
-Template.contentInfo.rendered = ->
+Template.topic.rendered = ->
   #We select from within the template instance because we only want to apply dropzone to this one context, and
   #still be reactive when a new context is created for the first time, without conflicting with other existing
   #dropzones.
@@ -187,8 +165,8 @@ Template.contentInfo.rendered = ->
 
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.
-Template.contentInfo.helpers
-  contentDetails: ->
+Template.topic.helpers
+  topicPosts: ->
     log "contentDetails helper called!"
     self = this
     #log "self: ",self

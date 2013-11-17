@@ -1,8 +1,30 @@
 <template name="contentForm">
-  <section id="contentForm" class="form">
-    {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
-    {{afFieldInput "content" class="formInput expanding" placeholder="Write a post.." autocomplete="off" rows="10"}}
-    <button type="submit" class="formSubmit">Add Content</button>
+  <div class="topicEntry">
+    {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
+    {{afFieldInput "content" class="formInput expanding" placeholder="Add Post.." autocomplete="off" rows="10"}}
+    <div class="formSubmitBar">
+      <nav class="toolbarList">
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Text</div>
+          </a>
+        </li>
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Image</div>
+          </a>
+        </li>
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Video</div>
+          </a>
+        </li>
+      </nav>
+      <button type="submit" class="button formSubmit">Add Post</button>
+    </div>
     {{/autoForm}}
-    </section>
+  </div>
 </template>

@@ -1,21 +1,6 @@
 <template name="createForm">
-  <section id="createForm" class="form">
-    {{#autoForm schema=createFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
-    <div class="formSection">
-        {{afFieldInput "type" type="hidden" value="game"}}
-        <ul class="formRadioList">
-            <li class="formRadioListItem"><input type="radio" id="type1" class="formRadio" name="type" value="game" checked="checked"/>{{icon 'game'}}<span class="formRadioText">Game</span></li>
-            {{#with hidden}}
-            <li class="formRadioListItem"><input type="radio" id="type2" class="formRadio" name="type" value="movie"/>{{icon 'movie'}}<span class="formRadioText">Movie</span></li>
-            <li class="formRadioListItem"><input type="radio" id="type3" class="formRadio" name="type" value="short"/>{{icon 'short'}}<span class="formRadioText">Short</span></li>
-            <li class="formRadioListItem"><input type="radio" id="type4" class="formRadio" name="type" value="song"/>{{icon 'song'}}<span class="formRadioText">Song</span></li>
-            {{/with}}
-        </ul>
-    </div>
-    <div class="formSection">
-        {{afFieldInput "title" class="formInput" placeholder="Title" autocomplete="off"}}
-    </div>
-    <button type="submit" class="formSubmit">Create Project</button>
-    {{/autoForm}}
-    </section>
+  {{#autoForm schema=createFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
+  {{afFieldInput "title" class="formInput" placeholder="Title" autocomplete="off"}}
+  <button type="submit" class="button formSubmit">Create</button>
+  {{/autoForm}}
 </template>

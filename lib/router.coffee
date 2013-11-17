@@ -3,9 +3,17 @@ Router.map ->
   #visits, as they haven't specified any search terms yet.
   @route "home",
     path: "/"
-    template: "filteredContent" #We want the results to show up in the overlay, as we use that for main navigation, because we have a player that can't be interrupted just because the user is browsing.
+    yieldTemplates:
+      "home":
+        to:
+          "landing"
     data: ->
-      filteredContent: Content.find()
+      #If a user is signed in, redirect to the content page
+      if Meteor.user()
+        log "User found!"
+        Router.go "filteredContent",
+          type: "all"
+        #filteredContent: Content.find()
 
   #FILTERED CONTENT - Shows filtered content based on the type the user passes in
   @route "filteredContent",
@@ -14,50 +22,56 @@ Router.map ->
       typeParam = @params.type
       #Create the correct collection selector based on the url param
       switch typeParam
-        when "games" then type = "game"
-        when "songs" then type = "song"
-        when "shorts" then type = "short"
-        when "movies" then type = "movie"
+        when "all" then type = "game"
+        when "new" then type = "game"
+        when "featured" then type = "game"
         else type = null
 
       if type is null
+        content: Content.find()
         filteredContent: Content.find()
       else
+        content: Content.find()
         filteredContent: Content.find
           type: type
 
   #CONTENT VIEW - Shows information about the currently selected content to the user
   @route "content",
-    path: "/users/:ownerSlug/:titleSlug?/:contentInfo?/:contentDetails?"
+    path: "/users/:owner/:context?/:contentInfo?"
     data: ->
       #Query for content data if viewing a type of content
-      if @.params.titleSlug and @params.contentInfo
+      if @params.context and @params.contentInfo
         contentInfoParam = _.capitalize @params.contentInfo
+        #log "contentInfoParam: ",contentInfoParam
         #Create the correct collection selector based on the url param
-        content = Content.findOne(titleSlug: @params.titleSlug)
+        content = Content.findOne(_id: @params.context) || Content.findOne(_id: @params.owner)
         #log "content: ",content
-        contentInfo = window[contentInfoParam].find(parent: content._id)
+        #contentInfo = window[contentInfoParam].find(parent: content._id)
         #log "contentInfo: ",contentInfo
+
+        if @params.contentInfo is "about" or @params.contentInfo is "community"
+          contentInfo = window[contentInfoParam].find(parent: content._id)
+
+        ownerId = @params.owner
+        log "ownerId: ",ownerId
+
+        owner: Meteor.users.findOne(_id: ownerId)
+        ownerContent: Content.find(owner: ownerId)
         content: content
         contentInfo: contentInfo
+        #creations:
         #XXX: Eventually we'll want this to be included in the router, but since handlebars doesn't
         #allow for good switching of globally scoped data contexts when within other nested data contexts
         #we have to settle for using a template helper for now until there's a stable way to access parent data contexts.
         #contentDetails: Posts.find(parentSlug: @params.contentDetails) if @params.contentDetails?
-      else
+      else if @params.owner
         #log "Query for user if it's a user"
-        #log "ownerSlug: ",@params.ownerSlug
-        #Get the user name from the content via the ownerSlug
-        owner = Content.findOne(ownerSlug: @params.ownerSlug).owner if owner?
+        #log "owner: ",@params.owner
+        #Get the user name from the content via the _id
+        ownerId = @params.owner
+        log "USER!"
+        #log "ownerId: ",ownerId
 
-        user: Meteor.users.findOne(ownerSlug: @params.ownerSlug)
-        creations: Content.find(ownerSlug: @params.ownerSlug)
-
-        #Find a user based on the ownerSlug
-  #PROFILE VIEW - Shows information about the currently selected user to the user
-  #@route "profile",
-  #  path: "/users/:ownerSlug"
-  #  template: "content"
-  #  data: ->
-  #    log "OWNER!"
-  #    creations: Content.find(ownerSlug: @params.ownerSlug)
+        owner: Meteor.users.findOne(_id: ownerId)
+        #content: Meteor.users.findOne(_id: ownerId)
+        creations: Content.find(_id: @params.context)

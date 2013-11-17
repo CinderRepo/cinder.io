@@ -1,10 +1,9 @@
-@import 'nib'
-@import 'variables'
+@import "nib"
+@import "variables"
 
 *
   box-sizing border-box
   -webkit-tap-highlight-color transparent
-  color midnight(0.9)
 html
   height 100%
 body
@@ -12,8 +11,10 @@ body
   font-family 'Avenir','HelveticaNeue','Helvetica','Arial',sans-serif
   font-size 14px
   height 100%
-  background midnight(0.9)
   overflow(hidden)
+  background offWhite()
+form
+  margin 0
 input,button,textarea
   margin 0
   border none
@@ -61,7 +62,6 @@ h1,h2,h3,h4,h5,h6
   margin 0
   font-weight normal
 a
-  display block
   text-decoration none
   text-transform capitalize
   color inherit
@@ -69,7 +69,6 @@ p
   margin 0
 a:hover,a:active,a[data-active="true"]
   text-decoration none
-  color radiantBlue(0.9)
 
 //Content Editable Styles
 [contenteditable]

@@ -1,61 +1,31 @@
 <template name="player">
-  <section id="playerWrapper">
-    {{#with hidden}}
-    {{#isolate}}
-    <div id="playerIcon" data-isVisualizing="{{$.Session.get 'isVisualizing'}}">
-    {{icon 'cinder'}}
-    </div>
-    {{/isolate}}
-    <div id="promise">
-      November 21, 2013
-    </div>
-    {{/with}}
-    {{#if playing}}
-    {{#with playing}}
-    <iframe id="player" src="{{contentSrc}}" sandbox="allow-scripts allow-pointer-lock allow-same-origin" seamless></iframe>
-    {{/with}}
-
-    {{#if $eq type 'game'}}
-
-    {{/if}}
-
-    {{#if $eq type 'show'}}
-    {{>media}}
-    {{/if}}
-
-    {{#if $eq type 'song'}}
-    {{>media}}
-    {{/if}}
-
-    {{#if $eq type 'movie'}}
-    {{>media}}
-    {{/if}}
-
-    <div id="playerControls">
-      <div class="control play" data-isPlaying="{{$.Session.get 'isPlaying'}}">{{icon 'play'}}</div>
-      <div class="control pause" data-isPlaying="{{$.Session.get 'isPlaying'}}">{{icon 'pause'}}</div>
-      {{!<div class="enterFullscreen"></div>
-      <div class="exitFullscreen"></div>
+  <section class="player">
+    <div class="playerControls">
+      <div class="control play"></div>
+      <div class="control pause"></div>
       <div class="time">3:20</div>
       <div class="sliderWrapper progress">
         <div class="slider">
           <div class="track">
-            <div class="bar"></div>
-            <div class="handle"></div>
+            <div class="bar">
+              <div class="handle"></div>
+            </div>
           </div>
         </div>
       </div>
       <div class="duration">4:00</div>
+      <div class="volumeIcon"></div>
       <div class="sliderWrapper volume">
-        <div class="volumeIcon"></div>
         <div class="slider">
           <div class="track">
-            <div class="bar"></div>
-            <div class="handle"></div>
+            <div class="bar">
+              <div class="handle"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>}}
-    {{/if}}
+      <div class="enterFullscreen"></div>
+      <div class="exitFullscreen"></div>
+    </div>
   </section>
 </template>

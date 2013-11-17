@@ -1,0 +1,1025 @@
+@import "nib"
+@import "variables"
+
+.player
+  position(fixed,0,0,0,0)
+  background black()
+  .playerControls
+    height 110px
+    position(fixed,auto,0,0,0)
+    .control
+      size(40,40)
+      border-radius 40px
+      position(absolute,auto,0,50,0)
+      margin 0 auto
+      background white()
+      cursor pointer
+      transition all .25s ease-in-out
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
+    .time
+      position(absolute,auto,auto,32,20)
+      font-size 12px
+      color offerGray()
+    .volumeIcon
+      size(20,20)
+      border-radius 20px
+      position(absolute,auto,160,20,auto)
+      background white()
+      cursor pointer
+      transition all .25s ease-in-out
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
+    .sliderWrapper
+      size(auto,20)
+      position(absolute,auto,20,20,20)
+      cursor pointer
+      &.progress
+        right 220px
+        .slider
+          left 0
+          .track
+            .bar
+              right 150px
+      &.volume
+        size(100,20)
+        position(absolute,auto,50,20,auto)
+      &:hover
+        .slider
+          .track
+            .bar
+              .handle
+                transform scale3d(1,1,1)
+                &:hover
+                  transform scale3d(1.2,1.2,1.2)
+      .slider
+        size(auto,4)
+        border-radius 4px
+        position(absolute,auto,0,7,0)
+        background offWhite(0.2)
+        .track
+          size(auto,4px)
+          border-radius 4px
+          position(absolute,auto,50,0,0)
+          background offWhite(0.2)
+          .bar
+            size(auto,4px)
+            border-radius 4px
+            position(absolute,auto,0,0,0)
+            background offWhite()
+            .handle
+              size(20,20)
+              border-radius 20px
+              position(absolute,-8,-10,0,auto)
+              background offWhite()
+              transform scale3d(0,0,0)
+              transition all .25s ease-in-out
+    .duration
+      position(absolute,auto,220,32,auto)
+      font-size 12px
+      color offerGray()
+    .enterFullscreen,
+    .exitFullscreen
+      size(20,20)
+      border-radius 20px
+      position(absolute,auto,20,20,auto)
+      background white()
+      cursor pointer
+      transition all .25s ease-in-out
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
+
+.overlay
+  position(absolute,0,0,110,0)
+  background offWhite()
+  .contentWrapper
+    z-index 0
+
+.sidebar
+  position(absolute,0,auto,0,auto)
+  size(190,auto)
+  text-align left
+  z-index 1
+  &.left
+    left 0
+    padding 50px 10px 0 10px
+  &.right
+    top 10px
+    right 10px
+    bottom auto
+    background white()
+    border-radius borderRadius
+    .sidebarInfo
+      display block
+      height 140px
+      background midnight()
+      position(relative)
+      cursor pointer
+      &:first-child
+        border-radius borderRadius borderRadius 0 0
+      .sidebarHeader
+        display block
+        futura(16,white())
+        padding 10px
+        text-align left
+      .sidebarInfoText
+        color white()
+        size(auto,12)
+        font-size 12px
+        position(absolute,auto,10,10,auto)
+        &:hover
+          color highlight()
+    .sidebarList
+      margin 0
+      &:last-of-type
+        .sidebarListItem
+          &:last-of-type
+            .sidebarListItemLink
+              &:hover
+                border-radius 0 0 borderRadius borderRadius
+      .sidebarListItem
+        height 34px
+        line-height 34px
+        border-bottom 1px solid gray()
+        &:last-child
+          border-bottom none
+        .sidebarListItemLink
+          width 100%
+          padding 0 0 0 30px
+          &:hover
+            background midnight()
+            .sidebarListItemIcon
+              background white()
+            .sidebarListItemText
+              color white()
+          .sidebarListItemIcon
+            top 9px
+            left 10px
+  .sidebarHeader
+    futura(10,offerGray())
+    text-align left
+  .sidebarList
+    margin 0 0 10px 0
+    .sidebarListItem
+      position(relative)
+      size(auto,20)
+      .sidebarListItemLink
+        position(relative)
+        display inline-block
+        cursor pointer
+        padding 0 0 0 20px
+        transition all .25s ease-in-out
+        .sidebarListItemIcon
+          position(absolute,2,auto,auto,0)
+          background midnight()
+          size(14,14)
+          border-radius 14px
+          transition all .25s ease-in-out
+        .sidebarListItemText
+          transition all .25s ease-in-out
+        &:hover
+          .sidebarListItemIcon
+            background highlight()
+          .sidebarListItemText
+            color highlight()
+  .logo
+    position(absolute,10,auto,auto,10)
+    transition all .25s ease-in-out
+    padding 0 0 0 40px
+    cursor pointer
+    size(auto,30)
+    futura()
+    .logoIcon
+      size(30,30)
+      border-radius 30px
+      position(absolute,0,auto,auto,0)
+    .logoText
+      size(auto,30)
+      font-size 20px
+      line-height 30px
+    &.white
+      .logoIcon
+        background offWhite()
+      .logoText
+        color offWhite()
+    &.black
+      .logoIcon
+        background midnight()
+      .logoText
+        color midnight()
+    &:hover
+      transform scale3d(1.1,1.1,1.1)
+.section
+  position(relative,0)
+  float left
+  width 100%
+  padding 10px
+  background-size cover
+  background-position 50% 50%
+  padding 20px 0 20px 0
+  &.intro
+    background-image url("../images/photo.png")
+    height 800px
+    display table
+    .pane
+      display table-cell
+      text-align center
+      vertical-align middle
+  &.learn
+    .pane
+      display table
+  &.tiles
+    overflow(hidden)
+    .pane
+      margin 0 auto
+      max-width 1600px
+  .sectionTitle
+    futura(26,midnight())
+    margin 0 0 20px 0
+  &:nth-of-type(odd)
+    background-color midnight()
+    .sectionTitle
+      futura(26,white())
+    .button
+      background white()
+      border 2px solid white()
+      futura(20,midnight())
+      &:hover
+        background transparent
+        color white()
+.pane
+  min-width 320px
+  max-width 960px
+  margin 0 auto
+.contentWrapper
+  overflow(hidden,auto)
+  height 100%
+  position(relative)
+  z-index 1
+  background offWhite()
+.content
+  min-width 320px
+  max-width 960px
+  margin 0 auto
+  padding 0 0 40px 0
+  vertical-align middle
+  z-index 1
+.column
+  float left
+  margin 0 10px 30px 10px
+  //padding 0 5px 0 5px
+  //border-left 5px solid white()
+  //border-right 5px solid white()
+  min-width 300px
+  max-width 300px
+  //border 1px solid offerWhite()
+  background-color white()
+  border-radius borderRadius
+  padding 20px 10px 20px 10px
+  font-size 16px
+  .columnIcon
+    size(160,160)
+    line-height 160px
+    background midnight()
+    border-radius 160px
+    margin 40px auto 40px auto
+    text-align center
+    futura(20,white())
+  .columnTitle
+    text-transform uppercase
+    font-size 24px
+    size(auto,40)
+    line-height 40px
+    //border 1px solid offerWhite()
+    text-align center
+    //border-bottom 1px solid midnight()
+    color midnight()
+  .columnGross
+    text-align center
+    font-size 18px
+  .columnFee
+    text-align center
+    font-size 18px
+    padding 0 0 5px 0
+    margin 0 0 5px 0
+    border-bottom 1px solid gray()
+    color red()
+  .columnNet
+    text-align center
+    font-size 18px
+    color green()
+    margin 0 0 10px 0
+  .columnHistory
+    text-align center
+    color offerGray()
+    font-size 14px
+  .columnFollowers
+    text-align center
+    color offerGray()
+    font-size 14px
+  .columnContent
+    margin 10px 10px 10px 10px
+  .columnList
+    .columnListItem
+      padding 10px 10px 10px 10px
+      .columnListIcon
+        size(40,40)
+        background midnight()
+        border-radius 40px
+        display inline-block
+        float left
+      .columnListTitle
+        height 40px
+        line-height 40px
+        font-size 20px
+        float left
+        padding 0 10px 0 10px
+      .columnListText
+        clear both
+        padding 10px 0 10px 0
+        line-height 1.5
+.masthead
+  margin 0 auto 40px auto
+  futura(72,white())
+  max-width 960px
+.mastheadInfo
+  font-family "HelveticaNeue-Light"
+  font-size 24px
+  line-height 1.4
+  color white()
+  margin 0 auto
+  min-width 320px
+  max-width 600px
+.buttonsWrapper
+  margin 40px auto 0 auto
+  //min-width 320px
+  max-width 620px
+  //min-height 60px
+  .button
+    float left
+    clear none
+    margin 0 5px 0 5px
+.button
+  size(300,60)
+  background midnight()
+  border 2px solid midnight()
+  border-radius borderRadius
+  futura(20,white())
+  line-height 60px
+  cursor pointer
+  transition all 0.25s ease-in-out
+  clear left
+  margin 0 auto 10px auto
+  padding 0
+  display block
+  &:hover
+    background transparent
+    color midnight()
+.tile
+  size(300,330)
+  margin 0 10px 30px 10px
+  background white()
+  border-radius borderRadius
+  float left
+  position(relative)
+  cursor pointer
+  transition all .25s ease-in-out
+  overflow(hidden)
+  &:hover
+    transform scale3d(1.1,1.1,1.1)
+    .tileInfo
+      transform translate3d(0,0,0)
+      border-radius borderRadius
+  .tileImage
+    position(absolute,0,0,0,0)
+    background midnight()
+    border-radius borderRadius
+  .tileInfo
+    background white()
+    position(absolute,auto,0,0,0)
+    size(300,330)
+    transition all 0.25s ease-in-out
+    transform translate3d(0,280px,0)
+    .tileTitle
+      position(absolute,0,0,0,0)
+      height 30px
+      line-height 30px
+      futura(18,midnight())
+      padding 0 10px 0 10px
+      text-align left
+    .tileSubtitle
+      position(absolute,20,0,auto,0)
+      height 30px
+      line-height 30px
+      padding 0 10px 0 10px
+      text-align left
+      color offerGray()
+    .tileContent
+      position(absolute,50,0,auto,0)
+      padding 0 10px 0 10px
+      color midnight()
+
+.contentHeader
+  position(relative)
+  display table
+  margin 0 auto 0 auto
+  padding 10px 0 10px 50px
+  height 40px
+  line-height 40px
+  .contentHeaderIcon
+    size(40,40)
+    border-radius 40px
+    background midnight()
+    position(absolute,10,auto,auto,0)
+  .contentHeaderText
+    futura(36,midnight())
+
+.contentMasthead
+  background midnight()
+  padding 20px
+  margin 0 10px 20px 10px
+  height 370px
+  position(relative)
+  border-radius 0 0 borderRadius borderRadius
+  .contentMastheadImage
+    size(300,330)
+    border-radius borderRadius
+    background white()
+    position(absolute,20,auto,auto,20)
+    transition all 0.25s ease-in-out
+    cursor pointer
+    &:hover
+      transform scale3d(1.1,1.1,1.1)
+  .contentHeader
+    margin 0
+    padding 0
+    margin 0 0 20px 320px
+    display block
+    max-height 80px
+    height auto
+    overflow hidden
+    .contentHeaderText
+      text-align left
+      color white()
+  .contentHeaderContent
+    color white()
+    max-height 176px
+    margin 0 0 0 320px
+    overflow hidden
+    font-size 16px
+  .buttonsWrapper
+    size(210,40)
+    position(absolute,auto,20,20,auto)
+    margin 0
+    .toggle
+    .contentHeaderButton
+      position(static)
+      float left
+    .toggle
+      margin 0 0 0 10px
+  .contentHeaderButton
+    size(100,40)
+    line-height 40px
+    font-size 14px
+    position(absolute,auto,20,20,auto)
+    background white()
+    border 2px solid white()
+    color midnight()
+    margin 0
+    &:hover
+      background transparent
+      color white()
+  .toggle
+    size(100,40)
+    position(absolute,auto,20,20,auto)
+    &.off
+      .toggleOptions
+        .toggleOptionsTrack
+          transform translate3d(-100px,0,0)
+    &.on
+      .toggleOptions
+        .toggleOptionsTrack
+          transform translate3d(0,0,0)
+    .toggleOptions
+      size(100,40)
+      .toggleOptionsTrack
+        size(200,40)
+        .toggleOption
+          size(100,40)
+          &:last-of-type
+            left 100px
+
+.topicEntry
+  maxSize(940,auto)
+  margin 0 auto
+  .topicForm
+    .formSubmitBar
+      background offerWhite()
+      width 100%
+      height 40px
+      border-radius 0 0 borderRadius borderRadius
+      position(relative)
+      .toolbarList
+        position(absolute,0,auto,auto,0)
+        size(auto,40)
+        padding 10px
+        .toolbarListItem
+          float left
+          size(auto,20)
+          margin 0 10px 0 0
+          .toolbarListItemLink
+            display inline-block
+            position(relative)
+            padding 0 0 0 18px
+            cursor pointer
+            height inherit
+            &:hover
+              .toolbarListItemIcon
+                background highlight()
+              .toolbarListItemText
+                color highlight()
+            .toolbarListItemIcon
+              size(14,14)
+              border-radius 14px
+              background midnight()
+              position(absolute,2,auto,auto,0)
+              transition all 0.25s ease-in-out
+            .toolbarListItemText
+              color midnight()
+              font-size 14px
+              height 20px
+              line-height 20px
+              transition all 0.25s ease-in-out
+      .formSubmit
+        size(200,40)
+        line-height 40px
+        padding 0
+        position(absolute,0,0,auto,auto)
+        font-size 12px
+        border-radius 0 0 borderRadius 0
+        border none
+        &:hover
+          background midnight()
+          color highlight()
+    .formInput
+    .formTextarea
+      background white()
+      border-radius borderRadius borderRadius 0 0
+      width 100%
+      padding 10px
+      color offerGray()
+      font-size 16px
+    .formInput
+      border-bottom 1px solid gray()
+      border-radius borderRadius borderRadius 0 0
+      &+.expandingText
+        .formInput
+          border-radius 0
+
+.topic
+  maxSize(940,auto)
+  font-size 16px
+  line-height 1.5
+  margin 20px auto 0 auto
+  color midnight()
+  position(relative)
+  .topicSidebar
+    border-radius borderRadius 0 0 borderRadius
+    background gray()
+    width 160px
+    padding 10px
+    position(absolute,0,auto,0,0)
+    .topicSidebarInfo
+      border-radius borderRadius
+      background white()
+      padding 10px
+      min-width 140px
+      .topicSideFormTitle
+        height 20px
+        text-align center
+      .topicSideFormSubtitle
+        height 18px
+        font-size 12px
+        color offerGray()
+      .topicSideForm
+        border-radius borderRadius
+        background white()
+        width 100%
+        .formInput
+          width 100%
+          height 30px
+          padding 5px
+          margin 10px 0 10px 0
+          background gray()
+          border-radius borderRadius
+          color offerGray()
+        .formSubmit
+          width 100%
+          height 30px
+          line-height 30px
+          font-size 12px
+          margin 0
+  .topicMedia
+    background midnight()
+    height 400px
+    margin 20px 0 20px 0
+  .topicWrapper
+    margin 0 0 0 160px
+    position(relative)
+    .topicTitle
+      display table
+      font-size 20px
+      position(relative)
+      padding 20px 20px 0 20px
+      .topicTitleText
+        display table-cell
+        vertical-align middle
+        width 900px
+        height 60px
+      .topicTitleDetails
+        size(auto,50)
+        position(absolute,10,10,auto,auto)
+        background midnight()
+        color white()
+        padding 10px 20px 10px 20px
+        border-radius borderRadius
+        .topicTitleDetailsInfo
+        .topicTitleDetailsSubInfo
+          size(auto,16)
+          font-size 12px
+          line-height normal
+    .topicTitleIcon
+      size(40,40)
+      border-radius 40px
+      background midnight()
+      float left
+      margin 8px 20px 0 0
+      //position(absolute,20,auto,auto,20)
+    .topicContent
+      padding 10px 20px 10px 20px
+      display table-cell
+      width 940px
+      //height 80px
+      vertical-align middle
+      .topicContentMedia
+        background midnight()
+        height 400px
+        margin 20px -20px 20px 0
+    .topicIcon
+      size(40,40)
+      border-radius 30px
+      background midnight()
+      margin 10px 10px 0 20px
+      float left
+      //position(absolute,10,auto,auto,25)
+    .topicWrapper
+      //border-left 10px solid gray()
+      border-top 1px solid gray()
+      padding 10px 0 10px 0
+      minSize(auto,80)
+      margin 0
+      &:last-child
+        .formInput
+          background offWhite()
+      .topicContent
+        width 900px
+        height 60px
+        padding 10px 20px 10px 10px
+        .topicContentMedia
+          margin 20px -20px 20px 0
+  .topicToolbar
+    display block
+    height 40px
+    line-height 40px
+    margin 0 0 0 160px
+    .topicToolbarButton
+      background midnight()
+      futura(12,white())
+      border-radius 0 0 borderRadius 0
+      width 100%
+      display inline-block
+      transition all 0.25s ease-in-out
+      cursor pointer
+      &:hover
+        color highlight()
+
+.content[data-context="community"]
+  .topic
+    background white()
+    border-radius borderRadius
+
+.content[data-context="profile"]
+  .section
+    padding 0
+
+.content[data-context="dashboard"]
+  .column
+    text-align center
+
+.cover
+  position(fixed,0,0,0,0)
+  z-index 999
+  font-size 16px
+  line-height 1.5
+  background offWhite()
+  transition all 0.25s ease-in-out
+  display block
+  &[data-hidden="true"]
+    display none
+  .button
+    margin 20px 0 0 0
+    width 100%
+  .closeCover
+    background midnight()
+    size(40,40)
+    border-radius 40px
+    position(absolute,20,20,auto,auto)
+    cursor pointer
+    transition all 0.25s ease-in-out
+    &:hover
+      transform scale3d(1.2,1.2,1.2)
+  .coverContentWrapper
+    width 100%
+    height 100%
+    overflow(hidden,auto)
+    text-align center
+    &:before
+      content ""
+      display inline-block
+      height 100%
+      vertical-align middle
+    .centeredCoverContent
+      display inline-block
+      vertical-align middle
+      min-width 320px
+      max-width 960px
+      padding 20px 0 20px 0
+      .coverIcon
+        background midnight()
+        size(80,80)
+        line-height 80px
+        border-radius 80px
+        margin 0 auto 10px auto
+        transition all 0.25s ease-in-out
+        .coverInput
+          futura(16,white())
+          width inherit
+          height inherit
+          background transparent
+          padding 20px
+          overflow(hidden)
+          text-overflow ellipsis
+          white-space nowrap
+          &::input-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
+          &::-moz-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
+          &:-ms-input-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
+      .coverTitle
+        futura(20,midnight())
+        margin 0 0 10px 0
+      .coverMasthead
+        margin 0 10px 20px 10px
+        height 400px
+        background gray()
+        position(relative)
+        .coverMastheadSubTitle
+          text-align center
+          height 20px
+          font-size 14px
+          color offerGray()
+          margin 0 0 5px 0
+        .buttonsWrapper
+          position(absolute,auto,0,40,0)
+          width 410px
+          .button
+            width 200px
+            margin 0 10px 0 0
+            &:last-of-type
+              margin 0
+      .coverContent
+        text-align left
+      .coverList
+        margin 20px auto 0 auto
+        .coverListItem
+          size(auto,30)
+          line-height 30px
+          margin 0 0 10px 0
+          padding 0 0 0 40px
+          position(relative)
+          .coverListItemIcon
+            size(30,30)
+            border-radius 30px
+            background midnight()
+            position(absolute,0,auto,auto,0)
+      .coverForm
+        max-width 320px
+        .formInput
+          height 60px
+          width 100%
+          margin 0 0 1px 0
+          padding 20px
+          font-size 14px
+          color offerGray()
+          &:first-of-type
+            &:last-of-type
+              border-radius borderRadius
+              margin 0
+          &:first-of-type
+            border-radius borderRadius borderRadius 0 0
+          &:last-of-type
+            border-radius 0 0 borderRadius borderRadius
+        .formSubmit
+          height 60px
+          padding 0
+      .coverFooter
+        display inline-block
+        text-align center
+        margin 10px 0 0 0
+        width 100%
+        .coverLink
+          font-size 14px
+          color offerGray()
+          cursor pointer
+          transition all 0.25s ease-in-out
+          &:hover
+            color highlight()
+
+.cover[data-context="pay"]
+  .coverContentWrapper
+    .centeredCoverContent
+      .coverIconsWrapper
+        display inline-block
+        width 100%
+        position(relative)
+        .coverIcon
+          size(120,120)
+          display inline-block
+          vertical-align middle
+          margin 0 5px 10px 5px
+          cursor pointer
+          &:hover
+            transform scale3d(1.2,1.2,1.2)
+            .coverInput
+              &::input-placeholder
+                color white()
+              &::-moz-placeholder
+                color white()
+              &:-ms-input-placeholder
+                color white()
+          &.mini
+            size(40,40)
+
+.cover[data-context="monetize"]
+  .coverContentWrapper
+    .centeredCoverContent
+      max-width 320px
+
+.columnForm
+  width 100%
+  .formInput
+    width 100%
+    height 40px
+    padding 10px
+    margin 0 0 1px 0
+    background offWhite()
+    &::input-placeholder
+      font-size 12px
+    &::-moz-placeholder
+      font-size 12px
+    &:-ms-input-placeholder
+      font-size 12px
+    &:first-of-type
+      border-radius borderRadius borderRadius 0 0
+    &:last-of-type
+      border-radius 0 0 borderRadius borderRadius
+      margin 0 0 20px 0
+  .toggle
+    margin 20px 0 20px 0
+  .button
+    width 100%
+    height 40px
+    line-height 40px
+    font-size 14px
+    margin 20px 0 0 0
+    &:last-of-type
+      margin 10px 0 0 0
+
+.toggle
+  margin 20px 0 0 0
+  size(auto,40)
+  futura(14,white())
+  &.black
+    &.off
+      .toggleOptions
+        background midnight()
+        border 2px solid midnight()
+        .toggleOptionsTrack
+          .toggleOption
+            color white()
+    &.on
+      .toggleOptions
+        background transparent
+        border 2px solid midnight()
+        .toggleOptionsTrack
+          .toggleOption
+            color midnight()
+    .toggleLabel
+      color midnight()
+  &.white
+    &.off
+      .toggleOptions
+        background white()
+        border 2px solid white()
+        .toggleOptionsTrack
+          .toggleOption
+            color midnight()
+    &.on
+      .toggleOptions
+        background transparent
+        border 2px solid white()
+        .toggleOptionsTrack
+          .toggleOption
+            color white()
+        .toggleOptionsTrack
+          .toggleOption
+            color white()
+    .toggleLabel
+      color white()
+  &.off
+    .toggleOptions
+      .toggleOptionsTrack
+        transform translate3d(-60px,0,0)
+  &.on
+    .toggleOptions
+      .toggleOptionsTrack
+        transform translate3d(0,0,0)
+  .toggleOptions
+    size(60,40)
+    border-radius borderRadius
+    float left
+    margin 0 10px 0 0
+    overflow(hidden)
+    position(relative)
+    transition all 0.25s ease-in-out
+    cursor pointer
+    .toggleOptionsTrack
+      size(120,40)
+      transition all 0.25s ease-in-out
+      &:hover
+        .toggleOption
+          transform scale3d(1.1,1.1,1.1)
+      .toggleOption
+        size(60,40)
+        line-height 40px
+        position(absolute,0,auto,auto,auto)
+        text-align center
+        transition all 0.25s ease-in-out
+        &:first-of-type
+          left 0
+        &:last-of-type
+          left 60px
+  .toggleLabel
+    float left
+    size(auto,40)
+    line-height 40px
+
+.notification
+  max-width 480px
+  min-height 40px
+  background white()
+  border-radius borderRadius
+  margin 20px auto 0 auto
+  padding 20px
+  position(relative)
+  .notificationText
+    margin 0 100px 0 0
+  .notificationOptions
+    position(absolute,0,0,0,auto)
+    width 130px
+    height 100%
+    padding 20px
+    .notificationIconsWrapper
+      position(absolute)
+      top 50%
+      size(90,40)
+      margin -20px 0 0 0
+      .notificationIcon
+        size(40,40)
+        border-radius 40px
+        background midnight()
+        float left
+        margin 0 10px 0 0
+        cursor pointer
+        transition all 0.25s ease-in-out
+        &:hover
+          transform scale3d(1.1,1.1,1.1)
+        &:last-of-type
+          margin 0

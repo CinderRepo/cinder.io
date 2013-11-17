@@ -31,8 +31,9 @@ Schema.contentFormSchema.messages
 if Meteor.isClient
   contentForm = new AutoForm(Schema.contentFormSchema)
 
-  Template.contentForm.events
+  ###Template.contentForm.events
     "change [name='type']":(e,t)->
+      log "Changing"
       currentTarget = e.currentTarget
       projectType = $("[data-schema-key='type']")
 
@@ -41,7 +42,7 @@ if Meteor.isClient
     "reset form":(e,t)->
       #Reset the projectType value back to game when the form is reset
       projectType = $("[data-schema-key='type']")
-      projectType.val("game")
+      projectType.val("game")###
 
   Template.contentForm.helpers
     contentFormSchema: ->
@@ -50,8 +51,9 @@ if Meteor.isClient
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
-      context = this
-      #log "context: ",context
+      self = this
+      context = self.content
+      log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.contentFormSchema)
         log "creating an about!"
@@ -65,7 +67,7 @@ if Meteor.isClient
         currentUser = Meteor.user() if Meteor.user()?
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
-        insertDoc.owner = currentUser.username
+        insertDoc.owner = currentUser._id
         log "Updated insertDoc: ",insertDoc
         log "contentInfoParam: ",_.capitalize contentInfoParam
         window[_.capitalize contentInfoParam].insert(
@@ -74,7 +76,10 @@ if Meteor.isClient
           (err,result)->
             if err
               log "err: ",err
+              log "result: ",result
+              log "FIRST"
             else
+              log "thing"
               #Add the topic ID to the current content
               modifier = $push: {}
               modifier.$push[contentInfoParam] = result
@@ -87,6 +92,7 @@ if Meteor.isClient
                 (err,result)->
                   if err
                     log "err: ",err
+                    log "SECOND"
                   else
                     log "result: ",result
                     self.resetForm()

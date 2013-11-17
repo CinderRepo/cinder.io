@@ -1,0 +1,91 @@
+<template name="home">
+  <div class="contentWrapper">
+    <aside class="sidebar left">
+      <a class="logo white" href="/">
+        <div class="logoIcon"></div>
+        <div class="logoText">Cinder</div>
+      </a>
+    </aside>
+    <section class="section intro">
+      <div class="pane">
+        <div class="masthead">Shared Creation</div>
+        <div class="mastheadInfo">Cinder is a community platform to create, play, and enjoy games together with both gamers and developers alike.</div>
+        <div class="buttonsWrapper">
+          <a class="button">Get Started</a>
+          <a class="button">Learn More</a>
+        </div>
+      </div>
+    </section>
+    <section class="section learn">
+      <div class="sectionTitle">Learn More</div>
+      <div class="pane">
+        <div class="column">
+          <div class="columnTitle">For Gamers</div>
+          <ul class="columnList">
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+          </ul>
+        </div>
+        <div class="column">
+          <div class="columnTitle">For Makers</div>
+          <ul class="columnList">
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+            <li class="columnListItem">
+              <div class="columnListIcon"></div>
+              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListText">Feature Title Text</div>
+            </li>
+          </ul>
+        </div>
+        <a data-action="toggleCover" data-cover="signup" class="button">Sign Up</a>
+      </div>
+    </section>
+    <section class="section tiles">
+      <div class="sectionTitle">Explore New Media</div>
+      <div class="pane">
+        {{>tile}}
+        <a class="button" href="/all">See All</a>
+      </div>
+    </section>
+    <section class="section create">
+      <div class="sectionTitle">Create Something New</div>
+      <div class="pane">
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Column Text</div>
+        </div>
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Column Text</div>
+        </div>
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Column Text</div>
+        </div>
+        <a data-action="toggleCover" data-cover="create" class="button">Create</a>
+      </div>
+    </section>
+  </div>
+</template>

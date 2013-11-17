@@ -31,18 +31,6 @@ Schema.postFormSchema.messages
 if Meteor.isClient
   postForm = new AutoForm(Schema.postFormSchema)
 
-  Template.postForm.events
-    "change [name='type']":(e,t)->
-      currentTarget = e.currentTarget
-      projectType = $("[data-schema-key='type']")
-
-      #Set the value of projectType to be that of the radio element.
-      projectType.val(currentTarget.value)
-    "reset form":(e,t)->
-      #Reset the projectType value back to game when the form is reset
-      projectType = $("[data-schema-key='type']")
-      projectType.val("game")
-
   Template.postForm.helpers
     postFormSchema: ->
       postForm
@@ -51,7 +39,7 @@ if Meteor.isClient
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
       context = this
-      #log "context: ",context
+      log "context 1: ",context
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.postFormSchema)
         #log "creating a comment!"
@@ -62,6 +50,7 @@ if Meteor.isClient
         #log "self: ",self
         contentInfoParam = Router.current().params['contentInfo']
         #log "contentInfoParam: ",contentInfoParam
+        log "context 2: ",context
         currentUser = Meteor.user() if Meteor.user()?
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug

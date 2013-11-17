@@ -1,51 +1,23 @@
 <template name="cover">
-  <section id="cover" data-hidden="{{$.Session.get 'coverHidden'}}">
-    <div id="closeCover">
-      {{icon 'add'}}
-    </div>
-    <div id="coverContentWrapper">
-      <div id="centeredCoverContent">
-        {{#if coverIs 'signup'}}
-          <div class="cinder">
-            {{icon 'cinder'}}
-          </div>
-          {{!<h2 id="coverTitle">Signup</h2>}}
-          <div id="coverContent">
+  <section data-context="" data-hidden="{{$.Session.get 'coverHidden'}}" class="cover">
+    <div class="closeCover" data-action="toggleCover"></div>
+    <div class="coverContentWrapper">
+      <div class="centeredCoverContent">
+        <div class="coverIcon"></div>
+        <div class="coverTitle">Title</div>
+        <div class="coverContent">
+          {{#if coverIs 'login'}}
+            {{>loginForm}}
+          {{/if}}
 
-          </div>
-          {{>signupForm}}
-        {{/if}}
+          {{#if coverIs 'signup'}}
+            {{>signupForm}}
+          {{/if}}
 
-        {{#if coverIs 'login'}}
-          <div class="cinder">
-            {{icon 'cinder'}}
-          </div>
-          {{!<h2 id="coverTitle">Login</h2>}}
-          <div id="coverContent">
-
-          </div>
-          {{>loginForm}}
-        {{/if}}
-
-        {{#if coverIs 'create'}}
-          {{!<h2 id="coverTitle">Create</h2>}}
-          <div id="coverContent">
-
-          </div>
-          {{>createForm}}
-        {{/if}}
-
-        {{#if coverIs 'download'}}
-          <h2 id="coverTitle">Explanation about the app goes here.</h2>
-          <ul class="coverList">
-            <li class="coverListItem">
-              <a class="coverListItemLink" href="http://app.cinder.io/downloads/macos/fire.zip">Mac</a>
-            </li>
-            <li class="coverListItem">
-              <a class="coverListItemLink" href="http://app.cinder.io/downloads/windows/fire.zip">Windows</a>
-            </li>
-          </ul>
-        {{/if}}
+          {{#if coverIs 'create'}}
+            {{>createForm}}
+          {{/if}}
+        </div>
       </div>
     </div>
   </section>

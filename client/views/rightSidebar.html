@@ -1,32 +1,84 @@
 <template name="rightSidebar">
-  <section class="sidebar right">
-    <div class="sidebarContentSection">
-      {{#if content}}
-      {{#with content}}
-      <h2 class="sidebarContentSectionHeader">Info</h2>
-      <nav class="sidebarList">
+  <aside class="sidebar right">
+    {{#with content}}
+    <a href="" class="sidebarInfo">
+      <div class="sidebarHeader">{{title}}</div>
+      <div class="sidebarInfoText">100 Backers</div>
+    </a>
+    <ul class="sidebarList">
+      {{#each filteredContent}}
+      <li class="sidebarListItem">
+        <a href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">{{title}}</div>
+        </a>
+      </li>
+      {{/each}}
+      <li class="sidebarListItem">
+        <a data-action="play" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Play</div>
+        </a>
+      </li>
+      <li class="sidebarListItem">
+        <a href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">About</div>
+        </a>
+      </li>
+      <li class="sidebarListItem">
+        <a href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Community</div>
+        </a>
+      </li>
+    </ul>
+    {{/with}}
+    {{#with owner}}
+    <a href="/users/{{_id}}/profile/creations" class="sidebarInfo">
+      <div class="sidebarHeader">{{username}}</div>
+      <div class="sidebarInfoText">100 Followers</div></a>
+    <ul class="sidebarList">
+      {{#if currentUser}}
+        {{#if isNotOwner}}
         <li class="sidebarListItem">
-          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/about"><div class="sidebarListItemIcon"></div>About</a>
+          <a data-action="follow" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Follow</div>
+          </a>
         </li>
-        <li class="sidebarListItem">
-          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/community"><div class="sidebarListItemIcon"></div>Community</a>
-        </li>
-        <li class="sidebarListItem">
-          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/rewards"><div class="sidebarListItemIcon"></div>Rewards</a>
-        </li>
-        <li class="sidebarListItem">
-          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/commissions"><div class="sidebarListItemIcon"></div>Commissions</a>
-        </li>
-        {{#with hidden}}
-        <li class="sidebarListItem">
-          <a class="sidebarListItemLink" href="/users/{{ownerSlug}}/{{titleSlug}}/updates"><div class="sidebarListItemIcon"></div>Updates</a>
-        </li>
-        {{/with}}
-      </nav>
-      {{/with}}
+        {{/if}}
       {{else}}
-      Recommended Channels
       {{/if}}
-    </div>
-  </section>
+      <li class="sidebarListItem">
+        <a href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Creations</div>
+        </a>
+      </li>
+      <li class="sidebarListItem">
+        <a href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Favorites</div>
+        </a>
+      </li>
+      {{#if currentUser}}
+        {{#if isOwner}}
+        <li class="sidebarListItem">
+          <a href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Dashboard</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Settings</div>
+          </a>
+        </li>
+        {{/if}}
+      {{/if}}
+    </ul>
+    {{/with}}
+  </aside>
 </template>

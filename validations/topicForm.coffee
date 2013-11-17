@@ -2,11 +2,14 @@
 Schema.topicFormSchema = new SimpleSchema
   title:
     type: String
-    label: "Title"
+    label: "title"
+    optional: false
     min: 3
   content:
     type: String
     label: "Content"
+    optional: false
+    min: 3
 
 #Customize output messages sent to the user when an error is come across.
 Schema.topicFormSchema.messages
@@ -32,42 +35,59 @@ Schema.topicFormSchema.messages
 #Create a new AutoForm instance that adheres to the schema provided, and create a template helper for it.
 if Meteor.isClient
   topicForm = new AutoForm(Schema.topicFormSchema)
-  log "topicForm: ",topicForm
+
+  ###Template.topicForm.events
+    "change [name='type']":(e,t)->
+      log "Changing"
+      currentTarget = e.currentTarget
+      projectType = $("[data-schema-key='type']")
+
+      #Set the value of projectType to be that of the radio element.
+      projectType.val(currentTarget.value)
+    "reset form":(e,t)->
+      #Reset the projectType value back to game when the form is reset
+      projectType = $("[data-schema-key='type']")
+      projectType.val("game")###
 
   Template.topicForm.helpers
     topicFormSchema: ->
       topicForm
     onSubmit: ->
-      log "onSubmit topicForm!"
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
+      #log "ONSUBMIT:"
+      self = this
+      context = self.content
+      log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
-        log "onSubmit called!"
         check(insertDoc,Schema.topicFormSchema)
-        #log "creating a topic!"
+        log "creating an about!"
         #log "insertDoc: ",insertDoc
+        #log "updateDoc: ",updateDoc
+        #log "currentDoc: ",currentDoc
         self = this
         #log "self: ",self
         contentInfoParam = Router.current().params['contentInfo']
+        #log "contentInfoParam: ",contentInfoParam
         currentUser = Meteor.user() if Meteor.user()?
-        titleSlug = Router.current().params['titleSlug']
-        parent = Content.findOne(titleSlug: titleSlug) if titleSlug?
-        #log "parent: ",parent
-        insertDoc.parent = parent._id
-        insertDoc.parentSlug = parent.titleSlug
-        insertDoc.owner = currentUser.username
+        insertDoc.parent = context._id
+        insertDoc.parentSlug = context.titleSlug
+        insertDoc.owner = currentUser._id
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.posts = []
         insertDoc.pledgeTotal = 0
-        log "Updated insertDoc: ",JSON.stringify(insertDoc)
-        log "contentInfoParam: ",contentInfoParam
+        log "Updated insertDoc: ",insertDoc
+        log "contentInfoParam: ",_.capitalize contentInfoParam
         window[_.capitalize contentInfoParam].insert(
           insertDoc
         ,
           (err,result)->
             if err
               log "err: ",err
+              log "result: ",result
+              log "FIRST"
             else
+              log "thing"
               #Add the topic ID to the current content
               modifier = $push: {}
               modifier.$push[contentInfoParam] = result
@@ -80,37 +100,11 @@ if Meteor.isClient
                 (err,result)->
                   if err
                     log "err: ",err
+                    log "SECOND"
                   else
                     log "result: ",result
                     self.resetForm()
               )
             #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
         ) if contentInfoParam?
-        ###Content.insert(
-          insertDoc
-        ,
-          (err,result)->
-            if err
-              log "err: ",err
-            else
-              #Add the document ID to the current user
-              log "result: ",result
-              Meteor.users.update(
-                _id: currentUser._id
-              ,
-                $push:
-                  "profile.content": result
-              ,
-                (err,result)->
-                  if err
-                    log "err: ",err
-                  else
-                    log "result: ",result
-              )
-              #Toggle the cover, reset the form, and redirect the user to the newly created project upon completion
-              toggleCover()
-              self.resetForm()
-              Router.go("/users/#{insertDoc.ownerSlug}/#{insertDoc.titleSlug}/about")
-            log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
-        )###
         false

@@ -1,9 +1,31 @@
 <template name="topicForm">
-  <section id="topicForm" class="form">
-    {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
-    {{afFieldInput "title" class="formInput expanding" placeholder="Title" autocomplete="off" rows="10"}}
-    {{afFieldInput "content" class="formInput expanding" placeholder="Write something.." autocomplete="off" rows="10"}}
-    <button type="submit" class="formSubmit">Add Topic</button>
+  <div class="topicEntry">
+    {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
+    {{afFieldInput "title" class="formInput expanding" placeholder="Add Title.." autocomplete="off"}}
+    {{afFieldInput "content" class="formInput expanding" placeholder="Add Post.." autocomplete="off" rows="10"}}
+    <div class="formSubmitBar">
+      <nav class="toolbarList">
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Text</div>
+          </a>
+        </li>
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Image</div>
+          </a>
+        </li>
+        <li class="toolbarListItem">
+          <a class="toolbarListItemLink">
+            <div class="toolbarListItemIcon"></div>
+            <div class="toolbarListItemText">Video</div>
+          </a>
+        </li>
+      </nav>
+      <button type="submit" class="button formSubmit">Add Topic</button>
+    </div>
     {{/autoForm}}
-  </section>
+  </div>
 </template>
