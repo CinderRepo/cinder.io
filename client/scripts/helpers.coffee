@@ -4,7 +4,7 @@ Handlebars.registerHelper "icon", (context) ->
     new Handlebars.SafeString(Template[context + "Icon"]())
 Handlebars.registerHelper "toHtml", (context) ->
   #log context
-  new Handlebars.SafeString(context)
+  new Handlebars.SafeString(context) if context?
 Handlebars.registerHelper "usersCount", (context) ->
   _.numberFormat(Meteor.users.find().count())
 Handlebars.registerHelper "typeIs", (context) ->

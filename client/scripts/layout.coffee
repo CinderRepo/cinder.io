@@ -1,4 +1,4 @@
-Session.setDefault("overlayHidden",true)
+Session.setDefault("overlayHidden",false)
 Session.setDefault("coverHidden",true)
 Session.setDefault("isPlaying",false)
 Session.setDefault("isVisualizing",false)

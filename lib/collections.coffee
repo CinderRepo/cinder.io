@@ -97,7 +97,8 @@
       type: String
       min: 3
 
-@Community = new Meteor.Collection2 "community",
+@Community = new Meteor.Collection "community"
+###,
   smart: true
   schema:
     #"community":
@@ -128,6 +129,25 @@
       min: 3
     "posts":
       type: [String]
+    "pledgeTotal":
+      type: Number
+      optional: true###
+
+@Pledges = new Meteor.Collection2 "pledges",
+  smart: true
+  schema:
+    "userId":
+      type: "String"
+      min: 3
+    "gameId":
+      type: "String"
+      min: 3
+    "communityId":
+      type: "String"
+      min: 3
+    "amount":
+      type: Number
+      min: 3
 
 @Rewards = new Meteor.Collection2 "rewards",
   smart: true

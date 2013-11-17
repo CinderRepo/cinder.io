@@ -6,6 +6,7 @@ Router.configure
   content: Meteor.subscribe "allContent"
   about: Meteor.subscribe "allAbout"
   community: Meteor.subscribe "allCommunity"
+  pledges: Meteor.subscribe "allPledges"
   rewards: Meteor.subscribe "allRewards"
   commissions: Meteor.subscribe "allCommissions"
   updates: Meteor.subscribe "allUpdates"

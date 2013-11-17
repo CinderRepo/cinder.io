@@ -11,6 +11,7 @@
       "collection2": {},
       "autoform": {},
       "collectionFS": {},
+      "stripe": {},
       "Dropzonejs": {},
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",
@@ -38,8 +39,8 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.0",
-        "commit": "c63e92d24c8210e2304ff5fed1b5c463394aeaf6"
+        "tag": "v0.6.1",
+        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
       },
       "handlebar-helpers": {
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
@@ -53,8 +54,8 @@
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.2.10",
-        "commit": "64d41a9ec7f220ecc63d22a5f1056c5926651b82"
+        "tag": "v0.2.16",
+        "commit": "fae2b014ffc26dfccd3aab38e45d60dda34fd03c"
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
@@ -63,18 +64,23 @@
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
-        "tag": "v0.3.6",
-        "commit": "2d6978587136d9943a3fd2f7b83f27fa8fec5916"
+        "tag": "v0.4.1",
+        "commit": "5f07277746fb8cf9c938ed5c1382348fba8218d7"
       },
       "collectionFS": {
         "git": "https://github.com/raix/Meteor-CollectionFS.git",
         "tag": "v0.3.6",
         "commit": "e28922685d07fc2bd17e23571eeb050cd85176f7"
       },
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.4.0",
+        "commit": "7afbaecda1442124566096cd52f55170e4a78033"
+      },
       "Dropzonejs": {
         "git": "https://github.com/devonbarrett/meteor-dropzone.git",
-        "tag": "v1.0.0",
-        "commit": "460673419e762af10b0acec9e95bbd9567f3c534"
+        "tag": "v1.0.1",
+        "commit": "aa0e15055a519e72a97d02cffad4b052e840433d"
       },
       "flare": {
         "git": "ssh://git@github.com/CinderRepo/flare.git",
@@ -90,6 +96,11 @@
         "git": "ssh://git@github.com/CinderRepo/tinder.git",
         "branch": "master",
         "commit": "cacad1e83a5e2c4d99a01404bc3391c05ef7ecde"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.2.1",
+        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
       },
       "cfs-public-folder": {
         "git": "https://github.com/nooitaf/meteor-cfs-public-folder.git",

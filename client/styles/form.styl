@@ -4,7 +4,6 @@
 //form
 .form
   position(relative)
-  maxSize(340,auto)
   margin 0 auto
 .formSection
   //height 60px
@@ -77,9 +76,17 @@
   cursor pointer
   font-size 18px
   text-transform uppercase
+  display none
+  font-family "Futura"
   &:hover
     background midnight(0.9)
     color radiantBlue(0.9)
 
+#signupForm,
+#loginForm,
 #paymentForm
-  margin 20px 0 0 0
+  maxSize(340,auto)
+  .formSubmit
+    display block
+#paymentForm
+  margin 20px auto 0 auto

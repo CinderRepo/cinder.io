@@ -3,6 +3,8 @@
   <article class="contentInfo" data-context="{{currentParam 'contentInfo'}}">
     <div class="contentPost">
       {{#if title}}
+      <div class="pledgeTotal">${{pledgeTotal}} pledged</div>
+      {{>paymentForm}}
       <div class="title" data-type="topic" data-field="title" contenteditable="true" spellcheck="false">{{title}}</div>
       {{/if}}
       {{#if currentParamIsNot 'contentInfo' 'about' 'rewards'}}

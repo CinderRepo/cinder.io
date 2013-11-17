@@ -9,6 +9,7 @@
     "collection2": {},
     "autoform": {},
     "collectionFS": {},
+    "stripe": {},
     "Dropzonejs": {},
     "flare": {
       "git": "ssh://git@github.com/CinderRepo/flare.git"
