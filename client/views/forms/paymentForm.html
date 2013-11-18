@@ -1,8 +1,0 @@
-<template name="paymentForm">
-  <section id="paymentForm" class="form">
-    {{#autoForm schema=paymentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none"}}
-    {{afFieldInput "pledge" class="formInput" placeholder="$0.00" autocomplete="off"}}
-    <button type="submit" class="formSubmit update">Pledge</button>
-    {{/autoForm}}
-  </section>
-</template>

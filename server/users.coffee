@@ -27,7 +27,12 @@ Accounts.onCreateUser (options, user) ->
   user.ownerSlug = _.slugify user.username
   user.profile = {}
   user.profile.content = []
+  user.profile.profileImageSrc = "/users/defaults/profileImage.png"
   user.profile.description = "Edit your user description."
+  user.profile.cards = []
+  user.profile.favorites = []
+  user.profile.following = []
+  user.profile.followers = []
   log "user.ownerSlug: ",user.ownerSlug
   #We still want the default hook's 'profile' behavior.
   if options.profile

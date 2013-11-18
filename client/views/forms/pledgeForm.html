@@ -1,0 +1,9 @@
+<template name="pledgeForm">
+  {{#autoForm schema=pledgeFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicSideForm"}}
+  <div class="formInputInfo">
+    <div class="formInputLabel">$</div>
+    {{afFieldInput "pledge" class="formInput" placeholder="1" autocomplete="off"}}
+  </div>
+  <button type="submit" class="button formSubmit">Pledge</button>
+  {{/autoForm}}
+</template>

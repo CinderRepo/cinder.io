@@ -37,9 +37,9 @@ if Meteor.isClient
     onSubmit: ->
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
-      log "Logging in user"
+      #log "Logging in user"
       (insertDoc,updateDoc,currentDoc)->
-        log "insertDoc,",insertDoc
+        #log "insertDoc,",insertDoc
         check(insertDoc,Schema.loginFormSchema)
         Meteor.loginWithPassword(
           insertDoc.usernameOrEmail
@@ -49,7 +49,7 @@ if Meteor.isClient
             if err
               log "err: ",err
             else
-              log "Successfully logged in!"
+              #log "Successfully logged in!"
               toggleCover()
         )
         false

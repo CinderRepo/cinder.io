@@ -39,7 +39,7 @@ if Meteor.isClient
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
       context = this
-      log "context 1: ",context
+      #log "context 1: ",context
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.postFormSchema)
         #log "creating a comment!"
@@ -50,12 +50,12 @@ if Meteor.isClient
         #log "self: ",self
         contentInfoParam = Router.current().params['contentInfo']
         #log "contentInfoParam: ",contentInfoParam
-        log "context 2: ",context
+        #log "context 2: ",context
         currentUser = Meteor.user() if Meteor.user()?
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
         insertDoc.owner = currentUser.username
-        log "Updated insertDoc: ",insertDoc
+        #log "Updated insertDoc: ",insertDoc
         Posts.insert(
           insertDoc
         ,
@@ -63,7 +63,7 @@ if Meteor.isClient
             if err
               log "err: ",err
             else
-              "Add the post ID to the current contentInfo"
+              #log "Add the post ID to the current contentInfo"
               window[_.capitalize contentInfoParam].update(
                 _id: context._id
               ,
@@ -74,7 +74,7 @@ if Meteor.isClient
                   if err
                     log "err: ",err
                   else
-                    log "result: ",result
+                    #log "result: ",result
                     self.resetForm()
               )
         )

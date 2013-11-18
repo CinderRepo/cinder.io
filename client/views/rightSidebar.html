@@ -1,63 +1,118 @@
 <template name="rightSidebar">
   <aside class="sidebar right">
     {{#with content}}
-    <a href="" class="sidebarInfo">
-      <div class="sidebarHeader">{{title}}</div>
-      <div class="sidebarInfoText">100 Backers</div>
-    </a>
-    <ul class="sidebarList">
-      {{#each filteredContent}}
-      <li class="sidebarListItem">
-        <a href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
-          <div class="sidebarListItemText">{{title}}</div>
-        </a>
-      </li>
-      {{/each}}
-      <li class="sidebarListItem">
-        <a data-action="play" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
-          <div class="sidebarListItemText">Play</div>
-        </a>
-      </li>
-      <li class="sidebarListItem">
-        <a href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
-          <div class="sidebarListItemText">About</div>
-        </a>
-      </li>
-      <li class="sidebarListItem">
-        <a href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
-          <div class="sidebarListItemText">Community</div>
-        </a>
-      </li>
-    </ul>
+      <a href="" class="sidebarInfo">
+        <div class="sidebarHeader">
+          {{#if currentTemplateIsNot 'filteredContent'}}
+          {{title}}
+          {{else}}
+          Create
+          {{/if}}
+        </div>
+        <div class="sidebarInfoText">
+          {{#if currentTemplateIsNot 'filteredContent'}}
+          100 Backers
+          {{else}}
+          How it works
+          {{/if}}
+        </div>
+      </a>
+      <ul class="sidebarList">
+        {{#if currentTemplateIsNot 'filteredContent'}}
+        <li class="sidebarListItem">
+          <a data-action="play" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Play</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-action="toggleFavorite" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">
+              {{#if userProfileArrayHas 'favorites' _id}}}
+              Unfavorite
+              {{else}}
+              Favorite
+              {{/if}}
+            </div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-current="{{#if currentParamIs 'contentInfo' 'about'}}true{{/if}}"
+          href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">About</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-current="{{#if currentParamIs 'contentInfo' 'community'}}true{{/if}}"
+          href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Community</div>
+          </a>
+        </li>
+        {{else}}
+        <li class="sidebarListItem">
+          <a class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Read The Wiki</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-action="toggleCover" data-cover="download" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Download The App</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">Create Game</div>
+          </a>
+        </li>
+        {{/if}}
+        {{#each filteredContent}}
+        <li class="sidebarListItem">
+          <a href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon"></div>
+            <div class="sidebarListItemText">{{title}}</div>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
     {{/with}}
     {{#with owner}}
     <a href="/users/{{_id}}/profile/creations" class="sidebarInfo">
       <div class="sidebarHeader">{{username}}</div>
-      <div class="sidebarInfoText">100 Followers</div></a>
+      <div class="sidebarInfoText">{{getLength profile.followers}} Followers</div></a>
     <ul class="sidebarList">
       {{#if currentUser}}
         {{#if isNotOwner}}
         <li class="sidebarListItem">
-          <a data-action="follow" class="sidebarListItemLink">
+          <a data-action="toggleFollow" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Follow</div>
+            <div class="sidebarListItemText">
+              {{#if userProfileArrayHas 'following' _id}}}
+              Unfollow
+              {{else}}
+              Follow
+              {{/if}}
+            </div>
           </a>
         </li>
         {{/if}}
       {{else}}
       {{/if}}
       <li class="sidebarListItem">
-        <a href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
+        <a data-current="{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}"
+        href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
           <div class="sidebarListItemIcon"></div>
           <div class="sidebarListItemText">Creations</div>
         </a>
       </li>
       <li class="sidebarListItem">
-        <a href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
+        <a data-current="{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}"
+        href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
           <div class="sidebarListItemIcon"></div>
           <div class="sidebarListItemText">Favorites</div>
         </a>
@@ -65,13 +120,15 @@
       {{#if currentUser}}
         {{#if isOwner}}
         <li class="sidebarListItem">
-          <a href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
+          <a data-current="{{#if currentParamIs 'contentInfo' 'dashboard'}}true{{/if}}"
+          href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
             <div class="sidebarListItemText">Dashboard</div>
           </a>
         </li>
         <li class="sidebarListItem">
-          <a href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
+          <a data-current="{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}"
+          href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
             <div class="sidebarListItemText">Settings</div>
           </a>

@@ -12,19 +12,7 @@
       "autoform": {},
       "collectionFS": {},
       "stripe": {},
-      "Dropzonejs": {},
-      "flare": {
-        "git": "ssh://git@github.com/CinderRepo/flare.git",
-        "branch": "master"
-      },
-      "inferno": {
-        "git": "ssh://git@github.com/CinderRepo/inferno.git",
-        "branch": "master"
-      },
-      "tinder": {
-        "git": "ssh://git@github.com/CinderRepo/tinder.git",
-        "branch": "master"
-      }
+      "Dropzonejs": {}
     },
     "packages": {
       "smart-collections": {
@@ -81,21 +69,6 @@
         "git": "https://github.com/devonbarrett/meteor-dropzone.git",
         "tag": "v1.0.1",
         "commit": "aa0e15055a519e72a97d02cffad4b052e840433d"
-      },
-      "flare": {
-        "git": "ssh://git@github.com/CinderRepo/flare.git",
-        "branch": "master",
-        "commit": "fb5f4bb595f5b333f901fb091ee7dde691d3d91e"
-      },
-      "inferno": {
-        "git": "ssh://git@github.com/CinderRepo/inferno.git",
-        "branch": "master",
-        "commit": "8e7170acb4ab07986af764e8eb80207b06bb897e"
-      },
-      "tinder": {
-        "git": "ssh://git@github.com/CinderRepo/tinder.git",
-        "branch": "master",
-        "commit": "cacad1e83a5e2c4d99a01404bc3391c05ef7ecde"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",

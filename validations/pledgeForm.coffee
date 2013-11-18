@@ -1,22 +1,13 @@
 #Specifiy the valid formats for data submitted from the signup form.
-Schema.signupFormSchema = new SimpleSchema
-  username:
-    type: String
-    label: "Username"
+Schema.pledgeFormSchema = new SimpleSchema
+  pledge:
+    type: Number
+    label: "Pledge"
     optional: false
-    min: 3
-  email:
-    type: String
-    regEx: SchemaRegEx.Email
-    label: "Email"
-    optional: false
-  password:
-    type: String
-    label: "Password"
-    optional: false
+    min: 1
 
 #Customize output messages sent to the user when an error is come across.
-Schema.signupFormSchema.messages
+Schema.pledgeFormSchema.messages
   required: "[label] is required!"
   minString: "[label] must be at least [min] characters!"
   maxString: "[label] cannot exceed [max] characters!"
@@ -38,24 +29,22 @@ Schema.signupFormSchema.messages
 
 #Create a new AutoForm instance that adheres to the schema provided, and create a template helper for it.
 if Meteor.isClient
-  signupForm = new AutoForm(Schema.signupFormSchema)
-  Template.signupForm.helpers
-    signupFormSchema: ->
-      signupForm
+  pledgeForm = new AutoForm(Schema.pledgeFormSchema)
+  Template.pledgeForm.helpers
+    pledgeFormSchema: ->
+      pledgeForm
     onSubmit: ->
-      #We call and validate createUser clientside (with serverside checks as well) so that
-      #the user will get automatically logged in, as the Accounts package does that by default.
+      self = this
       (insertDoc,updateDoc,currentDoc)->
-        check(insertDoc,Schema.signupFormSchema)
-        #log "insertDoc: ",insertDoc
-        Accounts.createUser(
-          insertDoc
-        ,
-          (err)->
-            if err
-              log "err: ",err
-            else
-              log "Successfully signed up!"
-              toggleCover()
-        )
+        log "pledgeForm submit called!"
+        check(insertDoc,Schema.pledgeFormSchema)
+        log "self: ",self
+        user = Meteor.user()
+        log "insertDoc: ",insertDoc
+        if user.profile.cards.length is 0
+          log "User has no credit cards!"
+          Session.set "topicOpen",self._id
+          Session.set "topicTrayOpen",self._id
+        else
+          log "User has credit cards! Process payment"
         false

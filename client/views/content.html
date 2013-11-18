@@ -29,7 +29,7 @@
       {{#with content}}
       <div class="buttonsWrapper">
         <a data-action="play" class="button contentHeaderButton">Play</a>
-        <div class="toggle white off">
+        <div data-action="toggleFavorite" data-on="{{userProfileArrayHas 'favorites' _id}}" class="toggle white">
           <div class="toggleOptions">
             <div class="toggleOptionsTrack">
               <div class="toggleOption">Unfavorite</div>
@@ -42,7 +42,7 @@
     {{else}}
       {{#with owner}}
         {{#if isNotOwner}}
-        <div class="toggle white off">
+        <div data-action="toggleFollow" data-on="{{userProfileArrayHas 'following' _id}}}" class="toggle white">
           <div class="toggleOptions">
             <div class="toggleOptionsTrack">
               <div class="toggleOption">Unfollow</div>
@@ -63,7 +63,7 @@
     {{/each}}
   {{/if}}
   {{#if currentParamIs 'contentInfo' 'community'}}
-    {{#if userCanEdit}}
+    {{#if currentUser}}
       {{>topicForm}}
     {{/if}}
     {{#each contentInfo}}
@@ -74,17 +74,17 @@
     <div class="section">
       <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
       {{#if currentParamIs 'contentInfo' 'creations'}}
-        {{#each ownerContent}}
+        {{#each creations}}
           {{>tile}}
         {{/each}}
       {{/if}}
       {{#if currentParamIs 'contentInfo' 'favorites'}}
-        {{#each ownerContent}}
+        {{#each favorites}}
           {{>tile}}
         {{/each}}
       {{/if}}
       {{#if currentParamIs 'contentInfo' 'dashboard'}}
-        {{#each ownerContent}}
+        {{#each creations}}
         <div class="column">
           <div class="columnTitle">{{title}}</div>
           <div class="columnIcon">$700,000</div>
@@ -117,7 +117,7 @@
             <input type="text" placeholder="1234 1234 1234" class="formInput"/>
             <input type="text" placeholder="MM / YY" class="formInput"/>
             <input type="text" placeholder="CVC" class="formInput"/>
-            <div class="toggle black off">
+            <div data-on="{{toggleOn}}" class="toggle black">
               <div class="toggleOptions">
                 <div class="toggleOptionsTrack">
                   <div class="toggleOption">Yes</div>
@@ -133,6 +133,7 @@
           <div class="columnTitle">Account</div>
           <div class="columnIcon"></div>
           <div class="columnForm">
+            <div class="button">Logout</div>
             <div class="button">Remove Credit Card</div>
             <div class="button">Delete Account</div>
           </div>

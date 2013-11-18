@@ -146,6 +146,12 @@
         .sidebarListItemLink
           width 100%
           padding 0 0 0 30px
+          &[data-current="true"]
+            background midnight()
+            .sidebarListItemIcon
+              background white()
+            .sidebarListItemText
+              color white()
           &:hover
             background midnight()
             .sidebarListItemIcon
@@ -169,6 +175,16 @@
         cursor pointer
         padding 0 0 0 20px
         transition all .25s ease-in-out
+        &[data-current="true"]
+          .sidebarListItemIcon
+            background highlight()
+          .sidebarListItemText
+            color highlight()
+        &:hover
+          .sidebarListItemIcon
+            background highlight()
+          .sidebarListItemText
+            color highlight()
         .sidebarListItemIcon
           position(absolute,2,auto,auto,0)
           background midnight()
@@ -177,11 +193,6 @@
           transition all .25s ease-in-out
         .sidebarListItemText
           transition all .25s ease-in-out
-        &:hover
-          .sidebarListItemIcon
-            background highlight()
-          .sidebarListItemText
-            color highlight()
   .logo
     position(absolute,10,auto,auto,10)
     transition all .25s ease-in-out
@@ -480,7 +491,7 @@
   .contentHeaderButton
     size(100,40)
     line-height 40px
-    font-size 14px
+    font-size 11px
     position(absolute,auto,20,20,auto)
     background white()
     border 2px solid white()
@@ -492,11 +503,11 @@
   .toggle
     size(100,40)
     position(absolute,auto,20,20,auto)
-    &.off
+    &[data-on="false"]
       .toggleOptions
         .toggleOptionsTrack
           transform translate3d(-100px,0,0)
-    &.on
+    &[data-on="true"]
       .toggleOptions
         .toggleOptionsTrack
           transform translate3d(0,0,0)
@@ -583,6 +594,12 @@
   margin 20px auto 0 auto
   color midnight()
   position(relative)
+  overflow(hidden)
+  &[data-trayOpen="true"]
+    min-height 285px
+    .topicWrapper
+      min-height 285px
+      transform translate3d(340px,0,0)
   .topicSidebar
     border-radius borderRadius 0 0 borderRadius
     background gray()
@@ -601,18 +618,25 @@
         height 18px
         font-size 12px
         color offerGray()
+        text-align center
       .topicSideForm
         border-radius borderRadius
         background white()
         width 100%
-        .formInput
-          width 100%
-          height 30px
-          padding 5px
+        .formInputInfo
           margin 10px 0 10px 0
-          background gray()
-          border-radius borderRadius
-          color offerGray()
+          position(relative)
+          .formInputLabel
+            position(absolute)
+            size(10,30)
+            line-height 30px
+          .formInput
+            size(105,30)
+            padding 5px
+            margin 0 0 0 15px
+            background gray()
+            border-radius borderRadius
+            color offerGray()
         .formSubmit
           width 100%
           height 30px
@@ -623,9 +647,71 @@
     background midnight()
     height 400px
     margin 20px 0 20px 0
+  .topicTray
+    width 340px
+    position(absolute,0,auto,0,160)
+    background offerGray()
+    padding 10px
+    .closeTopicTray
+      size(20,20)
+      border-radius 20px
+      background midnight()
+      transition all 0.25s ease-in-out
+      cursor pointer
+      position(absolute,10,10,auto,auto)
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
+    .topicTrayForm
+      min-width 320px
+      background white()
+      border-radius borderRadius
+      padding 10px
+      position(relative)
+      .topicTrayFormIcon
+        size(40,40)
+        border-radius 40px
+        background midnight()
+        margin 5px auto 0 auto
+      .topicTrayFormTitle
+        futura(16,midnight())
+        margin 5px 0 5px 0
+      .topicTrayFormSubtitle
+        height 14px
+        line-height 14px
+        text-align center
+        color offerGray()
+        font-size 12px
+        margin 10px 0 0 0
+      .formInput
+        background gray()
+        width 100%
+        height 30px
+        margin 0 0 1px 0
+        padding 10px
+        &:first-of-type
+          &:last-of-type
+            border-radius borderRadius
+            margin 0
+        &:first-of-type
+          border-radius borderRadius borderRadius 0 0
+        &:last-of-type
+          border-radius 0 0 borderRadius borderRadius
+          margin 0 0 10px 0
+      .formSubmit
+        margin 0
+        height 40px
+        line-height 40px
+        font-size 14px
+  .topics
+    display none
+    &[data-open="true"]
+      display block
   .topicWrapper
     margin 0 0 0 160px
     position(relative)
+    transition all 0.25s ease-in-out
+    overflow(hidden)
+    min-height none
     .topicTitle
       display table
       font-size 20px
@@ -654,7 +740,9 @@
       background midnight()
       float left
       margin 8px 20px 0 0
-      //position(absolute,20,auto,auto,20)
+      transition all 0.25s ease-in-out
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
     .topicContent
       padding 10px 20px 10px 20px
       display table-cell
@@ -678,35 +766,37 @@
       padding 10px 0 10px 0
       minSize(auto,80)
       margin 0
-      &:last-child
-        .formInput
-          background offWhite()
+      transform translate3d(0,0,0)
       .topicContent
         width 900px
         height 60px
         padding 10px 20px 10px 10px
         .topicContentMedia
           margin 20px -20px 20px 0
-  .topicToolbar
-    display block
-    height 40px
-    line-height 40px
-    margin 0 0 0 160px
-    .topicToolbarButton
-      background midnight()
-      futura(12,white())
-      border-radius 0 0 borderRadius 0
-      width 100%
-      display inline-block
-      transition all 0.25s ease-in-out
-      cursor pointer
-      &:hover
-        color highlight()
+    .topicToolbar
+      display block
+      height 40px
+      line-height 40px
+      .topicToolbarButton
+        background midnight()
+        futura(12,white())
+        border-radius 0 0 borderRadius 0
+        width 100%
+        display inline-block
+        transition all 0.25s ease-in-out
+        cursor pointer
+        &:hover
+          color highlight()
 
 .content[data-context="community"]
   .topic
-    background white()
+    background midnight()
     border-radius borderRadius
+    .topicWrapper
+      background white()
+      &:last-of-type
+        .formInput
+          background offWhite()
 
 .content[data-context="profile"]
   .section
@@ -790,7 +880,7 @@
         height 400px
         background gray()
         position(relative)
-        .coverMastheadSubTitle
+        .coverMastheadSubtitle
           text-align center
           height 20px
           font-size 14px
@@ -908,23 +998,23 @@
     height 40px
     line-height 40px
     font-size 14px
-    margin 20px 0 0 0
-    &:last-of-type
-      margin 10px 0 0 0
+    margin 10px 0 0 0
+    &:first-of-type
+      margin 20px 0 0 0
 
 .toggle
   margin 20px 0 0 0
   size(auto,40)
-  futura(14,white())
+  futura(11,white())
   &.black
-    &.off
+    &[data-on="false"]
       .toggleOptions
         background midnight()
         border 2px solid midnight()
         .toggleOptionsTrack
           .toggleOption
             color white()
-    &.on
+    &[data-on="true"]
       .toggleOptions
         background transparent
         border 2px solid midnight()
@@ -934,14 +1024,14 @@
     .toggleLabel
       color midnight()
   &.white
-    &.off
+    &[data-on="false"]
       .toggleOptions
         background white()
         border 2px solid white()
         .toggleOptionsTrack
           .toggleOption
             color midnight()
-    &.on
+    &[data-on="true"]
       .toggleOptions
         background transparent
         border 2px solid white()
@@ -953,11 +1043,11 @@
             color white()
     .toggleLabel
       color white()
-  &.off
+  &[data-on="false"]
     .toggleOptions
       .toggleOptionsTrack
         transform translate3d(-60px,0,0)
-  &.on
+  &[data-on="true"]
     .toggleOptions
       .toggleOptionsTrack
         transform translate3d(0,0,0)
@@ -971,6 +1061,7 @@
     transition all 0.25s ease-in-out
     cursor pointer
     .toggleOptionsTrack
+      position(absolute,auto,auto,auto,-2px)
       size(120,40)
       transition all 0.25s ease-in-out
       &:hover

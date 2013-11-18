@@ -10,7 +10,7 @@ Router.map ->
     data: ->
       #If a user is signed in, redirect to the content page
       if Meteor.user()
-        log "User found!"
+        #log "User found!"
         Router.go "filteredContent",
           type: "all"
         #filteredContent: Content.find()
@@ -51,25 +51,47 @@ Router.map ->
 
         if @params.contentInfo is "about" or @params.contentInfo is "community"
           contentInfo = window[contentInfoParam].find(parent: content._id)
+          #log "contentInfo: ",contentInfo
+          #log "contentInfo.count(): ",contentInfo.count()
+          #contentInfo
 
         ownerId = @params.owner
-        log "ownerId: ",ownerId
+        #log "ownerId: ",ownerId
+
+        owner = Meteor.users.findOne(_id: ownerId)
+        #log "owner: ",owner
+
+        favorites = owner.profile.favorites
+        #log "favorites: ",favorites
+
+        favoritesArray = []
+
+        _.each favorites, (favoriteId) ->
+          #log "favoriteId: ",favoriteId
+          content = Content.findOne favoriteId
+          #log "content: ",content
+          if content
+            favoritesArray.push content
+          favoritesArray
 
         owner: Meteor.users.findOne(_id: ownerId)
-        ownerContent: Content.find(owner: ownerId)
+        creations: Content.find(owner: ownerId)
+        favorites: favoritesArray
         content: content
         contentInfo: contentInfo
+        #contentInfoCount: contentInfo.count()
         #creations:
         #XXX: Eventually we'll want this to be included in the router, but since handlebars doesn't
         #allow for good switching of globally scoped data contexts when within other nested data contexts
         #we have to settle for using a template helper for now until there's a stable way to access parent data contexts.
         #contentDetails: Posts.find(parentSlug: @params.contentDetails) if @params.contentDetails?
       else if @params.owner
+        #XXX: Potentially delete this?
         #log "Query for user if it's a user"
         #log "owner: ",@params.owner
         #Get the user name from the content via the _id
         ownerId = @params.owner
-        log "USER!"
+        #log "USER!"
         #log "ownerId: ",ownerId
 
         owner: Meteor.users.findOne(_id: ownerId)

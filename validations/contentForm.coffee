@@ -53,10 +53,10 @@ if Meteor.isClient
       #log "ONSUBMIT:"
       self = this
       context = self.content
-      log "context: ",context
+      #log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.contentFormSchema)
-        log "creating an about!"
+        #log "creating an about!"
         #log "insertDoc: ",insertDoc
         #log "updateDoc: ",updateDoc
         #log "currentDoc: ",currentDoc
@@ -68,18 +68,18 @@ if Meteor.isClient
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
         insertDoc.owner = currentUser._id
-        log "Updated insertDoc: ",insertDoc
-        log "contentInfoParam: ",_.capitalize contentInfoParam
+        #log "Updated insertDoc: ",insertDoc
+        #log "contentInfoParam: ",_.capitalize contentInfoParam
         window[_.capitalize contentInfoParam].insert(
           insertDoc
         ,
           (err,result)->
             if err
               log "err: ",err
-              log "result: ",result
-              log "FIRST"
+              #log "result: ",result
+              #log "FIRST"
             else
-              log "thing"
+              #log "thing"
               #Add the topic ID to the current content
               modifier = $push: {}
               modifier.$push[contentInfoParam] = result
@@ -92,9 +92,9 @@ if Meteor.isClient
                 (err,result)->
                   if err
                     log "err: ",err
-                    log "SECOND"
+                    #log "SECOND"
                   else
-                    log "result: ",result
+                    #log "result: ",result
                     self.resetForm()
               )
             #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()

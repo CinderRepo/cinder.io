@@ -22,6 +22,10 @@ Handlebars.registerHelper "currentParamIsNot", (param,a,b) ->
   currentParam isnt a and currentParam isnt b
 Handlebars.registerHelper "currentParam", (context) ->
   Router.current().params[context]
+Handlebars.registerHelper "currentTemplateIs", (context) ->
+  Router.current().template is context
+Handlebars.registerHelper "currentTemplateIsNot", (context) ->
+  Router.current().template isnt context
 Handlebars.registerHelper "coverIs", (context) ->
   Session.equals("cover",context)
 Handlebars.registerHelper "isEmpty", (context) ->
@@ -49,3 +53,16 @@ Handlebars.registerHelper "isOwner", (context) ->
   #log "self: ",self.owner
   #log "userId: ",userId
   userId is self._id
+Handlebars.registerHelper "arrayIsEmpty", (context) ->
+  context.length is 0
+Handlebars.registerHelper "arrayIsNotEmpty", (context) ->
+  context.length isnt 0
+Handlebars.registerHelper "arrayIsGreaterThan", (context,a) ->
+  context.length > a
+Handlebars.registerHelper "arrayIsLessThan", (context,a) ->
+  context.length < a
+Handlebars.registerHelper "userProfileArrayHas", (context,value) ->
+  userProfileArray = Meteor.user().profile[context]
+  valueExists = _.contains userProfileArray, value
+Handlebars.registerHelper "getUserById", (context) ->
+  Meteor.users.findOne _id: context

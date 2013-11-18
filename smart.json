@@ -10,15 +10,6 @@
     "autoform": {},
     "collectionFS": {},
     "stripe": {},
-    "Dropzonejs": {},
-    "flare": {
-      "git": "ssh://git@github.com/CinderRepo/flare.git"
-    },
-    "inferno": {
-      "git": "ssh://git@github.com/CinderRepo/inferno.git"
-    },
-    "tinder": {
-      "git": "ssh://git@github.com/CinderRepo/tinder.git"
-    }
+    "Dropzonejs": {}
   }
 }

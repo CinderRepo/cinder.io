@@ -1,36 +1,48 @@
 <template name="topic">
-  <div class="topic">
+  <div class="topic" data-trayOpen="{{$.Session.equals 'topicTrayOpen' _id}}">
     <div class="topicSidebar">
       <div class="topicSidebarInfo">
-        <div class="topicSideFormTitle">$1,000,000,000</div>
-        <div class="topicSideFormSubtitle">Pledged</div>
-        <form class="topicSideForm">
-          <input type="number" placeholder="$0.00" class="formInput"/>
-          <button class="button formSubmit">Pledge</button>
-        </form>
+        <div class="topicSideFormTitle">${{pledgeTotal}}</div>
+        <div class="topicSideFormSubtitle">Pledged to this idea</div>
+        {{>pledgeForm}}
       </div>
+    </div>
+    <div class="topicTray">
+      {{>creditCardForm}}
     </div>
     <div class="topicWrapper">
       <div class="topicTitle">
-        <div class="topicTitleIcon"></div>
+        <a href="/users/{{owner}}/profile/creations" class="topicTitleIcon"></a>
         <div class="topicTitleText">{{title}}</div>
       </div>
       <div class="topicContent">{{content}}</div>
-      {{#each topicPosts}}
-      <div class="topicWrapper">
-        <div class="topicIcon"></div>
-        <div class="topicContent">
-          {{toHtml content}}
+      <div class="topics" data-open="{{topicOpen}}">
+        {{#each topicPosts}}
+        <div class="topicWrapper">
+          <div class="topicIcon"></div>
+          <div class="topicContent">
+            {{toHtml content}}
+          </div>
+        </div>
+        {{/each}}
+        <div class="topicWrapper">
+          <div class="topicIcon"></div>
+          <div class="topicContent">
+            {{>postForm}}
+          </div>
         </div>
       </div>
-      {{/each}}
-      <div class="topicWrapper">
-        <div class="topicIcon"></div>
-        <div class="topicContent">
-          {{>postForm}}
-        </div>
+      {{#if arrayIsGreaterThan posts 5}}
+      <div class="topicToolbar">
+        <a data-action="toggleTopic" class="topicToolbarButton">
+          {{#if $.Session.equals 'topicOpen' _id}}
+            Hide {{getLength posts}} Replies
+            {{else}}
+            View {{getLength posts}} Replies
+          {{/if}}
+        </a>
       </div>
+      {{/if}}
     </div>
-    <div class="topicToolbar"><a href="" class="topicToolbarButton">Hide 2 Replies</a></div>
   </div>
 </template>

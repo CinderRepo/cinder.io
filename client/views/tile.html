@@ -3,7 +3,11 @@
     <div class="tileImage"></div>
     <div class="tileInfo">
       <div class="tileTitle">{{title}}</div>
-      <div class="tileSubtitle">{{owner}}</div>
+      <div class="tileSubtitle">
+        {{#with getUserById owner}}
+          {{username}}
+        {{/with}}
+      </div>
       <div class="tileContent">{{description}}</div>
     </div>
   </a>

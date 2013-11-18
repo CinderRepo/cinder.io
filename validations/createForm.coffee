@@ -52,14 +52,14 @@ if Meteor.isClient
     createFormSchema: ->
       createForm
     onSubmit: ->
-      log "Submit called?"
+      #log "Submit called?"
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
       (insertDoc,updateDoc,currentDoc)->
-        log "Submit called!"
+        #log "Submit called!"
         check(insertDoc,Schema.createFormSchema)
-        log "creating a project!"
-        log "insertDoc: ",insertDoc
+        #log "creating a project!"
+        #log "insertDoc: ",insertDoc
         self = this
         currentUser = Meteor.user() if Meteor.user()?
         insertDoc.owner = currentUser._id
@@ -70,7 +70,7 @@ if Meteor.isClient
         insertDoc.description = "Your game has been created! Click and edit here to add a description."
         #Hard coded type, we could add more media types in the future
         insertDoc.type = "game"
-        log "Updated insertDoc: ",insertDoc
+        #log "Updated insertDoc: ",insertDoc
         Content.insert(
           insertDoc
         ,
@@ -79,23 +79,23 @@ if Meteor.isClient
               log "err: ",err
             else
               #Add the document ID to the current user
-              log "result: ",result
+              #log "result: ",result
               resultId = result
               Meteor.users.update(
                 _id: currentUser._id
               ,
-                $push:
+                $addToSet:
                   "profile.content": result
               ,
                 (err,result)->
                   if err
                     log "err: ",err
                   else
-                    log "result: ",result
-                    log "resultId: ",resultId
+                    #log "result: ",result
+                    #log "resultId: ",resultId
                     #Toggle the cover, reset the form, and redirect the user to the newly created project upon completion
                     toggleCover()
-                    self.resetForm()
+                    #self.resetForm()
                     Router.go("/users/#{insertDoc.owner}/#{resultId}/about")
               )
             #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
