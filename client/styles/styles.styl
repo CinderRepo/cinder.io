@@ -704,6 +704,8 @@
       padding 10px
       min-width 140px
       height 225px
+      position(relative)
+      overflow(hidden)
       .topicSideFormTitle
         height 20px
         text-align center
@@ -754,6 +756,28 @@
           line-height 30px
           font-size 12px
           margin 0
+      .topicSideFormMask
+        //position(absolute,0,0,0,0)
+        position(absolute,0,0,auto,0)
+        background midnight()
+        min-width 140px
+        height 225px
+        display table
+        opacity 1
+        transition all 0.25s ease-in-out
+        &[data-hidden="true"]
+          transform translate3d(0,225px,0)
+          opacity 0
+        .topicSideFormMaskInfo
+          display table-cell
+          vertical-align middle
+          .topicSideFormMaskIcon
+            size(60,60)
+            border-radius 60px
+            background white()
+            margin 0 auto 10px auto
+          .topicSideFormMaskTitle
+            futura(16,white())
   .topicMedia
     background midnight()
     height 400px
@@ -852,54 +876,64 @@
     position(relative)
     transition all 0.25s ease-in-out
     overflow(hidden)
-    min-height none
-    .topicTitle
-      display table
+    min-height 250px
+    .topicContentInfo
+      //display table
       font-size 20px
-      position(relative)
-      padding 20px 20px 0 20px
-      .topicTitleText
-        display table-cell
-        vertical-align middle
-        width 900px
-        height 60px
-      .topicTitleDetails
-        size(auto,50)
-        position(absolute,10,10,auto,auto)
+      margin 0 0 0 100px
+      //padding 20px 20px 0 20px
+      .topicContentTitle
+        //display table-cell
+        //vertical-align middle
+        min-height 40px
+        padding 10px
+        border-bottom 1px solid black(0.1)
+        futura(20,midnight())
+        text-align left
+    .topicContentSidebar
+      position(absolute,0,auto,0,0)
+      size(100,auto)
+      border-right 1px solid black(0.1)
+      .topicContentSidebarIcon
+        size(60,60)
+        position(absolute,20,auto,auto,20)
+        border-radius 60px
         background midnight()
-        color white()
-        padding 10px 20px 10px 20px
-        border-radius borderRadius
-        .topicTitleDetailsInfo
-        .topicTitleDetailsSubInfo
-          size(auto,16)
-          font-size 12px
-          line-height normal
-    .topicTitleIcon
-      size(40,40)
-      border-radius 40px
-      background midnight()
-      float left
-      margin 8px 20px 0 0
-      background-size cover
-      background-repeat no-repeat
-      background-position 50% 50%
-      transition all 0.25s ease-in-out
-      &:hover
-        transform scale3d(1.2,1.2,1.2)
+        //float left
+        //margin 8px 20px 0 0
+        background-size cover
+        background-repeat no-repeat
+        background-position 50% 50%
+        transition all 0.25s ease-in-out
+        &:hover
+          transform scale3d(1.2,1.2,1.2)
+      .topicContentSidebarTitle
+        position(absolute,85,0,auto,0)
+        text-align center
+        padding 0 10px 0 10px
+        color offerGray()
+        transition all 0.25s ease-in-out
+        &:hover
+          content ""
+          color highlight()
     .topicContent
-      padding 10px 20px 10px 20px
-      display table-cell
-      width 940px
+      //padding 10px 20px 10px 0
+      //margin 0 0 0 100px
+      //display table-cell
+      //width 940px
+      min-height 158px
+      padding 5px 10px 10px 10px
+      color offerGray()
+      font-size 16px
       //height 80px
-      vertical-align middle
+      //vertical-align middle
       .topicContentMedia
         background midnight()
         height 400px
         margin 20px -20px 20px 0
     .topicIcon
-      size(40,40)
-      border-radius 30px
+      size(60,60)
+      border-radius 60px
       background midnight()
       margin 10px 10px 0 20px
       float left
@@ -915,14 +949,15 @@
       //border-left 10px solid gray()
       border-top 1px solid gray()
       padding 10px 0 10px 0
-      minSize(auto,80)
+      minSize(auto,120)
       margin 0
       transform translate3d(0,0,0)
       border-radius 0 0 4px 0
       .topicContent
-        width 900px
-        height 60px
-        padding 10px 20px 10px 10px
+        //width 900px
+        margin 0 0 0 100px
+        min-height 0
+        padding 10px 20px 10px 20px
         .topicContentMedia
           margin 20px -20px 20px 0
     .topicToolbar
@@ -942,14 +977,18 @@
 
 .content[data-context="community"]
   .topic
+    min-height 250px
     //background midnight()
     border-radius borderRadius
     border 1px solid black(0.1)
     .topicWrapper
       background white()
+      border-radius 0 borderRadius borderRadius 0
       &:last-of-type
         .formInput
           background offWhite()
+      .topicWrapper
+        border-radius 0
 
 .content[data-context="profile"]
   .section

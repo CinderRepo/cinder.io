@@ -6,34 +6,49 @@
         <div class="topicSideFormTitle">${{pledgeTotal}}</div>
         <div class="topicSideFormSubtitle">Pledged to this idea</div>
         {{>pledgeForm}}
+        <div class="topicSideFormMask" data-hidden="true">
+          <div class="topicSideFormMaskInfo">
+            <div class="topicSideFormMaskIcon"></div>
+            <div class="topicSideFormMaskTitle">Processing Payment...</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="topicTray">
       {{>creditCardForm}}
     </div>
-    <div class="topicWrapper">
-      <div class="topicTitle">
+    <div id="{{_id}}" class="topicWrapper">
+      <div class="topicContentSidebar">
         {{#with getUserById owner}}
-        <a href="/users/{{_id}}/profile/creations" class="topicTitleIcon" style="background-image: url({{profile.profileSrc}});"></a>
+        <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+        <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
         {{/with}}
-        <div class="topicTitleText">{{title}}</div>
       </div>
-      <div class="topicContent">{{content}}</div>
+      <div class="topicContentInfo">
+        <div class="topicContentTitle">{{title}}</div>
+        <div class="topicContent">{{content}}</div>
+      </div>
       <div class="topics" data-open="{{topicOpen}}">
         {{#each topicPosts}}
         <div class="topicWrapper">
-          {{#with getUserById owner}}
-          <a href="/users/{{_id}}/profile/creations" class="topicIcon" style="background-image: url({{profile.profileSrc}});"></a>
-          {{/with}}
+          <div class="topicContentSidebar">
+            {{#with getUserById owner}}
+            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
+            {{/with}}
+          </div>
           <div class="topicContent">
             {{toHtml content}}
           </div>
         </div>
         {{/each}}
         <div class="topicWrapper">
-          {{#with currentUser}}
-          <div class="topicIcon" style="background-image: url({{profile.profileSrc}});"></div>
-          {{/with}}
+          <div class="topicContentSidebar">
+            {{#with getUserById owner}}
+            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
+            {{/with}}
+          </div>
           <div class="topicContent">
             {{>postForm}}
           </div>

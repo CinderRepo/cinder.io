@@ -204,6 +204,8 @@ Template.layout.events
     toggleOverlay()
   "click [data-action='toggleTopic']":(e,t)->
     self = this
+    #Close any currently active trays
+    Session.set "topicTrayOpen",undefined
     if Session.equals "topicOpen",self._id
       Session.set "topicOpen",undefined
     else
@@ -385,4 +387,8 @@ Template.layout.preserve({
 
 Template.content.preserve({
   "#upload": (node) -> node.id
+})
+
+Template.topic.preserve({
+  ".topicWrapper": (node) -> node.id
 })
