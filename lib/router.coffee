@@ -13,7 +13,7 @@ Router.map ->
         #log "User found!"
         Router.go "filteredContent",
           type: "all"
-        #filteredContent: Content.find()
+      creations: Content.find({},{limit : 3})
 
   #FILTERED CONTENT - Shows filtered content based on the type the user passes in
   @route "filteredContent",

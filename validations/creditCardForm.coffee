@@ -58,8 +58,8 @@ if Meteor.isClient
       Session.get "pledgeAmount"
     onSubmit: ->
       self = this
-      log "creditCardForm!"
-      log "self: ",self
+      #log "creditCardForm!"
+      #log "self: ",self
       topicId = self._id
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.

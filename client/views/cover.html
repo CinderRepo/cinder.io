@@ -4,22 +4,28 @@
     <div class="closeCover" data-action="toggleCover"></div>
     <div class="coverContentWrapper">
       <div class="centeredCoverContent">
-        <div class="coverIcon"></div>
-        <div class="coverTitle">Title</div>
         <div class="coverContent">
           {{#if coverIs 'login'}}
+            <div class="coverIcon"></div>
+            <div class="coverTitle">Login</div>
             {{>loginForm}}
           {{/if}}
 
           {{#if coverIs 'signup'}}
+            <div class="coverIcon"></div>
+            <div class="coverTitle">Signup</div>
             {{>signupForm}}
           {{/if}}
 
           {{#if coverIs 'create'}}
+            <div class="coverIcon"></div>
+            <div class="coverTitle">Create</div>
             {{>createForm}}
           {{/if}}
 
           {{#if coverIs 'download'}}
+            <div class="coverIcon"></div>
+            <div class="coverTitle">Download The App</div>
             <div class="coverMasthead">
               <div class="buttonsWrapper">
                 <div class="coverMastheadSubtitle">Download for</div>

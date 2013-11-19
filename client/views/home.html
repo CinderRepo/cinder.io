@@ -11,30 +11,30 @@
         <div class="masthead">Shared Creation</div>
         <div class="mastheadInfo">Cinder is a community platform to create, play, and enjoy games together with both gamers and developers alike.</div>
         <div class="buttonsWrapper">
-          <a class="button">Get Started</a>
-          <a class="button">Learn More</a>
+          <a class="button" data-action="toggleCover" data-cover="signup">Signup</a>
+          <a class="button" data-action="toggleCover" data-cover="download">Get The App</a>
         </div>
       </div>
     </section>
     <section class="section learn">
-      <div class="sectionTitle">Learn More</div>
+      <div class="sectionTitle">How It Works</div>
       <div class="pane">
         <div class="column">
           <div class="columnTitle">For Gamers</div>
           <ul class="columnList">
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListTitle">Play New Games</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListTitle">Talk With Makers</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title One</div>
+              <div class="columnListTitle">Support New Ideas</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
           </ul>
@@ -44,17 +44,17 @@
           <ul class="columnList">
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListTitle">Create With Others</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListTitle">Talk With Gamers</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
             <li class="columnListItem">
               <div class="columnListIcon"></div>
-              <div class="columnListTitle">Feature Title</div>
+              <div class="columnListTitle">Get Paid</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
           </ul>
@@ -62,29 +62,31 @@
         <a data-action="toggleCover" data-cover="signup" class="button">Sign Up</a>
       </div>
     </section>
-    <section class="section tiles">
-      <div class="sectionTitle">Explore New Media</div>
+    <section class="section create">
+      <div class="sectionTitle">Get The App</div>
       <div class="pane">
-        {{>tile}}
-        <a class="button" href="/all">See All</a>
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Sync games with Cinder seamlessly.</div>
+        </div>
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Collaborate with others on projects.</div>
+        </div>
+        <div class="column">
+          <div class="columnIcon"></div>
+          <div class="columnContent">Automated backups of every deploy.</div>
+        </div>
+        <a data-action="toggleCover" data-cover="download" class="button">Get The App</a>
       </div>
     </section>
-    <section class="section create">
-      <div class="sectionTitle">Create Something New</div>
+    <section class="section tiles">
+      <div class="sectionTitle">What People Are Making</div>
       <div class="pane">
-        <div class="column">
-          <div class="columnIcon"></div>
-          <div class="columnContent">Column Text</div>
-        </div>
-        <div class="column">
-          <div class="columnIcon"></div>
-          <div class="columnContent">Column Text</div>
-        </div>
-        <div class="column">
-          <div class="columnIcon"></div>
-          <div class="columnContent">Column Text</div>
-        </div>
-        <a data-action="toggleCover" data-cover="create" class="button">Create</a>
+        {{#each creations}}
+        {{>tile}}
+        {{/each}}
+        <a class="button" href="/all">See All</a>
       </div>
     </section>
   </div>

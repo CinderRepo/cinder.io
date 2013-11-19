@@ -38,8 +38,8 @@ if Meteor.isClient
       Session.get "pledgeAmount"
     onSubmit: ->
       self = this
-      log "PLEDGE FORM!"
-      log "self: ",self
+      #log "PLEDGE FORM!"
+      #log "self: ",self
       topicId = self._id
       (insertDoc,updateDoc,currentDoc)->
         log "pledgeForm submit called!"
@@ -67,3 +67,26 @@ if Meteor.isClient
                 log "result: ",result
                 log "CREATE CHARGE FINISHED FROM PLEDGE FORM"
         false
+
+  Template.pledgeForm.events
+    "keyup [data-format='money']":(e,t)->
+      log "I'M TYPING IN MONEY BABY"
+      currentTarget = $(e.currentTarget)
+      data = t.data
+      log "data: ",data
+
+      #XXX: Sadly, some DOM manipulation has to happen here in
+      #order to get the flow we want. Perhaps in the new Meteor UI
+      #release there will be a better/easier to manage way to access
+      #certain instances of templates.
+      topicTrayMoneyInput = currentTarget.parents(".topic").find(".topicTray [data-format='money']")
+
+      #Get the values and update them
+      pledgeFormValue = currentTarget.val()
+      topicTrayValue = topicTrayMoneyInput.val()
+
+      log "pledgeFormValue: ",pledgeFormValue
+      log "topicTrayValue: ",topicTrayValue
+
+      #Set the topicTrayValue to be that of the pledgeFormValue
+      topicTrayMoneyInput.val(pledgeFormValue)

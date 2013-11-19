@@ -35,22 +35,27 @@ Handlebars.registerHelper "isNotEmpty", (context) ->
 Handlebars.registerHelper "userCanEdit", (context) ->
   userCanEdit = false
   self = this
-  collaborators = self.content.collaborators
+  log "self: ",self
+  if self.content
+    collaborators = self.content.collaborators
+  else
+    collaborators = self.collaborators
   userId = Meteor.userId()
   _.each collaborators, (collaboratorId) ->
     if collaboratorId is userId
       userCanEdit = true
   userCanEdit
-Handlebars.registerHelper "isNotOwner", (context) ->
+Handlebars.registerHelper "userIsNotOwner", (context) ->
   self = this
   userId = Meteor.userId()
   #log "self._id: ",self._id
   #log "userId: ",userId
   userId isnt self._id
-Handlebars.registerHelper "isOwner", (context) ->
+Handlebars.registerHelper "userIsOwner", (context) ->
   self = this
   userId = Meteor.userId()
-  #log "self: ",self.owner
+  #log "userIsOwner.."
+  #log "self: ",self
   #log "userId: ",userId
   userId is self._id
 Handlebars.registerHelper "arrayIsEmpty", (context) ->

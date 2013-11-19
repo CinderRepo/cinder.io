@@ -2,6 +2,7 @@
   <aside class="sidebar right">
     {{#with content}}
       <a href="" class="sidebarInfo" style="background-image: url({{previewSrc}});">
+        <div class="sidebarInfoBackdrop"></div>
         <div class="sidebarHeader">
           {{#if currentTemplateIsNot 'filteredContent'}}
           {{title}}
@@ -83,6 +84,7 @@
     {{/with}}
     {{#with owner}}
     <a href="/users/{{_id}}/profile/creations" class="sidebarInfo" style="background-image: url({{profile.profileSrc}});">
+      <div class="sidebarInfoBackdrop"></div>
       <div class="sidebarHeader">{{username}}</div>
       <div class="sidebarInfoText">{{getLength profile.followers}} Followers</div></a>
     <ul class="sidebarList">

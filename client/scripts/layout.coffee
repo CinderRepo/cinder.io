@@ -106,10 +106,18 @@ Template.layout.rendered = () ->
   textareas.expandingTextarea()
   contentMastheadImage = this.find(".contentMastheadImage")
   Dropzone.autoDiscover = false
+  data = this.data
+  log "data: ",data
   #Currency formatting
   $("[data-format='money']").autoNumeric("init",{aSign:"$",vMax:"99999",mDec:"0"})
 
-  if contentMastheadImage
+  if data.content
+    ownerId = data.content.owner
+  else
+    ownerId = data.owner._id
+
+  #Only create a dropzone if it's the proper user
+  if contentMastheadImage and Meteor.userId() is ownerId
     initDropzone(contentMastheadImage)
 
   #if Session.equals "dropzoneInitialized", undefined
@@ -320,12 +328,12 @@ Template.layout.events
                   log "result: ",result
             )
       )
-  "keyup [data-format='money']":(e,t)->
-    currentTarget = $(e.currentTarget)
-    log "currentTarget: ",currentTarget
   "blur [data-format='money']":(e,t)->
     currentTarget = $(e.currentTarget)
-    log "currentTarget: ",currentTarget
+    log "MONEY BLURRED!"
+    if currentTarget.val().length is 0
+      log "Length is 0! Defaulting to $10!"
+      currentTarget.val("$10")
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.
 Template.topic.helpers

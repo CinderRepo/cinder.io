@@ -20,12 +20,26 @@
           <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});"></div>
           {{/with}}
         {{/if}}
+        {{#with content}}
+        {{#if userCanEdit}}
         <div class="contentMastheadUploadImage">
           <div class="contentMastheadUploadImageInfo">
             <div class="contentMastheadUploadImageIcon"></div>
             <div class="contentMastheadUploadImageTitle">Change Picture</div>
           </div>
         </div>
+        {{/if}}
+        {{/with}}
+        {{#with owner}}
+        {{#if userIsOwner}}
+        <div class="contentMastheadUploadImage">
+          <div class="contentMastheadUploadImageInfo">
+            <div class="contentMastheadUploadImageIcon"></div>
+            <div class="contentMastheadUploadImageTitle">Change Picture</div>
+          </div>
+        </div>
+        {{/if}}
+        {{/with}}
       </div>
       <div class="contentHeader">
         <div class="contentHeaderText">
@@ -43,11 +57,19 @@
       <div class="contentHeaderContent">
         {{#if content}}
           {{#with content}}
-          {{description}}
+          {{#if userCanEdit}}
+            {{>updateContentForm}}
+          {{else}}
+            {{description}}
+          {{/if}}
           {{/with}}
         {{else}}
           {{#with owner}}
-          {{profile.description}}
+          {{#if userIsOwner}}
+            {{>updateUserForm}}
+          {{else}}
+            {{profile.description}}
+          {{/if}}
           {{/with}}
         {{/if}}
       </div>
@@ -97,7 +119,7 @@
       {{/each}}
     {{/if}}
     {{#if currentParamIs 'context' 'profile'}}
-    <div class="section">
+    <div class="section profile">
       <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
       {{#if currentParamIs 'contentInfo' 'creations'}}
         {{#each creations}}

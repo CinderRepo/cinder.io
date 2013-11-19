@@ -50,7 +50,9 @@
             {{/with}}
           </div>
           <div class="topicContent">
-            {{>postForm}}
+            {{#if currentUser}}
+              {{>postForm}}
+            {{/if}}
           </div>
         </div>
       </div>

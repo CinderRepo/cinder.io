@@ -163,11 +163,20 @@
       background-repeat no-repeat
       &:first-child
         border-radius borderRadius borderRadius 0 0
+        .sidebarInfoBackdrop
+          border-radius borderRadius borderRadius 0 0
+      .sidebarInfoBackdrop
+        position(absolute,0,0,0,0)
+        background black(0.4)
       .sidebarHeader
         display block
         futura(16,white())
         padding 10px
         text-align left
+        white-space nowrap
+        overflow(hidden)
+        text-overflow ellipsis
+        position(relative)
       .sidebarInfoText
         color white()
         size(auto,12)
@@ -262,10 +271,12 @@
     overflow(hidden)
     .pane
       margin 0 auto
-      max-width 1600px
+      //max-width 1600px
   .sectionTitle
     futura(26,midnight())
     margin 0 0 20px 0
+  &.profile
+    padding 0 0 20px 0
   &:nth-of-type(odd)
     background-color black(0.5)
     .sectionTitle
@@ -563,11 +574,36 @@
       color white()
   .contentHeaderContent
     color white()
-    max-height 176px
     margin 0 0 0 320px
-    overflow hidden
+    //overflow hidden
     font-size 16px
     position(relative)
+    .topicEntry
+      border none
+      border-radius 0
+      .formInput
+        background transparent
+        border none
+        color white()
+        padding 0
+        border 1px dashed transparent
+        border-radius borderRadius
+        transition all 0.25s ease-in-out
+        height 220px
+        &::-webkit-input-placeholder
+          color white()
+        &::-moz-placeholder
+          color white()
+        &:-ms-input-placeholder
+          color white()
+        &:focus
+        &:hover
+          border 1px dashed white()
+          padding 10px
+          height 220px
+          max-height 220px
+      .formSubmit
+        display none
   .buttonsWrapper
     size(210,40)
     position(absolute,auto,20,20,auto)
@@ -626,6 +662,7 @@
         position(absolute,0,auto,auto,0)
         size(auto,40)
         padding 10px
+        display none
         .toolbarListItem
           float left
           size(auto,20)
@@ -687,11 +724,6 @@
   color midnight()
   position(relative)
   overflow(hidden)
-  &[data-trayOpen="true"]
-    min-height 410px
-    .topicWrapper
-      min-height 285px
-      transform translate3d(340px,0,0)
   .topicSidebar
     border-radius borderRadius 0 0 borderRadius
     background gray()
@@ -726,18 +758,22 @@
           &:hover
             .formInput
               transform scale3d(1.4,1.4,1.4)
+              color highlight()
               &::-webkit-input-placeholder
-                color white()
+                color highlight()
               &::-moz-placeholder
-                color white()
+                color highlight()
               &:-ms-input-placeholder
-                color white()
+                color highlight()
           .formInput
             futura(14,white())
             width inherit
             height inherit
             background transparent
             transition all 0.25s ease-in-out
+            &:focus
+              transform scale3d(1.4,1.4,1.4)
+              color highlight()
             &::-webkit-input-placeholder
               color gray()
               text-align center
@@ -811,18 +847,23 @@
         &:hover
           .formInput
             transform scale3d(1.4,1.4,1.4)
+            color highlight()
             &::-webkit-input-placeholder
-              color white()
+              color highlight()
             &::-moz-placeholder
-              color white()
+              color highlight()
             &:-ms-input-placeholder
-              color white()
+              color highlight()
         .formInput
           futura(14,white())
           width inherit
           height inherit
           background transparent
           transition all 0.25s ease-in-out
+          color gray()
+          &:focus
+            transform scale3d(1.4,1.4,1.4)
+            color highlight()
           &::-webkit-input-placeholder
             color gray()
             text-align center
@@ -886,7 +927,7 @@
         //display table-cell
         //vertical-align middle
         min-height 40px
-        padding 10px
+        padding 10px 20px 10px 20px
         border-bottom 1px solid black(0.1)
         futura(20,midnight())
         text-align left
@@ -922,7 +963,7 @@
       //display table-cell
       //width 940px
       min-height 158px
-      padding 5px 10px 10px 10px
+      padding 10px 20px 10px 20px
       color offerGray()
       font-size 16px
       //height 80px
@@ -948,7 +989,7 @@
     .topicWrapper
       //border-left 10px solid gray()
       border-top 1px solid gray()
-      padding 10px 0 10px 0
+      //padding 10px 0 10px 0
       minSize(auto,120)
       margin 0
       transform translate3d(0,0,0)
@@ -957,7 +998,6 @@
         //width 900px
         margin 0 0 0 100px
         min-height 0
-        padding 10px 20px 10px 20px
         .topicContentMedia
           margin 20px -20px 20px 0
     .topicToolbar
@@ -981,6 +1021,12 @@
     //background midnight()
     border-radius borderRadius
     border 1px solid black(0.1)
+    &[data-trayOpen="true"]
+      min-height 410px
+      .topicWrapper
+        transform translate3d(340px,0,0)
+        .topicWrapper
+          transform translate3d(0,0,0)
     .topicWrapper
       background white()
       border-radius 0 borderRadius borderRadius 0
