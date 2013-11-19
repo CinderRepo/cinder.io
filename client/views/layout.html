@@ -1,6 +1,9 @@
 <template name="layout">
+  {{#if currentTemplateIs 'home'}}
+  {{>hero}}
+  {{/if}}
   {{>player}}
-  <section class="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}">
+  <section id="overlay" class="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}">
     {{>leftSidebar}}
     {{>rightSidebar}}
     <section class="contentWrapper">

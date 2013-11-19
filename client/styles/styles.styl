@@ -89,11 +89,53 @@
       &:hover
         transform scale3d(1.2,1.2,1.2)
 
+.heroVideo
+  position(fixed,0,0,0,0)
+  min-width 100%
+  min-height 100%
+  width auto
+  height auto
+  z-index 2
+  overflow(hidden)
+  pointer-events none
+  background black()
+
 .overlay
   position(absolute,0,0,110,0)
   background offWhite()
+  transition all 0.25s ease-in-out
+  &[data-hidden="true"]
+    transform translate3d(0,-100%,0)
   .contentWrapper
     z-index 0
+
+.logo
+  position(absolute,10,auto,auto,10)
+  transition all .25s ease-in-out
+  padding 0 0 0 40px
+  cursor pointer
+  size(auto,30)
+  futura()
+  &.white
+    .logoIcon
+      background offWhite()
+    .logoText
+      color offWhite()
+  &.black
+    .logoIcon
+      background midnight()
+    .logoText
+      color midnight()
+  &:hover
+    transform scale3d(1.1,1.1,1.1)
+  .logoIcon
+    size(30,30)
+    border-radius 30px
+    position(absolute,0,auto,auto,0)
+  .logoText
+    size(auto,30)
+    font-size 20px
+    line-height 30px
 
 .sidebar
   position(absolute,0,auto,0,auto)
@@ -109,6 +151,7 @@
     bottom auto
     background white()
     border-radius borderRadius
+    border 1px solid black(0.1)
     .sidebarInfo
       display block
       height 140px
@@ -196,33 +239,6 @@
           transition all .25s ease-in-out
         .sidebarListItemText
           transition all .25s ease-in-out
-  .logo
-    position(absolute,10,auto,auto,10)
-    transition all .25s ease-in-out
-    padding 0 0 0 40px
-    cursor pointer
-    size(auto,30)
-    futura()
-    .logoIcon
-      size(30,30)
-      border-radius 30px
-      position(absolute,0,auto,auto,0)
-    .logoText
-      size(auto,30)
-      font-size 20px
-      line-height 30px
-    &.white
-      .logoIcon
-        background offWhite()
-      .logoText
-        color offWhite()
-    &.black
-      .logoIcon
-        background midnight()
-      .logoText
-        color midnight()
-    &:hover
-      transform scale3d(1.1,1.1,1.1)
 .section
   position(relative,0)
   float left
@@ -231,8 +247,8 @@
   background-size cover
   background-position 50% 50%
   padding 20px 0 20px 0
+  background offWhite()
   &.intro
-    background-image url("../images/photo.png")
     height 800px
     display table
     .pane
@@ -251,7 +267,7 @@
     futura(26,midnight())
     margin 0 0 20px 0
   &:nth-of-type(odd)
-    background-color midnight()
+    background-color black(0.5)
     .sectionTitle
       futura(26,white())
     .button
@@ -269,8 +285,8 @@
   overflow(hidden,auto)
   height 100%
   position(relative)
-  z-index 1
-  background offWhite()
+  z-index 2
+  //background offWhite()
 .content
   min-width 320px
   max-width 960px
@@ -356,19 +372,25 @@
   margin 0 auto 40px auto
   futura(72,white())
   max-width 960px
+  position(relative)
+  z-index 1
 .mastheadInfo
-  font-family "HelveticaNeue-Light"
-  font-size 24px
+  //font-family "HelveticaNeue-Light"
+  font-size 22px
   line-height 1.4
   color white()
   margin 0 auto
   min-width 320px
   max-width 600px
+  position(relative)
+  z-index 1
 .buttonsWrapper
   margin 40px auto 0 auto
   //min-width 320px
   max-width 620px
   //min-height 60px
+  position(relative)
+  z-index 1
   .button
     float left
     clear none
@@ -468,6 +490,11 @@
     position(absolute,20,auto,auto,20)
     transition all 0.25s ease-in-out
     cursor pointer
+    overflow(hidden)
+    &:hover
+      .contentMastheadUploadImage
+        transform translate3d(0,0,0)
+        opacity 1
     .contentMastheadSavedImage
       size(300,330)
       border-radius borderRadius
@@ -483,6 +510,31 @@
         pointer-events none
         border-radius borderRadius
         box-shadow 0 0 2px midnight(0.8)
+    .contentMastheadUploadImage
+      size(300,330)
+      border-radius borderRadius
+      pointer-events none
+      position(absolute,0,0,0,0)
+      background white(0.7)
+      transition all 0.25s ease-in-out
+      text-align center
+      transform translate3d(0,330px,0)
+      opacity 0
+      &:before
+        content ""
+        height 100%
+        display inline-block
+        vertical-align middle
+      .contentMastheadUploadImageInfo
+        display inline-block
+        vertical-align middle
+        .contentMastheadUploadImageIcon
+          size(80,80)
+          border-radius 80px
+          background midnight(0.9)
+          margin 0 auto 20px auto
+        .contentMastheadUploadImageTitle
+          futura(20,midnight(0.9))
     .preview
       size(300,330)
       position(absolute,0,0,0,0)
@@ -498,8 +550,6 @@
       .error-mark
       .error-message
         display none
-    &:hover
-      transform scale3d(1.1,1.1,1.1)
   .contentHeader
     margin 0
     padding 0
@@ -563,6 +613,8 @@
 .topicEntry
   maxSize(940,auto)
   margin 0 auto
+  border-radius borderRadius
+  border 1px solid black(0.1)
   .topicForm
     .formSubmitBar
       background offerWhite()
@@ -855,6 +907,7 @@
       background-repeat no-repeat
       background-position 50% 50%
       transition all 0.25s ease-in-out
+      cursor pointer
       &:hover
         transform scale3d(1.2,1.2,1.2)
       //position(absolute,10,auto,auto,25)
@@ -865,6 +918,7 @@
       minSize(auto,80)
       margin 0
       transform translate3d(0,0,0)
+      border-radius 0 0 4px 0
       .topicContent
         width 900px
         height 60px
@@ -888,8 +942,9 @@
 
 .content[data-context="community"]
   .topic
-    background midnight()
+    //background midnight()
     border-radius borderRadius
+    border 1px solid black(0.1)
     .topicWrapper
       background white()
       &:last-of-type
@@ -911,9 +966,11 @@
   line-height 1.5
   background offWhite()
   transition all 0.25s ease-in-out
-  display block
+  transform scale3d(1,1,1)
+  opacity 1
   &[data-hidden="true"]
-    display none
+    transform scale3d(0,0,0)
+    opacity 0
   .button
     margin 20px 0 0 0
     width 100%

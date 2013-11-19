@@ -92,6 +92,12 @@ $(window).on("keyup",(e)->
             log "result: ",result
   )
 
+#Play the hero video when it's rendered
+Template.hero.rendered = () ->
+  log "HERO RENDERED"
+  heroVideo = this.find(".heroVideo")
+  heroVideo.play() if heroVideo?
+
 #Make it so that all textareas expand based on text content in the application
 Template.layout.rendered = () ->
   log "=========================="
@@ -114,10 +120,6 @@ Template.layout.rendered = () ->
 
   #$(".topicSidebarInfo").stick_in_parent offset_top: 10
   #$(".topicTrayForm").stick_in_parent offset_top: 10
-
-Template.content.preserve({
-  "#upload": (node) -> node.id
-})
 
 Template.layout.events
   "click .closeTopicTray":(e,t)->
@@ -317,9 +319,11 @@ Template.layout.events
             )
       )
   "keyup [data-format='money']":(e,t)->
-    log "keyuping bitch!"
     currentTarget = $(e.currentTarget)
-    Session.set "pledgeAmount",currentTarget.val()
+    log "currentTarget: ",currentTarget
+  "blur [data-format='money']":(e,t)->
+    currentTarget = $(e.currentTarget)
+    log "currentTarget: ",currentTarget
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.
 Template.topic.helpers
@@ -372,3 +376,13 @@ Template.leftSidebar.helpers
         followingArray.push user
     #log "followingArray: ",followingArray
     followingArray
+
+#XXX: Remove these after the new Meteor UI release, as they will no longer be needed.
+Template.layout.preserve({
+  "#cover"
+  "#overlay"
+})
+
+Template.content.preserve({
+  "#upload": (node) -> node.id
+})
