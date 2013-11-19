@@ -83,34 +83,40 @@
     <ul class="sidebarList">
       {{#if currentUser}}
         {{#with currentUser}}
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}{{/if}}"
-          href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Creations</div>
-          </a>
-        </li>
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}{{/if}}"
-          href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Favorites</div>
-          </a>
-        </li>
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'dashboard'}}true{{/if}}{{/if}}"
-          href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Dashboard</div>
-          </a>
-        </li>
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}{{/if}}"
-          href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Settings</div>
-          </a>
-        </li>
+          {{#if profile.creations}}
+          <li class="sidebarListItem">
+            <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}{{/if}}"
+            href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Creations</div>
+            </a>
+          </li>
+          {{/if}}
+          {{#if profile.favorites}}
+          <li class="sidebarListItem">
+            <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}{{/if}}"
+            href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Favorites</div>
+            </a>
+          </li>
+          {{/if}}
+          {{#if profile.creations}}
+          <li class="sidebarListItem">
+            <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'dashboard'}}true{{/if}}{{/if}}"
+            href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Dashboard</div>
+            </a>
+          </li>
+          {{/if}}
+          <li class="sidebarListItem">
+            <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}{{/if}}"
+            href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Settings</div>
+            </a>
+          </li>
         {{/with}}
       {{else}}
       <li class="sidebarListItem">

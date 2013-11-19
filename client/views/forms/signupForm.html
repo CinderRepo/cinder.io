@@ -1,4 +1,5 @@
 <template name="signupForm">
+  {{#isolate}}
   {{#autoForm schema=signupFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
   {{afFieldInput "username" class="formInput" placeholder="Username" autocomplete="off"}}
   {{afFieldInput "email" class="formInput" placeholder="email@email.com" autocomplete="off"}}
@@ -8,4 +9,5 @@
   <div class="coverFooter">
     <a data-action="switchCover" data-cover="login" class="coverLink">Login</a>
   </div>
+  {{/isolate}}
 </template>

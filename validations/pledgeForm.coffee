@@ -1,10 +1,11 @@
 #Specifiy the valid formats for data submitted from the signup form.
 Schema.pledgeFormSchema = new SimpleSchema
   pledge:
-    type: Number
+    type: String
     label: "Pledge"
     optional: false
     min: 1
+    max: 7
 
 #Customize output messages sent to the user when an error is come across.
 Schema.pledgeFormSchema.messages
@@ -33,18 +34,36 @@ if Meteor.isClient
   Template.pledgeForm.helpers
     pledgeFormSchema: ->
       pledgeForm
+    pledgeAmount: ->
+      Session.get "pledgeAmount"
     onSubmit: ->
       self = this
+      log "PLEDGE FORM!"
+      log "self: ",self
+      topicId = self._id
       (insertDoc,updateDoc,currentDoc)->
         log "pledgeForm submit called!"
         check(insertDoc,Schema.pledgeFormSchema)
         log "self: ",self
         user = Meteor.user()
         log "insertDoc: ",insertDoc
-        if user.profile.cards.length is 0
-          log "User has no credit cards!"
+        stripeCustomerId = user.profile.stripeCustomerId
+
+        #Convert pledgeDollars to cents for Stripe input
+        pledge = dollarToCent(insertDoc.pledge)
+        log "pledge: ",pledge
+
+        if stripeCustomerId is null
+          log "User has no stripeCustomerId!"
           Session.set "topicOpen",self._id
           Session.set "topicTrayOpen",self._id
         else
           log "User has credit cards! Process payment"
+          Meteor.call "createCharge", topicId,pledge,stripeCustomerId,false,
+            (err,result) ->
+              if err
+                log "err: ",err
+              else
+                log "result: ",result
+                log "CREATE CHARGE FINISHED FROM PLEDGE FORM"
         false

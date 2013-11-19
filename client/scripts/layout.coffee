@@ -2,6 +2,7 @@ Session.setDefault("overlayHidden",false)
 Session.setDefault("coverHidden",true)
 Session.setDefault("isPlaying",false)
 Session.setDefault("isVisualizing",false)
+Session.setDefault("pledgeAmount","$10")
 
 #XXX: Hacky, but it demonstrates the functionality, which is all I want right now.
 #Make this reactive in short order.
@@ -31,15 +32,92 @@ $(window).on("keyup",(e)->
   else
     Session.set("coverHidden",false)
 
+@initDropzone = (el) ->
+  log "initDropzone"
+  dropzone = new Dropzone(el,
+    url: "/"
+    maxFilesize: 10
+    thumbnailWidth: 300
+    thumbnailHeight: 330
+    previewTemplate:
+      """<div class="preview file-preview">
+          <div class="details">
+            <div class="filename"><span data-dz-name></span></div>
+            <div class="size" data-dz-size></div>
+            <img class="image" data-dz-thumbnail />
+          </div>
+          <div class="progress"><span class="upload" data-dz-uploadprogress></span></div>
+          <div class="success-mark"><span>✔</span></div>
+          <div class="error-mark"><span>✘</span></div>
+          <div class="error-message"><span data-dz-errormessage></span></div>
+        </div>"""
+  )
+
+  log "dropzone: ",dropzone
+
+  dropzone.on("thumbnail",(file,dataURL)->
+    log "Thumbnail generated!"
+    context = Router.current().params["context"]
+    log "context: ",context
+
+    #Save image to content
+    if context is "profile"
+      log "Profile Save!"
+      owner = Router.current().params["owner"]
+      log "owner: ",owner
+      Meteor.users.update
+        _id: owner
+      ,
+        $set:
+          "profile.profileSrc": dataURL
+      ,
+        (err,result)->
+          if err
+            log "err: ",err
+          else
+            log "result: ",result
+    #Save image to content
+    else
+      log "Content Save!"
+      Content.update
+        _id: context
+      ,
+        $set:
+          "previewSrc": dataURL
+      ,
+        (err,result)->
+          if err
+            log "err: ",err
+          else
+            log "result: ",result
+  )
+
 #Make it so that all textareas expand based on text content in the application
 Template.layout.rendered = () ->
   log "=========================="
   log "LAYOUT RE-FUCKING RENDERED"
   textareas = $(this.findAll(".expanding"))
   textareas.expandingTextarea()
+  contentMastheadImage = this.find(".contentMastheadImage")
   Dropzone.autoDiscover = false
+  #Currency formatting
+  $("[data-format='money']").autoNumeric("init",{aSign:"$",vMax:"99999",mDec:"0"})
+
+  if contentMastheadImage
+    initDropzone(contentMastheadImage)
+
+  #if Session.equals "dropzoneInitialized", undefined
+    #log "dropzoneInitialized is null"
+    #if initDropzone(contentMastheadImage) isnt null
+    #  log "dropzone has been created!"
+    #  Session.set "dropzoneInitialized",true
+
   #$(".topicSidebarInfo").stick_in_parent offset_top: 10
   #$(".topicTrayForm").stick_in_parent offset_top: 10
+
+Template.content.preserve({
+  "#upload": (node) -> node.id
+})
 
 Template.layout.events
   "click .closeTopicTray":(e,t)->
@@ -101,6 +179,7 @@ Template.layout.events
   "click [data-action='logout']":(e,t)->
     log "logout Clicked."
     Meteor.logout()
+    Router.go "/"
   "click [data-action='toggleCover']":(e,t)->
     log "toggleCover clicked!"
     currentTarget = $(e.currentTarget)
@@ -237,52 +316,10 @@ Template.layout.events
                   log "result: ",result
             )
       )
-
-Template.content.rendered = ->
-  #We select from within the template instance because we only want to apply dropzone to this one context, and
-  #still be reactive when a new context is created for the first time, without conflicting with other existing
-  #dropzones.
-  log "Content Rendered!"
-  self = this
-  log "self: ",self
-  contentIcon = this.find(".contentIcon")
-  #log "contentIcon: ",contentIcon
-  unless !contentIcon
-    dropzone = new Dropzone(contentIcon,
-      url: "/"
-      maxFilesize: 10
-      thumbnailWidth: 80
-      thumbnailHeight: 80
-      previewTemplate:
-        """<div class="preview file-preview">
-            <div class="details">
-              <div class="filename"><span data-dz-name></span></div>
-              <div class="size" data-dz-size></div>
-              <img data-dz-thumbnail />
-            </div>
-            <div class="progress"><span class="upload" data-dz-uploadprogress></span></div>
-            <div class="success-mark"><span>✔</span></div>
-            <div class="error-mark"><span>✘</span></div>
-            <div class="error-message"><span data-dz-errormessage></span></div>
-          </div>"""
-    )
-
-    dropzone.on("thumbnail",(file,dataURL)->
-      log "Thumbnail generated!"
-      Rewards.update
-        _id: self.data._id
-      ,
-        $set:
-          "rewardIcon":dataURL
-      ,
-        (err,result)->
-          if err
-            log "err: ",err
-          else
-            #Add the document ID to the current user
-            log "result: ",result
-    )
-
+  "keyup [data-format='money']":(e,t)->
+    log "keyuping bitch!"
+    currentTarget = $(e.currentTarget)
+    Session.set "pledgeAmount",currentTarget.val()
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.
 Template.topic.helpers
@@ -304,10 +341,6 @@ Template.topic.helpers
     #If there's less than 5 posts, just show them all
     else
       true
-
-Template.topic.preserve(
-  ".topicWrapper"
-)
 
 #XXX: This is a workaround for handlebars not being able to properly detect global data contexts when
 #it is being called from within another nested data context. Ideally, we would have this within the router.

@@ -74,26 +74,14 @@ Router.map ->
             favoritesArray.push content
           favoritesArray
 
+        log "favoritesArray: ",favoritesArray
+
         owner: Meteor.users.findOne(_id: ownerId)
         creations: Content.find(owner: ownerId)
         favorites: favoritesArray
         content: content
         contentInfo: contentInfo
-        #contentInfoCount: contentInfo.count()
-        #creations:
         #XXX: Eventually we'll want this to be included in the router, but since handlebars doesn't
         #allow for good switching of globally scoped data contexts when within other nested data contexts
         #we have to settle for using a template helper for now until there's a stable way to access parent data contexts.
         #contentDetails: Posts.find(parentSlug: @params.contentDetails) if @params.contentDetails?
-      else if @params.owner
-        #XXX: Potentially delete this?
-        #log "Query for user if it's a user"
-        #log "owner: ",@params.owner
-        #Get the user name from the content via the _id
-        ownerId = @params.owner
-        #log "USER!"
-        #log "ownerId: ",ownerId
-
-        owner: Meteor.users.findOne(_id: ownerId)
-        #content: Meteor.users.findOne(_id: ownerId)
-        creations: Content.find(_id: @params.context)

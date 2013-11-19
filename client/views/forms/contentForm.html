@@ -1,4 +1,5 @@
 <template name="contentForm">
+  {{#isolate}}
   <div class="topicEntry">
     {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
     {{afFieldInput "content" class="formInput expanding" placeholder="Add Post.." autocomplete="off" rows="10"}}
@@ -27,4 +28,5 @@
     </div>
     {{/autoForm}}
   </div>
+  {{/isolate}}
 </template>

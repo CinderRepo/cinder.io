@@ -1,12 +1,26 @@
 <template name="creditCardForm">
+  {{#isolate}}
   {{#autoForm schema=creditCardFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicTrayForm"}}
   <div class="closeTopicTray"></div>
-  <div class="topicTrayFormIcon"></div>
-  <div class="topicTrayFormTitle">Add Credit Card</div>
-  {{afFieldInput "username" class="formInput" placeholder="Username" autocomplete="off"}}
-  {{afFieldInput "email" class="formInput" placeholder="email@email.com" autocomplete="off"}}
-  {{afFieldInput "password" class="formInput" type="password" placeholder="Password" autocomplete="off"}}
-  <button type="submit" class="button formSubmit">Pledge $1.00</button>
+  <div class="topicTrayFormIcon">
+    {{afFieldInput "pledge" class="formInput" placeholder=pledgeAmount value=pledgeAmount autocomplete="off" data-format="money"}}
+  </div>
+  <div class="topicTrayFormTitle">Pledge {{$.Session.get 'pledgeAmount'}} to this idea</div>
+  {{afFieldInput "number" class="formInput" placeholder="1234 1234 1234 1234" autocomplete="off" data-format="card"}}
+  {{afFieldInput "expiry" class="formInput" placeholder="MM / YY" autocomplete="off" data-format="expiry"}}
+  {{afFieldInput "cvc" class="formInput" placeholder="CVC" autocomplete="off" data-format="cvc"}}
+  <div data-on="false" class="toggle black">
+    {{afFieldInput "remember" type="hidden" class="formInput"}}
+    <div class="toggleOptions" data-action="toggleRemember">
+      <div class="toggleOptionsTrack">
+        <div class="toggleOption">Yes</div>
+        <div class="toggleOption">No</div>
+      </div>
+    </div>
+    <div class="toggleLabel">Remember Card?</div>
+  </div>
+  <button type="submit" class="button formSubmit">Pledge {{$.Session.get 'pledgeAmount'}}</button>
   <div class="topicTrayFormSubtitle">Your credit card is never stored on our servers</div>
   {{/autoForm}}
+  {{/isolate}}
 </template>

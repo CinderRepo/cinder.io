@@ -68,6 +68,8 @@ if Meteor.isClient
         insertDoc.collaborators = []
         insertDoc.collaborators.push currentUser._id
         insertDoc.description = "Your game has been created! Click and edit here to add a description."
+        insertDoc.previewSrc = "/users/defaults/preview.png"
+        insertDoc.coverSrc = "/users/defaults/cover.png"
         #Hard coded type, we could add more media types in the future
         insertDoc.type = "game"
         #log "Updated insertDoc: ",insertDoc
@@ -85,7 +87,7 @@ if Meteor.isClient
                 _id: currentUser._id
               ,
                 $addToSet:
-                  "profile.content": result
+                  "profile.creations": result
               ,
                 (err,result)->
                   if err

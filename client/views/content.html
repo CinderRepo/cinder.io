@@ -1,76 +1,96 @@
 <template name="content">
-  <div class="contentMasthead">
-    {{#if content}}
-      {{#with content}}
-      <div class="contentMastheadImage"></div>
-      <div class="contentHeader">
-        <div class="contentHeaderText">
-          {{title}}
-        </div>
-      </div>
-      <div class="contentHeaderContent">
-        {{description}}
-      </div>
-      {{/with}}
-    {{else}}
-      {{#with owner}}
-      <div class="contentMastheadImage"></div>
-      <div class="contentHeader">
-        <div class="contentHeaderText">
-          {{username}}
-        </div>
-      </div>
-      <div class="contentHeaderContent">
-        {{profile.description}}
-      </div>
-      {{/with}}
-    {{/if}}
-    {{#if content}}
-      {{#with content}}
-      <div class="buttonsWrapper">
-        <a data-action="play" class="button contentHeaderButton">Play</a>
-        <div data-action="toggleFavorite" data-on="{{userProfileArrayHas 'favorites' _id}}" class="toggle white">
-          <div class="toggleOptions">
-            <div class="toggleOptionsTrack">
-              <div class="toggleOption">Unfavorite</div>
-              <div class="toggleOption">Favorite</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {{/with}}
-    {{else}}
-      {{#with owner}}
-        {{#if isNotOwner}}
-        <div data-action="toggleFollow" data-on="{{userProfileArrayHas 'following' _id}}}" class="toggle white">
-          <div class="toggleOptions">
-            <div class="toggleOptionsTrack">
-              <div class="toggleOption">Unfollow</div>
-              <div class="toggleOption">Follow</div>
-            </div>
-          </div>
-        </div>
+  {{#isolate}}
+    <div class="contentMasthead">
+      {{#if content}}
+        {{#with content}}
+        <div class="contentMastheadCover" style="background-image:url({{coverSrc}});"></div>
+        {{/with}}
+      {{else}}
+        {{#with owner}}
+        <div class="contentMastheadCover" style="background-image:url({{profile.profileCoverSrc}});"></div>
+        {{/with}}
+      {{/if}}
+      <div id="upload" class="contentMastheadImage">
+        {{#if content}}
+          {{#with content}}
+          <div class="contentMastheadSavedImage" style="background-image:url({{previewSrc}});"></div>
+          {{/with}}
+        {{else}}
+          {{#with owner}}
+          <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});"></div>
+          {{/with}}
         {{/if}}
-      {{/with}}
+      </div>
+      <div class="contentHeader">
+        <div class="contentHeaderText">
+          {{#if content}}
+            {{#with content}}
+            {{title}}
+            {{/with}}
+          {{else}}
+            {{#with owner}}
+            {{username}}
+            {{/with}}
+          {{/if}}
+        </div>
+      </div>
+      <div class="contentHeaderContent">
+        {{#if content}}
+          {{#with content}}
+          {{description}}
+          {{/with}}
+        {{else}}
+          {{#with owner}}
+          {{profile.description}}
+          {{/with}}
+        {{/if}}
+      </div>
+      {{#if content}}
+        {{#with content}}
+        <div class="buttonsWrapper">
+          <a data-action="play" class="button contentHeaderButton">Play</a>
+          <div data-action="toggleFavorite" data-on="{{userProfileArrayHas 'favorites' _id}}" class="toggle white">
+            <div class="toggleOptions">
+              <div class="toggleOptionsTrack">
+                <div class="toggleOption">Unfavorite</div>
+                <div class="toggleOption">Favorite</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/with}}
+      {{else}}
+        {{#with owner}}
+          {{#if isNotOwner}}
+          <div data-action="toggleFollow" data-on="{{userProfileArrayHas 'following' _id}}}" class="toggle white">
+            <div class="toggleOptions">
+              <div class="toggleOptionsTrack">
+                <div class="toggleOption">Unfollow</div>
+                <div class="toggleOption">Follow</div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+        {{/with}}
+      {{/if}}
+    </div>
+    {{#if currentParamIs 'contentInfo' 'about'}}
+      {{#if userCanEdit}}
+        {{>contentForm}}
+      {{/if}}
+      {{#each contentInfo}}
+        {{>post}}
+      {{/each}}
     {{/if}}
-  </div>
-  {{#if currentParamIs 'contentInfo' 'about'}}
-    {{#if userCanEdit}}
-      {{>contentForm}}
+    {{#if currentParamIs 'contentInfo' 'community'}}
+      {{#if currentUser}}
+        {{>topicForm}}
+      {{/if}}
+      {{#each contentInfo}}
+        {{>topic}}
+      {{/each}}
     {{/if}}
-    {{#each contentInfo}}
-      {{>post}}
-    {{/each}}
-  {{/if}}
-  {{#if currentParamIs 'contentInfo' 'community'}}
-    {{#if currentUser}}
-      {{>topicForm}}
-    {{/if}}
-    {{#each contentInfo}}
-      {{>topic}}
-    {{/each}}
-  {{/if}}
-  {{#if currentParamIs 'context' 'profile'}}
+    {{#if currentParamIs 'context' 'profile'}}
     <div class="section">
       <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
       {{#if currentParamIs 'contentInfo' 'creations'}}
@@ -133,12 +153,13 @@
           <div class="columnTitle">Account</div>
           <div class="columnIcon"></div>
           <div class="columnForm">
-            <div class="button">Logout</div>
+            <div data-action="logout" class="button">Logout</div>
             <div class="button">Remove Credit Card</div>
             <div class="button">Delete Account</div>
           </div>
         </div>
-      {{/if}}
+        {{/if}}
       </div>
-  {{/if}}
+    {{/if}}
+  {{/isolate}}
 </template>

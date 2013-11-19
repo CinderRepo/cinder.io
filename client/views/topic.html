@@ -1,4 +1,5 @@
 <template name="topic">
+  {{#isolate}}
   <div class="topic" data-trayOpen="{{$.Session.equals 'topicTrayOpen' _id}}">
     <div class="topicSidebar">
       <div class="topicSidebarInfo">
@@ -12,21 +13,27 @@
     </div>
     <div class="topicWrapper">
       <div class="topicTitle">
-        <a href="/users/{{owner}}/profile/creations" class="topicTitleIcon"></a>
+        {{#with getUserById owner}}
+        <a href="/users/{{_id}}/profile/creations" class="topicTitleIcon" style="background-image: url({{profile.profileSrc}});"></a>
+        {{/with}}
         <div class="topicTitleText">{{title}}</div>
       </div>
       <div class="topicContent">{{content}}</div>
       <div class="topics" data-open="{{topicOpen}}">
         {{#each topicPosts}}
         <div class="topicWrapper">
-          <div class="topicIcon"></div>
+          {{#with getUserById owner}}
+          <a href="/users/{{_id}}/profile/creations" class="topicIcon" style="background-image: url({{profile.profileSrc}});"></a>
+          {{/with}}
           <div class="topicContent">
             {{toHtml content}}
           </div>
         </div>
         {{/each}}
         <div class="topicWrapper">
-          <div class="topicIcon"></div>
+          {{#with currentUser}}
+          <div class="topicIcon" style="background-image: url({{profile.profileSrc}});"></div>
+          {{/with}}
           <div class="topicContent">
             {{>postForm}}
           </div>
@@ -45,4 +52,5 @@
       {{/if}}
     </div>
   </div>
+  {{/isolate}}
 </template>

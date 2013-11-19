@@ -62,7 +62,7 @@ Handlebars.registerHelper "arrayIsGreaterThan", (context,a) ->
 Handlebars.registerHelper "arrayIsLessThan", (context,a) ->
   context.length < a
 Handlebars.registerHelper "userProfileArrayHas", (context,value) ->
-  userProfileArray = Meteor.user().profile[context]
+  userProfileArray = Meteor.user().profile[context] if Meteor.user()?
   valueExists = _.contains userProfileArray, value
 Handlebars.registerHelper "getUserById", (context) ->
   Meteor.users.findOne _id: context

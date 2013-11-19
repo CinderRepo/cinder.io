@@ -26,10 +26,11 @@ Accounts.onCreateUser (options, user) ->
   log "user: ",user
   user.ownerSlug = _.slugify user.username
   user.profile = {}
-  user.profile.content = []
-  user.profile.profileImageSrc = "/users/defaults/profileImage.png"
+  user.profile.creations = []
+  user.profile.profileSrc = "/users/defaults/profileImage.png"
+  user.profile.profileCoverSrc = "/users/defaults/profileCover.png"
   user.profile.description = "Edit your user description."
-  user.profile.cards = []
+  user.profile.stripeCustomerId = undefined
   user.profile.favorites = []
   user.profile.following = []
   user.profile.followers = []

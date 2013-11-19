@@ -1,7 +1,7 @@
 <template name="rightSidebar">
   <aside class="sidebar right">
     {{#with content}}
-      <a href="" class="sidebarInfo">
+      <a href="" class="sidebarInfo" style="background-image: url({{previewSrc}});">
         <div class="sidebarHeader">
           {{#if currentTemplateIsNot 'filteredContent'}}
           {{title}}
@@ -82,7 +82,7 @@
       </ul>
     {{/with}}
     {{#with owner}}
-    <a href="/users/{{_id}}/profile/creations" class="sidebarInfo">
+    <a href="/users/{{_id}}/profile/creations" class="sidebarInfo" style="background-image: url({{profile.profileSrc}});">
       <div class="sidebarHeader">{{username}}</div>
       <div class="sidebarInfoText">{{getLength profile.followers}} Followers</div></a>
     <ul class="sidebarList">
@@ -103,6 +103,7 @@
         {{/if}}
       {{else}}
       {{/if}}
+      {{#if profile.creations}}
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}"
         href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
@@ -110,6 +111,8 @@
           <div class="sidebarListItemText">Creations</div>
         </a>
       </li>
+      {{/if}}
+      {{#if profile.favorites}}
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}"
         href="/users/{{_id}}/profile/favorites" class="sidebarListItemLink">
@@ -117,15 +120,18 @@
           <div class="sidebarListItemText">Favorites</div>
         </a>
       </li>
+      {{/if}}
       {{#if currentUser}}
         {{#if isOwner}}
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'contentInfo' 'dashboard'}}true{{/if}}"
-          href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Dashboard</div>
-          </a>
-        </li>
+          {{#if profile.creations}}
+          <li class="sidebarListItem">
+            <a data-current="{{#if currentParamIs 'contentInfo' 'dashboard'}}true{{/if}}"
+            href="/users/{{_id}}/profile/dashboard" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Dashboard</div>
+            </a>
+          </li>
+          {{/if}}
         <li class="sidebarListItem">
           <a data-current="{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}"
           href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">

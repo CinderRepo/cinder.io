@@ -50,6 +50,7 @@ autoform #Easily create reactive forms with validation.
 #sharejs #Add ShareJS editors to an app. Includes the Ace editor.
 collectionFS #Meteor filesystem based on gridFS, Meteor.collections and filehandlers.
 stripe #Stripe for Meteor.
+meteor-jquery-payment #Meteor package for Stripe's jQuery.payment library.
 Dropzonejs #DropzoneJS is an open source library that provides drag'n'drop file uploads with image previews.
 underscore-string-latest #underscore.string repackaged for Meteor
 #flare #Analytics tracking system for the cinder.io platform.

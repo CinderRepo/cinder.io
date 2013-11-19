@@ -12,6 +12,7 @@
       "autoform": {},
       "collectionFS": {},
       "stripe": {},
+      "meteor-jquery-payment": {},
       "Dropzonejs": {}
     },
     "packages": {
@@ -64,6 +65,11 @@
         "git": "https://github.com/appleifreak/stripe-meteor.git",
         "tag": "v1.4.0",
         "commit": "7afbaecda1442124566096cd52f55170e4a78033"
+      },
+      "meteor-jquery-payment": {
+        "git": "https://github.com/patrickocoffeyo/meteor-jquery-payment.git",
+        "tag": "v0.0.1",
+        "commit": "25d8fb476c30d37d05f66b68ac8ebbcff3374a4a"
       },
       "Dropzonejs": {
         "git": "https://github.com/devonbarrett/meteor-dropzone.git",

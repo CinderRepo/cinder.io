@@ -1,8 +1,9 @@
 <template name="topicForm">
+  {{#isolate}}
   <div class="topicEntry">
     {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
-    {{afFieldInput "title" class="formInput expanding" placeholder="Add Title.." autocomplete="off"}}
-    {{afFieldInput "content" class="formInput expanding" placeholder="Add Post.." autocomplete="off" rows="10"}}
+    {{afFieldInput "title" class="formInput expanding" placeholder="Add an idea.." autocomplete="off"}}
+    {{afFieldInput "content" class="formInput expanding" placeholder="Tell us about your idea!" autocomplete="off" rows="10"}}
     <div class="formSubmitBar">
       <nav class="toolbarList">
         <li class="toolbarListItem">
@@ -28,4 +29,5 @@
     </div>
     {{/autoForm}}
   </div>
+  {{/isolate}}
 </template>

@@ -115,6 +115,9 @@
       background midnight()
       position(relative)
       cursor pointer
+      background-size cover
+      background-position 50% 50%
+      background-repeat no-repeat
       &:first-child
         border-radius borderRadius borderRadius 0 0
       .sidebarHeader
@@ -405,6 +408,9 @@
     position(absolute,0,0,0,0)
     background midnight()
     border-radius borderRadius
+    background-size cover
+    background-position 50% 100%
+    background-repeat no-repeat
   .tileInfo
     background white()
     position(absolute,auto,0,0,0)
@@ -446,12 +452,15 @@
     futura(36,midnight())
 
 .contentMasthead
-  background midnight()
+  //background midnight()
   padding 20px
   margin 0 10px 20px 10px
   height 370px
   position(relative)
   border-radius 0 0 borderRadius borderRadius
+  .contentMastheadCover
+    position(absolute,0,0,0,0)
+    border-radius 0 0 borderRadius borderRadius
   .contentMastheadImage
     size(300,330)
     border-radius borderRadius
@@ -459,6 +468,36 @@
     position(absolute,20,auto,auto,20)
     transition all 0.25s ease-in-out
     cursor pointer
+    .contentMastheadSavedImage
+      size(300,330)
+      border-radius borderRadius
+      background-size cover
+      background-position 50% 50%
+      background-repeat no-repeat
+      pointer-events none
+      position(relative)
+      &:before
+        content ""
+        position(absolute,0,0,0,0)
+        border 1px solid white(0.3)
+        pointer-events none
+        border-radius borderRadius
+        box-shadow 0 0 2px midnight(0.8)
+    .preview
+      size(300,330)
+      position(absolute,0,0,0,0)
+      pointer-events none
+      .details
+        .filename
+        .size
+          display none
+        .image
+          border-radius borderRadius
+      .progress
+      .success-mark
+      .error-mark
+      .error-message
+        display none
     &:hover
       transform scale3d(1.1,1.1,1.1)
   .contentHeader
@@ -478,6 +517,7 @@
     margin 0 0 0 320px
     overflow hidden
     font-size 16px
+    position(relative)
   .buttonsWrapper
     size(210,40)
     position(absolute,auto,20,20,auto)
@@ -596,7 +636,7 @@
   position(relative)
   overflow(hidden)
   &[data-trayOpen="true"]
-    min-height 285px
+    min-height 410px
     .topicWrapper
       min-height 285px
       transform translate3d(340px,0,0)
@@ -611,6 +651,7 @@
       background white()
       padding 10px
       min-width 140px
+      height 225px
       .topicSideFormTitle
         height 20px
         text-align center
@@ -623,20 +664,38 @@
         border-radius borderRadius
         background white()
         width 100%
-        .formInputInfo
+        .topicSideFormIcon
+          size(120,120)
+          border-radius 120px
           margin 10px 0 10px 0
-          position(relative)
-          .formInputLabel
-            position(absolute)
-            size(10,30)
-            line-height 30px
+          background midnight()
+          &:hover
+            .formInput
+              transform scale3d(1.4,1.4,1.4)
+              &::-webkit-input-placeholder
+                color white()
+              &::-moz-placeholder
+                color white()
+              &:-ms-input-placeholder
+                color white()
           .formInput
-            size(105,30)
-            padding 5px
-            margin 0 0 0 15px
-            background gray()
-            border-radius borderRadius
-            color offerGray()
+            futura(14,white())
+            width inherit
+            height inherit
+            background transparent
+            transition all 0.25s ease-in-out
+            &::-webkit-input-placeholder
+              color gray()
+              text-align center
+              transition all 0.25s ease-in-out
+            &::-moz-placeholder
+              color gray()
+              text-align center
+              transition all 0.25s ease-in-out
+            &:-ms-input-placeholder
+              color gray()
+              text-align center
+              transition all 0.25s ease-in-out
         .formSubmit
           width 100%
           height 30px
@@ -656,9 +715,9 @@
       size(20,20)
       border-radius 20px
       background midnight()
-      transition all 0.25s ease-in-out
       cursor pointer
       position(absolute,10,10,auto,auto)
+      transition all 0.25s ease-in-out
       &:hover
         transform scale3d(1.2,1.2,1.2)
     .topicTrayForm
@@ -668,13 +727,41 @@
       padding 10px
       position(relative)
       .topicTrayFormIcon
-        size(40,40)
-        border-radius 40px
+        size(100,100)
+        border-radius 100px
         background midnight()
-        margin 5px auto 0 auto
+        margin 10px auto 10px auto
+        position(relative)
+        &:hover
+          .formInput
+            transform scale3d(1.4,1.4,1.4)
+            &::-webkit-input-placeholder
+              color white()
+            &::-moz-placeholder
+              color white()
+            &:-ms-input-placeholder
+              color white()
+        .formInput
+          futura(14,white())
+          width inherit
+          height inherit
+          background transparent
+          transition all 0.25s ease-in-out
+          &::-webkit-input-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
+          &::-moz-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
+          &:-ms-input-placeholder
+            color gray()
+            text-align center
+            transition all 0.25s ease-in-out
       .topicTrayFormTitle
         futura(16,midnight())
-        margin 5px 0 5px 0
+        margin 0 0 10px 0
       .topicTrayFormSubtitle
         height 14px
         line-height 14px
@@ -682,6 +769,8 @@
         color offerGray()
         font-size 12px
         margin 10px 0 0 0
+      .toggle
+        margin 0 0 10px 0
       .formInput
         background gray()
         width 100%
@@ -740,6 +829,9 @@
       background midnight()
       float left
       margin 8px 20px 0 0
+      background-size cover
+      background-repeat no-repeat
+      background-position 50% 50%
       transition all 0.25s ease-in-out
       &:hover
         transform scale3d(1.2,1.2,1.2)
@@ -759,6 +851,12 @@
       background midnight()
       margin 10px 10px 0 20px
       float left
+      background-size cover
+      background-repeat no-repeat
+      background-position 50% 50%
+      transition all 0.25s ease-in-out
+      &:hover
+        transform scale3d(1.2,1.2,1.2)
       //position(absolute,10,auto,auto,25)
     .topicWrapper
       //border-left 10px solid gray()
@@ -860,7 +958,7 @@
           overflow(hidden)
           text-overflow ellipsis
           white-space nowrap
-          &::input-placeholder
+          &::-webkit-input-placeholder
             color gray()
             text-align center
             transition all 0.25s ease-in-out
@@ -958,7 +1056,7 @@
           &:hover
             transform scale3d(1.2,1.2,1.2)
             .coverInput
-              &::input-placeholder
+              &::-webkit-input-placeholder
                 color white()
               &::-moz-placeholder
                 color white()
@@ -980,7 +1078,7 @@
     padding 10px
     margin 0 0 1px 0
     background offWhite()
-    &::input-placeholder
+    &::-webkit-input-placeholder
       font-size 12px
     &::-moz-placeholder
       font-size 12px
@@ -1051,6 +1149,8 @@
     .toggleOptions
       .toggleOptionsTrack
         transform translate3d(0,0,0)
+  .checkbox
+    display none
   .toggleOptions
     size(60,40)
     border-radius borderRadius

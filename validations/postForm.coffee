@@ -54,7 +54,7 @@ if Meteor.isClient
         currentUser = Meteor.user() if Meteor.user()?
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
-        insertDoc.owner = currentUser.username
+        insertDoc.owner = currentUser._id
         #log "Updated insertDoc: ",insertDoc
         Posts.insert(
           insertDoc

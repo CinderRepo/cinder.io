@@ -14,6 +14,10 @@
             {{>signupForm}}
           {{/if}}
 
+          {{#if coverIs 'create'}}
+            {{>createForm}}
+          {{/if}}
+
           {{#if coverIs 'download'}}
             <div class="coverMasthead">
               <div class="buttonsWrapper">
