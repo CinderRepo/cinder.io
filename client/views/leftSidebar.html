@@ -1,6 +1,6 @@
 <template name="leftSidebar">
   <aside class="sidebar left">
-    <a data-action="toggleOverlay" class="logo black">
+    <a href="/" class="logo black">
       <div class="logoIcon"></div>
       <div class="logoText">Cinder</div>
     </a>
@@ -13,6 +13,7 @@
           <div class="sidebarListItemText">All</div>
         </a>
       </li>
+      {{#with hidden}}
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'type' 'new'}}true{{/if}}"
         href="/new" class="sidebarListItemLink">
@@ -27,10 +28,12 @@
           <div class="sidebarListItemText">Featured</div>
         </a>
       </li>
+      {{/with}}
     </ul>
     {{#if currentUser}}
       <h2 class="sidebarHeader">Create</h2>
       <ul class="sidebarList">
+        {{#with hidden}}
         <li class="sidebarListItem">
           <a class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
@@ -43,6 +46,7 @@
             <div class="sidebarListItemText">Download The App</div>
           </a>
         </li>
+        {{/with}}
         <li class="sidebarListItem">
           <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
@@ -56,7 +60,7 @@
         {{#each favorites}}
         <li class="sidebarListItem">
           <a data-current="{{#if currentParamIs 'context' _id}}true{{/if}}"
-          href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
+          href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
             <div class="sidebarListItemText">{{title}}</div>
           </a>
@@ -83,15 +87,13 @@
     <ul class="sidebarList">
       {{#if currentUser}}
         {{#with currentUser}}
-          {{#if profile.creations}}
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}{{/if}}"
             href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
               <div class="sidebarListItemIcon"></div>
-              <div class="sidebarListItemText">Creations</div>
+              <div class="sidebarListItemText">{{username}}</div>
             </a>
           </li>
-          {{/if}}
           {{#if profile.favorites}}
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}{{/if}}"
@@ -110,6 +112,8 @@
             </a>
           </li>
           {{/if}}
+          {{!XXX: Remove Post Launch Party}}
+          {{#with hidden}}
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}{{/if}}"
             href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
@@ -117,6 +121,7 @@
               <div class="sidebarListItemText">Settings</div>
             </a>
           </li>
+          {{/with}}
         {{/with}}
       {{else}}
       <li class="sidebarListItem">

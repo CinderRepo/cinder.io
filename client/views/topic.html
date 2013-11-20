@@ -1,6 +1,7 @@
 <template name="topic">
   {{#isolate}}
   <div class="topic" data-trayOpen="{{$.Session.equals 'topicTrayOpen' _id}}">
+    {{#with hidden}}
     <div class="topicSidebar">
       <div class="topicSidebarInfo">
         <div class="topicSideFormTitle">${{pledgeTotal}}</div>
@@ -17,6 +18,7 @@
     <div class="topicTray">
       {{>creditCardForm}}
     </div>
+    {{/with}}
     <div id="{{_id}}" class="topicWrapper">
       <div class="topicContentSidebar">
         {{#with getUserById owner}}
@@ -42,6 +44,7 @@
           </div>
         </div>
         {{/each}}
+        {{#if currentUser}}
         <div class="topicWrapper">
           <div class="topicContentSidebar">
             {{#with getUserById owner}}
@@ -50,12 +53,11 @@
             {{/with}}
           </div>
           <div class="topicContent">
-            {{#if currentUser}}
-              {{>postForm}}
-            {{/if}}
+            {{>postForm}}
           </div>
         </div>
       </div>
+      {{/if}}
       {{#if arrayIsGreaterThan posts 5}}
       <div class="topicToolbar">
         <a data-action="toggleTopic" class="topicToolbarButton">

@@ -1,18 +1,19 @@
 Session.setDefault("overlayHidden",false)
 Session.setDefault("coverHidden",true)
 Session.setDefault("isPlaying",false)
+#Session.setDefault("playing",false)
 Session.setDefault("isVisualizing",false)
 Session.setDefault("pledgeAmount","$10")
 
 #XXX: Hacky, but it demonstrates the functionality, which is all I want right now.
 #Make this reactive in short order.
-$(window).on("keyup",(e)->
+###$(window).on("keyup",(e)->
   #User held shift and ~
   if e.keyCode == 192
     if e.shiftKey
       e.preventDefault()
       toggleOverlay()
-)
+)###
 
 @toggleOverlay = () ->
   log "================================================="
@@ -20,11 +21,11 @@ $(window).on("keyup",(e)->
   if Session.equals("overlayHidden",false)
     log "Hide! Hiding the overlay and resuming playback!"
     Session.set("overlayHidden",true)
-    Session.set("isPlaying",true)
+    #Session.set("isPlaying",true)
   else
     log "True! Showing the overlay and pausing playback!"
     Session.set("overlayHidden",false)
-    Session.set("isPlaying",false)
+    #Session.set("isPlaying",false)
 
 @toggleCover = () ->
   if Session.equals("coverHidden",false)
@@ -209,6 +210,19 @@ Template.layout.events
     toggleOverlay()
   "click [data-action='play']":(e,t)->
     Session.set("playing",@._id)
+    Session.set("isPlaying",true)
+    userId = Meteor.userId()
+    Meteor.users.update
+      _id: userId
+    ,
+      $set:
+        "profile.playing":@._id
+    ,
+      (err,result) ->
+        if err
+          log "err: ",err
+        else
+          log "result: ",result
     toggleOverlay()
   "click [data-action='toggleTopic']":(e,t)->
     self = this

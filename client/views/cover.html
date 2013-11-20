@@ -1,5 +1,5 @@
 <template name="cover">
-  <section id="cover" data-context="" data-hidden="{{$.Session.get 'coverHidden'}}" class="cover">
+  <section id="cover" data-context="{{$.Session.get 'cover'}}" data-hidden="{{$.Session.get 'coverHidden'}}" class="cover">
     {{#isolate}}
     <div class="closeCover" data-action="toggleCover"></div>
     <div class="coverContentWrapper">
@@ -18,14 +18,13 @@
           {{/if}}
 
           {{#if coverIs 'create'}}
+            {{#if currentUser.profile.cinderAppConnected}}
             <div class="coverIcon"></div>
             <div class="coverTitle">Create</div>
             {{>createForm}}
-          {{/if}}
-
-          {{#if coverIs 'download'}}
+            {{else}}
             <div class="coverIcon"></div>
-            <div class="coverTitle">Download The App</div>
+            <div class="coverTitle">Make Games With The Cinder App</div>
             <div class="coverMasthead">
               <div class="buttonsWrapper">
                 <div class="coverMastheadSubtitle">Download for</div>
@@ -54,6 +53,7 @@
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
               </div>
             </div>
+            {{/if}}
           {{/if}}
         </div>
       </div>

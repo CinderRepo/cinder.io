@@ -3,6 +3,9 @@
     {{#with content}}
       <a href="" class="sidebarInfo" style="background-image: url({{previewSrc}});">
         <div class="sidebarInfoBackdrop"></div>
+        {{#if currentTemplateIsNot 'filteredContent'}}
+        <div class="sidebarSubHeader">The Game?</div>
+        {{/if}}
         <div class="sidebarHeader">
           {{#if currentTemplateIsNot 'filteredContent'}}
           {{title}}
@@ -11,11 +14,13 @@
           {{/if}}
         </div>
         <div class="sidebarInfoText">
+          {{#with hidden}}
           {{#if currentTemplateIsNot 'filteredContent'}}
           100 Backers
           {{else}}
-          How it works
+          A Game
           {{/if}}
+          {{/with}}
         </div>
       </a>
       <ul class="sidebarList">
@@ -26,6 +31,7 @@
             <div class="sidebarListItemText">Play</div>
           </a>
         </li>
+        {{#with hidden}}
         <li class="sidebarListItem">
           <a data-action="toggleFavorite" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
@@ -38,13 +44,8 @@
             </div>
           </a>
         </li>
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'contentInfo' 'about'}}true{{/if}}"
-          href="/users/{{owner}}/{{_id}}/about" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">About</div>
-          </a>
-        </li>
+        {{/with}}
+        {{#with hidden}}
         <li class="sidebarListItem">
           <a data-current="{{#if currentParamIs 'contentInfo' 'community'}}true{{/if}}"
           href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
@@ -52,7 +53,9 @@
             <div class="sidebarListItemText">Community</div>
           </a>
         </li>
+        {{/with}}
         {{else}}
+        {{#with hidden}}
         <li class="sidebarListItem">
           <a class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
@@ -65,6 +68,7 @@
             <div class="sidebarListItemText">Download The App</div>
           </a>
         </li>
+        {{/with}}
         <li class="sidebarListItem">
           <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
             <div class="sidebarListItemIcon"></div>
@@ -85,6 +89,7 @@
     {{#with owner}}
     <a href="/users/{{_id}}/profile/creations" class="sidebarInfo" style="background-image: url({{profile.profileSrc}});">
       <div class="sidebarInfoBackdrop"></div>
+      <div class="sidebarSubHeader">The Name?</div>
       <div class="sidebarHeader">{{username}}</div>
       <div class="sidebarInfoText">{{getLength profile.followers}} Followers</div></a>
     <ul class="sidebarList">
@@ -105,15 +110,14 @@
         {{/if}}
       {{else}}
       {{/if}}
-      {{#if profile.creations}}
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}"
         href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
           <div class="sidebarListItemIcon"></div>
-          <div class="sidebarListItemText">Creations</div>
+          <div class="sidebarListItemText">View Profile</div>
         </a>
       </li>
-      {{/if}}
+      {{#with hidden}}
       {{#if profile.favorites}}
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}"
@@ -123,6 +127,7 @@
         </a>
       </li>
       {{/if}}
+      {{/with}}
       {{#if currentUser}}
         {{#if isOwner}}
           {{#if profile.creations}}

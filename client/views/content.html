@@ -13,11 +13,11 @@
       <div id="upload" class="contentMastheadImage">
         {{#if content}}
           {{#with content}}
-          <div class="contentMastheadSavedImage" style="background-image:url({{previewSrc}});"></div>
+          <div class="contentMastheadSavedImage" style="background-image:url({{previewSrc}});" data-editable="{{userCanEdit}}"></div>
           {{/with}}
         {{else}}
           {{#with owner}}
-          <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});"></div>
+          <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});" data-editable="{{userIsOwner}}"></div>
           {{/with}}
         {{/if}}
         {{#with content}}
@@ -75,6 +75,9 @@
       </div>
       {{#if content}}
         {{#with content}}
+        {{!Reimplement after launch party}}
+        <a data-action="play" class="button contentHeaderButton">Play</a>
+        {{#with hidden}}
         <div class="buttonsWrapper">
           <a data-action="play" class="button contentHeaderButton">Play</a>
           <div data-action="toggleFavorite" data-on="{{userProfileArrayHas 'favorites' _id}}" class="toggle white">
@@ -87,9 +90,11 @@
           </div>
         </div>
         {{/with}}
+        {{/with}}
       {{else}}
         {{#with owner}}
           {{#if isNotOwner}}
+          {{#with hidden}}
           <div data-action="toggleFollow" data-on="{{userProfileArrayHas 'following' _id}}}" class="toggle white">
             <div class="toggleOptions">
               <div class="toggleOptionsTrack">
@@ -98,6 +103,7 @@
               </div>
             </div>
           </div>
+          {{/with}}
           {{/if}}
         {{/with}}
       {{/if}}
@@ -120,8 +126,12 @@
     {{/if}}
     {{#if currentParamIs 'context' 'profile'}}
     <div class="section profile">
-      <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
       {{#if currentParamIs 'contentInfo' 'creations'}}
+        {{#if profile.creations}}
+        <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
+        {{else}}
+        You should create something.
+        {{/if}}
         {{#each creations}}
           {{>tile}}
         {{/each}}

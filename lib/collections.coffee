@@ -166,3 +166,5 @@
     "amount":
       type: Number
       min: 3
+
+@SessionRequest = new Meteor.Collection "sessionrequest"

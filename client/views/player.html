@@ -4,9 +4,14 @@
       <div class="logoIcon"></div>
       <div class="logoText">Cinder</div>
     </a>
+
+    {{#with content}}
+    <iframe src="{{contentSrc}}" frameborder="0"></iframe>
+    {{/with}}
+
     <div class="playerControls">
-      <div class="control play"></div>
-      <div class="control pause"></div>
+      <div data-action="toggleOverlay" class="control play"></div>
+      <div data-action="toggleOverlay" class="control pause"></div>
       {{#with hidden}}
       <div class="time">3:20</div>
       <div class="sliderWrapper progress">

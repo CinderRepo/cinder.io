@@ -12,12 +12,12 @@
         <div class="mastheadInfo">Cinder is a community platform to create, play, and enjoy games together with both gamers and developers alike.</div>
         <div class="buttonsWrapper">
           <a class="button" data-action="toggleCover" data-cover="signup">Signup</a>
-          <a class="button" data-action="toggleCover" data-cover="download">Get The App</a>
+          <a class="button" href="/all">Browse Games</a>
         </div>
       </div>
     </section>
     <section class="section learn">
-      <div class="sectionTitle">How It Works</div>
+      <div class="sectionTitle">How Cinder Works</div>
       <div class="pane">
         <div class="column">
           <div class="columnTitle">For Gamers</div>
@@ -62,8 +62,17 @@
         <a data-action="toggleCover" data-cover="signup" class="button">Sign Up</a>
       </div>
     </section>
+    <section class="section tiles">
+      <div class="sectionTitle">What People Are Making</div>
+      <div class="pane">
+        {{#each creations}}
+        {{>tile}}
+        {{/each}}
+        <a class="button" href="/all">Browse Games</a>
+      </div>
+    </section>
     <section class="section create">
-      <div class="sectionTitle">Get The App</div>
+      <div class="sectionTitle">Get The Cinder App</div>
       <div class="pane">
         <div class="column">
           <div class="columnIcon"></div>
@@ -77,16 +86,7 @@
           <div class="columnIcon"></div>
           <div class="columnContent">Automated backups of every deploy.</div>
         </div>
-        <a data-action="toggleCover" data-cover="download" class="button">Get The App</a>
-      </div>
-    </section>
-    <section class="section tiles">
-      <div class="sectionTitle">What People Are Making</div>
-      <div class="pane">
-        {{#each creations}}
-        {{>tile}}
-        {{/each}}
-        <a class="button" href="/all">See All</a>
+        <a data-action="toggleCover" data-cover="download" class="button">Get The Cinder App</a>
       </div>
     </section>
   </div>

@@ -34,6 +34,8 @@ Accounts.onCreateUser (options, user) ->
   user.profile.favorites = []
   user.profile.following = []
   user.profile.followers = []
+  user.profile.playing = undefined
+  user.profile.cinderAppSessions = []
   log "user.ownerSlug: ",user.ownerSlug
   #We still want the default hook's 'profile' behavior.
   if options.profile
@@ -51,16 +53,3 @@ Accounts.validateNewUser (doc) ->
   check(userObject,Schema.newUserSchema)
   log "Returning true?"
   true
-
-#Check that a user with that username doesn't exist already
-Accounts.validateNewUser (doc) ->
-  log "validateNewUser called, checking to see if username already exists."
-  unless Meteor.users.findOne("username": doc.username)
-    true
-
-#Check that a user with that email doesn't exist already
-Accounts.validateNewUser (doc) ->
-  log "validateNewUser called, checking to see if email already exists."
-  log "doc:",doc
-  unless Meteor.users.findOne("addresses.0.email": doc.emails[0].address)
-    true

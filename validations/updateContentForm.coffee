@@ -5,7 +5,7 @@ Schema.updateContentFormSchema = new SimpleSchema
     label: "Description"
     optional: false
     min: 3
-    max: 540
+    max: 400
 
 #Customize output messages sent to the user when an error is come across.
 Schema.updateContentFormSchema.messages
