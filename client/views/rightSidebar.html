@@ -91,7 +91,7 @@
       <div class="sidebarInfoBackdrop"></div>
       <div class="sidebarSubHeader">The Name?</div>
       <div class="sidebarHeader">{{username}}</div>
-      <div class="sidebarInfoText">{{getLength profile.followers}} Followers</div></a>
+      <div class="sidebarInfoText">{{#with hidden}}{{getLength profile.followers}} Followers{{/with}}</div></a>
     <ul class="sidebarList">
       {{#if currentUser}}
         {{#if isNotOwner}}
@@ -117,6 +117,14 @@
           <div class="sidebarListItemText">View Profile</div>
         </a>
       </li>
+      {{#if currentUser}}
+      <li class="sidebarListItem">
+        <a data-action="logout" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Logout</div>
+        </a>
+      </li>
+      {{/if}}
       {{#with hidden}}
       {{#if profile.favorites}}
       <li class="sidebarListItem">

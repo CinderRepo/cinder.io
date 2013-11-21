@@ -6,8 +6,6 @@
       <div class="centeredCoverContent">
         <div class="coverContent">
           {{#if coverIs 'login'}}
-            <div class="coverIcon"></div>
-            <div class="coverTitle">Login</div>
             {{>loginForm}}
           {{/if}}
 
@@ -18,41 +16,45 @@
           {{/if}}
 
           {{#if coverIs 'create'}}
-            {{#if currentUser.profile.cinderAppConnected}}
-            <div class="coverIcon"></div>
-            <div class="coverTitle">Create</div>
-            {{>createForm}}
+            {{#if currentUser}}
+              {{#if currentUser.profile.cinderAppConnected}}
+              <div class="coverIcon"></div>
+              <div class="coverTitle">Create</div>
+              {{>createForm}}
+              {{else}}
+              <div class="coverIcon"></div>
+              <div class="coverTitle">Make Games With The Cinder App</div>
+              <div class="coverMasthead">
+                <div class="buttonsWrapper">
+                  <div class="coverMastheadSubtitle">Download for</div>
+                  <a href="/downloads/macos/fire.zip" class="button">Mac</a>
+                  <a href="/downloads/windows/fire.zip" class="button">PC</a>
+                </div>
+              </div>
+              <div class="column">
+                <div class="columnIcon"></div>
+                <div class="columnContent">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </div>
+              </div>
+              <div class="column">
+                <div class="columnIcon"></div>
+                <div class="columnContent">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </div>
+              </div>
+              <div class="column">
+                <div class="columnIcon"></div>
+                <div class="columnContent">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </div>
+              </div>
+              {{/if}}
             {{else}}
-            <div class="coverIcon"></div>
-            <div class="coverTitle">Make Games With The Cinder App</div>
-            <div class="coverMasthead">
-              <div class="buttonsWrapper">
-                <div class="coverMastheadSubtitle">Download for</div>
-                <a href="/downloads/macos/fire.zip" class="button">Mac</a>
-                <a href="/downloads/windows/fire.zip" class="button">PC</a>
-              </div>
-            </div>
-            <div class="column">
-              <div class="columnIcon"></div>
-              <div class="columnContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </div>
-            </div>
-            <div class="column">
-              <div class="columnIcon"></div>
-              <div class="columnContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </div>
-            </div>
-            <div class="column">
-              <div class="columnIcon"></div>
-              <div class="columnContent">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </div>
-            </div>
+              {{>loginForm}}
             {{/if}}
           {{/if}}
         </div>

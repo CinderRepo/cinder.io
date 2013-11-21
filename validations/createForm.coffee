@@ -93,10 +93,9 @@ if Meteor.isClient
                   if err
                     log "err: ",err
                   else
-                    #log "result: ",result
+                    log "result: ",result
                     #log "resultId: ",resultId
                     #Toggle the cover, reset the form, and redirect the user to the newly created project upon completion
-                    HTTP.post
                     toggleCover()
                     #self.resetForm()
                     Router.go("/users/#{insertDoc.owner}/#{resultId}/about")

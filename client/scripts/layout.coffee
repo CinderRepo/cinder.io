@@ -96,8 +96,8 @@ Session.setDefault("pledgeAmount","$10")
 #Play the hero video when it's rendered
 Template.hero.rendered = () ->
   log "HERO RENDERED"
-  heroVideo = this.find(".heroVideo")
-  heroVideo.play() if heroVideo?
+  #heroVideo = this.find(".heroVideo")
+  #heroVideo.play() if heroVideo?
 
 #Make it so that all textareas expand based on text content in the application
 Template.layout.rendered = () ->

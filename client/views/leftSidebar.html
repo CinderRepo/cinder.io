@@ -30,44 +30,42 @@
       </li>
       {{/with}}
     </ul>
-    {{#if currentUser}}
-      <h2 class="sidebarHeader">Create</h2>
-      <ul class="sidebarList">
-        {{#with hidden}}
-        <li class="sidebarListItem">
-          <a class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Read The Wiki</div>
-          </a>
-        </li>
-        <li class="sidebarListItem">
-          <a data-action="toggleCover" data-cover="download" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Download The App</div>
-          </a>
-        </li>
-        {{/with}}
-        <li class="sidebarListItem">
-          <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">Create Game</div>
-          </a>
-        </li>
-      </ul>
-      {{#if currentUser.profile.favorites}}
-      <h2 class="sidebarHeader">Favorites</h2>
-      <ul class="sidebarList">
-        {{#each favorites}}
-        <li class="sidebarListItem">
-          <a data-current="{{#if currentParamIs 'context' _id}}true{{/if}}"
-          href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
-            <div class="sidebarListItemIcon"></div>
-            <div class="sidebarListItemText">{{title}}</div>
-          </a>
-        </li>
-        {{/each}}
-      </ul>
-      {{/if}}
+    <h2 class="sidebarHeader">Create</h2>
+    <ul class="sidebarList">
+      {{#with hidden}}
+      <li class="sidebarListItem">
+        <a class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Read The Wiki</div>
+        </a>
+      </li>
+      <li class="sidebarListItem">
+        <a data-action="toggleCover" data-cover="download" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Download The App</div>
+        </a>
+      </li>
+      {{/with}}
+      <li class="sidebarListItem">
+        <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">Create Game</div>
+        </a>
+      </li>
+    </ul>
+    {{#if currentUser.profile.favorites}}
+    <h2 class="sidebarHeader">Favorites</h2>
+    <ul class="sidebarList">
+      {{#each favorites}}
+      <li class="sidebarListItem">
+        <a data-current="{{#if currentParamIs 'context' _id}}true{{/if}}"
+        href="/users/{{owner}}/{{_id}}/community" class="sidebarListItemLink">
+          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemText">{{title}}</div>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
       {{#if currentUser.profile.following}}
       <h2 class="sidebarHeader">Following</h2>
       <ul class="sidebarList">
@@ -94,6 +92,7 @@
               <div class="sidebarListItemText">{{username}}</div>
             </a>
           </li>
+          {{#with hidden}}
           {{#if profile.favorites}}
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'favorites'}}true{{/if}}{{/if}}"
@@ -113,7 +112,6 @@
           </li>
           {{/if}}
           {{!XXX: Remove Post Launch Party}}
-          {{#with hidden}}
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'settings'}}true{{/if}}{{/if}}"
             href="/users/{{_id}}/profile/settings" class="sidebarListItemLink">
@@ -122,6 +120,12 @@
             </a>
           </li>
           {{/with}}
+          <li class="sidebarListItem">
+            <a data-action="logout" class="sidebarListItemLink">
+              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemText">Logout</div>
+            </a>
+          </li>
         {{/with}}
       {{else}}
       <li class="sidebarListItem">

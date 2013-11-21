@@ -1,5 +1,8 @@
 <template name="loginForm">
   {{#isolate}}
+  <div class="coverIcon"></div>
+  <div class="coverTitle">Make and Play Games on Cinder</div>
+  <div class="coverSubTitle">Sign in to continue to Cinder</div>
   {{#autoForm schema=loginFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
   {{afFieldInput "usernameOrEmail" class="formInput" placeholder="Username or Email" autocomplete="off"}}
   {{afFieldInput "password" class="formInput" type="password" placeholder="Password" autocomplete="off"}}

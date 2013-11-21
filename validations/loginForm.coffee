@@ -50,6 +50,7 @@ if Meteor.isClient
               log "err: ",err
             else
               #log "Successfully logged in!"
-              toggleCover()
+              unless Session.equals("cover","create")
+                toggleCover()
         )
         false
