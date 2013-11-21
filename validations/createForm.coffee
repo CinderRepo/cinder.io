@@ -83,6 +83,12 @@ if Meteor.isClient
               #Add the document ID to the current user
               #log "result: ",result
               resultId = result
+              log "resultId:",resultId
+              createdContent = Content.findOne(resultId)
+              log "createdContent: ",createdContent
+              #Create a folder on the user's computer
+              Meteor.call("createFolder",currentUser.username,createdContent.title,createdContent._id)
+              #Add the userId to the User's creations collection
               Meteor.users.update(
                 _id: currentUser._id
               ,
@@ -98,7 +104,7 @@ if Meteor.isClient
                     #Toggle the cover, reset the form, and redirect the user to the newly created project upon completion
                     toggleCover()
                     #self.resetForm()
-                    Router.go("/users/#{insertDoc.owner}/#{resultId}/about")
+                    Router.go("/users/#{insertDoc.owner}/#{resultId}/community")
               )
             #log "Content.namedContext('default').invalidKeys()",Content.namedContext("default").invalidKeys()
         )
