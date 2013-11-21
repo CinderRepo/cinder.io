@@ -1,7 +1,7 @@
 <template name="cover">
   <section id="cover" data-context="{{$.Session.get 'cover'}}" data-hidden="{{$.Session.get 'coverHidden'}}" class="cover">
     {{#isolate}}
-    <div class="closeCover" data-action="toggleCover"></div>
+    <div class="closeCover" data-action="toggleCover">{{icon 'close'}}</div>
     <div class="coverContentWrapper">
       <div class="centeredCoverContent">
         <div class="coverContent">
@@ -22,7 +22,7 @@
                 {{>createForm}}
               </div>
               {{else}}
-              <div class="coverIcon"></div>
+              <div class="coverIcon">{{icon 'download'}}</div>
               <div class="coverTitle">Make Games With The Cinder App</div>
               <div class="coverMasthead" style="background-image: url('/images/banner@2x.jpg');">
                 <div class="buttonsWrapper">
@@ -32,24 +32,21 @@
                 </div>
               </div>
               <div class="column">
-                <div class="columnIcon"></div>
+                <div class="columnIcon">{{icon 'sync'}}</div>
                 <div class="columnContent">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                  Sync your games from your desktop right to our website with the click of a button.
                 </div>
               </div>
               <div class="column">
-                <div class="columnIcon"></div>
+                <div class="columnIcon">{{icon 'collaboration'}}</div>
                 <div class="columnContent">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                  Add collaborators to your game and work on it together.
                 </div>
               </div>
               <div class="column">
-                <div class="columnIcon"></div>
+                <div class="columnIcon">{{icon 'deploy'}}</div>
                 <div class="columnContent">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                  Deploy different versions of your game to different users.
                 </div>
               </div>
               {{/if}}

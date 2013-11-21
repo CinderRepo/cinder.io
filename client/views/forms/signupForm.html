@@ -1,7 +1,7 @@
 <template name="signupForm">
   {{#isolate}}
   <div class="coverFormInfo">
-    <div class="coverIcon"></div>
+    <div class="coverIcon">{{icon 'signup'}}</div>
     <div class="coverTitle">Make and Play Games</div>
     <div class="coverSubtitle">Signup to continue to Cinder</div>
     {{#autoForm schema=signupFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}

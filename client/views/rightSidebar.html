@@ -18,7 +18,7 @@
       </a>
       {{/with}}
       {{else}}
-      <a data-action="toggleCover" data-cover="create" class="sidebarInfo">
+      <a data-action="toggleCover" data-cover="create" class="sidebarInfo" style="background-image: url('/images/create.png');">
         <div class="sidebarInfoBackdrop"></div>
         {{#with hidden}}<div class="sidebarSubHeader">Create</div>{{/with}}
         <div class="sidebarHeader">Create</div>
@@ -87,6 +87,18 @@
             <div class="sidebarListItemText">Create Game</div>
           </a>
         </li>
+        <li class="sidebarListItem">
+          <a data-action="toggleCover" data-cover="login" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon">{{icon 'login'}}</div>
+            <div class="sidebarListItemText">Login</div>
+          </a>
+        </li>
+        <li class="sidebarListItem">
+          <a data-action="toggleCover" data-cover="signup" class="sidebarListItemLink">
+            <div class="sidebarListItemIcon">{{icon 'signup'}}</div>
+            <div class="sidebarListItemText">Signup</div>
+          </a>
+        </li>
         {{/if}}
         {{#with hidden}}
         {{#each filteredContent}}
@@ -133,7 +145,7 @@
       {{#if currentUser}}
       <li class="sidebarListItem">
         <a data-action="logout" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemIcon">{{icon 'logout'}}</div>
           <div class="sidebarListItemText">Logout</div>
         </a>
       </li>
