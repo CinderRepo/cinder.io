@@ -1,11 +1,3 @@
-Template.player.helpers
-  playing: ->
-    #We set the playing data context for the player
-    #separately from the browsing data as we don't
-    #want to interrupt the user's content from playing
-    #just because they've started browsing something else.
-    Content.findOne(Session.get("playing"))
-
 #Template.player.events
   #"click .control":(e,t)->
     #log ".control clicked"

@@ -176,7 +176,7 @@ Template.layout.rendered = () ->
 
   if data.playing
     ownerId = data.playing.owner
-  else
+  else if data.owner
     ownerId = data.owner._id
 
   #XXX: HACK, Fix after launch party

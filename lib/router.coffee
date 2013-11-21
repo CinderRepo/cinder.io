@@ -50,6 +50,7 @@ Router.map ->
         #log "Router Content: ",content
         #contentInfo = window[contentInfoParam].find(parent: content._id)
         #log "contentInfo: ",contentInfo
+        log "playing: ",playing
 
         contentInfo = Community.find(parent: playing._id) if playing?
         log "contentInfo: ",contentInfo

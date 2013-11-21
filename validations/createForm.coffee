@@ -71,6 +71,7 @@ if Meteor.isClient
           "#{currentUser.username} is just getting started with their game idea, and hasn't made a description yet."
         insertDoc.previewSrc = "/users/defaults/preview.png"
         insertDoc.coverSrc = "/users/defaults/cover.png"
+        insertDoc.gameSrc = undefined
         #Hard coded type, we could add more media types in the future
         insertDoc.type = "game"
         #log "Updated insertDoc: ",insertDoc
