@@ -48,7 +48,7 @@ Handlebars.registerHelper "userCanEdit", (context) ->
   else
     contentId = currentRoute.params["context"]
     content = Content.findOne(contentId)
-    #log "game content!",contentId
+    log "game content!",contentId
 
     collaborators = content.collaborators
     #log "collaborators: ",collaborators

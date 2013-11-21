@@ -69,8 +69,8 @@ if Meteor.isClient
         contentInfoParam = Router.current().params['contentInfo']
         #log "contentInfoParam: ",contentInfoParam
         currentUser = Meteor.user() if Meteor.user()?
-        insertDoc.parent = context._id
-        insertDoc.parentSlug = context.titleSlug
+        insertDoc.parent = context.playing._id
+        insertDoc.parentSlug = context.playing.titleSlug
         insertDoc.owner = currentUser._id
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.posts = []
