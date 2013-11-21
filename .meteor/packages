@@ -3,6 +3,7 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+<<<<<<< HEAD
 #First Party Core Meteor Packages - Standard Packages.
 meteor #Core Meteor Environment.
 webapp #Serve up a Meteor app over HTTP.
@@ -66,3 +67,28 @@ underscore-string-latest #underscore.string repackaged for Meteor
 #daigo-rewards #Gamification rewards system for use within a Meteor app.
 #sticks #A responsive mobile first flexbox based grid layout system for Meteor.
 GAnalytics #Log page views and events to Google Analytics.
+=======
+preserve-inputs
+coffeescript
+stylus
+accounts-base
+accounts-password
+email
+http
+iron-router
+standard-app-packages
+#daigo-core
+#daigo-points
+#daigo-levels
+#daigo-titles
+#daigo-badges
+#daigo-achievements
+#daigo-quests
+#daigo-rewards
+collection2
+autoform
+simple-schema
+smart-collections
+flare
+tinder
+>>>>>>> master

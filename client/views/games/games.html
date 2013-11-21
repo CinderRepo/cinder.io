@@ -1,0 +1,10 @@
+<template name="games">
+  <section id="games">
+  {{#each games}}
+    <section class="game">
+      <a href="{{pathFor 'viewGame'}}" class="gameTitle">{{title}}</a>
+      <p class="gameContent">{{description}}</p>
+    </section>
+  {{/each}}
+  </section>
+</template>

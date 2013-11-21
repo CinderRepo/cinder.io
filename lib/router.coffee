@@ -1,4 +1,5 @@
 Router.map ->
+<<<<<<< HEAD
   #HOME PAGE - We just show all content when the user first
   #visits, as they haven't specified any search terms yet.
   @route "home",
@@ -89,3 +90,61 @@ Router.map ->
         #allow for good switching of globally scoped data contexts when within other nested data contexts
         #we have to settle for using a template helper for now until there's a stable way to access parent data contexts.
         #contentDetails: Posts.find(parentSlug: @params.contentDetails) if @params.contentDetails?
+=======
+  @route "home",
+    path: "/"
+
+  @route "games",
+    path: "/games"
+    data: ->
+      #log 'games!'
+      games: Games.find()
+
+  @route "viewGame",
+    path: "/:gameOwnerSlug/:gameTitleSlug"
+    data: ->
+      currentGame = Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+      Session.set('currentGame',currentGame._id)
+      game: currentGame
+
+  @route "viewGameCommunity",
+    path: "/:gameOwnerSlug/:gameTitleSlug/community"
+    data: ->
+      #log 'viewGameCommunity!'
+      #log @params
+      game: Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+
+  @route "viewGameCommunityThread",
+    path: "/:gameOwnerSlug/:gameTitleSlug/community/:threadTitleSlug"
+    data: ->
+      #log 'viewGameCommunityThread!'
+      #log @params
+      game: Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+
+  @route "playGame",
+    path: "/:gameOwnerSlug/:gameTitleSlug/play"
+    data: ->
+      #log 'playGame!'
+      #log @params
+      game: Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+
+  @route "fundGame",
+    path: "/:gameOwnerSlug/:gameTitleSlug/fund"
+    data: ->
+      #log 'fundGame!'
+      #log @params
+      game: Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+
+  @route "remixGame",
+    path: "/:gameOwnerSlug/:gameTitleSlug/remix"
+    data: ->
+      #log 'remixGame!'
+      #log @params
+      game: Games.findOne
+        gameTitleSlug: @params.gameTitleSlug
+>>>>>>> master

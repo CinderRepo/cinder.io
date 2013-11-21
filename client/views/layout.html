@@ -1,4 +1,5 @@
 <template name="layout">
+<<<<<<< HEAD
   {{>player}}
   {{#if currentTemplateIs 'home'}}
   {{>hero}}
@@ -14,4 +15,10 @@
   </section>
   {{>cover}}
   {{yield 'landing'}}
+=======
+  {{yield "header"}}
+  {{yield "leftSidebar"}}
+  {{yield "rightSidebar"}}
+  {{yield}}
+>>>>>>> master
 </template>

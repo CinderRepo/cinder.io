@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @Content = new Meteor.Collection "content"
 ###2 "content",
   smart: true
@@ -168,3 +169,9 @@
       min: 3
 
 @SessionRequest = new Meteor.Collection "sessionrequest"
+=======
+@Games = new Meteor.SmartCollection "games"
+@Movies = new Meteor.SmartCollection "videos"
+@Shows = new Meteor.SmartCollection "shows"
+@Posts = new Meteor.Collection "posts"
+>>>>>>> master

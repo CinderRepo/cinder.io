@@ -1,4 +1,5 @@
 <template name="creditCardForm">
+<<<<<<< HEAD
   {{#isolate}}
   {{#autoForm schema=creditCardFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicTrayForm"}}
   <div class="closeTopicTray"></div>
@@ -23,4 +24,23 @@
   <div class="topicTrayFormSubtitle">Your credit card is never stored on our servers</div>
   {{/autoForm}}
   {{/isolate}}
+=======
+  <section class="form creditCard">
+    {{!We use this to convey to the user that the transaction is happening}}
+    {{!Over a secure connection.}}
+    <div class="secureIcon">l</div>
+    {{!Based on what the user has entered, we'll update this icon to reflect}}
+    {{!what type of card the user is entering}}
+    <div class="cardType">c</div>
+    <form class="form" name="creditCard">
+      <input type="text" name="creditCardNumber" placeholder="1234 1234 1234 1234">
+      <div class="error" data-field="creditCardNumber"></div>
+      <input type="text" name="creditCardExpMonth" placeholder="MM">
+      <div class="error" data-field="creditCardExpMonth"></div>
+      <input type="text" name="creditCardExpYear" placeholder="YY">
+      <div class="error" data-field="creditCardExpYear"></div>
+      <button class="formSubmit" type="submit">Submit</button>
+    </form>
+  </section>
+>>>>>>> master
 </template>

@@ -4,6 +4,7 @@
     "streams": {},
     "iron-router": {},
     "handlebar-helpers": {},
+<<<<<<< HEAD
     "underscore-string-latest": {},
     "simple-schema": {},
     "collection2": {},
@@ -13,5 +14,21 @@
     "meteor-jquery-payment": {},
     "Dropzonejs": {},
     "GAnalytics": {}
+=======
+    "simple-schema": {},
+    "collection2": {},
+    "autoform": {},
+    "bootstrap-3": {},
+    "accounts-anonymous": {},
+    "flare": {
+      "git": "ssh://git@github.com/CinderRepo/flare.git"
+    },
+    "inferno": {
+      "git": "ssh://git@github.com/CinderRepo/inferno.git"
+    },
+    "tinder": {
+      "git": "ssh://git@github.com/CinderRepo/tinder.git"
+    }
+>>>>>>> master
   }
 }

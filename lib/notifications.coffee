@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ###if Meteor.isClient
+=======
+if Meteor.isClient
+>>>>>>> master
   @Time = new Meteor.Collection("time")
   Meteor.subscribe "time"
   #Clear all notifications on page refresh
@@ -73,4 +77,8 @@ if Meteor.isServer
       if Time.findOne(userId:userId)
         log "Clearing the following messages!"
         log Time.find(userId:userId).fetch()
+<<<<<<< HEAD
         Time.remove(field:message.field)###
+=======
+        Time.remove(field:message.field)
+>>>>>>> master

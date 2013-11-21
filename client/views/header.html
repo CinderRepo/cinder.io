@@ -1,0 +1,21 @@
+<template name="header">
+  <section id="header">
+    <nav id="headerList">
+      <li class="headerItem"><a href="{{pathFor 'games'}}">Games</a></li>
+      {{>loginForm}}
+      {{>signupForm}}
+      {{>creditCardForm}}
+      {{>paymentForm}}
+      {{>feedbackForm}}
+      {{#if $.Session.equals 'hello' true}}
+      <a href="{{pathFor 'fundGame'}}">Fund</a>
+      <a href="{{pathFor 'viewGameCommunity'}}">Community</a>
+      <a href="{{pathFor 'viewGame'}}">{{title}}</a>
+      <a href="{{pathFor 'playGame'}}">Play</a>
+      <a href="{{pathFor 'remixGame'}}">Remix</a>
+      {{/if}}
+      <li class="headerItem"><a href="">Login</a></li>
+      <li class="headerItem"><a href="">Signup</a></li>
+    </nav>
+  </section>
+</template>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Stripe = StripeAPI "sk_test_ZbELjdnV9pbOGIQA1wcqYTuA"
 
 #Payment method
@@ -102,3 +103,8 @@ Meteor.methods
           currency: "cad"
           customer: customerId
           description: "Pledge from userId #{userId} for ideaId #{productId}"
+=======
+#Payment System - Server Side
+Payments.register Stripe,
+  secretKey: 'sk_07VLSkglJ9Kb3iJj3gLllaTDj7vlO'
+>>>>>>> master
