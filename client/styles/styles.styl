@@ -1114,17 +1114,14 @@
     height 100%
     overflow(hidden,auto)
     text-align center
-    &:before
-      content ""
-      display inline-block
-      height 100%
-      vertical-align middle
     .centeredCoverContent
-      display inline-block
-      vertical-align middle
+      display table
       min-width 320px
       max-width 960px
       padding 20px 0 20px 0
+      .coverContent
+        vertical-align middle
+        display table-cell
       .coverIcon
         background midnight()
         size(80,80)
