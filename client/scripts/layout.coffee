@@ -25,7 +25,6 @@ Session.setDefault("pledgeAmount","$10")
   else
     log "True! Showing the overlay and pausing playback!"
     Session.set("overlayHidden",false)
-    #Session.set("isPlaying",false)
 
 @toggleCover = () ->
   if Session.equals("coverHidden",false)
@@ -113,7 +112,7 @@ Template.layout.rendered = () ->
   $("[data-format='money']").autoNumeric("init",{aSign:"$",vMax:"99999",mDec:"0"})
 
   if data.content
-    ownerId = data.content.owner
+    ownerId = data.playing.owner
   else
     ownerId = data.owner._id
 
@@ -131,6 +130,11 @@ Template.layout.rendered = () ->
   #$(".topicTrayForm").stick_in_parent offset_top: 10
 
 Template.layout.events
+  "click .tile":(e,t)->
+    log "Tile clicked!"
+    if Session.equals "overlayHidden",true
+      Session.set "overlayHidden",false
+
   "click .closeTopicTray":(e,t)->
     log "closeTopicTray"
     Session.set "topicTrayOpen",undefined

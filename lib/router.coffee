@@ -44,7 +44,9 @@ Router.map ->
         contentInfoParam = _.capitalize @params.contentInfo
         #log "contentInfoParam: ",contentInfoParam
         #Create the correct collection selector based on the url param
-        content = Content.findOne(_id: @params.context) || Content.findOne(_id: @params.owner)
+        content = Content.find()
+        recommended = Content.find({},{limit : 3})
+        playing = Content.findOne(_id: @params.context) || Content.findOne(_id: @params.owner)
         #log "content: ",content
         #contentInfo = window[contentInfoParam].find(parent: content._id)
         #log "contentInfo: ",contentInfo
@@ -61,25 +63,27 @@ Router.map ->
         owner = Meteor.users.findOne(_id: ownerId)
         #log "owner: ",owner
 
-        favorites = owner.profile.favorites
+        #favorites = owner.profile.favorites
         #log "favorites: ",favorites
 
-        favoritesArray = []
+        #favoritesArray = []
 
-        _.each favorites, (favoriteId) ->
-          #log "favoriteId: ",favoriteId
-          content = Content.findOne favoriteId
-          #log "content: ",content
-          if content
-            favoritesArray.push content
-          favoritesArray
+        #_.each favorites, (favoriteId) ->
+        #  #log "favoriteId: ",favoriteId
+        #  content = Content.findOne favoriteId
+        #  #log "content: ",content
+        #  if content
+        #    favoritesArray.push content
+        #  favoritesArray
 
-        log "favoritesArray: ",favoritesArray
+        #log "favoritesArray: ",favoritesArray
 
         owner: Meteor.users.findOne(_id: ownerId)
         creations: Content.find(owner: ownerId)
-        favorites: favoritesArray
+        #favorites: favoritesArray
         content: content
+        recommended: recommended
+        playing: playing
         contentInfo: contentInfo
         #XXX: Eventually we'll want this to be included in the router, but since handlebars doesn't
         #allow for good switching of globally scoped data contexts when within other nested data contexts

@@ -6,9 +6,9 @@ Template.player.helpers
     #just because they've started browsing something else.
     Content.findOne(Session.get("playing"))
 
-Template.player.events
-  "click .control":(e,t)->
-    log ".control clicked"
+#Template.player.events
+  #"click .control":(e,t)->
+    #log ".control clicked"
     #Session.set("playing",@.content._id)
     #if Session.equals("isPlaying",false)
     #  #log "Playing!"
@@ -16,9 +16,9 @@ Template.player.events
     #else
     #  #log "Pausing!"
     #  Session.set("isPlaying",false)
-    toggleOverlay()
+    #toggleOverlay()
 
-    type = @.content.type
+    #type = @.content.type
     #log "type:",type
 
     #toggleMedia(type)

@@ -10,17 +10,17 @@
           {{/if}}
 
           {{#if coverIs 'signup'}}
-            <div class="coverIcon"></div>
-            <div class="coverTitle">Signup</div>
             {{>signupForm}}
           {{/if}}
 
           {{#if coverIs 'create'}}
             {{#if currentUser}}
               {{#if cinderAppConnected}}
-              <div class="coverIcon"></div>
-              <div class="coverTitle">Create</div>
-              {{>createForm}}
+              <div class="coverFormInfo">
+                <div class="coverIcon"></div>
+                <div class="coverTitle">Create</div>
+                {{>createForm}}
+              </div>
               {{else}}
               <div class="coverIcon"></div>
               <div class="coverTitle">Make Games With The Cinder App</div>

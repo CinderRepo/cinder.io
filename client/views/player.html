@@ -1,13 +1,44 @@
 <template name="player">
   <section class="player">
+    {{#if $.Session.get 'isPlaying'}}
+    {{#with playing}}
+      {{#if gameSrc}}
+      <iframe id="player" class="player" src="{{gameSrc}}" frameborder="0"></iframe>
+      {{else}}
+      <div class="playerMasthead">
+        <div class="playerMastheadInfo">
+          <div class="playerMastheadInfoContent">
+            <div class="playerMastheadIcon"></div>
+            <div class="playerMastheadTitle">Awww.</div>
+            <div class="playerMastheadSubtitle">
+              This player hasn't uploaded a game yet. Perhaps you could give them some love by leaving a comment?
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    {{/with}}
+    {{else}}
+    <div class="playerMasthead">
+      <div class="playerMastheadInfo">
+        <div class="playerMastheadInfoContent">
+          <div class="playerMastheadIcon"></div>
+          <div class="playerMastheadTitle">Whoa There!</div>
+          <div class="playerMastheadSubtitle">
+            You don't have any games playing. Perhaps you'd like to check one of these out?
+          </div>
+          {{#each recommended}}
+            {{>tile}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
     <a data-action="toggleOverlay" class="logo white">
       <div class="logoIcon"></div>
       <div class="logoText">Cinder</div>
     </a>
-
-    {{#with content}}
-    <iframe class="player" src="{{gameSrc}}" frameborder="0"></iframe>
-    {{/with}}
 
     <div class="playerControls">
       <div data-action="toggleOverlay" class="control play"></div>

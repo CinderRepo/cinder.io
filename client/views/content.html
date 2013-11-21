@@ -1,8 +1,8 @@
 <template name="content">
   {{#isolate}}
     <div class="contentMasthead">
-      {{#if content}}
-        {{#with content}}
+      {{#if playing}}
+        {{#with playing}}
         <div class="contentMastheadCover" style="background-image:url({{coverSrc}});"></div>
         {{/with}}
       {{else}}
@@ -11,8 +11,8 @@
         {{/with}}
       {{/if}}
       <div id="upload" class="contentMastheadImage">
-        {{#if content}}
-          {{#with content}}
+        {{#if playing}}
+          {{#with playing}}
           <div class="contentMastheadSavedImage" style="background-image:url({{previewSrc}});" data-editable="{{userCanEdit}}"></div>
           {{/with}}
         {{else}}
@@ -20,7 +20,7 @@
           <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});" data-editable="{{userIsOwner}}"></div>
           {{/with}}
         {{/if}}
-        {{#with content}}
+        {{#with playing}}
         {{#if userCanEdit}}
         <div class="contentMastheadUploadImage">
           <div class="contentMastheadUploadImageInfo">
@@ -43,8 +43,8 @@
       </div>
       <div class="contentHeader">
         <div class="contentHeaderText">
-          {{#if content}}
-            {{#with content}}
+          {{#if playing}}
+            {{#with playing}}
             {{title}}
             {{/with}}
           {{else}}
@@ -55,8 +55,8 @@
         </div>
       </div>
       <div class="contentHeaderContent">
-        {{#if content}}
-          {{#with content}}
+        {{#if playing}}
+          {{#with playing}}
           {{#if userCanEdit}}
             {{>updateContentForm}}
           {{else}}
@@ -73,8 +73,8 @@
           {{/with}}
         {{/if}}
       </div>
-      {{#if content}}
-        {{#with content}}
+      {{#if playing}}
+        {{#with playing}}
         {{!Reimplement after launch party}}
         <a data-action="play" class="button contentHeaderButton">Play</a>
         {{#with hidden}}
@@ -130,7 +130,7 @@
         {{#if profile.creations}}
         <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
         {{else}}
-        You should create something.
+
         {{/if}}
         {{#each creations}}
           {{>tile}}
