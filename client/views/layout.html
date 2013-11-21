@@ -1,0 +1,17 @@
+<template name="layout">
+  {{>player}}
+  {{#if currentTemplateIs 'home'}}
+  {{>hero}}
+  {{/if}}
+  <section id="overlay" class="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}" data-playing="{{$.Session.get 'isPlaying'}}">
+    {{>leftSidebar}}
+    {{>rightSidebar}}
+    <section id="contentWrapper" class="contentWrapper">
+      <section id="content" class="content" data-context="{{currentParam 'contentInfo'}}">
+      {{yield}}
+      </section>
+    </section>
+  </section>
+  {{>cover}}
+  {{yield 'landing'}}
+</template>

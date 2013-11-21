@@ -1,0 +1,9 @@
+<template name="filteredContent">
+  <div class="contentHeader">
+    <div class="contentHeaderIcon">{{icon 'game'}}</div>
+    <div class="contentHeaderText">{{currentParam 'type'}}</div>
+  </div>
+  {{#each filteredContent}}
+    {{>tile}}
+  {{/each}}
+</template>
