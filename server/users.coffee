@@ -54,3 +54,11 @@ Accounts.validateNewUser (doc) ->
   check(userObject,Schema.newUserSchema)
   log "Returning true?"
   true
+
+Accounts.validateNewUser (doc) ->
+  log "Checking to see that gitolite isn't chosen as a username"
+  log "doc: ",doc
+  if doc.username.toLowerCase() is "gitolite"
+    false
+  else
+    true
