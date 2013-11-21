@@ -40,7 +40,7 @@ if Meteor.isClient
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
       context = this
-      log "context: ",context
+      #log "context: ",context
       #Session.set "currentPost",context._id
       #log "context 1: ",context
       (insertDoc,updateDoc,currentDoc)->
@@ -60,7 +60,7 @@ if Meteor.isClient
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
         insertDoc.owner = currentUser._id
-        log "insertDoc: ",insertDoc
+        #log "insertDoc: ",insertDoc
         #log "Updated insertDoc: ",insertDoc
         Posts.insert(
           insertDoc

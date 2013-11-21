@@ -56,8 +56,7 @@ if Meteor.isClient
       #We call and validate createUser clientside (with serverside checks as well) so that
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
-      self = this
-      context = self.content
+      context = this
       log "POSTING TOPIC FORM WHAT"
       log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
@@ -76,7 +75,7 @@ if Meteor.isClient
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.posts = []
         insertDoc.pledgeTotal = 0
-        #log "Updated insertDoc: ",insertDoc
+        log "Updated insertDoc: ",insertDoc
         #log "contentInfoParam: ",_.capitalize contentInfoParam
         Community.insert(
           insertDoc
@@ -84,16 +83,17 @@ if Meteor.isClient
           (err,result)->
             if err
               log "err: ",err
-              #log "result: ",result
               #log "FIRST"
             else
+              log "Community inserted!"
+              log "result: ",result
               #log "thing"
               #Add the topic ID to the current content
               modifier = $push: {}
               modifier.$push[contentInfoParam] = result
 
               Content.update(
-                _id: parent._id
+                _id: context._id
               ,
                 modifier
               ,

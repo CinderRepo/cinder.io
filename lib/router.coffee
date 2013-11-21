@@ -47,11 +47,11 @@ Router.map ->
         content = Content.find()
         recommended = Content.find({},{limit : 3})
         playing = Content.findOne(_id: @params.context) || Content.findOne(_id: @params.owner)
-        #log "content: ",content
+        log "Router Content: ",content
         #contentInfo = window[contentInfoParam].find(parent: content._id)
         #log "contentInfo: ",contentInfo
 
-        if @params.contentInfo is "about" or @params.contentInfo is "community"
+        if @params.contentInfo is "community"
           contentInfo = window[contentInfoParam].find(parent: content._id)
           #log "contentInfo: ",contentInfo
           #log "contentInfo.count(): ",contentInfo.count()

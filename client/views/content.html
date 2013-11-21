@@ -90,9 +90,11 @@
       {{/each}}
     {{/if}}
     {{#if currentParamIs 'contentInfo' 'community'}}
+      {{#with playing}}
       {{#if currentUser}}
         {{>topicForm}}
       {{/if}}
+      {{/with}}
       {{#each contentInfo}}
         {{>topic}}
       {{/each}}
