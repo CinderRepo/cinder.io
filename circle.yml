@@ -15,10 +15,17 @@ dependencies:
 #Run Tests
 test:
   override:
+<<<<<<< HEAD
+    - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -D -t 5000
+=======
     - cd /home/ubuntu/cinder.io; METEOR_PATH=/home/ubuntu/meteor laika -t 5000
+>>>>>>> master
 
 #Notify of builds
 notify:
   webhooks:
     - url: http://199.116.235.44:60044/github
+<<<<<<< HEAD
+=======
 
+>>>>>>> master

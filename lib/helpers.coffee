@@ -3,9 +3,13 @@
   if options
     console.log log,options
   else
+<<<<<<< HEAD
+    log = console.log log
+=======
     log = console.log log
 
 #Convert a string into a this-is-a-slug type of url format.
 @toSlug = (string) ->
   if string
     string.replace(/[^\w\s]/gi,"").split(" ").join("-").toLowerCase()
+>>>>>>> master

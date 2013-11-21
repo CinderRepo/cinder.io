@@ -4,6 +4,17 @@
     "streams": {},
     "iron-router": {},
     "handlebar-helpers": {},
+<<<<<<< HEAD
+    "underscore-string-latest": {},
+    "simple-schema": {},
+    "collection2": {},
+    "autoform": {},
+    "collectionFS": {},
+    "stripe": {},
+    "meteor-jquery-payment": {},
+    "Dropzonejs": {},
+    "GAnalytics": {}
+=======
     "simple-schema": {},
     "collection2": {},
     "autoform": {},
@@ -18,5 +29,6 @@
     "tinder": {
       "git": "ssh://git@github.com/CinderRepo/tinder.git"
     }
+>>>>>>> master
   }
 }

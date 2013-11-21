@@ -1,0 +1,173 @@
+<template name="content">
+  {{#isolate}}
+    <div class="contentMasthead">
+      {{#if playing}}
+        {{#with playing}}
+        <div class="contentMastheadCover" style="background-image:url({{coverSrc}});"></div>
+        {{/with}}
+      {{else}}
+        {{#with owner}}
+        <div class="contentMastheadCover" style="background-image:url({{profile.profileCoverSrc}});"></div>
+        {{/with}}
+      {{/if}}
+      <div id="upload" class="contentMastheadImage">
+        {{#if playing}}
+          {{#with playing}}
+          <div class="contentMastheadSavedImage" style="background-image:url({{previewSrc}});" data-editable="{{userCanEdit}}"></div>
+          {{/with}}
+        {{else}}
+          {{#with owner}}
+          <div class="contentMastheadSavedImage" style="background-image:url({{profile.profileSrc}});" data-editable="{{userIsOwner}}"></div>
+          {{/with}}
+        {{/if}}
+        {{#with playing}}
+        {{#if userCanEdit}}
+        <div class="contentMastheadUploadImage">
+          <div class="contentMastheadUploadImageInfo">
+            <div class="contentMastheadUploadImageIcon">{{icon 'upload'}}</div>
+            <div class="contentMastheadUploadImageTitle">Change Picture</div>
+          </div>
+        </div>
+        {{/if}}
+        {{/with}}
+        {{#with owner}}
+        {{#if userIsOwner}}
+        <div class="contentMastheadUploadImage">
+          <div class="contentMastheadUploadImageInfo">
+            <div class="contentMastheadUploadImageIcon">{{icon 'upload'}}</div>
+            <div class="contentMastheadUploadImageTitle">Change Picture</div>
+          </div>
+        </div>
+        {{/if}}
+        {{/with}}
+      </div>
+      <div class="contentHeader">
+        <div class="contentHeaderText">
+          {{#if playing}}
+            {{#with playing}}
+            {{title}}
+            {{/with}}
+          {{else}}
+            {{#with owner}}
+            {{username}}
+            {{/with}}
+          {{/if}}
+        </div>
+      </div>
+      <div class="contentHeaderContent">
+        {{#if playing}}
+          {{#with playing}}
+          {{#if userCanEdit}}
+            {{>updateContentForm}}
+          {{else}}
+            {{description}}
+          {{/if}}
+          {{/with}}
+        {{else}}
+          {{#with owner}}
+          {{#if userIsOwner}}
+            {{>updateUserForm}}
+          {{else}}
+            {{profile.description}}
+          {{/if}}
+          {{/with}}
+        {{/if}}
+      </div>
+      <div class="buttonsWrapper">
+        <a id="changeCover" class="button contentHeaderButton" data-userCanEdit="{{userCanEdit}}">Change Cover</a>
+        {{#if playing}}
+        <a data-action="play" class="button contentHeaderButton">Play</a>
+        {{/if}}
+    </div>
+  </div>
+</div>
+    {{#if currentParamIs 'contentInfo' 'about'}}
+      {{#if userCanEdit}}
+        {{>contentForm}}
+      {{/if}}
+      {{#each contentInfo}}
+        {{>post}}
+      {{/each}}
+    {{/if}}
+    {{#if currentParamIs 'contentInfo' 'community'}}
+      {{#if currentUser}}
+        {{>topicForm}}
+      {{/if}}
+      {{#each contentInfo}}
+        {{>topic}}
+      {{/each}}
+    {{/if}}
+    {{#if currentParamIs 'context' 'profile'}}
+    <div class="section profile">
+      {{#if currentParamIs 'contentInfo' 'creations'}}
+        {{!XXX: Look into this edge case of having no creations after launch party}}
+        <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
+        {{#each creations}}
+          {{>tile}}
+        {{/each}}
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'favorites'}}
+        {{#each favorites}}
+          {{>tile}}
+        {{/each}}
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'dashboard'}}
+        {{#each creations}}
+        <div class="column">
+          <div class="columnTitle">{{title}}</div>
+          <div class="columnIcon">$700,000</div>
+          <div class="columnGross">$1,000,000</div>
+          <div class="columnFee">- $300,000</div>
+          <div class="columnNet">$700,000</div>
+          <div class="columnHistory">$2,000,000 earned overall from 100 people</div>
+          <div class="columnFollowers">Followed by 300 people</div>
+        </div>
+        {{/each}}
+        <a class="button">Request Monetization</a>
+      </div>
+      {{/if}}
+      {{#if currentParamIs 'contentInfo' 'settings'}}
+        <div class="column">
+          <div class="columnTitle">Info</div>
+          <div class="columnIcon"></div>
+          <form class="columnForm">
+            <input type="text" placeholder="Username" class="formInput"/>
+            <input type="email" placeholder="email@email.com" class="formInput"/>
+            <input type="password" placeholder="Password" class="formInput"/>
+            <input type="password" placeholder="Confirm Password" class="formInput"/>
+            <button type="submit" class="button formSubmit">Update User Info</button>
+          </form>
+        </div>
+        <div class="column">
+          <div class="columnTitle">Payment</div>
+          <div class="columnIcon"></div>
+          <form class="columnForm">
+            <input type="text" placeholder="1234 1234 1234" class="formInput"/>
+            <input type="text" placeholder="MM / YY" class="formInput"/>
+            <input type="text" placeholder="CVC" class="formInput"/>
+            <div data-on="{{toggleOn}}" class="toggle black">
+              <div class="toggleOptions">
+                <div class="toggleOptionsTrack">
+                  <div class="toggleOption">Yes</div>
+                  <div class="toggleOption">No</div>
+                </div>
+              </div>
+              <div class="toggleLabel">Remember Card?</div>
+            </div>
+            <button type="submit" class="button formSubmit">Update Credit Card</button>
+          </form>
+        </div>
+        <div class="column">
+          <div class="columnTitle">Account</div>
+          <div class="columnIcon"></div>
+          <div class="columnForm">
+            <div data-action="logout" class="button">Logout</div>
+            <div class="button">Remove Credit Card</div>
+            <div class="button">Delete Account</div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+    {{/if}}
+  {{/isolate}}
+</template>

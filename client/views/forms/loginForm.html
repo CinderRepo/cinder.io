@@ -1,4 +1,21 @@
 <template name="loginForm">
+<<<<<<< HEAD
+  {{#isolate}}
+  <div class="coverFormInfo">
+    <div class="coverIcon">{{icon 'login'}}</div>
+    <div class="coverTitle">Make and Play Games</div>
+    <div class="coverSubtitle">Sign in to continue to Cinder</div>
+    {{#autoForm schema=loginFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
+    {{afFieldInput "usernameOrEmail" class="formInput" placeholder="Username or Email" autocomplete="off"}}
+    {{afFieldInput "password" class="formInput" type="password" placeholder="Password" autocomplete="off"}}
+    <button type="submit" class="button formSubmit">Login</button>
+    {{/autoForm}}
+    <div class="coverFooter">
+      <a data-action="switchCover" data-cover="signup" class="coverLink">Signup</a>
+    </div>
+  </div>
+  {{/isolate}}
+=======
   <section class="form login">
     <form class="form" id="loginForm" name="loginForm">
       <input type="text" name="usernameOrEmail" placeholder="usernameOrEmail"/>
@@ -8,4 +25,5 @@
       <button class="formSubmit" type="submit">Submit</button>
     </form>
   </section>
+>>>>>>> master
 </template>

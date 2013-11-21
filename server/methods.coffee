@@ -19,7 +19,7 @@ Meteor.methods
 
 		#Just check the verifier output when the same identity and salt are passed. Don't bother with a full exchange.
 		verifier = user.services.password.srp
-		newVerifier = Meteor._srp.generateVerifier(password,
+		newVerifier = SRP.generateVerifier(password,
 			identity: verifier.identity
 			salt: verifier.salt
 		)
@@ -35,3 +35,22 @@ Meteor.methods
 		log 'Everything is peachy here!'
 		log JSON.stringify user
 		return true
+	createFolder: (username,folder,gameId) ->
+		log "createFolder called. Building url."
+		baseUrl = "http://cinder.io:60045/app/remote/folder/create"
+		usernameParam = "username=#{username}"
+		folderNameParam = "folderName=#{folder}"
+		gameIdParam = "gameID=#{gameId}"
+		url = baseUrl + "?" + usernameParam + "&" + folderNameParam + "&" + gameIdParam
+		log "created url url: ",url
+		log "Posting url"
+		HTTP.post(url,
+			null
+		,
+			(err,result)->
+				if err
+					log "err: ",err
+				else
+					log "result: ",result
+					log "Hello! Posted! Successful!"
+		)
