@@ -1,7 +1,7 @@
 <template name="leftSidebar">
   <aside class="sidebar left">
     <a data-action="toggleOverlay" class="logo black">
-      <div class="logoIcon"></div>
+      <div class="logoIcon">{{icon 'cinder'}}</div>
       <div class="logoText">Cinder</div>
     </a>
     <h2 class="sidebarHeader">Browse</h2>
@@ -9,7 +9,7 @@
       <li class="sidebarListItem">
         <a data-current="{{#if currentParamIs 'type' 'all'}}true{{/if}}"
         href="/all" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemIcon">{{icon 'game'}}</div>
           <div class="sidebarListItemText">All</div>
         </a>
       </li>
@@ -48,7 +48,7 @@
       {{/with}}
       <li class="sidebarListItem">
         <a data-action="toggleCover" data-cover="create" class="sidebarListItemLink">
-          <div class="sidebarListItemIcon"></div>
+          <div class="sidebarListItemIcon">{{icon 'add'}}</div>
           <div class="sidebarListItemText">Create Game</div>
         </a>
       </li>
@@ -88,7 +88,7 @@
           <li class="sidebarListItem">
             <a data-current="{{#if currentParamIs 'owner' _id}}{{#if currentParamIs 'contentInfo' 'creations'}}true{{/if}}{{/if}}"
             href="/users/{{_id}}/profile/creations" class="sidebarListItemLink">
-              <div class="sidebarListItemIcon"></div>
+              <div class="sidebarListItemIcon" style="background-image:url({{profile.profileSrc}});"></div>
               <div class="sidebarListItemText">{{username}}</div>
             </a>
           </li>

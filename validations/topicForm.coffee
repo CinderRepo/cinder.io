@@ -4,12 +4,12 @@ Schema.topicFormSchema = new SimpleSchema
     type: String
     label: "title"
     optional: false
-    min: 3
+    min: 1
   content:
     type: String
     label: "Content"
     optional: false
-    min: 3
+    min: 1
 
 #Customize output messages sent to the user when an error is come across.
 Schema.topicFormSchema.messages

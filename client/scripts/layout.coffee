@@ -32,8 +32,69 @@ Session.setDefault("pledgeAmount","$10")
   else
     Session.set("coverHidden",false)
 
-@initDropzone = (el) ->
-  log "initDropzone"
+#XXX: Fix after launch party
+@changeMastheadImage = (el) ->
+  log "changeMastheadImage"
+  dropzone = new Dropzone(el,
+    url: "/"
+    maxFilesize: 10
+    thumbnailWidth: 300
+    thumbnailHeight: 330
+    previewTemplate:
+      """<div class="preview file-preview">
+          <div class="details">
+            <div class="filename"><span data-dz-name></span></div>
+            <div class="size" data-dz-size></div>
+            <img class="image" data-dz-thumbnail />
+          </div>
+          <div class="progress"><span class="upload" data-dz-uploadprogress></span></div>
+          <div class="success-mark"><span>✔</span></div>
+          <div class="error-mark"><span>✘</span></div>
+          <div class="error-message"><span data-dz-errormessage></span></div>
+        </div>"""
+  )
+
+  log "dropzone: ",dropzone
+
+  dropzone.on("thumbnail",(file,dataURL)->
+    log "Thumbnail generated!"
+    context = Router.current().params["context"]
+    log "context: ",context
+
+    #Save image to content
+    if context is "profile"
+      log "Profile Profile Save!"
+      owner = Router.current().params["owner"]
+      log "owner: ",owner
+      Meteor.users.update
+        _id: owner
+      ,
+        $set:
+          "profile.profileSrc": dataURL
+      ,
+        (err,result)->
+          if err
+            log "err: ",err
+          else
+            log "result: ",result
+    #Save image to content
+    else
+      log "Content Preview Save!"
+      Content.update
+        _id: context
+      ,
+        $set:
+          "previewSrc": dataURL
+      ,
+        (err,result)->
+          if err
+            log "err: ",err
+          else
+            log "result: ",result
+  )
+
+@changeCover = (el) ->
+  log "changeCover"
   dropzone = new Dropzone(el,
     url: "/"
     maxFilesize: 10
@@ -69,7 +130,7 @@ Session.setDefault("pledgeAmount","$10")
         _id: owner
       ,
         $set:
-          "profile.profileSrc": dataURL
+          "profile.profileCoverSrc": dataURL
       ,
         (err,result)->
           if err
@@ -83,7 +144,7 @@ Session.setDefault("pledgeAmount","$10")
         _id: context
       ,
         $set:
-          "previewSrc": dataURL
+          "coverSrc": dataURL
       ,
         (err,result)->
           if err
@@ -105,20 +166,26 @@ Template.layout.rendered = () ->
   textareas = $(this.findAll(".expanding"))
   textareas.expandingTextarea()
   contentMastheadImage = this.find(".contentMastheadImage")
+  changeCoverEl = this.find("#changeCover")
+  changeProfileCoverEl = this.find("#changeProfileCover")
   Dropzone.autoDiscover = false
   data = this.data
   log "data: ",data
   #Currency formatting
   $("[data-format='money']").autoNumeric("init",{aSign:"$",vMax:"99999",mDec:"0"})
 
-  if data.content
+  if data.playing
     ownerId = data.playing.owner
   else
     ownerId = data.owner._id
 
+  #XXX: HACK, Fix after launch party
   #Only create a dropzone if it's the proper user
-  if contentMastheadImage and Meteor.userId() is ownerId
-    initDropzone(contentMastheadImage)
+  if Meteor.userId() is ownerId
+    log "THAR SHE BLOWS"
+    changeMastheadImage(contentMastheadImage)
+    changeCover(changeCoverEl)
+    #changeCover(changeProfileCoverEl)
 
   #if Session.equals "dropzoneInitialized", undefined
     #log "dropzoneInitialized is null"
@@ -411,14 +478,13 @@ Template.layout.preserve({
   "#overlay"
   "#contentWrapper"
   "#content"
-  ".formInput[id]": (node) ->
-    log "NODE: ",node
-    node.id
+  ".formInput[id]": (node) -> node.id
   "#save"
 })
 
 Template.content.preserve({
-  "#upload": (node) -> node.id
+  "#upload"
+  "#changeCover"
   ".formInput[id]": (node) -> node.id
 })
 

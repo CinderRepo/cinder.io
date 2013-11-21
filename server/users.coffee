@@ -29,7 +29,8 @@ Accounts.onCreateUser (options, user) ->
   user.profile.creations = []
   user.profile.profileSrc = "/users/defaults/profileImage.png"
   user.profile.profileCoverSrc = "/users/defaults/profileCover.png"
-  user.profile.description = "Edit your user description."
+  user.profile.description =
+    "#{user.username} hasn't updated their default profile information yet, but we can rest assured that they shall surely do so in the near future by merely hovering over this text, clicking to edit it, and than typing whatever their hearts may desire. They just need to click elsewhere on the page and we'll handle the rest. Cheerio!"
   user.profile.stripeCustomerId = undefined
   user.profile.favorites = []
   user.profile.following = []

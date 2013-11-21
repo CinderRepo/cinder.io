@@ -1,11 +1,15 @@
 <template name="home">
   <div class="contentWrapper">
     <aside class="sidebar left">
-      <a class="logo white" href="/">
-        <div class="logoIcon"></div>
+      <a class="logo white" href="/all">
+        <div class="logoIcon">{{icon 'cinder'}}</div>
         <div class="logoText">Cinder</div>
       </a>
     </aside>
+    <nav class="quickNavList">
+      <li data-action="toggleCover" data-cover="login" class="quickNavListItem">Login</li>
+      <li data-action="toggleCover" data-cover="signup" class="quickNavListItem">Signup</li>
+    </nav>
     <section class="section intro">
       <div class="pane">
         <div class="masthead">Shared Creation</div>
@@ -23,7 +27,7 @@
           <div class="columnTitle">For Gamers</div>
           <ul class="columnList">
             <li class="columnListItem">
-              <div class="columnListIcon"></div>
+              <div class="columnListIcon">{{icon 'game'}}</div>
               <div class="columnListTitle">Play New Games</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
@@ -43,7 +47,7 @@
           <div class="columnTitle">For Makers</div>
           <ul class="columnList">
             <li class="columnListItem">
-              <div class="columnListIcon"></div>
+              <div class="columnListIcon">{{icon 'add'}}</div>
               <div class="columnListTitle">Create With Others</div>
               <div class="columnListText">Feature Title Text</div>
             </li>
@@ -71,6 +75,7 @@
         <a class="button" href="/all">Browse Games</a>
       </div>
     </section>
+    {{#with hidden}}
     <section class="section create">
       <div class="sectionTitle">Get The Cinder App</div>
       <div class="pane">
@@ -86,8 +91,9 @@
           <div class="columnIcon"></div>
           <div class="columnContent">Automated backups of every deploy.</div>
         </div>
-        <a data-action="toggleCover" data-cover="download" class="button">Get The Cinder App</a>
+        <a data-action="toggleCover" data-cover="create" class="button">Get The Cinder App</a>
       </div>
     </section>
+    {{/with}}
   </div>
 </template>

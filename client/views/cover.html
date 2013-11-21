@@ -17,14 +17,14 @@
             {{#if currentUser}}
               {{#if cinderAppConnected}}
               <div class="coverFormInfo">
-                <div class="coverIcon"></div>
+                <div class="coverIcon">{{icon 'add'}}</div>
                 <div class="coverTitle">Create</div>
                 {{>createForm}}
               </div>
               {{else}}
               <div class="coverIcon"></div>
               <div class="coverTitle">Make Games With The Cinder App</div>
-              <div class="coverMasthead">
+              <div class="coverMasthead" style="background-image: url('/images/banner@2x.jpg');">
                 <div class="buttonsWrapper">
                   <div class="coverMastheadSubtitle">Download for</div>
                   <a href="/downloads/macos/fire.zip" class="button">Mac</a>

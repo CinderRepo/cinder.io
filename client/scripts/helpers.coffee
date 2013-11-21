@@ -35,15 +35,27 @@ Handlebars.registerHelper "isNotEmpty", (context) ->
 Handlebars.registerHelper "userCanEdit", (context) ->
   userCanEdit = false
   self = this
-  log "self: ",self
-  if self.content
-    collaborators = self.content.collaborators
-  else
-    collaborators = self.collaborators
+  currentRoute = Router.current()
+
   userId = Meteor.userId()
-  _.each collaborators, (collaboratorId) ->
-    if collaboratorId is userId
+
+  if currentRoute.params["context"] is "profile"
+    ownerId = currentRoute.params["owner"]
+    owner = Meteor.users.findOne(ownerId)
+    log "user!",owner
+    if userId is owner._id
       userCanEdit = true
+  else
+    contentId = currentRoute.params["context"]
+    content = Content.findOne(contentId)
+    log "game content!",contentId
+
+    collaborators = content.collaborators
+    log "collaborators: ",collaborators
+
+    _.each collaborators, (collaboratorId) ->
+      if collaboratorId is userId
+        userCanEdit = true
   userCanEdit
 Handlebars.registerHelper "userIsNotOwner", (context) ->
   self = this
@@ -83,3 +95,8 @@ Handlebars.registerHelper "cinderAppConnected", (context) ->
           false
 Handlebars.registerHelper "uuid", (context) ->
   Meteor.uuid()
+Handlebars.registerHelper "randomGame", (context) ->
+  Content.findOne()
+Handlebars.registerHelper "nl2br", (text) ->
+  nl2br = (text + "").replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, "$1" + "<br>" + "$2")
+  new Handlebars.SafeString(nl2br)

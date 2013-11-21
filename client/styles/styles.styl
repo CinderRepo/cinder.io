@@ -10,6 +10,10 @@
     display table
     width 100%
     height 100%
+    .playerMastheadLink
+      color highlight()
+      text-transform none
+      cursor pointer
     .playerMastheadInfo
       display table-cell
       vertical-align middle
@@ -20,7 +24,7 @@
           size(120,120)
           border-radius 120px
           margin 0 auto 20px auto
-          background white()
+          //background white()
         .playerMastheadTitle
           futura(20,white())
           margin 0 auto 20px auto
@@ -37,11 +41,15 @@
       border-radius 40px
       position(absolute,auto,0,50,0)
       margin 0 auto
-      background white()
+      //background white()
       cursor pointer
       transition all .25s ease-in-out
+      &[data-hidden="true"]
+        display none
       &:hover
         transform scale3d(1.2,1.2,1.2)
+      .icon > *
+        fill offWhite()
     .time
       position(absolute,auto,auto,32,20)
       font-size 12px
@@ -138,29 +146,32 @@
   &[data-playing="false"]
     bottom 0
   .contentWrapper
+    padding 0 200px 0 150px
     z-index 0
 
 .logo
   position(absolute,10,auto,auto,10)
   transition all .25s ease-in-out
-  padding 0 0 0 40px
+  padding 0 0 0 30px
   cursor pointer
   size(auto,30)
   futura()
   &.white
     .logoIcon
-      background offWhite()
+      .icon > *
+        fill offWhite()
     .logoText
       color offWhite()
   &.black
     .logoIcon
-      background midnight()
+      .icon > *
+        fill midnight()
     .logoText
       color midnight()
   &:hover
     transform scale3d(1.1,1.1,1.1)
   .logoIcon
-    size(30,30)
+    size(25,30)
     border-radius 30px
     position(absolute,0,auto,auto,0)
   .logoText
@@ -174,11 +185,11 @@
   text-align left
   z-index 1
   &.left
-    left 0
+    left 10px
     padding 50px 10px 0 10px
   &.right
-    top 10px
-    right 10px
+    top 20px
+    right 20px
     bottom auto
     background white()
     border-radius borderRadius
@@ -193,13 +204,22 @@
       background-position 50% 50%
       background-repeat no-repeat
       padding 10px
+      &:hover
+        .sidebarInfoBackdrop
+          background-color black(0.6)
+        &+.sidebarList
+          .sidebarListItem
+            &:first-of-type
+              .sidebarListItemLink
+                color highlight()
       &:first-of-type
         border-radius borderRadius borderRadius 0 0
         .sidebarInfoBackdrop
           border-radius borderRadius borderRadius 0 0
       .sidebarInfoBackdrop
         position(absolute,0,0,0,0)
-        background black(0.4)
+        background-color black(0.4)
+        transition all 0.25s ease-in-out
       .sidebarSubHeader
         futura(12,gray())
         padding 0
@@ -242,18 +262,17 @@
           width 100%
           padding 0 0 0 30px
           &[data-current="true"]
-            .sidebarListItemIcon
-              background highlight()
             .sidebarListItemText
               color highlight()
           &:hover
-            .sidebarListItemIcon
-              background highlight()
             .sidebarListItemText
               color highlight()
           .sidebarListItemIcon
             top 9px
             left 10px
+            background-size cover
+            background-position 50% 50%
+            background-repeat no-repeat
   .sidebarHeader
     futura(10,offerGray())
     text-align left
@@ -269,21 +288,20 @@
         padding 0 0 0 20px
         transition all .25s ease-in-out
         &[data-current="true"]
-          .sidebarListItemIcon
-            background highlight()
           .sidebarListItemText
             color highlight()
         &:hover
-          .sidebarListItemIcon
-            background highlight()
           .sidebarListItemText
             color highlight()
         .sidebarListItemIcon
           position(absolute,2,auto,auto,0)
-          background midnight()
+          //background-color midnight()
           size(14,14)
           border-radius 14px
           transition all .25s ease-in-out
+          background-size cover
+          background-position 50% 50%
+          background-repeat no-repeat
         .sidebarListItemText
           transition all .25s ease-in-out
 .section
@@ -335,7 +353,22 @@
   height 100%
   position(relative)
   z-index 2
-  padding 0 200px 0 150px
+  .quickNavList
+    position(absolute,10,10,auto,auto)
+    z-index 1
+    futura(16,white())
+    .quickNavListItem
+      float left
+      margin 0 10px 0 0
+      border 2px solid transparent
+      border-radius borderRadius
+      padding 10px 20px 10px 20px
+      cursor pointer
+      transition all 0.25s ease-in-out
+      &:last-of-type
+        margin 0
+      &:hover
+        border 2px solid white()
   //background offWhite()
 .content
   min-width 320px
@@ -404,7 +437,7 @@
       padding 10px 10px 10px 10px
       .columnListIcon
         size(40,40)
-        background midnight()
+        //background midnight()
         border-radius 40px
         display inline-block
         float left
@@ -463,9 +496,10 @@
     color midnight()
 .tile
   size(300,330)
-  margin 0 10px 30px 10px
+  margin 0 10px 20px 10px
   background white()
   border-radius borderRadius
+  //border 1px solid black(0.1)
   float left
   position(relative)
   cursor pointer
@@ -528,7 +562,6 @@
   .contentHeaderIcon
     size(40,40)
     border-radius 40px
-    background midnight()
     position(absolute,10,auto,auto,0)
   .contentHeaderText
     futura(36,midnight())
@@ -536,13 +569,21 @@
 .contentMasthead
   //background midnight()
   padding 20px
-  margin 0 20px 20px 20px
+  margin 0 30px 20px 30px
   height 370px
   position(relative)
   border-radius 0 0 borderRadius borderRadius
   .contentMastheadCover
     position(absolute,0,0,0,0)
     border-radius 0 0 borderRadius borderRadius
+    background-size cover
+    background-repeat no-repeat
+    background-position 50% 50%
+    overflow(hidden)
+    &:after
+      content ""
+      position(absolute,0,0,0,0)
+      background black(0.5)
   .contentMastheadImage
     size(300,330)
     border-radius borderRadius
@@ -592,7 +633,7 @@
         .contentMastheadUploadImageIcon
           size(80,80)
           border-radius 80px
-          background midnight(0.9)
+          //background midnight(0.9)
           margin 0 auto 20px auto
         .contentMastheadUploadImageTitle
           futura(20,midnight(0.9))
@@ -631,6 +672,7 @@
     .topicEntry
       border none
       border-radius 0
+      margin 0
       .topicForm
         border none
         .formInput
@@ -657,17 +699,19 @@
       .formSubmit
         display none
   .buttonsWrapper
-    size(210,40)
+    size(250,40)
     position(absolute,auto,20,20,auto)
     margin 0
     .toggle
     .contentHeaderButton
       position(static)
-      float left
+      float right
+      &:last-of-type
+        margin 0 10px 0 0
     .toggle
       margin 0 0 0 10px
   .contentHeaderButton
-    size(100,40)
+    size(120,40)
     line-height 40px
     font-size 11px
     position(absolute,auto,20,20,auto)
@@ -675,6 +719,9 @@
     border 2px solid white()
     color midnight()
     margin 0
+    //XXX: Remove this after launch party
+    &[data-userCanEdit="false"]
+      display none
     &:hover
       background transparent
       color white()
@@ -700,7 +747,7 @@
 
 .topicEntry
   maxSize(940,auto)
-  margin 0 20px 20px 20px
+  margin 0 30px 20px 30px
   padding 0 0 20px 0
   position(relative)
   border-bottom 1px solid black(0.1)
@@ -710,7 +757,9 @@
     border-right 1px solid black(0.1)
     z-index 1
     border-radius borderRadius 0 0 borderRadius
-    background white()
+    background gray(0.6)
+    //XXX: Fix after launch party
+    background rgba(226,226,226,1)
     .topicEntrySidebarInfo
       position(absolute,15,auto,auto,15)
       width 50px
@@ -726,6 +775,7 @@
         position(absolute,0,auto,auto,0)
         border-radius 50px
         background midnight()
+        border 1px solid gray()
         //float left
         //margin 8px 20px 0 0
         background-size cover
@@ -744,7 +794,7 @@
         height 20px
   .topicForm
     .topicFormInfo
-      background white()
+      background gray(0.6)
       border-radius borderRadius
       border 1px solid black(0.1)
       position(relative)
@@ -807,7 +857,7 @@
         futura(20,midnight())
         text-align left
     .formInput
-      border-bottom 1px solid gray()
+      border-bottom 1px solid black(0.1)
       border-radius borderRadius borderRadius 0 0
       padding 10px 10px 10px 90px
       background transparent
@@ -820,7 +870,7 @@
   maxSize(940,auto)
   font-size 16px
   line-height 1.5
-  margin 20px 20px 0 20px
+  margin 20px 30px 0 30px
   color midnight()
   position(relative)
   overflow(hidden)
@@ -1016,7 +1066,8 @@
         line-height 40px
         font-size 14px
   .topics
-    display none
+    //XXX: Fix after launch party
+    display block
     &[data-open="true"]
       display block
   .topicWrapper
@@ -1062,6 +1113,7 @@
           background-repeat no-repeat
           background-position 50% 50%
           transition all 0.25s ease-in-out
+          border 1px solid gray()
         .topicContentSidebarTitle
           position(absolute,auto,0,0,0)
           text-align center
@@ -1154,7 +1206,7 @@
         border none
         border-top 1px solid gray()
         border-radius 0
-        &:last-of-type
+        &[data-action="post"]
           background gray(0.6)
           .topicContent
             padding 0
@@ -1214,7 +1266,7 @@
         max-width 960px
         margin 0 auto
       .coverIcon
-        background midnight()
+        //background midnight()
         size(80,80)
         line-height 80px
         border-radius 80px
@@ -1253,8 +1305,10 @@
       .coverMasthead
         margin 20px 10px 20px 10px
         height 400px
-        background gray()
         position(relative)
+        background-size cover
+        background-repeat no-repeat
+        border-bottom 2px solid gray()
         .coverMastheadSubtitle
           text-align center
           height 20px

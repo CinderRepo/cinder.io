@@ -24,17 +24,14 @@
         <div class="topicContentSidebarInfo">
           {{#with getUserById owner}}
           <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-          {{#with hidden}}
-          <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-          {{/with}}
           {{/with}}
         </div>
       </div>
       <div class="topicContentInfo">
         <div class="topicContentTitle">{{title}}</div>
-        <div class="topicContent">{{toHtml content}}</div>
+        <div class="topicContent">{{nl2br content}}</div>
       </div>
-      <div class="topics" data-open="{{topicOpen}}">
+      <div class="topics" data-open="">
         {{#each topicPosts}}
         {{#isolate}}
         <div class="topicWrapper">
@@ -42,29 +39,23 @@
             <div class="topicContentSidebarInfo">
               {{#with getUserById owner}}
               <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-              {{#with hidden}}
-              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-              {{/with}}
               {{/with}}
             </div>
           </div>
           <div class="topicContent">
-            {{toHtml content}}
+            {{nl2br content}}
           </div>
         </div>
         {{/isolate}}
         {{/each}}
         {{#if currentUser}}
-        <div class="topicWrapper">
+        <div class="topicWrapper" data-action="post">
           <div class="topicContentSidebar">
+            {{#with currentUser}}
             <div class="topicContentSidebarInfo">
-              {{#with currentUser}}
               <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-              {{#with hidden}}
-              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-              {{/with}}
-              {{/with}}
             </div>
+            {{/with}}
           </div>
           <div class="topicContent">
             {{>postForm}}
@@ -72,6 +63,7 @@
         </div>
         {{/if}}
       </div>
+      {{#with hidden}}
       {{#if arrayIsGreaterThan posts 5}}
       <div class="topicToolbar">
         <a data-action="toggleTopic" class="topicToolbarButton">
@@ -83,6 +75,7 @@
         </a>
       </div>
       {{/if}}
+      {{/with}}
     </div>
   </div>
   {{/isolate}}

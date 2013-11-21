@@ -4,7 +4,7 @@ Schema.postFormSchema = new SimpleSchema
     type: String
     label: "Content"
     optional: false
-    min: 3
+    min: 1
 
 #Customize output messages sent to the user when an error is come across.
 Schema.postFormSchema.messages
@@ -41,7 +41,9 @@ if Meteor.isClient
       context = this
       #log "context 1: ",context
       (insertDoc,updateDoc,currentDoc)->
+        log "RUNNING!"
         check(insertDoc,Schema.postFormSchema)
+        log "PASSED CHECK!"
         #log "creating a comment!"
         #log "insertDoc: ",insertDoc
         #log "updateDoc: ",updateDoc
@@ -64,7 +66,7 @@ if Meteor.isClient
               log "err: ",err
             else
               #log "Add the post ID to the current contentInfo"
-              window[_.capitalize contentInfoParam].update(
+              Community.update(
                 _id: context._id
               ,
                 $push:

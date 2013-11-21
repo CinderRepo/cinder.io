@@ -8,11 +8,11 @@
       <div class="playerMasthead">
         <div class="playerMastheadInfo">
           <div class="playerMastheadInfoContent">
-            <div class="playerMastheadIcon"></div>
+            <div class="playerMastheadIcon">{{icon 'shock'}}</div>
             <div class="playerMastheadTitle">Awww.</div>
             <div class="playerMastheadSubtitle">
-              This player hasn't uploaded a game yet. Perhaps you could give them some love by
-              <a data-action="toggleOverlay">leaving a comment?</a>
+              {{#with getUserById owner}}{{username}}{{/with}} hasn't uploaded a version of {{title}} for you to play yet. Perhaps you could give them some love by
+              <a class="playerMastheadLink" data-action="toggleOverlay">supporting their game?</a>
             </div>
           </div>
         </div>
@@ -23,27 +23,28 @@
     <div class="playerMasthead">
       <div class="playerMastheadInfo">
         <div class="playerMastheadInfoContent">
-          <div class="playerMastheadIcon"></div>
+          <div class="playerMastheadIcon">{{icon 'no'}}</div>
           <div class="playerMastheadTitle">Whoa There!</div>
           <div class="playerMastheadSubtitle">
-            You don't have any games playing. Perhaps you'd like to check one of these out?
+            You don't have any games playing. Perhaps you'd like to give
+            {{#with randomGame}}
+              <a href="/users/{{owner}}/{{_id}}/community" class="playerMastheadLink" data-action="toggleOverlay">{{title}}</a>
+            {{/with}}
+            a try?
           </div>
-          {{#each recommended}}
-            {{>tile}}
-          {{/each}}
         </div>
       </div>
     </div>
     {{/if}}
 
     <a data-action="toggleOverlay" class="logo white">
-      <div class="logoIcon"></div>
+      <div class="logoIcon">{{icon 'cinder'}}</div>
       <div class="logoText">Cinder</div>
     </a>
 
     <div class="playerControls">
-      <div data-action="toggleOverlay" class="control play"></div>
-      <div data-action="toggleOverlay" class="control pause"></div>
+      <div data-action="toggleOverlay" data-hidden="{{$.Session.equals 'overlayHidden' true}}" class="control play">{{icon 'play'}}</div>
+      <div data-action="toggleOverlay" data-hidden="{{$.Session.equals 'overlayHidden' false}}" class="control pause">{{icon 'pause'}}</div>
       {{#with hidden}}
       <div class="time">3:20</div>
       <div class="sliderWrapper progress">

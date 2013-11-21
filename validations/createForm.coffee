@@ -67,7 +67,8 @@ if Meteor.isClient
         insertDoc.titleSlug = _.slugify insertDoc.title
         insertDoc.collaborators = []
         insertDoc.collaborators.push currentUser._id
-        insertDoc.description = "Your game has been created! Click and edit here to add a description."
+        insertDoc.description =
+          "#{currentUser.username} is just getting started with their game idea, and hasn't made a description yet."
         insertDoc.previewSrc = "/users/defaults/preview.png"
         insertDoc.coverSrc = "/users/defaults/cover.png"
         #Hard coded type, we could add more media types in the future
