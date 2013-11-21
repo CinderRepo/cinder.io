@@ -332,7 +332,7 @@
     futura(26,midnight())
     margin 0 0 20px 0
   &.profile
-    padding 0 0 20px 0
+    padding 0 20px 20px 20px
   &:nth-of-type(odd)
     background-color black(0.5)
     .sectionTitle
@@ -377,6 +377,9 @@
   padding 0 0 40px 0
   vertical-align middle
   z-index 1
+  &[data-context="creations"]
+    //XXX: Fix this after launch party
+    max-width 1000px
 .column
   float left
   margin 0 10px 30px 10px

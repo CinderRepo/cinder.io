@@ -100,11 +100,8 @@
     {{#if currentParamIs 'context' 'profile'}}
     <div class="section profile">
       {{#if currentParamIs 'contentInfo' 'creations'}}
-        {{#if profile.creations}}
+        {{!XXX: Look into this edge case of having no creations after launch party}}
         <div class="sectionTitle">{{currentParam 'contentInfo'}}</div>
-        {{else}}
-
-        {{/if}}
         {{#each creations}}
           {{>tile}}
         {{/each}}
