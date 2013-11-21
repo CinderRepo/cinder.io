@@ -11,6 +11,7 @@
     "collectionFS": {},
     "stripe": {},
     "meteor-jquery-payment": {},
-    "Dropzonejs": {}
+    "Dropzonejs": {},
+    "GAnalytics": {}
   }
 }
