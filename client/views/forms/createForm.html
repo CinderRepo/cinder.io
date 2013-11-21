@@ -1,0 +1,10 @@
+<template name="createForm">
+  {{#isolate}}
+  <div class="coverFormInfo">
+    {{#autoForm schema=createFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
+    {{afFieldInput "title" class="formInput" placeholder="Title" autocomplete="off"}}
+    <button type="submit" class="button formSubmit">Create</button>
+    {{/autoForm}}
+  </div>
+  {{/isolate}}
+</template>

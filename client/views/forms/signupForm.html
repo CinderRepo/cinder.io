@@ -1,0 +1,18 @@
+<template name="signupForm">
+  {{#isolate}}
+  <div class="coverFormInfo">
+    <div class="coverIcon">{{icon 'signup'}}</div>
+    <div class="coverTitle">Make and Play Games</div>
+    <div class="coverSubtitle">Signup to continue to Cinder</div>
+    {{#autoForm schema=signupFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="coverForm"}}
+    {{afFieldInput "username" class="formInput" placeholder="Username" autocomplete="off"}}
+    {{afFieldInput "email" class="formInput" placeholder="email@email.com" autocomplete="off"}}
+    {{afFieldInput "password" class="formInput" type="password" placeholder="Password" autocomplete="off"}}
+    <button type="submit" class="button formSubmit">Signup</button>
+    {{/autoForm}}
+    <div class="coverFooter">
+      <a data-action="switchCover" data-cover="login" class="coverLink">Login</a>
+    </div>
+  </div>
+  {{/isolate}}
+</template>

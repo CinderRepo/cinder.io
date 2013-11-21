@@ -1,0 +1,11 @@
+<template name="updateUserForm">
+  {{#isolate}}
+  <div class="topicEntry">
+    {{#autoForm schema=updateUserFormSchema doc=this validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
+    {{afFieldInput "profile.description" class="formInput" placeholder="Update description.." autocomplete="off" rows="12" spellcheck="false"}}
+    <button type="submit" class="button formSubmit">Add Post</button>
+    </div>
+    {{/autoForm}}
+  </div>
+  {{/isolate}}
+</template>
