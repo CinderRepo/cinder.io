@@ -71,3 +71,13 @@ Handlebars.registerHelper "userProfileArrayHas", (context,value) ->
   valueExists = _.contains userProfileArray, value
 Handlebars.registerHelper "getUserById", (context) ->
   Meteor.users.findOne _id: context
+Handlebars.registerHelper "cinderAppConnected", (context) ->
+  #XXX: Fix this after launch party
+  if Meteor.user()
+    if Meteor.user().profile
+      if Meteor.user().profile.cinderAppSessions
+        if Meteor.user().profile.cinderAppSessions.length > 0
+          log "true!"
+          true
+        else
+          false

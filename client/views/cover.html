@@ -17,7 +17,7 @@
 
           {{#if coverIs 'create'}}
             {{#if currentUser}}
-              {{#if currentUser.profile.cinderAppConnected}}
+              {{#if cinderAppConnected}}
               <div class="coverIcon"></div>
               <div class="coverTitle">Create</div>
               {{>createForm}}
