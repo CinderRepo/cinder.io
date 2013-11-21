@@ -16,14 +16,14 @@ Session.setDefault("pledgeAmount","$10")
 )###
 
 @toggleOverlay = () ->
-  log "================================================="
-  log "TOGGLEOVERLAY() CALLED"
+  #log "================================================="
+  #log "TOGGLEOVERLAY() CALLED"
   if Session.equals("overlayHidden",false)
-    log "Hide! Hiding the overlay and resuming playback!"
+    #log "Hide! Hiding the overlay and resuming playback!"
     Session.set("overlayHidden",true)
     #Session.set("isPlaying",true)
   else
-    log "True! Showing the overlay and pausing playback!"
+    #log "True! Showing the overlay and pausing playback!"
     Session.set("overlayHidden",false)
 
 @toggleCover = () ->
@@ -34,7 +34,7 @@ Session.setDefault("pledgeAmount","$10")
 
 #XXX: Fix after launch party
 @changeMastheadImage = (el) ->
-  log "changeMastheadImage"
+  #log "changeMastheadImage"
   dropzone = new Dropzone(el,
     url: "/"
     maxFilesize: 10
@@ -54,18 +54,18 @@ Session.setDefault("pledgeAmount","$10")
         </div>"""
   )
 
-  log "dropzone: ",dropzone
+  #log "dropzone: ",dropzone
 
   dropzone.on("thumbnail",(file,dataURL)->
-    log "Thumbnail generated!"
+    #log "Thumbnail generated!"
     context = Router.current().params["context"]
-    log "context: ",context
+    #log "context: ",context
 
     #Save image to content
     if context is "profile"
-      log "Profile Profile Save!"
+      #log "Profile Profile Save!"
       owner = Router.current().params["owner"]
-      log "owner: ",owner
+      #log "owner: ",owner
       Meteor.users.update
         _id: owner
       ,
@@ -79,7 +79,7 @@ Session.setDefault("pledgeAmount","$10")
             log "result: ",result
     #Save image to content
     else
-      log "Content Preview Save!"
+      #log "Content Preview Save!"
       Content.update
         _id: context
       ,
@@ -94,7 +94,7 @@ Session.setDefault("pledgeAmount","$10")
   )
 
 @changeCover = (el) ->
-  log "changeCover"
+  #log "changeCover"
   dropzone = new Dropzone(el,
     url: "/"
     maxFilesize: 10
@@ -114,18 +114,18 @@ Session.setDefault("pledgeAmount","$10")
         </div>"""
   )
 
-  log "dropzone: ",dropzone
+  #log "dropzone: ",dropzone
 
   dropzone.on("thumbnail",(file,dataURL)->
-    log "Thumbnail generated!"
+    #log "Thumbnail generated!"
     context = Router.current().params["context"]
-    log "context: ",context
+    #log "context: ",context
 
     #Save image to content
     if context is "profile"
-      log "Profile Save!"
+      #log "Profile Save!"
       owner = Router.current().params["owner"]
-      log "owner: ",owner
+      #log "owner: ",owner
       Meteor.users.update
         _id: owner
       ,
@@ -139,7 +139,7 @@ Session.setDefault("pledgeAmount","$10")
             log "result: ",result
     #Save image to content
     else
-      log "Content Save!"
+      #log "Content Save!"
       Content.update
         _id: context
       ,
@@ -155,14 +155,14 @@ Session.setDefault("pledgeAmount","$10")
 
 #Play the hero video when it's rendered
 Template.hero.rendered = () ->
-  log "HERO RENDERED"
+  #log "HERO RENDERED"
   #heroVideo = this.find(".heroVideo")
   #heroVideo.play() if heroVideo?
 
 #Make it so that all textareas expand based on text content in the application
 Template.layout.rendered = () ->
-  log "=========================="
-  log "LAYOUT RE-FUCKING RENDERED"
+  #log "=========================="
+  #log "LAYOUT RE-FUCKING RENDERED"
   textareas = $(this.findAll(".expanding"))
   textareas.expandingTextarea()
   contentMastheadImage = this.find(".contentMastheadImage")
@@ -170,7 +170,7 @@ Template.layout.rendered = () ->
   changeProfileCoverEl = this.find("#changeProfileCover")
   Dropzone.autoDiscover = false
   data = this.data
-  log "data: ",data
+  #log "data: ",data
   #Currency formatting
   $("[data-format='money']").autoNumeric("init",{aSign:"$",vMax:"99999",mDec:"0"})
 
@@ -182,7 +182,7 @@ Template.layout.rendered = () ->
   #XXX: HACK, Fix after launch party
   #Only create a dropzone if it's the proper user
   if Meteor.userId() is ownerId
-    log "THAR SHE BLOWS"
+    #log "THAR SHE BLOWS"
     changeMastheadImage(contentMastheadImage)
     changeCover(changeCoverEl)
     #changeCover(changeProfileCoverEl)
@@ -425,7 +425,7 @@ Template.topic.helpers
   topicPosts: ->
     #log "contentDetails helper called!"
     self = this
-    #log "self: ",self
+    log "self: ",self
     Posts.find(parent: self._id)
   topicOpen: ->
     self = this

@@ -29,6 +29,7 @@ Schema.postFormSchema.messages
 
 #Create a new AutoForm instance that adheres to the schema provided, and create a template helper for it.
 if Meteor.isClient
+  Session.setDefault("postText","Add post..")
   postForm = new AutoForm(Schema.postFormSchema)
 
   Template.postForm.helpers
@@ -39,11 +40,13 @@ if Meteor.isClient
       #the user will get automatically logged in, as the Accounts package does that by default.
       #log "ONSUBMIT:"
       context = this
+      log "context: ",context
+      #Session.set "currentPost",context._id
       #log "context 1: ",context
       (insertDoc,updateDoc,currentDoc)->
-        log "RUNNING!"
+        #log "RUNNING!"
         check(insertDoc,Schema.postFormSchema)
-        log "PASSED CHECK!"
+        #log "PASSED CHECK!"
         #log "creating a comment!"
         #log "insertDoc: ",insertDoc
         #log "updateDoc: ",updateDoc
@@ -57,6 +60,7 @@ if Meteor.isClient
         insertDoc.parent = context._id
         insertDoc.parentSlug = context.titleSlug
         insertDoc.owner = currentUser._id
+        log "insertDoc: ",insertDoc
         #log "Updated insertDoc: ",insertDoc
         Posts.insert(
           insertDoc
@@ -76,8 +80,31 @@ if Meteor.isClient
                   if err
                     log "err: ",err
                   else
-                    #log "result: ",result
+                    log "result: ",result
                     self.resetForm()
               )
         )
         false
+
+  #XXX: This is a hack to get around inputs being rewritten by Meteor
+  Template.postForm.events
+    "keyup .formInput":(e,t) ->
+      currentTarget = $(e.currentTarget)
+      data = t.data
+      #log "data._id:",data._id
+      Session.set "currentPost",data._id
+      Session.set "postText",currentTarget.val()
+    #"click .topicForm":(e,t)->
+      #Session.set "currentPost",data._id
+  Template.postForm.rendered = () ->
+    #log "TEMPLATE POST FORM RENDERED MOTHER FUCKING SHIT"
+    self = this
+    data = self.data._id
+    #log "Session currentPost: ",Session.get("currentPost")
+    #log "self: ",self
+    #log "data: ",data
+    formInput = $(this.find(".formInput"))
+    #log "formInput: ",formInput
+    if Session.equals "currentPost",data
+      #log "IT MATCHES!"
+      formInput.val(Session.get "postText")

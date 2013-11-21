@@ -58,7 +58,7 @@ Router.map ->
           #contentInfo
 
         ownerId = @params.owner
-        #log "ownerId: ",ownerId
+        log "ownerId: ",ownerId
 
         owner = Meteor.users.findOne(_id: ownerId)
         #log "owner: ",owner

@@ -58,7 +58,8 @@ if Meteor.isClient
       #log "ONSUBMIT:"
       self = this
       context = self.content
-      #log "context: ",context
+      log "POSTING TOPIC FORM WHAT"
+      log "context: ",context
       (insertDoc,updateDoc,currentDoc)->
         check(insertDoc,Schema.topicFormSchema)
         #log "insertDoc: ",insertDoc
@@ -77,7 +78,7 @@ if Meteor.isClient
         insertDoc.pledgeTotal = 0
         #log "Updated insertDoc: ",insertDoc
         #log "contentInfoParam: ",_.capitalize contentInfoParam
-        window[_.capitalize contentInfoParam].insert(
+        Community.insert(
           insertDoc
         ,
           (err,result)->

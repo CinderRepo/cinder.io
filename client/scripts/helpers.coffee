@@ -42,16 +42,16 @@ Handlebars.registerHelper "userCanEdit", (context) ->
   if currentRoute.params["context"] is "profile"
     ownerId = currentRoute.params["owner"]
     owner = Meteor.users.findOne(ownerId)
-    log "user!",owner
+    #log "user!",owner
     if userId is owner._id
       userCanEdit = true
   else
     contentId = currentRoute.params["context"]
     content = Content.findOne(contentId)
-    log "game content!",contentId
+    #log "game content!",contentId
 
     collaborators = content.collaborators
-    log "collaborators: ",collaborators
+    #log "collaborators: ",collaborators
 
     _.each collaborators, (collaboratorId) ->
       if collaboratorId is userId
@@ -89,7 +89,7 @@ Handlebars.registerHelper "cinderAppConnected", (context) ->
     if Meteor.user().profile
       if Meteor.user().profile.cinderAppSessions
         if Meteor.user().profile.cinderAppSessions.length > 0
-          log "true!"
+          #log "true!"
           true
         else
           false
