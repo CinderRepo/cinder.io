@@ -7,7 +7,9 @@
       <div class="topicEntrySidebar">
         <div class="topicEntrySidebarInfo">
           <a href="/users/{{_id}}/profile/creations" class="topicEntrySidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+          {{#with hidden}}
           <a href="/users/{{_id}}/profile/creations" class="topicEntrySidebarTitle">{{username}}</a>
+          {{/with}}
         </div>
       </div>
       {{/with}}
@@ -35,7 +37,7 @@
           </a>
         </li>
       </nav>
-      <button type="submit" class="button formSubmit">Add Topic</button>
+      <button type="submit" class="button formSubmit">Add Idea</button>
     </div>
     {{/autoForm}}
   </div>

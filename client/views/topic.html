@@ -21,10 +21,14 @@
     {{/with}}
     <div class="topicWrapper">
       <div class="topicContentSidebar">
-        {{#with getUserById owner}}
-        <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-        <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-        {{/with}}
+        <div class="topicContentSidebarInfo">
+          {{#with getUserById owner}}
+          <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+          {{#with hidden}}
+          <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
+          {{/with}}
+          {{/with}}
+        </div>
       </div>
       <div class="topicContentInfo">
         <div class="topicContentTitle">{{title}}</div>
@@ -35,10 +39,14 @@
         {{#isolate}}
         <div class="topicWrapper">
           <div class="topicContentSidebar">
-            {{#with getUserById owner}}
-            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-            {{/with}}
+            <div class="topicContentSidebarInfo">
+              {{#with getUserById owner}}
+              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+              {{#with hidden}}
+              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
+              {{/with}}
+              {{/with}}
+            </div>
           </div>
           <div class="topicContent">
             {{toHtml content}}
@@ -46,21 +54,24 @@
         </div>
         {{/isolate}}
         {{/each}}
-      </div>
-      {{#if currentUser}}
+        {{#if currentUser}}
         <div class="topicWrapper">
           <div class="topicContentSidebar">
-            {{#with currentUser}}
-            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
-            <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
-            {{/with}}
+            <div class="topicContentSidebarInfo">
+              {{#with currentUser}}
+              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+              {{#with hidden}}
+              <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
+              {{/with}}
+              {{/with}}
+            </div>
           </div>
           <div class="topicContent">
             {{>postForm}}
           </div>
         </div>
+        {{/if}}
       </div>
-      {{/if}}
       {{#if arrayIsGreaterThan posts 5}}
       <div class="topicToolbar">
         <a data-action="toggleTopic" class="topicToolbarButton">
