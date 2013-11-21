@@ -1,7 +1,7 @@
 <template name="contentForm">
   {{#isolate}}
   <div class="topicEntry">
-    {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
+    {{#autoForm schema=contentFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm" name="topicForm"}}
     {{afFieldInput "content" class="formInput expanding" placeholder="Tell everybody why they should play your game!" autocomplete="off" rows="10"}}
     <div class="formSubmitBar">
       <nav class="toolbarList">

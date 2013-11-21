@@ -1,6 +1,6 @@
 <template name="topic">
   {{#isolate}}
-  <div class="topic" data-trayOpen="{{$.Session.equals 'topicTrayOpen' _id}}">
+  <div class="topic">
     {{#with hidden}}
     <div class="topicSidebar">
       <div class="topicSidebarInfo">
@@ -19,7 +19,7 @@
       {{>creditCardForm}}
     </div>
     {{/with}}
-    <div id="{{_id}}" class="topicWrapper">
+    <div class="topicWrapper">
       <div class="topicContentSidebar">
         {{#with getUserById owner}}
         <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
@@ -28,10 +28,11 @@
       </div>
       <div class="topicContentInfo">
         <div class="topicContentTitle">{{title}}</div>
-        <div class="topicContent">{{content}}</div>
+        <div class="topicContent">{{toHtml content}}</div>
       </div>
       <div class="topics" data-open="{{topicOpen}}">
         {{#each topicPosts}}
+        {{#isolate}}
         <div class="topicWrapper">
           <div class="topicContentSidebar">
             {{#with getUserById owner}}
@@ -43,11 +44,13 @@
             {{toHtml content}}
           </div>
         </div>
+        {{/isolate}}
         {{/each}}
-        {{#if currentUser}}
+      </div>
+      {{#if currentUser}}
         <div class="topicWrapper">
           <div class="topicContentSidebar">
-            {{#with getUserById owner}}
+            {{#with currentUser}}
             <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
             <a href="/users/{{_id}}/profile/creations" class="topicContentSidebarTitle">{{username}}</a>
             {{/with}}

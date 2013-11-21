@@ -81,3 +81,5 @@ Handlebars.registerHelper "cinderAppConnected", (context) ->
           true
         else
           false
+Handlebars.registerHelper "uuid", (context) ->
+  Meteor.uuid()

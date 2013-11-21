@@ -6,8 +6,8 @@
   <section id="overlay" class="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}" data-playing="{{$.Session.get 'isPlaying'}}">
     {{>leftSidebar}}
     {{>rightSidebar}}
-    <section class="contentWrapper">
-      <section class="content" data-context="{{currentParam 'contentInfo'}}">
+    <section id="contentWrapper" class="contentWrapper">
+      <section id="content" class="content" data-context="{{currentParam 'contentInfo'}}">
       {{yield}}
       </section>
     </section>

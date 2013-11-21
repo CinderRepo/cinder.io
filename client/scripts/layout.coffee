@@ -409,12 +409,19 @@ Template.leftSidebar.helpers
 Template.layout.preserve({
   "#cover"
   "#overlay"
+  "#contentWrapper"
+  "#content"
+  ".formInput[id]": (node) ->
+    log "NODE: ",node
+    node.id
+  "#save"
 })
 
 Template.content.preserve({
   "#upload": (node) -> node.id
+  ".formInput[id]": (node) -> node.id
 })
 
-Template.topic.preserve({
-  ".topicWrapper": (node) -> node.id
+Template.postForm.preserve({
+  ".formInput[id]": (node) -> node.id
 })

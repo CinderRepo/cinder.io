@@ -1,9 +1,19 @@
 <template name="topicForm">
   {{#isolate}}
   <div class="topicEntry">
-    {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm"}}
-    {{afFieldInput "title" class="formInput expanding" placeholder="Give your idea a title.." autocomplete="off"}}
-    {{afFieldInput "content" class="formInput expanding" placeholder="Then tell us about your idea!" autocomplete="off" rows="10"}}
+    {{#autoForm schema=topicFormSchema validation="keyup" novalidate="novalidate" onSubmit=onSubmit framework="none" class="topicForm" name="topicForm"}}
+    <div class="topicFormInfo">
+      {{#with currentUser}}
+      <div class="topicEntrySidebar">
+        <div class="topicEntrySidebarInfo">
+          <a href="/users/{{_id}}/profile/creations" class="topicEntrySidebarIcon" style="background-image: url({{profile.profileSrc}});"></a>
+          <a href="/users/{{_id}}/profile/creations" class="topicEntrySidebarTitle">{{username}}</a>
+        </div>
+      </div>
+      {{/with}}
+      {{afFieldInput "title" class="formInput title expanding" placeholder="Give your idea a title.." autocomplete="off"}}
+      {{afFieldInput "content" class="formInput expanding" placeholder="Then tell us about your idea!" autocomplete="off" rows="10"}}
+    </div>
     <div class="formSubmitBar">
       <nav class="toolbarList">
         <li class="toolbarListItem">
