@@ -1,8 +1,8 @@
 <template name="layout">
+  {{>player}}
   {{#if currentTemplateIs 'home'}}
   {{>hero}}
   {{/if}}
-  {{>player}}
   <section id="overlay" class="overlay" data-hidden="{{$.Session.get 'overlayHidden'}}" data-playing="{{$.Session.get 'isPlaying'}}">
     {{>leftSidebar}}
     {{>rightSidebar}}
