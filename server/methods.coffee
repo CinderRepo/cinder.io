@@ -37,7 +37,7 @@ Meteor.methods
 		return true
 	createFolder: (username,folder,gameId) ->
 		log "createFolder called. Building url."
-		baseUrl = "http://cinder.io:60045/app/remote/folder/create"
+		baseUrl = "http://cinder.io:61045/app/remote/folder/create"
 		usernameParam = "username=#{username}"
 		folderNameParam = "folderName=#{folder}"
 		gameIdParam = "gameID=#{gameId}"
