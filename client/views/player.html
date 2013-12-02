@@ -1,13 +1,11 @@
 <template name="player">
   <section class="player">
     {{#if $.Session.get 'isPlaying'}}
-    something!
     {{#with playing}}
-      PLAYING?!??!?!?!??!??!
-      {{gameSrc}}
       {{#if gameSrc}}
-      GAME SRC EXISTS MOFUGGA
-      <iframe id="player" class="player" src="{{gameSrc}}" frameborder="0"></iframe>
+      {{#constant}}
+      <iframe id="player" class="player" src="{{gameSrc}}?v={{version}}" frameborder="0"></iframe>
+      {{/constant}}
       {{else}}
       <div class="playerMasthead">
         <div class="playerMastheadInfo">
