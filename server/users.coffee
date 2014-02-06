@@ -6,6 +6,8 @@ Meteor.users.allow
   remove: () ->
     true
 
+#Publish all content to users except for email
+#@TODO: Friends should be able to view email or some other permissions to expose it.
 Meteor.publish "allUsers", ->
   Meteor.users.find({}, {fields: {email: 0}})
 
