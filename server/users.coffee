@@ -9,7 +9,7 @@ Meteor.users.allow
 #Publish all content to users except for email
 #@TODO: Friends should be able to view email or some other permissions to expose it.
 Meteor.publish "allUsers", ->
-  Meteor.users.find({}, {fields: {email: 0}})
+  Meteor.users.find({}, {fields: {emails: 0}})
 
 #We check the schema again on the server to be sure that we're not
 #Having calls bypassed via Accounts.CreateUser() from the client
