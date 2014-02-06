@@ -7,7 +7,7 @@ Meteor.users.allow
     true
 
 Meteor.publish "allUsers", ->
-  Meteor.users.find()
+  Meteor.users.find({}, {fields: {email: 0}})
 
 #We check the schema again on the server to be sure that we're not
 #Having calls bypassed via Accounts.CreateUser() from the client
